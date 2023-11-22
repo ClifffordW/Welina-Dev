@@ -19,4 +19,4 @@ local inits =
 
 
 --Change stuff in it
-for k,v in pairs(inits) do modimport(path.."wildcard_"..v) end
+for k,v in pairs(inits) do modimport(path.."welina_"..v) end
