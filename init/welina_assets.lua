@@ -41,7 +41,8 @@ Assets = {
     
 }
 
---AddSound("welina")
+table.insert(Assets, Asset("SOUND", "sound/welina.fsb"))
+table.insert(Assets, Asset("SOUNDPACKAGE", "sound/scotchmintz_characters.fev"))
 
 
 

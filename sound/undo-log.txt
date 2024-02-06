@@ -1,0 +1,1 @@
+21:04:31 ..\..\src\categorylistview.cpp:409 CD: Move Multiple Events to Category
