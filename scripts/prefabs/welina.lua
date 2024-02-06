@@ -40,7 +40,7 @@ local common_postinit = function(inst)
 	inst:AddTag("emocatgirl")
 
 
-	--inst.components.talker.font = TALKINGFONT_WELINA
+	inst.components.talker.font = TALKINGFONT_WELINA
 
 	--inst.customidleanim = "idle_wendy"
 end

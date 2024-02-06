@@ -49,5 +49,5 @@ general_scripts.WELINA1 = {
 }
 
 
---AddCharFont("welina")
+AddCharFont("welina")
 

@@ -225,14 +225,14 @@ function AddCharFont(prefab)
 
   AddSimPostInit(function()
       TheSim:UnloadFont(charfont)
-      TheSim:UnloadPrefabs({"char_fonts"})
+      TheSim:UnloadPrefabs({prefab.."_font"})
 
       local Assets = {
           Asset("FONT", _G.resolvefilepath("fonts/talkingfont_"..prefab..".zip")),
       }
-      local FontsPrefab = _G.Prefab("char_fonts", function() return _G.CreateEntity() end, Assets)
+      local FontsPrefab = _G.Prefab(prefab.."_font", function() return _G.CreateEntity() end, Assets)
       _G.RegisterPrefabs(FontsPrefab)
-      TheSim:LoadPrefabs({"char_fonts"})
+      TheSim:LoadPrefabs({prefab.."_font"})
       TheSim:LoadFont(_G.resolvefilepath("fonts/talkingfont_"..prefab..".zip"), charfont)
       TheSim:SetupFontFallbacks(charfont, _G.DEFAULT_FALLBACK_TABLE_OUTLINE)
   end)
