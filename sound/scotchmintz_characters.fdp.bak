@@ -927,7 +927,7 @@
 <car_rpmsmooth>0.075</car_rpmsmooth>
 <car_loadsmooth>0.05</car_loadsmooth>
 <car_loadscale>6</car_loadscale>
-<volume_db>0</volume_db>
+<volume_db>-18</volume_db>
 <pitch>0</pitch>
 <pitch_units>Semitones</pitch_units>
 <pitch_randomization>0.083333333333333328707</pitch_randomization>
@@ -1142,7 +1142,7 @@
 <car_rpmsmooth>0.075</car_rpmsmooth>
 <car_loadsmooth>0.05</car_loadsmooth>
 <car_loadscale>6</car_loadscale>
-<volume_db>0</volume_db>
+<volume_db>-18</volume_db>
 <pitch>0</pitch>
 <pitch_units>Semitones</pitch_units>
 <pitch_randomization>0.083333333333333328707</pitch_randomization>
