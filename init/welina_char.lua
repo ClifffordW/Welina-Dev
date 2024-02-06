@@ -1,6 +1,6 @@
 PrefabFiles = {
 	"welina",
-	--"welina_skins",
+	"welina_skins",
 }
 
 
@@ -30,19 +30,19 @@ STRINGS.STAGEACTOR.WELINA1 = {
 }
 
 
-general_scripts.WILDCARD1 = {
+general_scripts.WELINA1 = {
    cast = { "welina" },
    lines = {
-      {roles = {"welina"}, duration = 2.0, line = STRINGS.STAGEACTOR.WILDCARD1[1]},
-  	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WILDCARD1[2]},
-	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WILDCARD1[3]},
-	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WILDCARD1[4]},
+      {roles = {"welina"}, duration = 2.0, line = STRINGS.STAGEACTOR.WELINA1[1]},
+  	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WELINA1[2]},
+	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WELINA1[3]},
+	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WELINA1[4]},
 	 -- {roles = {"welina"}, duration = 4.5, anim = { "emote_pre_sit3", "emote_loop_sit3"}, animtype="loop"},
-	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WILDCARD1[5]},
-	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WILDCARD1[6]},
-	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WILDCARD1[7]},
-	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WILDCARD1[8]},
-	  {roles = {"welina"}, duration = 3.0, line = STRINGS.STAGEACTOR.WILDCARD1[9]},
+	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WELINA1[5]},
+	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WELINA1[6]},
+	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WELINA1[7]},
+	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WELINA1[8]},
+	  {roles = {"welina"}, duration = 3.0, line = STRINGS.STAGEACTOR.WELINA1[9]},
 
 	  --{roles = {"welina"}, duration = 4.0, anim={"emoteXL_pre_dance0","emoteXL_loop_dance0"}, animtype="loop"},
     }

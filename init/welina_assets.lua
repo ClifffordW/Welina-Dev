@@ -37,7 +37,7 @@ Assets = {
 	
 	Asset( "IMAGE", "images/inventoryimages/welina_items.tex" ),
     Asset( "ATLAS", "images/inventoryimages/welina_items.xml" ),
-
+	
     
 }
 
