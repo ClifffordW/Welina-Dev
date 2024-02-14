@@ -276,34 +276,31 @@ function AddCharSkilltree(prefab)
 
 end
 
-function AddScorebBadge(prefab, state1, state2, state3)
-  local oldbadge = GLOBAL.GetPlayerBadgeData
+function AddScorebBadge(prefab, state1, state2, state3, ...)
+  local GetPlayerBadgeData_old = GLOBAL.GetPlayerBadgeData or function() end
 
-  local function GetPlayerBadgeData(character, ghost, state_1, state_2, state_3)
+  _G.GetPlayerBadgeData = function(character, ghost, state1, state2, state3, ...)
       if character == prefab then
           if ghost then
               return "ghost", "idle", "ghost_skin", 0.15, -55
           else
-              if state_1 then
+              if state1 then
                   return "wilson", "idle_loop_ui", state1, 0.23, -50
-              elseif state_2 then
+              elseif state2 then
                   return "wilson", "idle_loop_ui", state2, 0.23, -50
-
-              elseif state_3 then
+              elseif state3 then
                   return "wilson", "idle_loop_ui", state3, 0.23, -50
               else
                   return "wilson", "idle_loop_ui", "normal_skin", 0.23, -50
               end
           end
-          -- Execute the old GetPlayerBadgeData function for other characters
-          
       end
-    return oldbadge(character, ghost, state_1, state_2, state_3)
+      return GetPlayerBadgeData_old(character, ghost, state1, state2, state3, ...)
   end
-
-  -- Replace the existing GetPlayerBadgeData function
-  _G.GetPlayerBadgeData = GetPlayerBadgeData
 end
+
+
+
 
 
 

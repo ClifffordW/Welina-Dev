@@ -8,7 +8,18 @@ end
     
 
 
+function _ServerCode(ispristine)
 
+    
+        if ispristine then
+            inst.entity:SetPristine()
+        end
+       
+        if not TheWorld.ismastersim then
+            return inst
+        end
+
+end
 
 
 
