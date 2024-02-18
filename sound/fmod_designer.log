@@ -9,192 +9,27 @@ Warning: QPainter::setBrush: Painter not active
 Warning: QPainter::setRenderHint: Painter must be active to set rendering hints
 Warning: QPainter::setPen: Painter not active
 Warning: libpng warning: Interlace handling should be turned on when using png_read_image
-Debug: "11:14:59 ..\..\src\propertyeditor.cpp:1508 EM: Set Name" 
-Debug: "11:15:05 c:\jk\workspace\build__4.44__designer_win\fmod4\tools\fmod_designer\src\eventform.ui.h:1529 HH: Add Simple Event" 
-Debug: "11:15:08 ..\..\src\simpleeventcontroller.cpp:613 HV: Set Playback Mode" 
-Debug: "11:15:10 ..\..\src\simpleeventcontroller.cpp:1741 IS: Add Sound to Playlist" 
-Debug: "11:15:24 ..\..\src\categorylistview.cpp:409 CD: Move Event to Category" 
+Debug: "16:38:23 c:\jk\workspace\build__4.44__designer_win\fmod4\tools\fmod_designer\src\eventform.ui.h:1428 BY: Add Event" 
+Debug: "16:38:28 c:\jk\workspace\build__4.44__designer_win\fmod4\tools\fmod_designer\src\newsounddialog.ui.h:178 ED: Add Sound File" 
+Debug: "16:38:28 ..\..\src\eventlayerstackwidget.cpp:1334 CV: Add Sound" 
+Debug: "16:38:36 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
+Debug: "16:38:40 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
+Debug: "16:38:44 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
+Debug: "16:38:45 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
 Debug: 
 Building project 'scotchmintz_characters'...
 Debug: Building project D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\scotchmintz_characters.fev...
-Debug: Unique sound defs 2/13
+Debug: Unique sound defs 2/14
 Debug: Retrieving sound file info...
 Debug: Retrieving reverb info...
 Debug: FEV file written ok
 Debug: Unique Envelope Points: 7 of 8
-Debug: Unique Strings: 611 characters of 611
+Debug: Unique Strings: 634 characters of 634
 Debug: Caching sound file details for ''...
 Debug: LightFlicker.ogg
 Debug: bells2.wav
 Debug: finaltoll.mp3
-Debug: welina voice\welina_carol.ogg
-Debug: welina voice\welina_death.ogg
-Debug: welina voice\welina_emote.ogg
-Debug: welina voice\welina_generic1.ogg
-Debug: welina voice\welina_generic10.ogg
-Debug: welina voice\welina_generic11.ogg
-Debug: welina voice\welina_generic2.ogg
-Debug: welina voice\welina_generic3.ogg
-Debug: welina voice\welina_generic4.ogg
-Debug: welina voice\welina_generic5.ogg
-Debug: welina voice\welina_generic6.ogg
-Debug: welina voice\welina_generic7.ogg
-Debug: welina voice\welina_generic8.ogg
-Debug: welina voice\welina_generic9.ogg
-Debug: welina voice\welina_ghost1.ogg
-Debug: welina voice\welina_ghost2.ogg
-Debug: welina voice\welina_ghost3.ogg
-Debug: welina voice\welina_ghost4.ogg
-Debug: welina voice\welina_ghost5.ogg
-Debug: welina voice\welina_ghost6.ogg
-Debug: welina voice\welina_hurt1.ogg
-Debug: welina voice\welina_hurt2.ogg
-Debug: welina voice\welina_hurt3.ogg
-Debug: welina voice\welina_pose.ogg
-Debug: welina voice\welina_sink.ogg
-Debug: welina voice\welina_sleepy.ogg
-Debug: welina voice\welina_yawn.ogg
-Debug: Building 'welina.fsb'
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\bells2.wav
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\finaltoll.mp3
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_carol.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_death.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_emote.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic1.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic10.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic11.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic2.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic3.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic4.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic5.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic6.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic7.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic8.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic9.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost1.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost2.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost3.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost4.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost5.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost6.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_hurt1.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_hurt2.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_hurt3.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_pose.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_sink.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_sleepy.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_yawn.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\LightFlicker.ogg
-Debug: Writing FSB...
-Debug: Finished building FSB
-Debug: 
-Debug: 
-Summary of build:
-SUCCESS: D:/SteamLibrary/steamapps/common/Don't Starve Together/mods/Welina-Dev/sound/scotchmintz_characters.fev
-SUCCESS: welina.fsb
-Debug: "11:15:34 ..\..\src\simpleeventcontroller.cpp:613 HV: Set Playback Mode" 
-Debug: "11:15:38 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
-Debug: "11:15:40 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume" 
-Debug: "11:16:14 ..\..\src\propertyeditor.cpp:4234 ER: Set Mode" 
-Debug: "11:16:15 ..\..\src\propertyeditor.cpp:4234 ER: Set x 3D Rolloff" 
-Debug: "11:16:18 ..\..\src\propertyeditor.cpp:2619 EO: Set x 3D Max Distance" 
-Debug: "11:16:19 ..\..\src\propertyeditor.cpp:2619 EO: Set x 3D Min Distance" 
-Debug: 
-Building project 'scotchmintz_characters'...
-Debug: Building project D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\scotchmintz_characters.fev...
-Debug: Unique sound defs 2/13
-Debug: Retrieving sound file info...
-Debug: Retrieving reverb info...
-Debug: FEV file written ok
-Debug: Unique Envelope Points: 7 of 8
-Debug: Unique Strings: 611 characters of 611
-Debug: Caching sound file details for ''...
-Debug: LightFlicker.ogg
-Debug: bells2.wav
-Debug: finaltoll.mp3
-Debug: welina voice\welina_carol.ogg
-Debug: welina voice\welina_death.ogg
-Debug: welina voice\welina_emote.ogg
-Debug: welina voice\welina_generic1.ogg
-Debug: welina voice\welina_generic10.ogg
-Debug: welina voice\welina_generic11.ogg
-Debug: welina voice\welina_generic2.ogg
-Debug: welina voice\welina_generic3.ogg
-Debug: welina voice\welina_generic4.ogg
-Debug: welina voice\welina_generic5.ogg
-Debug: welina voice\welina_generic6.ogg
-Debug: welina voice\welina_generic7.ogg
-Debug: welina voice\welina_generic8.ogg
-Debug: welina voice\welina_generic9.ogg
-Debug: welina voice\welina_ghost1.ogg
-Debug: welina voice\welina_ghost2.ogg
-Debug: welina voice\welina_ghost3.ogg
-Debug: welina voice\welina_ghost4.ogg
-Debug: welina voice\welina_ghost5.ogg
-Debug: welina voice\welina_ghost6.ogg
-Debug: welina voice\welina_hurt1.ogg
-Debug: welina voice\welina_hurt2.ogg
-Debug: welina voice\welina_hurt3.ogg
-Debug: welina voice\welina_pose.ogg
-Debug: welina voice\welina_sink.ogg
-Debug: welina voice\welina_sleepy.ogg
-Debug: welina voice\welina_yawn.ogg
-Debug: Building 'welina.fsb'
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\bells2.wav
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\finaltoll.mp3
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_carol.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_death.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_emote.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic1.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic10.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic11.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic2.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic3.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic4.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic5.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic6.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic7.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic8.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic9.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost1.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost2.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost3.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost4.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost5.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost6.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_hurt1.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_hurt2.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_hurt3.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_pose.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_sink.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_sleepy.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_yawn.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\LightFlicker.ogg
-Debug: Writing FSB...
-Debug: Finished building FSB
-Debug: 
-Debug: 
-Summary of build:
-SUCCESS: D:/SteamLibrary/steamapps/common/Don't Starve Together/mods/Welina-Dev/sound/scotchmintz_characters.fev
-SUCCESS: welina.fsb
-Debug: "12:17:39 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks" 
-Debug: "12:17:47 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks" 
-Debug: "12:17:47 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks" 
-Debug: "12:17:47 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks" 
-Debug: "12:17:47 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks" 
-Debug: 
-Building project 'scotchmintz_characters'...
-Debug: Building project D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\scotchmintz_characters.fev...
-Debug: Unique sound defs 2/13
-Debug: Retrieving sound file info...
-Debug: Retrieving reverb info...
-Debug: FEV file written ok
-Debug: Unique Envelope Points: 7 of 8
-Debug: Unique Strings: 611 characters of 611
-Debug: Caching sound file details for ''...
-Debug: LightFlicker.ogg
-Debug: bells2.wav
-Debug: finaltoll.mp3
+Debug: miau_placeholder.wav
 Debug: welina voice\welina_carol.ogg
 Debug: welina voice\welina_death.ogg
 Debug: welina voice\welina_emote.ogg
@@ -229,21 +64,21 @@ Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welin
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_carol.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_death.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_emote.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic10.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic1.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic2.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic10.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic11.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic2.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic3.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic4.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic6.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic5.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic6.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic7.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic8.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost1.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_generic9.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost1.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost2.ogg
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost4.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost3.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost4.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost5.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_ghost6.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_hurt1.ogg
@@ -253,6 +88,7 @@ Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welin
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_sink.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_sleepy.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\welina voice\welina_yawn.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\miau_placeholder.wav
 Debug: Writing FSB...
 Debug: Finished building FSB
 Debug: 

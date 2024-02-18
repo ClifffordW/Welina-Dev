@@ -1,14 +1,7 @@
-11:14:59 ..\..\src\propertyeditor.cpp:1508 EM: Set Name
-1112:17:39 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks
-12:17:47 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks
-12:17:47 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks
-12:17:47 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks
-12:17:47 ..\..\src\propertyeditor.cpp:3444 EQ: Set Max Playbacks
- to Category
-11:15:34 ..\..\src\simpleeventcontroller.cpp:613 HV: Set Playback Mode
-11:15:38 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume
-11:15:40 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume
-11:16:14 ..\..\src\propertyeditor.cpp:4234 ER: Set Mode
-11:16:15 ..\..\src\propertyeditor.cpp:4234 ER: Set x 3D Rolloff
-11:16:18 ..\..\src\propertyeditor.cpp:2619 EO: Set x 3D Max Distance
-11:16:19 ..\..\src\propertyeditor.cpp:2619 EO: Set x 3D Min Distance
+16:38:23 c:\jk\workspace\build__4.44__designer_win\fmod4\tools\fmod_designer\src\eventform.ui.h:1428 BY: Add Event
+16:38:28 c:\jk\workspace\build__4.44__designer_win\fmod4\tools\fmod_designer\src\newsounddialog.ui.h:178 ED: Add Sound File
+16:38:28 ..\..\src\eventlayerstackwidget.cpp:1334 CV: Add Sound
+16:38:36 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume
+16:38:40 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume
+16:38:44 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume
+16:38:45 ..\..\src\propertyeditor.cpp:2619 EO: Set Volume

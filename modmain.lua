@@ -94,6 +94,12 @@ timeline =
             end),
 
 
+            TimeEvent(13 * FRAMES, function(inst)
+                if animation_data.anims == "idle_loop" then
+                    _G.TheFocalPoint.SoundEmitter:PlaySound("scotchmintz_characters/sfx/miau")
+                end
+
+            end),
 
 
             TimeEvent(62 * FRAMES, function(inst)
