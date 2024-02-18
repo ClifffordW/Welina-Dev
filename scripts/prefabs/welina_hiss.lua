@@ -20,10 +20,25 @@ local function PlayHissAnim(proxy)
 
     inst.AnimState:SetBank("welina_hiss")
     inst.AnimState:SetBuild("welina_hiss_anim")
-    inst.AnimState:PlayAnimation("fx")
+    inst.AnimState:PlayAnimation("fx", true)
     inst.AnimState:SetFinalOffset(3)
 
-    inst:ListenForEvent("animover", inst.Remove)
+    --inst:ListenForEvent("animover", inst.Remove)
+end
+
+
+local function FxAttachToOwner(inst, owner)
+	inst.entity:SetParent(owner.entity)
+	inst.Follower:FollowSymbol(owner.GUID, "swap_object", nil, nil, nil, true, nil, 0, 2)
+	inst.components.highlightchild:SetOwner(owner)
+	if owner.components.colouradder ~= nil then
+		owner.components.colouradder:AttachChild(inst)
+	end
+
+	--Dedicated server does not need to spawn the local fx
+	if not TheNet:IsDedicated() then
+		FxOnEntityReplicated(inst)
+	end
 end
 
 local function fn()
@@ -47,8 +62,10 @@ local function fn()
         return inst
     end
 
+    
     inst.persists = false
-    inst:DoTaskInTime(1, inst.Remove)
+    --inst:DoTaskInTime(1, inst.Remove)
+    inst.AttachToOwner = FxAttachToOwner
 
     return inst
 end

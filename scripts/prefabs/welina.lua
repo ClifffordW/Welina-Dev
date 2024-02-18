@@ -78,22 +78,116 @@ local function DamageScrew(inst)
 
 end
 
+local function Hiss(inst, data)
+
+	local health = inst.components.health:GetPercent()
+	local x,y,z = inst.Transform:GetWorldPosition()
+	print(health)
+	
+
+	inst.received_damage = data.damage
+
+	if health == 0 and data.damage ~= nil and data.attacker and data.damage > 175  then
+		
+
+
+
+		
+
+		
+		
+
+		
+		
+
+		
+		
+		
+		
+		local panic_ents = TheSim:FindEntities(x, y, z, 20)
+
+		data.attacker.components.health:DoDelta(-data.damage * 5)
+		print(data.damage * 5)
+
+
+
+
+        
+		
+
+		for k,v in pairs(panic_ents) do 
+			if v.components.hauntable ~= nil and v.components.hauntable.panicable then
+				v.components.hauntable:Panic(10)
+			end
+			if v.components.combat then
+				v.components.combat:DropTarget()
+			end
+
+			
+		end
+
+	end
+
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+local function HealthWarning(inst)
+	local health = inst.components.health:GetPercent()
+	if inst.components.health:GetPercent() > 0.9 then
+		inst.healthpercent = inst.components.health:GetPercent()
+	end
+	
+	
+	if not TheFocalPoint.SoundEmitter:PlayingSound("deathbell") then
+		TheFocalPoint.SoundEmitter:PlaySound("scotchmintz_characters/sfx/welina_bell", "deathbell")
+	end
+
+	if inst.welina_numDeaths == (9 or 10) then
+		if health   then
+			TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", inst:HasTag("playerghost") and 1 or health)
+
+		end
+	else
+		TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
+
+	end
+end
 
 
 
 
 local function OnDeath(inst)
+	local health = inst.components.health:GetPercent()
+
 	if not inst.welina_numDeaths then
 		inst.welina_numDeaths = 1
 	end
 
 
-	if inst.welina_numDeaths and inst.welina_numDeaths < 9 then
+	if inst.welina_numDeaths and inst.welina_numDeaths < 10 then
 		inst.welina_numDeaths = inst.welina_numDeaths + 1
 	end
-	if inst.welina_numDeaths >= 9 then
+	if inst.welina_numDeaths == 10 and health == 0 then
+
+		inst:DoTaskInTime(0.01, function()
+			if TheFocalPoint then
+				TheFocalPoint.SoundEmitter:PlaySound("scotchmintz_characters/sfx/welina_finalbell")
+			end
+		end)
 
 		inst:DoTaskInTime(0.5, function()
+
 			for k, v in pairs(Ents) do
 				if v.prefab == "resurrectionstatue" then
 					v.components.attunable:UnlinkFromPlayer(inst)
@@ -101,6 +195,7 @@ local function OnDeath(inst)
 			end
 		end)
 
+		TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
 		inst:RemoveEventCallback("respawnfromghost", ex_fns.OnRespawnFromGhost)
 	else
 		inst:ListenForEvent("respawnfromghost", ex_fns.OnRespawnFromGhost)
@@ -120,16 +215,20 @@ end
 
 
 
+
+
 function OnLoad(inst, data)
 	if data and data.welina_numDeaths ~= nil then
 		inst.welina_numDeaths = data.welina_numDeaths
-		if inst.welina_numDeaths >= 9 then
+		if inst.welina_numDeaths > 9 then
+			
 			inst:DoTaskInTime(0.5, function()
 				for k, v in pairs(Ents) do
 					if v.prefab == "resurrectionstatue" then
 						v.components.attunable:UnlinkFromPlayer(inst)
 					end
 				end
+				HealthWarning(inst)
 			end)
 			inst:RemoveEventCallback("respawnfromghost", ex_fns.OnRespawnFromGhost)
 		else
@@ -195,11 +294,20 @@ local master_postinit = function(inst)
 	end
 
 
+
 	inst:ListenForEvent("working", AsocialWork)
 	inst:ListenForEvent("sanitydelta", SanityScrew)
 	inst:ListenForEvent("death", OnDeath)
 
 	inst:ListenForEvent("onattackother", DamageScrew)
+
+	inst:ListenForEvent("attacked", Hiss)
+
+	inst:ListenForEvent("healthdelta", HealthWarning)
+	inst:ListenForEvent("ms_respawnedfromghost", HealthWarning)
+
+
+	
 
 
 
