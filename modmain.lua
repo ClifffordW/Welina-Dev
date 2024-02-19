@@ -20,7 +20,7 @@ local is_modenabled = KnownModIndex:IsModEnabled(modnameFancy)
 local animation_data = 
 {
     frames_anim = is_modenabled and 220 or 64,
-    camera_distance = is_modenabled and 8 or 13,
+    camera_distance = is_modenabled and 7 or 13,
     anims = is_modenabled and "defaultdance" or "idle_loop",
 }
 
@@ -46,7 +46,10 @@ AddStategraphState("wilson", State {
 
 
 
-        inst.AnimState:PlayAnimation("research")
+        if animation_data.anims == "idle_loop" then
+            inst.AnimState:PlayAnimation("research")
+        end
+        
         inst.components.health:SetPercent(0.01)
 
         inst.components.locomotor:StopMoving()
@@ -140,7 +143,7 @@ AddStategraphState("wilson", State {
             inst:Show()
             inst.Transform:SetFourFaced()
             inst.components.inventory:Open()
-            inst:SetCameraDistance(animation_data.camera_distance + 3)
+            inst:SetCameraDistance(animation_data.camera_distance + 8)
             inst.Transform:SetScale(1, 1, 1)
         end),
 
