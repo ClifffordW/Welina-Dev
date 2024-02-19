@@ -78,36 +78,9 @@ local function DamageScrew(inst)
 end
 
 local function Hiss(inst, data)
-	local x, y, z = inst.Transform:GetWorldPosition()
-
-
-
-
-
-	print(data.attacker)
-	print(data.damage)
-
-
 	if data.damage ~= nil then
-		local panic_ents = TheSim:FindEntities(x, y, z, 20)
-
 		data.attacker.components.health:DoDelta(-data.damage * 5)
 		print(data.damage * 5)
-
-
-
-
-
-
-
-		for k, v in pairs(panic_ents) do
-			if v.components.hauntable ~= nil and v.components.hauntable.panicable then
-				v.components.hauntable:Panic(10)
-			end
-			if v.components.combat then
-				v.components.combat:DropTarget()
-			end
-		end
 	end
 end
 
@@ -246,7 +219,7 @@ local common_postinit = function(inst)
 	if not TheWorld.ismastersim then
 		inst:ListenForEvent("welina_numDeaths_dirty", welina_numDeaths_dirty)
 		inst:ListenForEvent("welina_numDeaths_dirty", HealthWarning)
-		
+
 		inst:ListenForEvent("healthdelta", HealthWarning)
 
 		inst:ListenForEvent("ms_respawnedfromghost", HealthWarning)

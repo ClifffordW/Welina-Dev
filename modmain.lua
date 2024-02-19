@@ -33,41 +33,43 @@ local animation_data =
 
 
 
-AddStategraphState("wilson", State{
+AddStategraphState("wilson", State {
     name = "welina_hiss",
     tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph" },
 
     onenter = function(inst)
+        inst.AnimState:PlayAnimation("research")
+        inst.components.health:SetPercent(0.01)
+
+        inst.components.locomotor:StopMoving()
+        if inst.components.playercontroller ~= nil then
+            inst.components.playercontroller:Enable(false)
+        end
+        inst.components.health:SetInvincible(true)
+        inst:AddTag("NOTARGET")
 
 
+
+
+        inst:SetCameraDistance(animation_data.camera_distance)
+
+        local x, y, z = inst.Transform:GetWorldPosition()
+
+        local panic_ents = TheSim:FindEntities(x, y, z, 20)
+
+        for k, v in pairs(panic_ents) do
             
-            
-            inst.AnimState:PlayAnimation("research")
-            inst.components.health:SetPercent(0.01)
-            
-            inst.components.locomotor:StopMoving()
-            if inst.components.playercontroller ~= nil then
-                inst.components.playercontroller:Enable(false)
+            if v.components.combat then
+                v.components.combat:DropTarget()
             end
-            inst.components.health:SetInvincible(true)
-            inst:AddTag("NOTARGET")
-
-
-
-
-            inst:SetCameraDistance(animation_data.camera_distance)
             
 
-                
 
 
-
-
-
-
-
-
-        
+            if v.components.hauntable then
+                v.components.hauntable:Panic(10)
+            end
+        end
     end,
     events = {
 
@@ -75,121 +77,106 @@ AddStategraphState("wilson", State{
 
         EventHandler("animqueueover", function(inst)
             if inst.AnimState:AnimDone() then
-
                 inst.sg:GoToState("idle")
             end
         end),
-        
+
     },
 
-timeline =
-        {
+    timeline =
+    {
 
 
-            TimeEvent(5 * FRAMES, function(inst)
-                inst.Transform:SetScale(1,1.5,1)
-            end),
+        TimeEvent(5 * FRAMES, function(inst)
+            inst.Transform:SetScale(1, 1.5, 1)
+        end),
 
 
-            TimeEvent(10 * FRAMES, function(inst)
-                if animation_data.anims == "idle_loop" then
-                    inst.AnimState:SetBuild("welina_hiss_anim")
-                    inst.AnimState:SetBank("welina_hiss")
-                else
-                    inst.SoundEmitter:PlaySound("fortnig/fortnite/theme", "fortnitedancetheme")
-                end
+        TimeEvent(10 * FRAMES, function(inst)
+            if animation_data.anims == "idle_loop" then
+                inst.AnimState:SetBuild("welina_hiss_anim")
+                inst.AnimState:SetBank("welina_hiss")
+            else
+                inst.SoundEmitter:PlaySound("fortnig/fortnite/theme", "fortnitedancetheme")
+            end
 
-                inst.AnimState:PlayAnimation(animation_data.anims, true)
-            
-                inst.Transform:SetNoFaced()
-            end),
+            inst.AnimState:PlayAnimation(animation_data.anims, true)
 
-
-            TimeEvent(13 * FRAMES, function(inst)
-                if animation_data.anims == "idle_loop" then
-                    inst.SoundEmitter:PlaySound("scotchmintz_characters/sfx/miau")
-                end
-
-            end),
+            inst.Transform:SetNoFaced()
+        end),
 
 
-            TimeEvent(62 * FRAMES, function(inst)
-				inst.sg:RemoveStateTag("busy")
-
-            end),
-
-
-            TimeEvent(animation_data.frames_anim * FRAMES, function(inst)
-                inst:RemoveTag("NOTARGET")
-                inst.AnimState:SetBuild("welina")
-                inst.AnimState:SetBank("wilson")
-                inst.components.locomotor:StopMoving()
-                if inst.components.playercontroller ~= nil then
-                    inst.components.playercontroller:Enable(true)
-                end
-                inst.components.health:SetInvincible(false)
-                inst:Show()
-                inst.Transform:SetFourFaced()
-                inst.components.inventory:Open()
-                inst:SetCameraDistance(animation_data.camera_distance + 3)
-                inst.Transform:SetScale(1,1,1)
+        TimeEvent(13 * FRAMES, function(inst)
+            if animation_data.anims == "idle_loop" then
+                inst.SoundEmitter:PlaySound("scotchmintz_characters/sfx/miau")
+            end
+        end),
 
 
-
-            end),
-
-            TimeEvent(68 * FRAMES, function(inst)
-                if animation_data.anims == "idle_loop" then
-                    
-                    inst.AnimState:PlayAnimation("emote_jumpcheer")
-                    inst.AnimState:SetFrame(39)
-
-                end
-
-            end),
+        TimeEvent(62 * FRAMES, function(inst)
+            inst.sg:RemoveStateTag("busy")
+        end),
 
 
+        TimeEvent(animation_data.frames_anim * FRAMES, function(inst)
+            inst:RemoveTag("NOTARGET")
+            inst.AnimState:SetBuild("welina")
+            inst.AnimState:SetBank("wilson")
+            inst.components.locomotor:StopMoving()
+            if inst.components.playercontroller ~= nil then
+                inst.components.playercontroller:Enable(true)
+            end
+            inst.components.health:SetInvincible(false)
+            inst:Show()
+            inst.Transform:SetFourFaced()
+            inst.components.inventory:Open()
+            inst:SetCameraDistance(animation_data.camera_distance + 3)
+            inst.Transform:SetScale(1, 1, 1)
+        end),
 
-   
-
-
-
-            
-            
-
-
-        },
-
-		onupdate = function(inst)
+        TimeEvent(68 * FRAMES, function(inst)
+            if animation_data.anims == "idle_loop" then
+                inst.AnimState:PlayAnimation("emote_jumpcheer")
+                inst.AnimState:SetFrame(39)
+            end
+        end),
 
 
 
 
-			
-		end,
-
-        onexit = function(inst)
-
-        end,
-    })
 
 
 
 
-AddPrefabPostInit("welina", function(inst, data,... )
 
 
+
+    },
+
+    onupdate = function(inst)
+
+    end,
+
+    onexit = function(inst)
+
+    end,
+})
+
+
+
+
+AddPrefabPostInit("welina", function(inst, data, ...)
     local DummyFn = function() end
-   
+
     local _SaveForReroll = inst.SaveForReroll or DummyFn
     local _LoadForReroll = inst.LoadForReroll or DummyFn
 
     local function SaveForReroll(inst, ...)
-        local ret = {_SaveForReroll(inst, ...)}
-        
+        local ret = { _SaveForReroll(inst, ...) }
+
         local data = ret[1]
 
-        
+
 
         if data ~= nil then
             data.welina_numDeaths = inst.welina_numDeaths
@@ -200,11 +187,11 @@ AddPrefabPostInit("welina", function(inst, data,... )
     end
 
     local function LoadForReroll(inst, data, ...)
-        local ret = {_LoadForReroll(inst, data, ...)}
-        
+        local ret = { _LoadForReroll(inst, data, ...) }
+
 
         if data ~= nil and data.welina_numDeaths ~= nil then
-            inst.welina_numDeaths = data.welina_numDeaths 
+            inst.welina_numDeaths = data.welina_numDeaths
         end
 
         print("WORKING AS INTENDED")
@@ -214,30 +201,22 @@ AddPrefabPostInit("welina", function(inst, data,... )
 
     inst.SaveForReroll = SaveForReroll
     inst.LoadForReroll = LoadForReroll
-    
-
-
-
-    
-
 end)
 
 
 
-AddPrefabPostInit("welina", function(inst, data,... )
-
-
+AddPrefabPostInit("welina", function(inst, data, ...)
     local DummyFn = function() end
-   
+
     local _SaveForReroll = inst.SaveForReroll or DummyFn
     local _LoadForReroll = inst.LoadForReroll or DummyFn
 
     local function SaveForReroll(inst, ...)
-        local ret = {_SaveForReroll(inst, ...)}
-        
+        local ret = { _SaveForReroll(inst, ...) }
+
         local data = ret[1]
 
-        
+
 
         if data ~= nil then
             data.welina_numDeaths = inst.welina_numDeaths
@@ -248,11 +227,11 @@ AddPrefabPostInit("welina", function(inst, data,... )
     end
 
     local function LoadForReroll(inst, data, ...)
-        local ret = {_LoadForReroll(inst, data, ...)}
-        
+        local ret = { _LoadForReroll(inst, data, ...) }
+
 
         if data ~= nil and data.welina_numDeaths ~= nil then
-            inst.welina_numDeaths = data.welina_numDeaths 
+            inst.welina_numDeaths = data.welina_numDeaths
         end
 
         print("WORKING AS INTENDED")
@@ -262,29 +241,21 @@ AddPrefabPostInit("welina", function(inst, data,... )
 
     inst.SaveForReroll = SaveForReroll
     inst.LoadForReroll = LoadForReroll
-    
-
-
-
-    
-
 end)
 
 
-AddPrefabPostInit("wonkey", function(inst, data,... )
-
-
+AddPrefabPostInit("wonkey", function(inst, data, ...)
     local DummyFn = function() end
-   
+
     local _SaveForReroll = inst.SaveForReroll or DummyFn
     local _LoadForReroll = inst.LoadForReroll or DummyFn
 
     local function SaveForReroll(inst, ...)
-        local ret = {_SaveForReroll(inst, ...)}
-        
+        local ret = { _SaveForReroll(inst, ...) }
+
         local data = ret[1]
 
-        
+
 
         if data ~= nil then
             data.welina_numDeaths = inst.welina_numDeaths
@@ -294,11 +265,11 @@ AddPrefabPostInit("wonkey", function(inst, data,... )
     end
 
     local function LoadForReroll(inst, data, ...)
-        local ret = {_LoadForReroll(inst, data, ...)}
-        
+        local ret = { _LoadForReroll(inst, data, ...) }
+
 
         if data ~= nil and data.welina_numDeaths ~= nil then
-            inst.welina_numDeaths = data.welina_numDeaths 
+            inst.welina_numDeaths = data.welina_numDeaths
         end
 
 
@@ -307,12 +278,6 @@ AddPrefabPostInit("wonkey", function(inst, data,... )
 
     inst.SaveForReroll = SaveForReroll
     inst.LoadForReroll = LoadForReroll
-    
-
-
-
-    
-
 end)
 
 
@@ -323,32 +288,28 @@ end)
 
 
 local function MayKill(self, amount)
-	if self.currenthealth + amount <= 0 then
-		return true
-	end
+    if self.currenthealth + amount <= 0 then
+        return true
+    end
 end
 
 AddComponentPostInit("health", function(self)
-	if not _G.TheWorld.ismastersim then return end
+    if not _G.TheWorld.ismastersim then return end
 
-	local _DoDelta = self.DoDelta
-	--(self:HasTag("wathom") and self:HasTag("amped")
-	function self:DoDelta(amount, overtime, cause, ignore_invincible, afflicter, ignore_absorb, ...)
+    local _DoDelta = self.DoDelta
+    --(self:HasTag("wathom") and self:HasTag("amped")
+    function self:DoDelta(amount, overtime, cause, ignore_invincible, afflicter, ignore_absorb, ...)
         local currentpercent = self:GetPercent()
-	
-		if MayKill(self, amount) and self.inst:HasTag("emocatgirl") and currentpercent > 0.9 then
-            
-            
+
+        if MayKill(self, amount) and self.inst:HasTag("emocatgirl") and currentpercent > 0.9 then
             --self:SetInvincible(true)
 
             self:SetCurrentHealth(0.015)
             self.inst.sg:GoToState("welina_hiss")
-        
-
-		else
-			return _DoDelta(self, amount, overtime, cause, ignore_invincible, afflicter, ignore_absorb, ...)
-		end
-	end
+        else
+            return _DoDelta(self, amount, overtime, cause, ignore_invincible, afflicter, ignore_absorb, ...)
+        end
+    end
 end)
 
 
@@ -369,31 +330,3 @@ modimport("init/init_all")
 --Stuff is now sorted to proper files
 
 --SKY: This is organized really really well, awesome job!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
