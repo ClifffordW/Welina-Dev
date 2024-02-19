@@ -22,6 +22,17 @@ local animation_data =
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
 AddStategraphState("wilson", State{
     name = "welina_hiss",
     tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph" },
@@ -96,7 +107,7 @@ timeline =
 
             TimeEvent(13 * FRAMES, function(inst)
                 if animation_data.anims == "idle_loop" then
-                    _G.TheFocalPoint.SoundEmitter:PlaySound("scotchmintz_characters/sfx/miau")
+                    inst.SoundEmitter:PlaySound("scotchmintz_characters/sfx/miau")
                 end
 
             end),
@@ -308,32 +319,37 @@ end)
 
 
 
-AddStategraphEvent("wilson", 
-    EventHandler("death", function(inst, data)
-        if inst.sleepingbag ~= nil and (inst.sg:HasStateTag("bedroll") or inst.sg:HasStateTag("tent")) then -- wakeup on death to "consume" sleeping bag first
-            inst.sleepingbag.components.sleepingbag:DoWakeUp()
-            inst.sleepingbag = nil
-        end
 
-        if data ~= nil and data.cause == "file_load" and inst.components.revivablecorpse ~= nil then
-            inst.sg:GoToState("corpse", true)
-        elseif not inst.sg:HasStateTag("dead")   then
-            
-            
-            if inst:HasTag("emocatgirl") and inst.received_damage ~= nil and inst.received_damage > 80 and inst.healthpercent and inst.healthpercent > 0.9  then
-                inst.sg:GoToState("welina_hiss")
-                inst.received_damage = nil
-            
-            
-            
-            
-            else
-                inst.sg:GoToState("death")
-            end
-        end
-    end)
-)
 
+
+local function MayKill(self, amount)
+	if self.currenthealth + amount <= 0 then
+		return true
+	end
+end
+
+AddComponentPostInit("health", function(self)
+	if not _G.TheWorld.ismastersim then return end
+
+	local _DoDelta = self.DoDelta
+	--(self:HasTag("wathom") and self:HasTag("amped")
+	function self:DoDelta(amount, overtime, cause, ignore_invincible, afflicter, ignore_absorb, ...)
+        local currentpercent = self:GetPercent()
+	
+		if MayKill(self, amount) and self.inst:HasTag("emocatgirl") and currentpercent > 0.9 then
+            
+            
+            --self:SetInvincible(true)
+
+            self:SetCurrentHealth(0.015)
+            self.inst.sg:GoToState("welina_hiss")
+        
+
+		else
+			return _DoDelta(self, amount, overtime, cause, ignore_invincible, afflicter, ignore_absorb, ...)
+		end
+	end
+end)
 
 
 

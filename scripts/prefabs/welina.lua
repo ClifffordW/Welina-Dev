@@ -54,56 +54,41 @@ end
 
 
 local function SanityScrew(inst)
-	local sanityModifier = GetFollowerPenalty(inst, -10)
+	local x, y, z = inst.Transform:GetWorldPosition()
+
+	local asocial = TheSim:FindEntities(x, y, z, 6, nil, PROX_CANT_TAGS, PROX_CHECK_TAGS)
+	local asocial_followers = #asocial
+
+	local sanityModifier = 1 - asocial_followers * 0.5
+	sanityModifier = math.max(sanityModifier, -0.5)
 
 
 
 	inst.components.sanity.dapperness = sanityModifier
-
-
-
-
 end
 
 
 local function DamageScrew(inst)
-	local damageModifier  = GetFollowerPenalty(inst, 0.45, 0.05)
+	local damageModifier = GetFollowerPenalty(inst, 0.45, 0.05)
 
 
 
 
 	inst.components.combat.damagemultiplier = damageModifier
-
-
-
 end
 
 local function Hiss(inst, data)
-
-	local health = inst.components.health:GetPercent()
-	local x,y,z = inst.Transform:GetWorldPosition()
-	print(health)
-	
-
-	inst.received_damage = data.damage
-
-	if health == 0 and data.damage ~= nil and data.attacker and data.damage > 175  then
-		
+	local x, y, z = inst.Transform:GetWorldPosition()
 
 
 
-		
 
-		
-		
 
-		
-		
+	print(data.attacker)
+	print(data.damage)
 
-		
-		
-		
-		
+
+	if data.damage > 80 then
 		local panic_ents = TheSim:FindEntities(x, y, z, 20)
 
 		data.attacker.components.health:DoDelta(-data.damage * 5)
@@ -112,27 +97,30 @@ local function Hiss(inst, data)
 
 
 
-        
-		
 
-		for k,v in pairs(panic_ents) do 
+
+
+		for k, v in pairs(panic_ents) do
 			if v.components.hauntable ~= nil and v.components.hauntable.panicable then
 				v.components.hauntable:Panic(10)
 			end
 			if v.components.combat then
 				v.components.combat:DropTarget()
 			end
-
-			
 		end
-
 	end
-
-
 end
 
 
+local function welina_numDeaths_dirty(inst)
+	inst.welinanumDeaths = inst.net_welina_numDeaths:value()
 
+	inst:DoTaskInTime(0, function()
+		if inst.welinanumDeaths then
+			print("DIRTY NUMBER IS " .. inst.welinanumDeaths)
+		end
+	end)
+end
 
 
 
@@ -143,26 +131,29 @@ end
 
 
 local function HealthWarning(inst)
-	local health = inst.components.health:GetPercent()
-	if inst.components.health:GetPercent() > 0.9 then
-		inst.healthpercent = inst.components.health:GetPercent()
-	end
-	
-	
+	local health = inst.replica.health:GetPercent()
+
+
+
+
 	if not TheFocalPoint.SoundEmitter:PlayingSound("deathbell") then
 		TheFocalPoint.SoundEmitter:PlaySound("scotchmintz_characters/sfx/welina_bell", "deathbell")
 	end
 
-	if inst.welina_numDeaths == (9 or 10) then
-		if health   then
-			TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", inst:HasTag("playerghost") and 1 or health)
+	if inst.welinanumDeaths and inst.welinanumDeaths > 9 and inst.replica.health:IsDead() and not inst:HasTag("playerghost") then
+		TheFocalPoint.SoundEmitter:PlaySound("scotchmintz_characters/sfx/welina_finalbell")
+	end
 
-		end
+
+	if inst.welinanumDeaths and inst.welinanumDeaths > 8 then
+		TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", health)
 	else
 		TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
-
 	end
+
+	print(health)
 end
+
 
 
 
@@ -172,14 +163,19 @@ local function OnDeath(inst)
 
 	if not inst.welina_numDeaths then
 		inst.welina_numDeaths = 1
+		inst:DoTaskInTime(0, function()
+			inst.net_welina_numDeaths:set(inst.welina_numDeaths)
+		end)
 	end
 
 
 	if inst.welina_numDeaths and inst.welina_numDeaths < 10 then
 		inst.welina_numDeaths = inst.welina_numDeaths + 1
+		inst:DoTaskInTime(0, function()
+			inst.net_welina_numDeaths:set(inst.welina_numDeaths)
+		end)
 	end
 	if inst.welina_numDeaths == 10 and health == 0 then
-
 		inst:DoTaskInTime(0.01, function()
 			if TheFocalPoint then
 				TheFocalPoint.SoundEmitter:PlaySound("scotchmintz_characters/sfx/welina_finalbell")
@@ -187,7 +183,6 @@ local function OnDeath(inst)
 		end)
 
 		inst:DoTaskInTime(0.5, function()
-
 			for k, v in pairs(Ents) do
 				if v.prefab == "resurrectionstatue" then
 					v.components.attunable:UnlinkFromPlayer(inst)
@@ -195,7 +190,7 @@ local function OnDeath(inst)
 			end
 		end)
 
-		TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
+		--TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
 		inst:RemoveEventCallback("respawnfromghost", ex_fns.OnRespawnFromGhost)
 	else
 		inst:ListenForEvent("respawnfromghost", ex_fns.OnRespawnFromGhost)
@@ -211,17 +206,17 @@ function OnSave(inst, data)
 	data.welina_numDeaths = inst.welina_numDeaths and inst.welina_numDeaths or nil
 end
 
-
-
-
-
-
-
 function OnLoad(inst, data)
 	if data and data.welina_numDeaths ~= nil then
 		inst.welina_numDeaths = data.welina_numDeaths
+
+		inst:DoTaskInTime(0, function()
+			inst.net_welina_numDeaths:set(inst.welina_numDeaths)
+		end)
+
+
+
 		if inst.welina_numDeaths > 9 then
-			
 			inst:DoTaskInTime(0.5, function()
 				for k, v in pairs(Ents) do
 					if v.prefab == "resurrectionstatue" then
@@ -237,17 +232,31 @@ function OnLoad(inst, data)
 	end
 end
 
-
-
-
-
-
-
 -- This initializes for both the server and client. Tags can be added here.
 
 local common_postinit = function(inst)
 	-- Minimap icon
 	inst.MiniMapEntity:SetIcon("welina.tex")
+
+
+	inst.net_welina_numDeaths = net_smallbyte(inst.GUID, "inst.welina_numDeaths", "welina_numDeaths_dirty")
+
+
+
+	if not TheWorld.ismastersim then
+		inst:ListenForEvent("welina_numDeaths_dirty", welina_numDeaths_dirty)
+		inst:ListenForEvent("welina_numDeaths_dirty", HealthWarning)
+		
+		inst:ListenForEvent("healthdelta", HealthWarning)
+
+		inst:ListenForEvent("ms_respawnedfromghost", HealthWarning)
+		inst:ListenForEvent("ms_playerjoined", inst:DoTaskInTime(0.5, function() HealthWarning(inst) end))
+
+
+		return inst
+	end
+
+
 
 
 
@@ -303,26 +312,16 @@ local master_postinit = function(inst)
 
 	inst:ListenForEvent("attacked", Hiss)
 
-	inst:ListenForEvent("healthdelta", HealthWarning)
-	inst:ListenForEvent("ms_respawnedfromghost", HealthWarning)
 
 
-	
+
+
 
 
 
 
 	inst.OnSave = OnSave
 	inst.OnLoad = OnLoad
-	
-
-
-
-	
-
-
-
-	
 end
 
 
