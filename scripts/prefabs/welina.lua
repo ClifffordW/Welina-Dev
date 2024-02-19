@@ -245,7 +245,7 @@ local master_postinit = function(inst)
 	-- Set starting inventory
 	inst.starting_inventory = start_inv[TheNet:GetServerGameMode()] or start_inv.default
 
-	--inst.components.foodaffinity:AddPrefabAffinity("petals_evil", TUNING.AFFINITY_15_CALORIES_MED)
+	inst.components.foodaffinity:AddPrefabAffinity("unagi", TUNING.AFFINITY_15_CALORIES_MED)
 
 	inst.talker_path_override = "scotchmintz_characters/characters/"
 	inst.soundsname = "welina"

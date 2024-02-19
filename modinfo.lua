@@ -232,6 +232,77 @@ modinfo_ver = lookup.modinfo_module
 		default = 1
 	},
 	
+	Title("Abillities 󰀩"),
+	
+	{
+		name = "WELINA_OSP",
+		label = "Welinas One Shot Protection",
+		hover = "Disable or enable Welina hissing when taking a fatal hit at above 90% health.",
+		options =
+		{
+			{description = "Enabled", data = 1, hover="Default 󰀡"},
+			{description = "Disabled", data = 0},
+		},
+		default = 1
+	},
+	
+	{
+		name = "WELINA_OSP_THRESHOLD",
+		label = "Welinas One Shot Protection Threshold",
+		hover = "At what percentage of health should OSP still be active.",
+		options =
+		{
+			{description = "50", data = 50},
+			{description = "60", data = 60},
+			{description = "70", data = 70},
+			{description = "80", data = 80},
+			{description = "90", data = 90, hover="Default 󰀡"},
+			
+		},
+		default = 90
+	},
+	
+	{
+		name = "WELINA_ASOCIALITY",
+		label = "Welinas Asociality",
+		hover = "Disable or enable Welina becoming weaker when near other players or followers.",
+		options =
+		{
+			{description = "Enabled", data = 1, hover="Default 󰀡"},
+			{description = "Disabled", data = 0},
+		},
+		default = 1
+	},
+	
+	{
+		name = "WELINA_REFLECT",
+		label = "Welinas Edgyness",
+		hover = "Disable or enable Welina reflecting damage.",
+		options =
+		{
+			{description = "Enabled", data = 1, hover="Default 󰀡"},
+			{description = "Disabled", data = 0},
+		},
+		default = 1
+	},
+	
+		{
+		name = "WELINA_REFLECT_AMOUNT",
+		label = "Welinas Edgyness Strenght",
+		hover = "Amount of damage reflected back to attacker",
+		options =
+		{
+			{description = "x2", data = 2},
+			{description = "x3", data = 3},
+			{description = "x4", data = 4},
+			{description = "x5", data = 5, hover="Default 󰀡"},
+			{description = "x6", data = 6},
+			{description = "x7", data = 7},
+			{description = "x8", data = 8},
+		},
+		default = 5
+	},
+	
 
 
 	Title(lookup.mod_v..": "..version),
