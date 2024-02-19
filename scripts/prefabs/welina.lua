@@ -88,7 +88,7 @@ local function Hiss(inst, data)
 	print(data.damage)
 
 
-	if data.damage > 80 then
+	if data.damage ~= nil then
 		local panic_ents = TheSim:FindEntities(x, y, z, 20)
 
 		data.attacker.components.health:DoDelta(-data.damage * 5)
