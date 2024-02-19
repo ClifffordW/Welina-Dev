@@ -1,33 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
-    <folder id="0" name="welina_hiss">
-        <file id="0" name="welina_hiss/welina_hiss-0.png" width="526" height="485" pivot_x="0" pivot_y="1"/>
-        <file id="1" name="welina_hiss/welina_hiss-1.png" width="526" height="485" pivot_x="0" pivot_y="1"/>
+    <folder id="0" name="welina_hiss/welina_hiss">
+        <file id="0" name="welina_hiss/welina_hiss/welina_hiss-1.png" width="526" height="485" pivot_x="0.494297" pivot_y="0.096907"/>
+        <file id="1" name="welina_hiss/welina_hiss/welina_hiss-0.png" width="526" height="485" pivot_x="0.494297" pivot_y="0.096907"/>
     </folder>
     <entity id="0" name="welina_hiss">
-        <animation id="0" name="fx" length="151" interval="33">
+        <animation id="0" name="idle_loop_side" length="100" interval="100">
             <mainline>
                 <key id="0">
                     <object_ref id="0" timeline="0" key="0" z_index="0"/>
                 </key>
-                <key id="1" time="66">
-                    <object_ref id="0" timeline="1" key="0" z_index="0"/>
-                </key>
-                <key id="2" time="151">
+                <key id="1" time="50">
                     <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="100">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
                 </key>
             </mainline>
             <timeline id="0" name="welina_hiss-0">
                 <key id="0" spin="0">
-                    <object folder="0" file="0" x="-234.177215" y="302.531646" angle="0"/>
+                    <object folder="0" file="1" x="18.000222" angle="0" scale_x="-1"/>
                 </key>
-                <key id="1" time="151" spin="0">
-                    <object folder="0" file="0" x="-234.177215" y="302.531646" angle="0"/>
+                <key id="1" time="50" spin="0">
+                    <object folder="0" file="0" x="18.000222" y="7" angle="0" scale_x="-1"/>
                 </key>
-            </timeline>
-            <timeline id="1" name="welina_hiss-1">
-                <key id="0" time="66" spin="0">
-                    <object folder="0" file="1" x="-235.443038" y="304.856626" angle="0"/>
+                <key id="2" time="100" spin="0">
+                    <object folder="0" file="1" x="18.000222" angle="0" scale_x="-1"/>
                 </key>
             </timeline>
         </animation>

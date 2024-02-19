@@ -88,11 +88,11 @@ end
 local function welina_numDeaths_dirty(inst)
 	inst.welinanumDeaths = inst.net_welina_numDeaths:value()
 
-	inst:DoTaskInTime(0, function()
+--[[ 	inst:DoTaskInTime(0, function()
 		if inst.welinanumDeaths then
 			print("DIRTY NUMBER IS " .. inst.welinanumDeaths)
 		end
-	end)
+	end) ]]
 end
 
 

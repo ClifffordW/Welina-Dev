@@ -11,15 +11,12 @@ modimport("articore/articore_api")
 
 
 
-local modnameFancy = "workshop-163770913"
+local modnameFancy = "workshop-1637709131"
 local is_modenabled = KnownModIndex:IsModEnabled(modnameFancy)
-local animation_data =
-{
-    frames_anim = is_modenabled and 220 or 64,
-    camera_distance = is_modenabled and 8 or 13,
-    anims = is_modenabled and "defaultdance" or "idle_loop",
 
-}
+
+
+
 
 
 
@@ -37,7 +34,18 @@ AddStategraphState("wilson", State {
     name = "welina_hiss",
     tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph" },
 
-    onenter = function(inst)
+    onenter = function(inst, animation_data)
+
+        local is_defaultdance = math.random() < 0.25
+
+        local animation_data = 
+        {
+            frames_anim = (is_modenabled and is_defaultdance) and 220 or 64,
+            camera_distance = (is_modenabled and is_defaultdance) and 8 or 13,
+            anims = (is_modenabled and is_defaultdance) and "defaultdance" or "idle_loop",
+        }
+
+
         inst.AnimState:PlayAnimation("research")
         inst.components.health:SetPercent(0.01)
 
