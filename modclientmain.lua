@@ -60,24 +60,26 @@ local lang_lookups =
 	en =
 	{
 		name = "Welina",
-        a1 = "Placeholder",
-        a2 = "Placeholder",
-        a3 = "Placeholder",
-        quote = "Placeholder",
+        a1 = "Nine Lives",
+        a2 = "Edgy, Inside and Outside",
+        a3 = "Asocial",
+        quote = "The sound of the bell has been unusually loud today...",
         title = "The Downcat",
         favfood = "None",
         favfood_string = "Favourite Food",
         hidden = "Is yet to be revealed.",
         bday_h = "Birthday",
         past_h = "Designers Notes",
-        aboutme = "A cat that is severely down on her luck.",
-        skindesc = "Welina doesn't like wearing too much clothing.",
+        aboutme = "A catcoon girl that doesn't find much joy in life and dreads social interaction.",
+        skindesc = "Welina has a flair for the dramatic.",
 
         bday = "Unknown",
         past =
-        [[I'll write this shit later.
-		
-		
+        [[Welina, Welina, Welina... I do like this name, rolls off the tongue pretty well. Anyway I subjected one of those fat catcoons to a life of human problems, to my surprise she was taking it quite well... until she wasn't. 
+She turned really nihilistic after a while, and would spend most of her time away from the other catcoons. Maybe she just started seeing herself as superior to them, or maybe she felt like an outlier amongst them. Or maybe the inescapable existential dread has caught up to her? Well such is the burden of being able to conjure complex thoughts and emotions, what'll she do anyway? Kill herself nine times? Ha!
+
+
+I've presented my results to Master, and yeah, it went about as well as you'd expect. I just can't ever seem to please him anymore, or maybe he just hates me. Ugh, that old man would rather rot than admit that I've surpassed his expectations.				
 		]],
 		
         
@@ -89,24 +91,26 @@ local lang_lookups =
 	zh = 
 	{
 		name = "Welina",
-        a1 = "Placeholder",
-        a2 = "Placeholder",
-        a3 = "Placeholder",
-        quote = "Placeholder",
+        a1 = "Nine Lives",
+        a2 = "Edgy, Inside and Outside",
+        a3 = "Asocial",
+        quote = "The sound of the bell has been unusually loud today...",
         title = "The Downcat",
         favfood = "None",
         favfood_string = "Favourite Food",
         hidden = "Is yet to be revealed.",
         bday_h = "Birthday",
         past_h = "Designers Notes",
-        aboutme = "A cat that is severely down on her luck.",
-        skindesc = "Welina doesn't like wearing too much clothing.",
+        aboutme = "A catcoon girl that doesn't find much joy in life and dreads social interaction.",
+        skindesc = "Welina has a flair for the dramatic.",
 
         bday = "Unknown",
         past =
-        [[I'll write this shit later.
-		
-		
+        [[Welina, Welina, Welina... I do like this name, rolls off the tongue pretty well. Anyway I subjected one of those fat catcoons to a life of human problems, to my surprise she was taking it quite well... until she wasn't. 
+She turned really nihilistic after a while, and would spend most of her time away from the other catcoons. Maybe she just started seeing herself as superior to them, or maybe she felt like an outlier amongst them. Or maybe the inescapable existential dread has caught up to her? Well such is the burden of being able to conjure complex thoughts and emotions, what'll she do anyway? Kill herself nine times? Ha!
+
+
+I've presented my results to Master, and yeah, it went about as well as you'd expect. I just can't ever seem to please him anymore, or maybe he just hates me. Ugh, that old man would rather rot than admit that I've surpassed his expectations.				
 		]],
 
     },
@@ -138,7 +142,7 @@ STRINGS.CHARACTER_BIOS.welina = {
 STRINGS.CHARACTER_SURVIVABILITY.welina= "Slim"
 
 
-TUNING.WILDCARD_HEALTH = GetModConfigData("WELINA_HEALTH")
-TUNING.WILDCARD_HUNGER = GetModConfigData("WELINA_HUNGER")
-TUNING.WILDCARD_SANITY = GetModConfigData("WELINA_SANITY")
+TUNING.WELINA_HEALTH = GetModConfigData("WELINA_HEALTH")
+TUNING.WELINA_HUNGER = GetModConfigData("WELINA_HUNGER")
+TUNING.WELINA_SANITY = GetModConfigData("WELINA_SANITY")
 

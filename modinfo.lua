@@ -164,11 +164,12 @@ modinfo_ver = lookup.modinfo_module
 		{
 			{description = "50", data = 50, hover="Hard Mode 󰀀"},
 			{description = "90", data = 90},
-			{description = "100", data = 100, hover="Default 󰀡"},
-			{description = "150", data = 150},
+			{description = "100", data = 100},
+			{description = "150", data = 150, hover="Default 󰀡"},
+			{description = "180", data = 180},
 			{description = "200", data = 200, hover="Easy Mode 󰀍"}, 
 		},
-		default = 100
+		default = 150
 	},
 	
 	{
@@ -181,15 +182,15 @@ modinfo_ver = lookup.modinfo_module
 			{description = "0.6", data = 0.6},
 			{description = "0.7", data = 0.7},
 			{description = "0.8", data = 0.8},
-			{description = "0.9", data = 0.9, hover="Default 󰀡"},
-			{description = "1", data = 1},
+			{description = "0.9", data = 0.9},
+			{description = "1", data = 1, hover="Default 󰀡"},
 			{description = "1.1", data = 1.1},
 			{description = "1.2", data = 1.2},
 			{description = "1.3", data = 1.3},
 			{description = "1.4", data = 1.4},
 			
 		},
-		default = 0.9
+		default = 1
 	},
 
 
@@ -201,14 +202,14 @@ modinfo_ver = lookup.modinfo_module
 		{
 			{description = "0.7", data = 0.7},
 			{description = "0.8", data = 0.8},
-			{description = "0.9", data = 0.9, hover="Default 󰀡"},
-			{description = "1", data = 1},
+			{description = "0.9", data = 0.9},
+			{description = "1", data = 1, hover="Default 󰀡"},
 			{description = "1.1", data = 1.1},
 			{description = "1.2", data = 1.2},
 			{description = "1.5", data = 1.5},
 			
 		},
-		default = 0.9
+		default = 1
 	},
 
 

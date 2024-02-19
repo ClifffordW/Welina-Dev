@@ -4,7 +4,7 @@ PrefabFiles = {
 }
 
 
-AddCharacter("welina", "Welina", "female", "The Downcat", "The sound of the bell's been unusually loud today...", "Welina has a flair for the dramatic.", "welina", "welina", "Slim", false)
+AddCharacter("welina", "Welina", "female", "The Downcat", "The sound of the bell has been unusually loud today...", "Welina has a flair for the dramatic.", "welina", "welina", "Slim", false)
 CharacterAbillity("welina", "Nine Lives", "Edgy, Inside and Outside", "Asocial")
 
 
