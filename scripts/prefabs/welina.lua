@@ -86,13 +86,13 @@ end
 
 
 local function welina_numDeaths_dirty(inst)
-	inst.welinanumDeaths = inst.net_welina_numDeaths:value()
+	inst.welina_numDeaths = inst.net_welina_numDeaths:value()
 
---[[ 	inst:DoTaskInTime(0, function()
-		if inst.welinanumDeaths then
-			print("DIRTY NUMBER IS " .. inst.welinanumDeaths)
+	inst:DoTaskInTime(0, function()
+		if inst.welina_numDeaths then
+			print("DIRTY NUMBER IS " .. inst.welina_numDeaths)
 		end
-	end) ]]
+	end)
 end
 
 
@@ -113,12 +113,12 @@ local function HealthWarning(inst)
 		TheFocalPoint.SoundEmitter:PlaySound("scotchmintz_characters/sfx/welina_bell", "deathbell")
 	end
 
-	if inst.welinanumDeaths and inst.welinanumDeaths > 9 and inst.replica.health:IsDead() and not inst:HasTag("playerghost") then
+	if inst.welina_numDeaths and inst.welina_numDeaths > 9 and inst.replica.health:IsDead() and not inst:HasTag("playerghost") then
 		TheFocalPoint.SoundEmitter:PlaySound("scotchmintz_characters/sfx/welina_finalbell")
 	end
 
 
-	if inst.welinanumDeaths and inst.welinanumDeaths > 8 then
+	if inst.welina_numDeaths and inst.welina_numDeaths > 8 then
 		TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", health)
 	else
 		TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
