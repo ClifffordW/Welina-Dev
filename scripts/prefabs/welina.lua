@@ -234,6 +234,11 @@ local common_postinit = function(inst)
 	inst.net_welina_numDeaths = net_smallbyte(inst.GUID, "inst.welina_numDeaths", "welina_numDeaths_dirty")
 
 
+	inst:AddTag("emocatgirl")
+
+
+	inst.components.talker.font = TALKINGFONT_WELINA
+
 	if TUNING.WELINA_9LIVES == 1 then
 		if not TheWorld.ismastersim then
 			
@@ -260,10 +265,7 @@ local common_postinit = function(inst)
 
 
 
-	inst:AddTag("emocatgirl")
 
-
-	inst.components.talker.font = TALKINGFONT_WELINA
 
 	--inst.customidleanim = "idle_wendy"
 end
