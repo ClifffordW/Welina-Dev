@@ -218,24 +218,26 @@ local common_postinit = function(inst)
 	inst.net_welina_numDeaths = net_smallbyte(inst.GUID, "inst.welina_numDeaths", "welina_numDeaths_dirty")
 
 
+	if TUNING.WELINA_9LIVES == 1 then
+		if not TheWorld.ismastersim then
+			
+			inst:ListenForEvent("welina_numDeaths_dirty", welina_numDeaths_dirty)
+			inst:ListenForEvent("welina_numDeaths_dirty", HealthWarning)
+			
 
-	if not TheWorld.ismastersim then
-		inst:ListenForEvent("welina_numDeaths_dirty", welina_numDeaths_dirty)
-		inst:ListenForEvent("welina_numDeaths_dirty", HealthWarning)
-		
-
-		inst:ListenForEvent("healthdelta", HealthWarning)
-
-
-
-
-		inst:ListenForEvent("ms_respawnedfromghost", HealthWarning)
-		inst:ListenForEvent("ms_playerjoined", inst:DoTaskInTime(0.5, function() HealthWarning(inst)  end))
-
-		inst:ListenForEvent("ms_newplayerspawned", inst:DoTaskInTime(0.5, function() welina_numDeaths_dirty(inst) end))
+			inst:ListenForEvent("healthdelta", HealthWarning)
 
 
-		return inst
+
+
+			inst:ListenForEvent("ms_respawnedfromghost", HealthWarning)
+			inst:ListenForEvent("ms_playerjoined", inst:DoTaskInTime(0.5, function() HealthWarning(inst)  end))
+
+			inst:ListenForEvent("ms_newplayerspawned", inst:DoTaskInTime(0.5, function() welina_numDeaths_dirty(inst) end))
+
+
+			return inst
+		end
 	end
 
 
@@ -288,13 +290,18 @@ local master_postinit = function(inst)
 	if TUNING.WELINA_ASOCIALITY == 1 then
 		inst:ListenForEvent("working", AsocialWork)
 		inst:ListenForEvent("sanitydelta", SanityScrew)
+		inst:ListenForEvent("onattackother", DamageScrew)
 
 	end
 	
-	
-	inst:ListenForEvent("death", OnDeath)
+	if TUNING.WELINA_9LIVES == 1 then
+		inst:ListenForEvent("death", OnDeath)
 
-	inst:ListenForEvent("onattackother", DamageScrew)
+	end
+
+
+
+	
 
 	if TUNING.WELINA_REFLECT == 1 then
 		inst:ListenForEvent("attacked", Hiss)

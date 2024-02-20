@@ -234,6 +234,23 @@ modinfo_ver = lookup.modinfo_module
 	
 	Title("Abillities 󰀩"),
 	
+
+
+
+
+	{
+		name = "WELINA_9LIVES",
+		label = "Welina 9 Lives",
+		hover = "Should welina have permadeath?",
+		options =
+		{
+			{description = "Enabled", data = 1},
+			{description = "Disabled", data = 0},
+
+			
+		},
+		default = 1
+	},
 	{
 		name = "WELINA_OSP",
 		label = "Welinas One Shot Protection",
