@@ -284,7 +284,7 @@ AddPlayerPostInit(function(inst, data, ...)
 
             local ret = _OnLoad(inst, data)
 
-            if data and data.welina_numDeaths ~= nil then
+            if data and data.welina_numDeaths ~= nil  then
                 inst.welina_numDeaths = data.welina_numDeaths
         
     

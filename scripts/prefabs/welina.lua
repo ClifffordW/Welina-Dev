@@ -179,12 +179,12 @@ end
 
 
 function OnSave(inst, data)
-	data.welina_numDeaths = inst.welina_numDeaths and inst.welina_numDeaths or nil
+	data.welina_numDeaths = inst.welina_numDeaths and inst.welina_numDeaths or 0
 end
 
 function OnLoad(inst, data)
 	if data and data.welina_numDeaths ~= nil then
-		inst.welina_numDeaths = data.welina_numDeaths
+		inst.welina_numDeaths = data.welina_numDeaths or 0
 
 		inst:DoTaskInTime(0, function()
 			inst.net_welina_numDeaths:set(inst.welina_numDeaths)

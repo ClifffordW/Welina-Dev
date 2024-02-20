@@ -244,7 +244,7 @@ modinfo_ver = lookup.modinfo_module
 		hover = "Should welina have permadeath?",
 		options =
 		{
-			{description = "Enabled", data = 1},
+			{description = "Enabled", data = 1, hover="Default 󰀡"},
 			{description = "Disabled", data = 0},
 
 			
