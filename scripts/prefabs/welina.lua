@@ -110,7 +110,7 @@ local function HealthWarning(inst)
 	local filterValue = math.max(1, math.floor((1 - health) * 19999 + 1))
 	local filterValue_voice = math.max(1, math.floor((1 - health) * 1999 + 1))
 
-		if TheMixer and TUNING.WELINA_LASTLIFE_MUSIC and TUNING.WELINA_LASTLIFE_MUSIC == "scotchmintz_characters/sfx/welina_bell_forkintheroad" then
+		if TheMixer and inst._welina_numDeaths and inst._welina_numDeaths > 8  and TUNING.WELINA_LASTLIFE_MUSIC and TUNING.WELINA_LASTLIFE_MUSIC == "scotchmintz_characters/sfx/welina_bell_forkintheroad" then
 
 			print(filterValue)
 			if filterValue >= 14000 then
