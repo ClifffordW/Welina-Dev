@@ -98,11 +98,7 @@ AddStategraphState("wilson", State {
     {
 
 
-        TimeEvent(5 * FRAMES, function(inst)
-            if animation_data.anims == "idle_loop" then
-                inst.Transform:SetScale(1, 1.5, 1)
-            end
-        end),
+
 
 
         TimeEvent(10 * FRAMES, function(inst)
@@ -144,16 +140,23 @@ AddStategraphState("wilson", State {
             inst.Transform:SetFourFaced()
             inst.components.inventory:Open()
             inst:SetCameraDistance(animation_data.camera_distance + 8)
-            inst.Transform:SetScale(1, 1, 1)
         end),
 
         TimeEvent(68 * FRAMES, function(inst)
             if animation_data.anims == "idle_loop" then
                 inst.AnimState:PlayAnimation("emote_jumpcheer")
-                inst.AnimState:SetFrame(39)
+                inst.AnimState:SetFrame(40)
+                inst.AnimState:SetDeltaTimeMultiplier(0.85)
             end
         end),
 
+
+
+        TimeEvent(72 * FRAMES, function(inst)
+            if animation_data.anims == "idle_loop" then
+                inst.AnimState:SetDeltaTimeMultiplier(1)
+            end
+        end),
 
 
 
