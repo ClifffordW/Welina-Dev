@@ -107,11 +107,27 @@ end
 local function HealthWarning(inst)
 	local health = inst.replica.health:GetPercent()
 	local is_wonkey = inst:HasTag("wonkey")
+	local filterValue = math.max(1, math.floor((1 - health) * 19999 + 1))
+	local filterValue_voice = math.max(1, math.floor((1 - health) * 1999 + 1))
 
+		if TheMixer and TUNING.WELINA_LASTLIFE_MUSIC and TUNING.WELINA_LASTLIFE_MUSIC == "scotchmintz_characters/sfx/welina_bell_forkintheroad" then
 
+			print(filterValue)
+			if filterValue >= 14000 then
+				TheSim:SetReverbPreset("cave")
+			else
+				TheSim:SetReverbPreset("default")
+			end
 
+			TheMixer:SetHighPassFilter("set_music", filterValue or 1)
+			
+			TheMixer:SetHighPassFilter("set_ambience", filterValue or 1)
+			TheMixer:SetHighPassFilter("set_sfx", filterValue or 1)
+			TheMixer:SetHighPassFilter("set_sfx/voice", filterValue_voice or 1)
+			
+		end
 		if not TheFocalPoint.SoundEmitter:PlayingSound("deathbell")  then
-			TheFocalPoint.SoundEmitter:PlaySound("scotchmintz_characters/sfx/welina_bell", "deathbell")
+			TheFocalPoint.SoundEmitter:PlaySound(TUNING.WELINA_LASTLIFE_MUSIC or "scotchmintz_characters/sfx/welina_bell", "deathbell")
 		end
 
 		inst:DoTaskInTime(0.01, function()

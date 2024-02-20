@@ -320,6 +320,25 @@ modinfo_ver = lookup.modinfo_module
 		default = 5
 	},
 	
+	Title("Cliffford's Shenanigans 󰀩"),
+	
+
+
+
+
+	{
+		name = "WELINA_LASTLIFE_MUSIC",
+		label = "Last Life Music",
+		hover = "Should welina have permadeath?",
+		options =
+		{
+			{description = "Default", data = "scotchmintz_characters/sfx/welina_bell", hover="Default 󰀡"},
+			{description = "Fork In The Road", data = "scotchmintz_characters/sfx/welina_bell_forkintheroad"},
+
+			
+		},
+		default = "scotchmintz_characters/sfx/welina_bell"
+	},
 
 
 	Title(lookup.mod_v..": "..version),
