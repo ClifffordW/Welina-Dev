@@ -206,11 +206,18 @@ AddPrefabPostInit("welina", function(inst, data, ...)
         if data ~= nil and data.welina_numDeaths ~= nil then
             inst.welina_numDeaths = data.welina_numDeaths
         end
+        
+        if inst.welina_numDeaths and inst.net_welina_numDeaths then
+            inst.net_welina_numDeaths:set(inst.welina_numDeaths)
+        end
+      
 
         print("WORKING AS INTENDED")
 
         return unpack(ret)
     end
+
+
 
     inst.SaveForReroll = SaveForReroll
     inst.LoadForReroll = LoadForReroll
@@ -218,7 +225,93 @@ end)
 
 
 
-AddPrefabPostInit("welina", function(inst, data, ...)
+AddPlayerPostInit(function(inst, data, ...)
+
+    if inst.prefab ~= "welina" then
+        GLOBAL.TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
+
+        local DummyFn = function() end
+
+        local _SaveForReroll = inst.SaveForReroll or DummyFn
+        local _LoadForReroll = inst.LoadForReroll or DummyFn
+
+        local function SaveForReroll(inst, ...)
+            local ret = { _SaveForReroll(inst, ...) }
+
+            local data = ret[1]
+
+
+
+            if data ~= nil then
+                data.welina_numDeaths = inst.welina_numDeaths
+            end
+            print("SAVING AS INTENDED")
+
+            return unpack(ret)
+        end
+
+        local function LoadForReroll(inst, data, ...)
+            local ret = { _LoadForReroll(inst, data, ...) }
+
+
+            if data ~= nil and data.welina_numDeaths ~= nil then
+                inst.welina_numDeaths = data.welina_numDeaths
+            end
+            if inst.welina_numDeaths and inst.net_welina_numDeaths then
+                inst.net_welina_numDeaths:set(inst.welina_numDeaths)
+            end
+
+            print("WORKING AS INTENDED")
+
+            return unpack(ret)
+        end
+
+        local _OnSave = inst.Save or DummyFn
+        local _OnLoad = inst.OnLoad or DummyFn
+        function OnSave(inst, data)
+
+            local ret = _OnSave(inst, data)
+
+            data.welina_numDeaths = inst.welina_numDeaths and inst.welina_numDeaths or nil
+
+            return ret
+        end
+        
+        function OnLoad(inst, data)
+
+            local ret = _OnLoad(inst, data)
+
+            if data and data.welina_numDeaths ~= nil then
+                inst.welina_numDeaths = data.welina_numDeaths
+        
+    
+        
+            end
+
+            return ret
+        end
+    
+    
+    
+    
+
+        inst.SaveForReroll = SaveForReroll
+        inst.LoadForReroll = LoadForReroll
+
+    
+
+
+
+
+
+        inst.OnSave = OnSave
+        inst.OnLoad = OnLoad
+
+    end
+end)
+
+
+--[[ AddPrefabPostInit("wonkey", function(inst, data, ...)
     local DummyFn = function() end
 
     local _SaveForReroll = inst.SaveForReroll or DummyFn
@@ -234,45 +327,6 @@ AddPrefabPostInit("welina", function(inst, data, ...)
         if data ~= nil then
             data.welina_numDeaths = inst.welina_numDeaths
         end
-        print("SAVING AS INTENDED")
-
-        return unpack(ret)
-    end
-
-    local function LoadForReroll(inst, data, ...)
-        local ret = { _LoadForReroll(inst, data, ...) }
-
-
-        if data ~= nil and data.welina_numDeaths ~= nil then
-            inst.welina_numDeaths = data.welina_numDeaths
-        end
-
-        print("WORKING AS INTENDED")
-
-        return unpack(ret)
-    end
-
-    inst.SaveForReroll = SaveForReroll
-    inst.LoadForReroll = LoadForReroll
-end)
-
-
-AddPrefabPostInit("wonkey", function(inst, data, ...)
-    local DummyFn = function() end
-
-    local _SaveForReroll = inst.SaveForReroll or DummyFn
-    local _LoadForReroll = inst.LoadForReroll or DummyFn
-
-    local function SaveForReroll(inst, ...)
-        local ret = { _SaveForReroll(inst, ...) }
-
-        local data = ret[1]
-
-
-
-        if data ~= nil then
-            data.welina_numDeaths = inst.welina_numDeaths
-        end
 
         return unpack(ret)
     end
@@ -289,41 +343,36 @@ AddPrefabPostInit("wonkey", function(inst, data, ...)
         return unpack(ret)
     end
 
-    inst.SaveForReroll = SaveForReroll
-    inst.LoadForReroll = LoadForReroll
-end)
 
-
-
-
-
-
-
-
-local function MayKill(self, amount)
-    if self.currenthealth + amount <= 0 then
-        return true
+    function OnSave(inst, data)
+        data.welina_numDeaths = inst.welina_numDeaths and inst.welina_numDeaths or nil
     end
-end
+    
+    function OnLoad(inst, data)
+        if data and data.welina_numDeaths ~= nil then
+            inst.welina_numDeaths = data.welina_numDeaths
+    
 
-AddComponentPostInit("health", function(self)
-    if not _G.TheWorld.ismastersim then return end
-
-    local _DoDelta = self.DoDelta
-    --(self:HasTag("wathom") and self:HasTag("amped")
-    function self:DoDelta(amount, overtime, cause, ignore_invincible, afflicter, ignore_absorb, ...)
-        local currentpercent = self:GetPercent()
-
-        if MayKill(self, amount) and self.inst:HasTag("emocatgirl") and currentpercent > 0.9 then
-            --self:SetInvincible(true)
-
-            self:SetCurrentHealth(0.015)
-            self.inst.sg:GoToState("welina_hiss")
-        else
-            return _DoDelta(self, amount, overtime, cause, ignore_invincible, afflicter, ignore_absorb, ...)
+    
         end
     end
-end)
+
+
+
+
+    inst.OnSave = OnSave
+    inst.OnLoad = OnLoad
+    inst.SaveForReroll = SaveForReroll
+    inst.LoadForReroll = LoadForReroll
+end) ]]
+
+
+
+
+
+
+
+
 
 
 
@@ -334,6 +383,33 @@ modimport("init/init_all")
 
 
 
+if TUNING.WELINA_OSP == 1 then
+    local function MayKill(self, amount)
+        if self.currenthealth + amount <= 0 then
+            return true
+        end
+    end
+
+    AddComponentPostInit("health", function(self)
+        if not _G.TheWorld.ismastersim then return end
+
+        local _DoDelta = self.DoDelta
+        --(self:HasTag("wathom") and self:HasTag("amped")
+        function self:DoDelta(amount, overtime, cause, ignore_invincible, afflicter, ignore_absorb, ...)
+            local currentpercent = self:GetPercent()
+
+            if MayKill(self, amount) and self.inst:HasTag("emocatgirl") and currentpercent > TUNING.WELINA_OSP_THRESHOLD then
+                --self:SetInvincible(true)
+
+                self:SetCurrentHealth(0.015)
+                self.inst.sg:GoToState("welina_hiss")
+            else
+                return _DoDelta(self, amount, overtime, cause, ignore_invincible, afflicter, ignore_absorb, ...)
+            end
+        end
+    end)
+
+end
 
 
 

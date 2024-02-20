@@ -79,18 +79,19 @@ end
 
 local function Hiss(inst, data)
 	if data.damage ~= nil then
-		data.attacker.components.health:DoDelta(-data.damage * 5)
-		print(data.damage * 5)
+		data.attacker.components.health:DoDelta(-data.damage * TUNING.WELINA_REFLECT_AMOUNT or 5)
+		print(data.damage * TUNING.WELINA_REFLECT_AMOUNT)
+		print(data.damage)
 	end
 end
 
 
 local function welina_numDeaths_dirty(inst)
-	inst.welina_numDeaths = inst.net_welina_numDeaths:value()
+	inst._welina_numDeaths = inst.net_welina_numDeaths:value()
 
 	inst:DoTaskInTime(0, function()
-		if inst.welina_numDeaths then
-			print("DIRTY NUMBER IS " .. inst.welina_numDeaths)
+		if inst._welina_numDeaths then
+			print("DIRTY NUMBER IS " .. inst._welina_numDeaths)
 		end
 	end)
 end
@@ -105,24 +106,30 @@ end
 
 local function HealthWarning(inst)
 	local health = inst.replica.health:GetPercent()
+	local is_wonkey = inst:HasTag("wonkey")
+
+
+
+		if not TheFocalPoint.SoundEmitter:PlayingSound("deathbell")  then
+			TheFocalPoint.SoundEmitter:PlaySound("scotchmintz_characters/sfx/welina_bell", "deathbell")
+		end
+
+		inst:DoTaskInTime(0.01, function()
+			if inst._welina_numDeaths and inst._welina_numDeaths == 10 and not inst:HasTag("playerghost") then
+				TheFocalPoint.SoundEmitter:PlaySound("scotchmintz_characters/sfx/welina_finalbell", "finalbell")
+			end
+		end)
+		
 
 
 
 
-	if not TheFocalPoint.SoundEmitter:PlayingSound("deathbell") then
-		TheFocalPoint.SoundEmitter:PlaySound("scotchmintz_characters/sfx/welina_bell", "deathbell")
-	end
-
-	if inst.welina_numDeaths and inst.welina_numDeaths > 9 and inst.replica.health:IsDead() and not inst:HasTag("playerghost") then
-		TheFocalPoint.SoundEmitter:PlaySound("scotchmintz_characters/sfx/welina_finalbell")
-	end
-
-
-	if inst.welina_numDeaths and inst.welina_numDeaths > 8 then
-		TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", health)
-	else
-		TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
-	end
+		if inst._welina_numDeaths and inst._welina_numDeaths > 8  then
+			TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health",  health)
+		else
+			TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
+		end
+	
 
 	print(health)
 end
@@ -148,12 +155,8 @@ local function OnDeath(inst)
 			inst.net_welina_numDeaths:set(inst.welina_numDeaths)
 		end)
 	end
-	if inst.welina_numDeaths == 10 and health == 0 then
-		inst:DoTaskInTime(0.01, function()
-			if TheFocalPoint then
-				TheFocalPoint.SoundEmitter:PlaySound("scotchmintz_characters/sfx/welina_finalbell")
-			end
-		end)
+	if inst.welina_numDeaths == 10  then
+
 
 		inst:DoTaskInTime(0.5, function()
 			for k, v in pairs(Ents) do
@@ -219,11 +222,17 @@ local common_postinit = function(inst)
 	if not TheWorld.ismastersim then
 		inst:ListenForEvent("welina_numDeaths_dirty", welina_numDeaths_dirty)
 		inst:ListenForEvent("welina_numDeaths_dirty", HealthWarning)
+		
 
 		inst:ListenForEvent("healthdelta", HealthWarning)
 
+
+
+
 		inst:ListenForEvent("ms_respawnedfromghost", HealthWarning)
-		inst:ListenForEvent("ms_playerjoined", inst:DoTaskInTime(0.5, function() HealthWarning(inst) end))
+		inst:ListenForEvent("ms_playerjoined", inst:DoTaskInTime(0.5, function() HealthWarning(inst)  end))
+
+		inst:ListenForEvent("ms_newplayerspawned", inst:DoTaskInTime(0.5, function() welina_numDeaths_dirty(inst) end))
 
 
 		return inst
@@ -276,15 +285,20 @@ local master_postinit = function(inst)
 	end
 
 
+	if TUNING.WELINA_ASOCIALITY == 1 then
+		inst:ListenForEvent("working", AsocialWork)
+		inst:ListenForEvent("sanitydelta", SanityScrew)
 
-	inst:ListenForEvent("working", AsocialWork)
-	inst:ListenForEvent("sanitydelta", SanityScrew)
+	end
+	
+	
 	inst:ListenForEvent("death", OnDeath)
 
 	inst:ListenForEvent("onattackother", DamageScrew)
 
-	inst:ListenForEvent("attacked", Hiss)
-
+	if TUNING.WELINA_REFLECT == 1 then
+		inst:ListenForEvent("attacked", Hiss)
+	end
 
 
 

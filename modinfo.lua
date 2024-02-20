@@ -252,14 +252,14 @@ modinfo_ver = lookup.modinfo_module
 		hover = "At what percentage of health should OSP still be active.",
 		options =
 		{
-			{description = "50", data = 50},
-			{description = "60", data = 60},
-			{description = "70", data = 70},
-			{description = "80", data = 80},
-			{description = "90", data = 90, hover="Default 󰀡"},
+			{description = "50", data = 0.5},
+			{description = "60", data = 0.6},
+			{description = "70", data = 0.7},
+			{description = "80", data = 0.8},
+			{description = "90", data = 0.9, hover="Default 󰀡"},
 			
 		},
-		default = 90
+		default = 0.9
 	},
 	
 	{
