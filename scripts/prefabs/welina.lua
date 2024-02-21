@@ -59,8 +59,8 @@ local function SanityScrew(inst)
 	local asocial = TheSim:FindEntities(x, y, z, 6, nil, PROX_CANT_TAGS, PROX_CHECK_TAGS)
 	local asocial_followers = #asocial
 
-	local sanityModifier = 1 - asocial_followers * 0.5
-	sanityModifier = math.max(sanityModifier, -0.5)
+	local sanityModifier = 0 + -asocial_followers * 0.5
+	sanityModifier = math.max(sanityModifier, -3)
 
 
 
@@ -78,7 +78,7 @@ local function DamageScrew(inst)
 end
 
 local function Hiss(inst, data)
-	if data.damage ~= nil then
+	if data.damage ~= nil and data.attacker.components.health ~= nil then
 		data.attacker.components.health:DoDelta(-data.damage * TUNING.WELINA_REFLECT_AMOUNT or 5)
 		print(data.damage * TUNING.WELINA_REFLECT_AMOUNT)
 		print(data.damage)
@@ -240,7 +240,7 @@ local common_postinit = function(inst)
 	inst.components.talker.font = TALKINGFONT_WELINA
 
 	if TUNING.WELINA_9LIVES == 1 then
-		if not TheWorld.ismastersim then
+		
 			
 			inst:ListenForEvent("welina_numDeaths_dirty", welina_numDeaths_dirty)
 			inst:ListenForEvent("welina_numDeaths_dirty", HealthWarning)
@@ -257,8 +257,7 @@ local common_postinit = function(inst)
 			inst:ListenForEvent("ms_newplayerspawned", inst:DoTaskInTime(0.5, function() welina_numDeaths_dirty(inst) end))
 
 
-			return inst
-		end
+
 	end
 
 
