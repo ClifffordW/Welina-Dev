@@ -112,7 +112,7 @@ AddStategraphState("wilson", State {
         end),
 
 
-        TimeEvent(13 * FRAMES, function(inst)
+        TimeEvent(14 * FRAMES, function(inst)
             if animation_data.anims == "idle_loop" then
                 inst.SoundEmitter:PlaySound("scotchmintz_characters/sfx/miau")
             end
