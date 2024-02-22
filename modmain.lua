@@ -8,9 +8,6 @@ modimport("articore/articore_api")
 
 
 
-
-
-
 local modnameFancy = "workshop-1637709131"
 local is_modenabled = KnownModIndex:IsModEnabled(modnameFancy)
 

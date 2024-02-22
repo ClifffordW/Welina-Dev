@@ -241,7 +241,7 @@ local common_postinit = function(inst)
 
 	if TUNING.WELINA_9LIVES == 1 then
 		
-			
+		
 			inst:ListenForEvent("welina_numDeaths_dirty", welina_numDeaths_dirty)
 			inst:ListenForEvent("welina_numDeaths_dirty", HealthWarning)
 			
@@ -255,6 +255,10 @@ local common_postinit = function(inst)
 			inst:ListenForEvent("ms_playerjoined", inst:DoTaskInTime(0.5, function() HealthWarning(inst)  end))
 
 			inst:ListenForEvent("ms_newplayerspawned", inst:DoTaskInTime(0.5, function() welina_numDeaths_dirty(inst) end))
+
+			
+
+		
 
 
 
