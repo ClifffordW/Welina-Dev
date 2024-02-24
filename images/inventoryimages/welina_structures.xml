@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Atlas>
+	<Texture filename="welina_structures.tex" />
+	<Elements>
+		<Element name="catcoon_den.tex" u1="0.001" u2="0.499" v2="0.999" v1="0.001" variant="" />
+		<Element name="ms_global_nametag_goth.tex" u1="0.501" u2="0.983375" v2="0.999" v1="0.03225" variant="" />
+	</Elements>
+</Atlas>

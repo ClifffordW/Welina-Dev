@@ -78,7 +78,7 @@ local function DamageScrew(inst)
 end
 
 local function Hiss(inst, data)
-	if data.damage ~= nil and data.attacker.components.health ~= nil then
+	if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
 		data.attacker.components.health:DoDelta(-data.damage * TUNING.WELINA_REFLECT_AMOUNT or 5)
 		print(data.damage * TUNING.WELINA_REFLECT_AMOUNT)
 		print(data.damage)
