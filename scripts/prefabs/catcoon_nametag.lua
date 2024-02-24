@@ -48,6 +48,7 @@ local function OnUseOnKitcoon(inst, target, doer)
 
 	target.is_being_named = true
 
+
 	if inst.onrmeove_naming_target == nil then	
 		inst.onrmeove_naming_target = function(t)
 			inst.components.writeable:EndWriting()
@@ -62,6 +63,9 @@ end
 local function OnNamedByWriteable(inst, new_name, writer)
     if new_name ~= nil and inst.naming_target ~= nil and inst.naming_target:IsValid() and inst.naming_target.components.named ~= nil then
         inst.naming_target.components.named:SetName(new_name, writer ~= nil and writer.userid or nil)
+        if writer.components.leader ~= nil then
+            writer.components.leader:AddFollower(inst.naming_target)
+        end
     end
 end
 
@@ -92,7 +96,7 @@ local function fn()
 
     MakeInventoryPhysics(inst)
 
-    inst.AnimState:SetBank("welina_collar")
+    inst.AnimState:SetBank("global_nametag")
     inst.AnimState:SetBuild("welina_collar")
     inst.AnimState:PlayAnimation("idle")
 
@@ -116,6 +120,8 @@ local function fn()
 	inst.components.writeable.remove_after_write = true
 
     inst:AddComponent("inventoryitem")
+    inst.components.inventoryitem.imagename = "ms_global_nametag_goth"
+    inst.components.inventoryitem.atlasname = "images/inventoryimages/welina_structures.xml"
 
     inst:AddComponent("useabletargeteditem")
     inst.components.useabletargeteditem:SetOnUseFn(OnUseOnKitcoon)
