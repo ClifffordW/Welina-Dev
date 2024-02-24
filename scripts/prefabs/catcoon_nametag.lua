@@ -36,6 +36,8 @@ require("writeables").AddLayout("catcoon_nametag",
 })
 
 local function OnUseOnKitcoon(inst, target, doer)
+    if target.components.follower.leader ~= nil and target.components.follower.leader.prefab == "welina" then return end 
+
 	inst.naming_target = target
 
 	if inst.components.writeable ~= nil then
@@ -61,10 +63,11 @@ local function OnUseOnKitcoon(inst, target, doer)
 end
 
 local function OnNamedByWriteable(inst, new_name, writer)
-    if new_name ~= nil and inst.naming_target ~= nil and inst.naming_target:IsValid() and inst.naming_target.components.named ~= nil then
+    if new_name ~= nil and inst.naming_target ~= nil and inst.naming_target:IsValid() and inst.naming_target.components.named ~= nil  then
         inst.naming_target.components.named:SetName(new_name, writer ~= nil and writer.userid or nil)
         if writer.components.leader ~= nil then
             writer.components.leader:AddFollower(inst.naming_target)
+            inst.naming_target:AddTag("welinas_cat")
         end
     end
 end

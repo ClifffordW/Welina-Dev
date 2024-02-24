@@ -37,6 +37,9 @@ function GetFollowerPenalty(inst, max, modifierchange)
 	local asocial = TheSim:FindEntities(x, y, z, 6, nil, PROX_CANT_TAGS, PROX_CHECK_TAGS)
 	local asocial_followers = #asocial
 
+
+
+
 	local modifiername = 1 - asocial_followers * (modifierchange or 0.25)
 	modifiername = math.max(modifiername, max or 0.95)
 
@@ -59,8 +62,18 @@ local function SanityScrew(inst)
 	local asocial = TheSim:FindEntities(x, y, z, 6, nil, PROX_CANT_TAGS, PROX_CHECK_TAGS)
 	local asocial_followers = #asocial
 
-	local sanityModifier = 0 + -asocial_followers * 0.5
+	local is_catcoon_companion = nil
+	for k,v in pairs(asocial) do
+		if v.prefab == "catcoon" and v:HasTag("welinas_cat") then
+			is_catcoon_companion = true
+		end
+	end
+
+	local sanityModifier = 0 + -asocial_followers * (is_catcoon_companion == nil and 0.5 or 0.025)
+
+	
 	sanityModifier = math.max(sanityModifier, -3)
+
 
 
 
@@ -68,13 +81,18 @@ local function SanityScrew(inst)
 end
 
 
-local function DamageScrew(inst)
+local function DamageScrew(inst, data)
 	local damageModifier = GetFollowerPenalty(inst, 0.45, 0.05)
 
 
 
 
 	inst.components.combat.damagemultiplier = damageModifier
+
+	if data.damage ~= nil then
+		print(data.damage)
+	end
+
 end
 
 local function Hiss(inst, data)

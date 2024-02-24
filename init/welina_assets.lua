@@ -44,6 +44,10 @@ Assets = {
     
 }
 
+
+AddAnim("welina_hiss_anim")
+AddAnim("catcoon_basic")
+AddAnim("catcoon_actions")
 table.insert(Assets, Asset("SOUND", "sound/welina.fsb"))
 table.insert(Assets, Asset("SOUNDPACKAGE", "sound/scotchmintz_characters.fev"))
 

@@ -100,7 +100,7 @@ local function checkden_count(den_count)
 end
 
 
-local function onbuilt(inst, data)
+local function onbuilt(inst, data, catcoon)
     local den_count = checkden_count()
 
     if not data.builder and not den_count then return end
@@ -118,6 +118,13 @@ local function onbuilt(inst, data)
 
     inst.AnimState:PlayAnimation("onbuilt")
     inst.AnimState:PushAnimation("idle", true)
+
+    inst:DoTaskInTime(2, function()
+        if catcoon then
+            catcoon:AddComponent("talker")
+            catcoon.components.talker("Say who tf r u, How did you get in me hoose")
+        end
+    end)
 
 
 
