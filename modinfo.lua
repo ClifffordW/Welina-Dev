@@ -279,17 +279,7 @@ modinfo_ver = lookup.modinfo_module
 		default = 0.9
 	},
 	
-	{
-		name = "WELINA_ASOCIALITY",
-		label = "Welinas Asociality",
-		hover = "Disable or enable Welina becoming weaker when near other players or followers.",
-		options =
-		{
-			{description = "Enabled", data = 1, hover="Default 󰀡"},
-			{description = "Disabled", data = 0},
-		},
-		default = 1
-	},
+
 	
 	{
 		name = "WELINA_REFLECT",
@@ -319,6 +309,22 @@ modinfo_ver = lookup.modinfo_module
 		},
 		default = 5
 	},
+
+	Title("Scrapped Features"),
+
+	{
+		name = "WELINA_ASOCIALITY",
+		label = "Welinas Asociality",
+		hover = "Disable or enable Welina becoming weaker when near other players or followers.",
+		options =
+		{
+			{description = "Enabled", data = 1, hover="Default 󰀡"},
+			{description = "Disabled", data = 0},
+		},
+		default = 0
+	},
+
+
 	
 	Title("Cliffford's Shenanigans 󰀩"),
 	
