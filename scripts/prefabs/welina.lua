@@ -90,7 +90,7 @@ local function DamageScrew(inst, data)
 	inst.components.combat.damagemultiplier = damageModifier
 
 	if data.damage ~= nil then
-		print(data.damage)
+		--print(data.damage)
 	end
 
 end
@@ -98,8 +98,8 @@ end
 local function Hiss(inst, data)
 	if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
 		data.attacker.components.health:DoDelta(-data.damage * TUNING.WELINA_REFLECT_AMOUNT or 5)
-		print(data.damage * TUNING.WELINA_REFLECT_AMOUNT)
-		print(data.damage)
+--[[ 		print(data.damage * TUNING.WELINA_REFLECT_AMOUNT)
+		print(data.damage) ]]
 	end
 end
 
@@ -109,9 +109,35 @@ local function welina_numDeaths_dirty(inst)
 
 	inst:DoTaskInTime(0, function()
 		if inst._welina_numDeaths then
-			print("DIRTY NUMBER IS " .. inst._welina_numDeaths)
+			--print("DIRTY NUMBER IS " .. inst._welina_numDeaths)
 		end
 	end)
+end
+
+
+
+
+
+local function OnTakeDamage(inst, data)
+    if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
+        local attackerPrefab = data.attacker.GUID
+        
+        local damageToAdd = data.damage * 0.1
+        
+        inst["damageBonus_" .. attackerPrefab] = (inst["damageBonus_" .. attackerPrefab] or 0) + damageToAdd
+        
+        local totalMultiplier = 1 + (inst["damageBonus_" .. attackerPrefab] or 0)
+        inst.components.combat.damagemultiplier = totalMultiplier
+
+
+        data.attacker:ListenForEvent("death", function()
+            inst["damageBonus_" .. attackerPrefab] = 0 
+        end, data.attacker)
+        
+--[[ 		print("Total damage bonus from " .. attackerPrefab .. ": " .. inst["damageBonus_" .. attackerPrefab])
+		print("Default damage: " .. data.damage)
+		print("Bonus damage: ".. inst.components.combat.defaultdamage * totalMultiplier) ]]
+    end
 end
 
 
@@ -130,7 +156,7 @@ local function HealthWarning(inst)
 
 		if TheMixer and inst._welina_numDeaths and inst._welina_numDeaths > 8  and TUNING.WELINA_LASTLIFE_MUSIC and TUNING.WELINA_LASTLIFE_MUSIC == "scotchmintz_characters/sfx/welina_bell_forkintheroad" then
 
-			print(filterValue)
+			--print(filterValue)
 			if filterValue >= 5041 then
 				TheSim:SetReverbPreset("cave")
 			else
@@ -165,7 +191,6 @@ local function HealthWarning(inst)
 		end
 	
 
-	print(health)
 end
 
 
@@ -346,6 +371,7 @@ local master_postinit = function(inst)
 		inst:ListenForEvent("attacked", Hiss)
 	end
 
+	inst:ListenForEvent("attacked", OnTakeDamage)
 
 
 
