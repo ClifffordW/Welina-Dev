@@ -120,25 +120,41 @@ end
 
 local function OnTakeDamage(inst, data)
     if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
-        local attackerPrefab = data.attacker.GUID
+        local attackerGUID = data.attacker.GUID
+        local attackerPrefab = data.attacker.prefab
         
-        local damageToAdd = data.damage * 0.1
+        -- Check if the attacker's GUID has changed
+        if inst.attackerDamageBonuses == nil then
+            inst.attackerDamageBonuses = {}
+        end
         
-        inst["damageBonus_" .. attackerPrefab] = (inst["damageBonus_" .. attackerPrefab] or 0) + damageToAdd
+        if inst.attackerDamageBonuses[attackerGUID] == nil then
+            inst.attackerDamageBonuses[attackerGUID] = 0
+        end
         
-        local totalMultiplier = 1 + (inst["damageBonus_" .. attackerPrefab] or 0)
-        inst.components.combat.damagebonus = totalMultiplier
-
-
+        -- Calculate the bonus damage for this attacker
+        local damageToAdd = math.floor(data.damage) * 0.001
+        
+        -- Add the bonus damage to the total for this attacker
+        inst.attackerDamageBonuses[attackerGUID] = inst.attackerDamageBonuses[attackerGUID] + damageToAdd
+        
+        -- Apply the bonus damage as a multiplier to the character's damage
+        local totalDamageMultiplier = 1 + inst.attackerDamageBonuses[attackerGUID]
+        inst.components.combat.externaldamagemultipliers:SetModifier("bonus_damage_" .. attackerGUID, totalDamageMultiplier)
+        
+        print("Total bonus damage from attacker with GUID " .. attackerGUID .. ": " .. inst.attackerDamageBonuses[attackerGUID])
+        print("Default damage: " .. data.damage)
+        
+        -- Listen for the attacker's death event to reset the bonus damage
         data.attacker:ListenForEvent("death", function()
-            inst["damageBonus_" .. attackerPrefab] = 0 
+            if inst.attackerDamageBonuses[attackerGUID] ~= nil then
+                inst.attackerDamageBonuses[attackerGUID] = 0 -- Reset the bonus damage when the mob dies
+                inst.components.combat.externaldamagemultipliers:RemoveModifier("bonus_damage_" .. attackerGUID)
+            end
         end, data.attacker)
-        
-		print("Total damage bonus from " .. attackerPrefab .. ": " .. inst["damageBonus_" .. attackerPrefab])
-		print("Default damage: " .. data.damage)
-		print("Bonus damage: ".. inst.components.combat.defaultdamage * totalMultiplier)
     end
 end
+
 
 
 
