@@ -127,16 +127,16 @@ local function OnTakeDamage(inst, data)
         inst["damageBonus_" .. attackerPrefab] = (inst["damageBonus_" .. attackerPrefab] or 0) + damageToAdd
         
         local totalMultiplier = 1 + (inst["damageBonus_" .. attackerPrefab] or 0)
-        inst.components.combat.damagemultiplier = totalMultiplier
+        inst.components.combat.damagebonus = totalMultiplier
 
 
         data.attacker:ListenForEvent("death", function()
             inst["damageBonus_" .. attackerPrefab] = 0 
         end, data.attacker)
         
---[[ 		print("Total damage bonus from " .. attackerPrefab .. ": " .. inst["damageBonus_" .. attackerPrefab])
+		print("Total damage bonus from " .. attackerPrefab .. ": " .. inst["damageBonus_" .. attackerPrefab])
 		print("Default damage: " .. data.damage)
-		print("Bonus damage: ".. inst.components.combat.defaultdamage * totalMultiplier) ]]
+		print("Bonus damage: ".. inst.components.combat.defaultdamage * totalMultiplier)
     end
 end
 
