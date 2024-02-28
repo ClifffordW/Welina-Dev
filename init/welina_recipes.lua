@@ -4,14 +4,15 @@ local TUNING = _G.TUNING
 
 --AddPrefab("welina_hiss")
 AddPrefab("catcoonden")
-AddPrefab("catcoon_nametag")
+AddPrefab("welina_collar")
 
 
+
+STRINGS.RECIPE_DESC.WELINA_COLLAR = "Put your feline friends on the edge."
+STRINGS.NAMES.WELINA_COLLAR = "Spiked Collar"
+
+--[[
 STRINGS.RECIPE_DESC.CATCOONDEN = "Cozy."
-
-STRINGS.RECIPE_DESC.CATCOON_NAMETAG = "Naming thing or whatever."
-STRINGS.NAMES.CATCOON_NAMETAG = "Welina's Naming collar"
-
 
 AddCharacterRecipe("catcoonden", -- name
     {                            -- ingredients
@@ -22,7 +23,7 @@ AddCharacterRecipe("catcoonden", -- name
     {              -- config
         placer = "catcoonden_placer",
         builder_tag = "emocatgirl",
-        atlas = "images/inventoryimages/welina_structures.xml",
+        atlas = "images/inventoryimages/welina_items.xml",
         image = "catcoon_den.tex",
 
     },
@@ -30,22 +31,22 @@ AddCharacterRecipe("catcoonden", -- name
         "MAGIC",
         "MODS",
     })
+--]]
 
 
-
-AddCharacterRecipe("catcoon_nametag", -- name
+AddCharacterRecipe("welina_collar", -- name
     {                                 -- ingredients
-        GLOBAL.Ingredient("rope", 1),
-        GLOBAL.Ingredient("goldnugget", 1),
+        GLOBAL.Ingredient("coontail", 1),
+        GLOBAL.Ingredient("nightmarefuel", 2),
     },
     GLOBAL.TECH.SCIENCE_ONE, -- tech
     {                        -- config
 
-        atlas = "images/inventoryimages/welina_structures.xml",
-        image = "ms_global_nametag_goth.tex",
+        atlas = "images/inventoryimages/welina_items.xml",
+        image = "welina_collar.tex",
         builder_tag = "emocatgirl",
 
-        product = "catcoon_nametag",
+        product = "welina_collar",
         numtogive = 1,
 
     },

@@ -37,9 +37,9 @@ Assets = {
 	
 	Asset( "IMAGE", "images/inventoryimages/welina_items.tex" ),
     Asset( "ATLAS", "images/inventoryimages/welina_items.xml" ),
-
-    Asset( "IMAGE", "images/inventoryimages/welina_structures.tex" ),
-    Asset( "ATLAS", "images/inventoryimages/welina_structures.xml" ),
+	
+	Asset("ANIM", "anim/welina_collar.zip"),
+	Asset("ANIM", "anim/ui_welina_collar.zip"),
 	
     
 }
@@ -52,7 +52,6 @@ table.insert(Assets, Asset("SOUND", "sound/welina.fsb"))
 table.insert(Assets, Asset("SOUNDPACKAGE", "sound/scotchmintz_characters.fev"))
 
 AddAnim("catcoonden_anims_welina")
-AddDynamic("welina_collar")
 
 
 AddMinimapAtlas("images/map_icons/welina.xml")

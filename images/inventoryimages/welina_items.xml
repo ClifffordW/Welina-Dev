@@ -1,44 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Atlas>
-	<Texture filename="wcard_items.tex" />
+	<Texture filename="welina_items.tex" />
 	<Elements>
-		<Element name="ms_wcard_diary_deathnote.tex" u1="0.001" u2="0.133765625" v2="0.999" v1="0.870140625" variant="" />
-		<Element name="wcard_bluesuperstaff.tex" u1="0.135765625" u2="0.2568125" v2="0.999" v1="0.877953125" variant="" />
-		<Element name="wcard_callingcard.tex" u1="0.001" u2="0.1161875" v2="0.868140625" v1="0.75490625" variant="" />
-		<Element name="wcard_callingcard_black.tex" u1="0.135765625" u2="0.249" v2="0.875953125" v1="0.756859375" variant="" />
-		<Element name="wcard_callingcard_red.tex" u1="0.2588125" u2="0.374" v2="0.999" v1="0.87990625" variant="" />
-		<Element name="wcard_callingcard_white.tex" u1="0.251" u2="0.3661875" v2="0.875953125" v1="0.756859375" variant="" />
-		<Element name="wcard_callingcard_yellow.tex" u1="0.376" u2="0.489234375" v2="0.999" v1="0.87990625" variant="" />
-		<Element name="wcard_cane.tex" u1="0.3681875" u2="0.489234375" v2="0.87790625" v1="0.7588125" variant="" />
-		<Element name="wcard_deck.tex" u1="0.001" u2="0.1318125" v2="0.75290625" v1="0.639671875" variant="" />
-		<Element name="wcard_deck_blue.tex" u1="0.001" u2="0.133765625" v2="0.637671875" v1="0.522484375" variant="" />
-		<Element name="wcard_deck_green.tex" u1="0.1338125" u2="0.266578125" v2="0.754859375" v1="0.639671875" variant="" />
-		<Element name="wcard_deck_opal.tex" u1="0.135765625" u2="0.26853125" v2="0.637671875" v1="0.522484375" variant="" />
-		<Element name="wcard_deck_orange.tex" u1="0.268578125" u2="0.40134375" v2="0.754859375" v1="0.639671875" variant="" />
-		<Element name="wcard_deck_purple.tex" u1="0.27053125" u2="0.403296875" v2="0.637671875" v1="0.522484375" variant="" />
-		<Element name="wcard_deck_red.tex" u1="0.491234375" u2="0.624" v2="0.999" v1="0.8838125" variant="" />
-		<Element name="wcard_deck_yellow.tex" u1="0.491234375" u2="0.624" v2="0.8818125" v1="0.766625" variant="" />
-		<Element name="wcard_diary.tex" u1="0.626" u2="0.758765625" v2="0.999" v1="0.870140625" variant="" />
-		<Element name="wcard_digger.tex" u1="0.491234375" u2="0.6161875" v2="0.764625" v1="0.641625" variant="" />
-		<Element name="wcard_duelist.tex" u1="0.626" u2="0.75290625" v2="0.868140625" v1="0.745140625" variant="" />
-		<Element name="wcard_greensuperstaff.tex" u1="0.760765625" u2="0.8818125" v2="0.999" v1="0.87990625" variant="" />
-		<Element name="wcard_lumber.tex" u1="0.405296875" u2="0.53025" v2="0.639625" v1="0.516625" variant="" />
-		<Element name="wcard_miner.tex" u1="0.760765625" u2="0.88571875" v2="0.87790625" v1="0.752953125" variant="" />
-		<Element name="wcard_opalsuperstaff.tex" u1="0.6181875" u2="0.73728125" v2="0.743140625" v1="0.624046875" variant="" />
-		<Element name="wcard_orangesuperstaff.tex" u1="0.53225" u2="0.65134375" v2="0.622046875" v1="0.501" variant="" />
-		<Element name="wcard_purplesuperstaff.tex" u1="0.73928125" u2="0.85446875" v2="0.743140625" v1="0.620140625" variant="" />
-		<Element name="wcard_redsuperstaff.tex" u1="0.85646875" u2="0.977515625" v2="0.750953125" v1="0.627953125" variant="" />
-		<Element name="wcard_throwingcard.tex" u1="0.40334375" u2="0.481421875" v2="0.7568125" v1="0.6494375" variant="" />
-		<Element name="wcard_throwingcard_blue.tex" u1="0.88771875" u2="0.9911875" v2="0.999" v1="0.874046875" variant="" />
-		<Element name="wcard_throwingcard_green.tex" u1="0.85646875" u2="0.961890625" v2="0.625953125" v1="0.501" variant="" />
-		<Element name="wcard_throwingcard_red.tex" u1="0.001" u2="0.10446875" v2="0.520484375" v1="0.39553125" variant="" />
-		<Element name="wcard_throwingcard_yellow.tex" u1="0.10646875" u2="0.2099375" v2="0.520484375" v1="0.39553125" variant="" />
-		<Element name="wcard_tophat.tex" u1="0.001" u2="0.106421875" v2="0.39353125" v1="0.27834375" variant="" />
-		<Element name="wcard_tophat_black.tex" u1="0.2119375" u2="0.317359375" v2="0.520484375" v1="0.40334375" variant="" />
-		<Element name="wcard_tophat_red.tex" u1="0.108421875" u2="0.21384375" v2="0.39353125" v1="0.276390625" variant="" />
-		<Element name="wcard_tophat_white.tex" u1="0.001" u2="0.106421875" v2="0.27634375" v1="0.159203125" variant="" />
-		<Element name="wcard_tophat_yellow.tex" u1="0.21584375" u2="0.321265625" v2="0.40134375" v1="0.284203125" variant="" />
-		<Element name="wcard_wand.tex" u1="0.108421875" u2="0.235328125" v2="0.274390625" v1="0.163109375" variant="" />
-		<Element name="wcard_yellowsuperstaff.tex" u1="0.001" u2="0.12009375" v2="0.157203125" v1="0.04396875" variant="" />
+		<Element name="welina_collar.tex" u1="0.001" u2="0.483375" v2="0.999" v1="0.03225" variant="" />
+		<Element name="welina_den.tex" u1="0.485375" u2="0.9286875" v2="0.999" v1="0.079125" variant="" />
 	</Elements>
 </Atlas>

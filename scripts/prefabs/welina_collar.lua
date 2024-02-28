@@ -1,6 +1,7 @@
 local assets =
 {
-    Asset("ANIM", "anim/kitcoon_nametag.zip"),
+    Asset("ANIM", "anim/welina_collar.zip"),
+	Asset("ANIM", "anim/ui_welina_collar.zip"),
 }
 
 local prefabs =
@@ -8,11 +9,11 @@ local prefabs =
 
 }
 
-require("writeables").AddLayout("catcoon_nametag", 
+require("writeables").AddLayout("welina_collar", 
 {
     prompt = STRINGS.KITCOON_NAMING.MENU_PROMPT,
-    animbank = "ui_board_5x3",
-    animbuild = "ui_board_5x3",
+    animbank = "ui_welina_collar",
+    animbuild = "ui_welina_collar",
     menuoffset = Vector3(6, -70, 0),
 	maxcharacters = TUNING.KITCOON_NAMING_MAX_LENGTH,
 
@@ -99,8 +100,8 @@ local function fn()
 
     MakeInventoryPhysics(inst)
 
-    inst.AnimState:SetBank("global_nametag")
-    inst.AnimState:SetBuild("welina_collar")
+    inst.AnimState:SetBank("welina_collar")
+    inst.AnimState:SetBuild("kitcoon_nametag")
     inst.AnimState:PlayAnimation("idle")
 
     MakeInventoryFloatable(inst)
@@ -123,8 +124,8 @@ local function fn()
 	inst.components.writeable.remove_after_write = true
 
     inst:AddComponent("inventoryitem")
-    inst.components.inventoryitem.imagename = "ms_global_nametag_goth"
-    inst.components.inventoryitem.atlasname = "images/inventoryimages/welina_structures.xml"
+    inst.components.inventoryitem.imagename = "welina_collar"
+    inst.components.inventoryitem.atlasname = "images/inventoryimages/welina_items.xml"
 
     inst:AddComponent("useabletargeteditem")
     inst.components.useabletargeteditem:SetOnUseFn(OnUseOnKitcoon)
@@ -133,4 +134,4 @@ local function fn()
     return inst
 end
 
-return Prefab("catcoon_nametag", fn, assets)
+return Prefab("welina_collar", fn, assets)

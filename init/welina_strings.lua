@@ -167,67 +167,71 @@ FIRESTARTER = "Stop, fire burn big ears",
 
 STRINGS.CHARACTERS.WALTER.DESCRIBE.WELINA =
 {
-GENERIC = "You're a rabbit, but you're also a human! That's incredible!",
-ATTACKER = "%s, we should all be friendly to each other, come on!",
+GENERIC = "Hey %s, cool hat!",
+ATTACKER = "Why can't you be more friendly, %s?",
 MURDERER = "It's a killer rabbit! I've heard stories of them before!",
 REVIVER = "I'm glad you're one of our friends, %s!",
 GHOST = "She kept the ears, but the horns don't stay on?",
 FIRESTARTER = "You should be more careful with torches, %s!",
 }
 
+STRINGS.NAMES.WELINA_COLLAR = "Spiked Collar"
+STRINGS.RECIPE_DESC.WELINA_COLLAR = "Put your feline friends on the edge."
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR = "Never forgive, never forget."
+
 
 -------------------------------------- Whisky Stuff -----------------------------------------------------------------
 
 if KnownModIndex:IsModEnabled("workshop-2858309592") then
 
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYYARN = ""
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYBUNDLE = "Does she still fill those with spiders."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYBUNDLEWRAP = "Lord knows how this paper preserves foods."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYMASK = "She's inherited some of my artistic talent, clearly."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYRIBBON = "Oh yes, fashionable indeed, darling."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYSUNHAT = "That spider has a knack for hat making of all things."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYSUNGLASSES = "A popular design amongst humans."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYWHIP = "Primitive, and lacking of any sort of magic."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKPACK = "What sort of spider junk is in there is none of my business."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYYARN = "Hm, decent bandaging."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYBUNDLE = "It's full of something alright, and it ain't cupcakes."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYBUNDLEWRAP = "It's spider-made wraps."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYMASK = "This is so stupid it might just work."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYRIBBON = "Ugh, too girl, next."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYSUNHAT = "I'd wear it if it was black, but alas."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYSUNGLASSES = "These could actually fit my style, huh."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYWHIP = "It's ridiculously sticky, how does she use it."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKPACK = "Spider junk sack, or something."
 
 
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKY = 
 {
-	GENERIC = "What the- I don't remember her proportions being this... generous!",
-	ATTACKER = "I see you've also inherited my violent tendencies.",
-	MURDERER = "She murders others, in cold blood! I could never be more proud!",
-	REVIVER = "Bet you love feeling useful, darling.",
-	GHOST = "I cannyot just leave her like this!",
-	FIRESTARTER = "That's so unlike you, spider-girl...",
+	GENERIC = "I uh... see you have a lot of weight on your shoulders.",
+	ATTACKER = "How can a cupcake like you harm someone.",
+	MURDERER = "End of the line, cupcake. Time to deflate you.",
+	REVIVER = "Well, at least someone's here reliable",
+	GHOST = "I'll have to make this right.",
+	FIRESTARTER = "Burning stuff doesn't really fit you, cupcake.",
 }
 
 end
 
 if KnownModIndex:IsModEnabled("workshop-3021568491") then
 
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT = "If you think her hat looks big you should see it from the inside..."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_BLACK = "Wildcard always cared a lot about her looks."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_WHITE = "Wildcard always cared a lot about her looks."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_RED = "Wildcard always cared a lot about her looks."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_YELLOW = "Wildcard always cared a lot about her looks."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD = "Oh hell nya, i know what that's used for."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_BLACK = "Her tricks always left me a little paranyoid."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_WHITE = "Her tricks always left me a little paranyoid."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_RED = "Her tricks always left me a little paranyoid."
-	STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_YELLOW = "Her tricks always left me a little paranyoid."
-	STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_DIARY = "She caught me going through her diary once, it was not pretty..."
-	STRINGS.CHARACTERS.WELINA.DESCRIBE.RABBIT_WCARD = "Wildcard... she's very cruel."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT = "How does she fit all of herself in that?"
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_BLACK = "How does she fit all of herself in that?"
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_WHITE = "How does she fit all of herself in that?"
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_RED = "How does she fit all of herself in that?"
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_YELLOW = "How does she fit all of herself in that?"
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD = "Questionable choice of design."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_BLACK = "Questionable choice of design."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_WHITE = "Questionable choice of design."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_RED = "Questionable choice of design."
+	STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_YELLOW = "Questionable choice of design."
+	STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_DIARY = "I was told nyot to touch that, nyot that i was going to anyaway."
+	STRINGS.CHARACTERS.WELINA.DESCRIBE.RABBIT_WCARD = "Should turn it into a cat next time."
 	
 
 
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WILDCARD = 
 {
-	GENERIC = "Miss... %s...?",
-	ATTACKER = "I always believed you had good left in nyou...",
-	MURDERER = "...but i was wrong.",
-	REVIVER = "Do you still care for us?",
-	GHOST = "I can't let her stay like this, i nyeed to get a heart.",
-	FIRESTARTER = "You never change, do you.",
+	GENERIC = "Hello bun-girl.",
+	ATTACKER = "I guess that nasty personality isn't just for show.",
+	MURDERER = "I've got a gravestone prepared with your name on it!",
+	REVIVER = "Can't shake off the feeling that she doesn't really care.",
+	GHOST = "Ms.Magician here needs a heart.",
+	FIRESTARTER = "Was burning that part of your magic act or something?",
 }
 
 end
