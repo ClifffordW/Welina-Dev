@@ -3,176 +3,176 @@
 
 STRINGS.CHARACTERS.WEBBER.DESCRIBE.WELINA =
 {
-    GENERIC = "Hello Ms.Wc! Can we touch your ears?",
-    ATTACKER = "%s hurting others is not very nice.",
-    MURDERER = "%s is terrifying! Please keep away!",
-    REVIVER = "We're glad we have someone like %s with us!",
-    GHOST = "We knew those ears had to be real!",
-    FIRESTARTER = "Ms.Wc you're not causing trouble on purpose, are you?",
+    GENERIC = "I hope you don't hate us like the other cats, Ms.%s!",
+    ATTACKER = "%s you're pretty aggressive for a cat!",
+    MURDERER = "It's crazy cat-lady, yikes.",
+    REVIVER = "Thank you for being helpful to us, Ms.%s",
+    GHOST = "Oh no, Ms.%s lost her beanie...",
+    FIRESTARTER = "I don't think you burnt that by accident Ms.%s...",
 }
 
 
 
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA =
 {
-    GENERIC = "Good day, %s.",
-    ATTACKER = "Are you trying to get us all killed, %s!?",
-    MURDERER = "I knew something was off about you from the start, if i have to kill you i will!",
-    REVIVER = "For someone with such a menacing presence, %s is quite reliable.",
-    GHOST = "Those big ears stay on even in death.",
-    FIRESTARTER = "%s, care to explain why you burnt that?",
+    GENERIC = "A weird phenomenon recently, with animals turning into women.",
+    ATTACKER = "I'm starting to doubt you, %s.",
+    MURDERER = "That's it, I'll get rid of all your nine lives!",
+    REVIVER = "You're one reliable cat, Welina.",
+    GHOST = "I guess she does have cat ears under that hat.",
+    FIRESTARTER = "Playing with torches now, %s?",
 }
 
 
 STRINGS.CHARACTERS.WILLOW.DESCRIBE.WELINA =
 {
-GENERIC = "Is this a bunny, like for real??",
-ATTACKER = "I thought bunnies were supposed to be passive creatures.",
-MURDERER = "This bunny's gone mad, quick someone make one of those grass traps!",
-REVIVER = "And i thought you'd be more trouble than me, %s.",
-GHOST = "I'll get you a heart, don't worry bun.",
-FIRESTARTER = "Aha! You want to watch the world burn too, don't you?",
+GENERIC = "Damn %s, you've got some style.",
+ATTACKER = "Did you accidentally hurt someone with those spikes??",
+MURDERER = "I see you want to do this the hard way, well then cat girl.",
+REVIVER = "It's good to have someone with more lives to count on.",
+GHOST = "Eh we'll get you back up on your feet, just wait.",
+FIRESTARTER = "I knew we had something in common, %s!",
 }
 
 
 STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WELINA =
 {
-GENERIC = "Is scary bunny, hello.",
-ATTACKER = "Bunny attacking others, stay away from Wolfgang!",
-MURDERER = "Is killer bunny, Wolfgang must run!",
-REVIVER = "Thank you for help, is good bunny.",
-GHOST = "%s need a heart to be alive again.",
-FIRESTARTER = "Bunny man lady is burning everything!.",
+GENERIC = "Ha ha, puny cat woman.",
+ATTACKER = "Cat girl is too unfriendly.",
+MURDERER = "Wolfgang will kill you for hurting others, little cat lady!",
+REVIVER = "Thank you for help, %s.",
+GHOST = "%s don't worry, will fix.",
+FIRESTARTER = "Bad cat girl, burns everything.",
 }
 
 
 STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA =
 {
-GENERIC = "%s has a terrifying presence.",
-ATTACKER = "I can sense a burning hatred behind those eyes",
-MURDERER = "You must be stopped before this gets out of hand.",
-REVIVER = "Is your compassion truly honest, %s?",
-GHOST = "We can still bring you back to this world.",
-FIRESTARTER = "Do you perhaps find peace in destruction, %s?",
+GENERIC = "Do we see the same world, %s?",
+ATTACKER = "Harming others won't help you, %s.",
+MURDERER = "I thought you understood me, but you're just a shameless murderer...",
+REVIVER = "%s bring comfort to those around her.",
+GHOST = "You'll be brought back soon enough, %s.",
+FIRESTARTER = "Did you mean to set that ablaze, %s?",
 }
 
 
 STRINGS.CHARACTERS.WX78.DESCRIBE.WELINA =
 {
-GENERIC = "VOLATILE RABBIT DETECTED.",
-ATTACKER = "YOU DO NOT SCARE ME.",
-MURDERER = "TO THINK SOMEONE DIED TO A RABBIT. PATHETIC.",
-REVIVER = "MANIPULATIVE BEHAVIOR CONFIRMED.",
-GHOST = "THE EARS ARE FOREVER ATTACHED TO HER. HA HA.",
-FIRESTARTER = "I'D ACT SURPRISED BUT IT WAS PRETTY OBVIOUS SHE'D DESTROY AT LEAST SOMETHING.",
+GENERIC = "IT'S A HUMAN CAT, WHAT.",
+ATTACKER = "IT IS RECOMMENDED TO KEEP THIS CAT ON A LEASH.",
+MURDERER = "SOME FLESHLING DIED TO THIS WALKING CACTUS.",
+REVIVER = "WHY WOULD YOU HELP OTHER FLESHLINGS.",
+GHOST = "HOW MANY MORE LIVES IS THAT. HA.",
+FIRESTARTER = "I WOULD SLOWLY CLAP, IF MY SLOW CLAP PROCESSOR WORKED.",
 }
 
 
 STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WELINA =
 {
-GENERIC = "%s, would you kindly wear something less indecent.",
-ATTACKER = "Hurting others won't get you anywhere, %s.",
-MURDERER = "Murderers don't belong in my library.",
-REVIVER = "%s still shows compassion for our fellow survivors.",
-GHOST = "We must find her a heart at once.",
-FIRESTARTER = "Shamelessly causing havoc is VERY unwise, Wildcard.",
+GENERIC = "I would really love to pet her, but i assume she won't like that.",
+ATTACKER = "It is not recommended to go against us, %s.",
+MURDERER = "This is the end for you, %s.",
+REVIVER = "%s is a good little kitten.",
+GHOST = "We MUST revive this kitten as soon as possible.",
+FIRESTARTER = "I did not know cats have such destructive tendencies.",
 }
 
 
 STRINGS.CHARACTERS.WOODIE.DESCRIBE.WELINA =
 {
-GENERIC = "Not a big fan of clothes, eh?",
-ATTACKER = "Bit violent for a rabbit, careful with 'em.",
-MURDERER = "Looks like we'll have to chop this rabbit down, Lucy.",
-REVIVER = "%s's quite reliable when he's gotta be.",
-GHOST = "I guess that's the end of the show, eh?",
-FIRESTARTER = "Careful, i wouldn't trust him with a torch.",
+GENERIC = "That's not a cat i've seen before.",
+ATTACKER = "This thing's got claws, eh?",
+MURDERER = "I'll have you chopped in half for that.",
+REVIVER = "%s is one helpful cat.",
+GHOST = "That's one life down for this cat, eh?",
+FIRESTARTER = "Keep those torches away from this cat.",
 }
 
 
 
 STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WELINA =
 {
-GENERIC = "How come i've never heard of such a figure as yourself, Ms.%s",
-ATTACKER = "Short tempered, are we?",
-MURDERER = "Your mockery of dark arts end here and now.",
-REVIVER = "It's good to have a killer with a conscience on your side.",
-GHOST = "For some reason i feel more at ease.",
-FIRESTARTER = "You're quite destructive with your powers, pal.",
+GENERIC = "I have no recollection of ever making this.",
+ATTACKER = "You've got a bit of a bad side to you, %s.",
+MURDERER = "Let's see if you'll keep that attitude six feet under.",
+REVIVER = "Well at least she's more reliable than Higgsbury.",
+GHOST = "That cat is looking worse than usual.",
+FIRESTARTER = "Try causing a bit less destruction around, pal.",
 }
 
 STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WELINA =
 {
-GENERIC = "%s, a rabbit of the dark forces.",
-ATTACKER = "%s is longing for battle.",
-MURDERER = "Your crimes shall be punished, rabbit. Prepare to be eaten!",
-REVIVER = "%s is a worthy ally in times of need!",
-GHOST = "You can't leave us yet, %s!",
-FIRESTARTER = "'Tis a rabbit that finds joy fire and destruction.",
+GENERIC = "Have you been sent here by Freya, %s?",
+ATTACKER = "%s, is this a challenge to battle?",
+MURDERER = "You look a lot more delicious all of a sudden, %s!",
+REVIVER = "%s, you are a valuable ally!",
+GHOST = "You can't leave us yet, %s.",
+FIRESTARTER = "'Tis a servant of Loki.",
 }
 
 STRINGS.CHARACTERS.WINONA.DESCRIBE.WELINA =
 {
-GENERIC = "'Sup %s.",
-ATTACKER = "You're not familiar with workplace safety, are ya?",
-MURDERER = "Now you've done it %s, i'm puttin' you down right here and now!",
-REVIVER = "You're a valuable worker, i'll give ya that, girl.",
-GHOST = "Wait, so those are her actual ears?",
-FIRESTARTER = "Think you should be a little more careful around the workplace, %s.",
+GENERIC = "You got real ears under that hat, %s? Let me check!",
+ATTACKER = "Not too familiar with our rules around here?",
+MURDERER = "This cat's gone mad, time to put her down for good.",
+REVIVER = "A hard working girl you are, %s.",
+GHOST = "I guess those ears are real.",
+FIRESTARTER = "Be more mindful with torches around machinery, %s.",
 }
 
 
 STRINGS.CHARACTERS.WARLY.DESCRIBE.WELINA =
 {
-GENERIC = "Bonjour Madame Wildcard.",
-ATTACKER = "Mon dieu, %s's getting out of control.",
-MURDERER = "I'll make you a dish, murderer!",
-REVIVER = "Merci %s, you've got a good heart.",
-GHOST = "%s looks quite pissed, best get her a heart.",
-FIRESTARTER = "Not everything should be cooked, %s.",
+GENERIC = "Bonjour, %s.",
+ATTACKER = "You don't know your place do you, %s?",
+MURDERER = "Looks like we'll treat ourselves to a chinese menu today.",
+REVIVER = "Ah %s, you've got a good head on your shoulders.",
+GHOST = "%s is in need of a heart.",
+FIRESTARTER = "You're not gathering charcoal for cooking, are you, %s?",
 }
 
 
 STRINGS.CHARACTERS.WORTOX.DESCRIBE.WELINA =
 {
-GENERIC = "Hyuhyu, why must you hate me so?",
-ATTACKER = "Now now Madam, s-surely we can talk this out!",
-MURDERER = "Oh demon in the guise of a rabbit, you wouldn't hurt this poor imp.",
-REVIVER = "And i thought you wanted everyone dead.",
-GHOST = "Just a little bite off your ears if i may, Madam.",
-FIRESTARTER = "Hyuhyu! Playing with matches now, aren't we?",
+GENERIC = "A lot alike that rabbit girl, a bit on the sombre side",
+ATTACKER = "Oh my, this thing's got claws.",
+MURDERER = "I don't want problems, Miss %s!",
+REVIVER = "Hyuhyu, imp-pressive display of compassion!",
+GHOST = "Wouldn't you have 9 souls then, dear?",
+FIRESTARTER = "Tell me, why are you covered in ash?",
 }
 
 
 STRINGS.CHARACTERS.WURT.DESCRIBE.WELINA =
 {
-GENERIC = "Hello big ear lady!",
-ATTACKER = "Stoping hurting my friends, flort!",
-MURDERER = "Grrr, %s will kill friends!",
-REVIVER = "You not bad, florp.",
-GHOST = "Don't worry, will find heart for rabbit!",
-FIRESTARTER = "Why burn stuff, %s?",
+GENERIC = "Grrr, hate cats.",
+ATTACKER = "Bad cat, you're hurting others!",
+MURDERER = "%s is evil, hate murderers!",
+REVIVER = "This cat is okay, florp.",
+GHOST = "Can i keep her like this?",
+FIRESTARTER = "Why smell like burning, %s?",
 }
 
 
 STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WELINA =
 {
-GENERIC = "%s is big ear friend",
-ATTACKER = "Very hurty, %s",
-MURDERER = "%s terrible! Make big ears dead",
-REVIVER = "%s good bunny",
-GHOST = "%s dead. Need hearting",
-FIRESTARTER = "Stop, fire burn big ears",
+GENERIC = "%s is smaller ear friend",
+ATTACKER = "Bad cat, %s",
+MURDERER = "%s kill friends, you will die",
+REVIVER = "%s helpful, glad",
+GHOST = "%s need heart for cat",
+FIRESTARTER = "Why burning tree friend, %s",
 }
 
 STRINGS.CHARACTERS.WALTER.DESCRIBE.WELINA =
 {
 GENERIC = "Hey %s, cool hat!",
-ATTACKER = "Why can't you be more friendly, %s?",
-MURDERER = "It's a killer rabbit! I've heard stories of them before!",
-REVIVER = "I'm glad you're one of our friends, %s!",
-GHOST = "She kept the ears, but the horns don't stay on?",
-FIRESTARTER = "You should be more careful with torches, %s!",
+ATTACKER = "We have to work together, %s!",
+MURDERER = "This is one bad cat, defend yourselves!",
+REVIVER = "It's good to have someone like you on our side, %s!",
+GHOST = "Oh no, she's down a life!",
+FIRESTARTER = "I should teach you about fire safety, %s.",
 }
 
 STRINGS.NAMES.WELINA_COLLAR = "Spiked Collar"

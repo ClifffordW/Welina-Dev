@@ -133,7 +133,7 @@ local function OnTakeDamage(inst, data)
         end
         
         -- Calculate the bonus damage for this attacker
-        local damageToAdd = math.floor(data.damage) * 0.001
+        local damageToAdd = math.floor(data.damage) * TUNING.WELINA_RESENTMENT
         
         -- Add the bonus damage to the total for this attacker
         inst.attackerDamageBonuses[attackerGUID] = inst.attackerDamageBonuses[attackerGUID] + damageToAdd
@@ -296,7 +296,7 @@ local common_postinit = function(inst)
 	inst:AddTag("emocatgirl")
 
 
-	inst.components.talker.font = TALKINGFONT_WELINA
+	--inst.components.talker.font = TALKINGFONT_WELINA
 
 	if TUNING.WELINA_9LIVES == 1 then
 		
@@ -349,16 +349,24 @@ local master_postinit = function(inst)
 	inst.components.hunger:SetMax(TUNING.WELINA_HUNGER)
 
 	inst.components.sanity:SetMax(TUNING.WELINA_SANITY)
-	inst.components.sanity.sanity_aura_immune = true
+	--inst.components.sanity.sanity_aura_immune = true
+	inst.components.sanity.night_drain_mult = TUNING.WENDY_SANITY_MULT
+    inst.components.sanity.neg_aura_mult = TUNING.WENDY_SANITY_MULT
+    inst.components.sanity:AddSanityAuraImmunity("ghost")
+    inst.components.sanity:SetPlayerGhostImmunity(true)
+	
 
+	inst.components.playerlightningtarget:SetHitChance(TUNING.WES_LIGHTNING_TARGET_CHANCE)
 
 	-- Damage multiplier (optional)
 	inst.components.combat.damagemultiplier = TUNING.WELINA_DAMAGE
 
-
-
 	-- Hunger rate (optional)
 	inst.components.hunger.hungerrate = TUNING.WELINA_HUNGERDRAIN * TUNING.WILSON_HUNGER_RATE
+	
+	if inst.components.eater ~= nil then
+        inst.components.eater:SetIgnoresSpoilage(true)
+    end
 
 	inst.components.locomotor:SetExternalSpeedMultiplier(inst, "welina_speed_mod", TUNING.WELINA_MOVESPEED)
 

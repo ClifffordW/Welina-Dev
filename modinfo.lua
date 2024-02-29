@@ -241,7 +241,7 @@ modinfo_ver = lookup.modinfo_module
 	{
 		name = "WELINA_9LIVES",
 		label = "Welina 9 Lives",
-		hover = "Should welina have permadeath?",
+		hover = "Should Welinas 9th death be permanent?",
 		options =
 		{
 			{description = "Enabled", data = 1, hover="Default 󰀡"},
@@ -253,7 +253,7 @@ modinfo_ver = lookup.modinfo_module
 	},
 	{
 		name = "WELINA_OSP",
-		label = "Welinas One Shot Protection",
+		label = "Welinas OSP",
 		hover = "Disable or enable Welina hissing when taking a fatal hit at above 90% health.",
 		options =
 		{
@@ -265,7 +265,7 @@ modinfo_ver = lookup.modinfo_module
 	
 	{
 		name = "WELINA_OSP_THRESHOLD",
-		label = "Welinas One Shot Protection Threshold",
+		label = "Welinas OSP Threshold",
 		hover = "At what percentage of health should OSP still be active.",
 		options =
 		{
@@ -296,7 +296,7 @@ modinfo_ver = lookup.modinfo_module
 		{
 		name = "WELINA_REFLECT_AMOUNT",
 		label = "Welinas Edgyness Strenght",
-		hover = "Amount of damage reflected back to attacker",
+		hover = "Amount of damage reflected back to attacker.",
 		options =
 		{
 			{description = "x2", data = 2},
@@ -308,6 +308,23 @@ modinfo_ver = lookup.modinfo_module
 			{description = "x8", data = 8},
 		},
 		default = 5
+	},
+	
+	{
+		name = "WELINA_RESENTMENT",
+		label = "Welinas Resenfulness",
+		hover = "How much of the damage Welina has taken is added to her attack.",
+		options =
+		{
+			{description = "10%", data = 0.001},
+			{description = "20%", data = 0.002, hover="Default 󰀡"},
+			{description = "30%", data = 0.003},
+			{description = "40%", data = 0.004},
+			{description = "50%", data = 0.005},
+			{description = "60%", data = 0.006},
+			{description = "70%", data = 0.007},
+		},
+		default = 0.002
 	},
 
 	Title("Scrapped Features"),
@@ -328,14 +345,24 @@ modinfo_ver = lookup.modinfo_module
 	
 	Title("Cliffford's Shenanigans 󰀩"),
 	
-
+	{
+		name = "WELINA_CATCOONHATS",
+		label = "Hatted Catcoons",
+		hover = "Enable or disable catcoons wearing hats (May be broken).",
+		options =
+		{
+			{description = "Enabled", data = 1},
+			{description = "Disabled", data = 0, hover="Default 󰀡"},
+		},
+		default = 0
+	},
 
 
 
 	{
 		name = "WELINA_LASTLIFE_MUSIC",
 		label = "Last Life Music",
-		hover = "Should welina have permadeath?",
+		hover = "Welinas final life sfx.",
 		options =
 		{
 			{description = "Default", data = "scotchmintz_characters/sfx/welina_bell", hover="Default 󰀡"},

@@ -100,8 +100,8 @@ local function fn()
 
     MakeInventoryPhysics(inst)
 
-    inst.AnimState:SetBank("welina_collar")
-    inst.AnimState:SetBuild("kitcoon_nametag")
+    inst.AnimState:SetBank("kitcoon_nametag")
+    inst.AnimState:SetBuild("welina_collar")
     inst.AnimState:PlayAnimation("idle")
 
     MakeInventoryFloatable(inst)

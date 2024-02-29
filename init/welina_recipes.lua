@@ -3,7 +3,7 @@ local require = _G.require
 local TUNING = _G.TUNING
 
 --AddPrefab("welina_hiss")
-AddPrefab("catcoonden")
+--AddPrefab("catcoonden")
 AddPrefab("welina_collar")
 
 
@@ -38,8 +38,9 @@ AddCharacterRecipe("welina_collar", -- name
     {                                 -- ingredients
         GLOBAL.Ingredient("coontail", 1),
         GLOBAL.Ingredient("nightmarefuel", 2),
+		GLOBAL.Ingredient("flint", 5),
     },
-    GLOBAL.TECH.SCIENCE_ONE, -- tech
+    GLOBAL.TECH.NONE, -- tech
     {                        -- config
 
         atlas = "images/inventoryimages/welina_items.xml",

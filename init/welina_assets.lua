@@ -46,12 +46,14 @@ Assets = {
 
 
 AddAnim("welina_hiss_anim")
+if TUNING.WELINA_CATCOONHATS == 1 then
 AddAnim("catcoon_basic")
 AddAnim("catcoon_actions")
+end
 table.insert(Assets, Asset("SOUND", "sound/welina.fsb"))
 table.insert(Assets, Asset("SOUNDPACKAGE", "sound/scotchmintz_characters.fev"))
 
-AddAnim("catcoonden_anims_welina")
+--AddAnim("catcoonden_anims_welina")
 
 
 AddMinimapAtlas("images/map_icons/welina.xml")

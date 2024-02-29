@@ -23,7 +23,7 @@ AddPrefabPostInit("catcoon", function(inst, ...)
     inst.OnGetItemFromPlayer = function(inst, giver, item, ...)
         local ret = OnGetItemFromPlayer(inst, giver, item, ...)
 
-
+if TUNING.WELINA_CATCOONHATS == 1 then
         --I wear hats
         if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
             local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
@@ -52,7 +52,7 @@ AddPrefabPostInit("catcoon", function(inst, ...)
 
         return ret
     end
-
+end
 
 
 
@@ -69,8 +69,9 @@ AddPrefabPostInit("catcoon", function(inst, ...)
     end
 
 
-
-    inst.AnimState:SetHatOffset(0, 80)
+	if TUNING.WELINA_CATCOONHATS == 1 then
+		inst.AnimState:SetHatOffset(0, 80)
+	end
 
     if not _G.TheWorld.ismastersim then
         return inst

@@ -5,7 +5,7 @@ PrefabFiles = {
 
 
 AddCharacter("welina", "Welina", "female", "The Downcat", "The sound of the bell has been unusually loud today...", "Welina has a flair for the dramatic.", "welina", "welina", "Slim", false)
-CharacterAbillity("welina", "Nine Lives", "Edgy, Inside and Outside", "Asocial")
+CharacterAbillity("welina", "Nine Lives", "Edgy, Inside and Outside", "Resentful")
 
 
 
@@ -62,5 +62,5 @@ general_scripts.WELINA1 = {
 }
 
 
-AddCharFont("welina")
+--AddCharFont("welina")
 

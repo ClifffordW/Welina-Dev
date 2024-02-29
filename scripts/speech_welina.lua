@@ -33,17 +33,17 @@ return{
 		},
         CONSTRUCT =
         {
-            INUSE = "G-Go away, please?",
+            INUSE = "Can you like, nyack off",
             NOTALLOWED = "I ain't building anything with this here.",
-            EMPTY = "Building something usually involves materials to, like, build with.",
+            EMPTY = "Building something usually involves meowterials to, like, build with.",
             MISMATCH = "This is for something else entirely.",
-            NOTREADY = "There's a little something to tend to right meow.",
+            NOTREADY = "There's bigger issues to deal with right meow.",
         },
 		RUMMAGE =
 		{
 			GENERIC = "Ermm, what the nya?",
-			INUSE = "C-Can you go away, s-seriously.",
-            NOTMASTERCHEF = "I'm like, terrible at this stuff.",
+			INUSE = "Myove aside, cupcake.",
+            NOTMASTERCHEF = "I'm like, terrible at this sorta stuff.",
 		},
 		UNLOCK =
         {
@@ -58,7 +58,7 @@ return{
 		ACTIVATE =
 		{
 			LOCKED_GATE = "I need to find that dyamn key.",
-            HOSTBUSY = "Oh... i'm not that important am i...",
+            HOSTBUSY = "Oh... I guess I'm not importrant enough...",
             CARNIVAL_HOST_HERE = "A HUGE bird? Like, how huge?",
             NOCARNIVAL = "Nyeoww, i was gonna eat them.",
 			EMPTY_CATCOONDEN = "Nyothing else? Lame.",
@@ -86,8 +86,8 @@ return{
 
 		DISMANTLE =
 		{
-			COOKING = "W-what are you cooking, TELL ME.",
-			INUSE = "D-Do you even know how to use this.",
+			COOKING = "W-what are you cooking, TELL MEOW.",
+			INUSE = "Do you even know how to use this.",
 			NOTEMPTY = "I'll have to, like, get rid of the stuff in it first.",
         },
         FISH_OCEAN =
@@ -121,7 +121,7 @@ return{
             GENERIC = "Yeah how about nyot.",
             DEAD = "I don't think the dead, like, need this.",
             SLEEPING = "I should let it sleep, i'm not important enough.",
-            BUSY = "Busy..? It's fine, i'm not that important...",
+            BUSY = "I guess I'm the least of its worries right meow.",
             ABIGAILHEART = "Life's unfair like that.",
             GHOSTHEART = "But it wants to kill meow.",
             NOTGEM = "Not the right thing, i guess.",
@@ -135,7 +135,7 @@ return{
             NOTDISH = "Not even i would eat this.",
             DUPLICATE = "I do nyot need two of the same thing.",
             NOTSCULPTABLE = "It's not the right thing, it just wasn't meant to be the right thing.",
---fallback to speech_wilson.lua             NOTATRIUMKEY = "It's not quite the right shape.",
+--fallback to speech_wilson.lua             NOTATRIUMKEY = "It's shaped like something it's not to be shaped like.",
             CANTSHADOWREVIVE = "It's probably for the best.",
             WRONGSHADOWFORM = "It's okay, sometimes we're just destined to be failures.",
             NOMOON = "It's like, not going to do anything in here..",
@@ -148,48 +148,48 @@ return{
             TERRARIUM_REFUSE = "It nyeeds somethin' REALLY specific.",
             TERRARIUM_COOLDOWN = "That weird tree in it hasn't grown yet.",
             NOTAMONKEY = "But i'm not a myeownkey.",
-            QUEENBUSY = "O-Oh it's fine... i-i'm not that important...",
+            QUEENBUSY = "Hey, don't ignore me, cupcake.",
         },
         GIVETOPLAYER =
         {
-            FULL = "Y-you're carrying a lot on your s-shoulders, t-too.",
-            DEAD = "They d-do nyot need t-this when they're dead.",
-            SLEEPING = "I-I really shouldn't d-d-disturb.",
-            BUSY = "I-I i don't- don't mind m-me.",
+            FULL = "Carrying a lot on your shoulder too?",
+            DEAD = "They're off this world already.",
+            SLEEPING = "Hey, wake up, wake up, wake up, wake up wake up wake up.",
+            BUSY = "Oh, yeah, just ignore me, cupcake.",
         },
         GIVEALLTOPLAYER =
         {
-            FULL = "Y-you're carrying a lot on your s-shoulders, t-too.",
-            DEAD = "They d-do nyot need t-this when they're dead.",
-            SLEEPING = "I-I really shouldn't d-d-disturb.",
-            BUSY = "I-I i don't- don't mind m-me.",
+            FULL = "Carrying a lot on your shoulder too?",
+            DEAD = "They're off this world already.",
+            SLEEPING = "Hey, wake up, wake up, wake up, wake up wake up wake up.",
+            BUSY = "Oh, yeah, just ignore me, cupcake.",
         },
         WRITE =
         {
             GENERIC = "I need to be able to concentrate to do this.",
-            INUSE = "E-excuse me, c-can i... i...",
+            INUSE = "Let me do it, I'll make it worse.",
         },
         DRAW =
         {
-            NOIMAGE = "Drawin' from meowmory is like, really hard.",
+            NOIMAGE = "Drawing from meowmory is like, really hard.",
         },
         CHANGEIN =
         {
             GENERIC = "Can't, like, get any better than this.",
             BURNING = "Oh well.",
-            INUSE = "It's being, it's, o-oh i'm s-sorry...",
-            NOTENOUGHHAIR = "I'll need something i can work with.",
+            INUSE = "It's already being used and abused.",
+            NOTENOUGHHAIR = "I'll need something I can work with.",
             NOOCCUPANT = "There's NO ONE.",
         },
         ATTUNE =
         {
-            NOHEALTH = "Oh... i'm dying, i guess.",
+            NOHEALTH = "Oh... I'm dying, I guess.",
         },
         MOUNT =
         {
             TARGETINCOMBAT = "A bit dangerous right meow.",
             INUSE = "It's already seeing some action alright.",
-			SLEEPING = "I-It's nothing, just keep sleepin'.",
+			SLEEPING = "Ugh, why do you always sleep when i NEED you.",
         },
         SADDLE =
         {
@@ -198,7 +198,7 @@ return{
         TEACH =
         {
             --Recipes/Teacher
-            KNOWN = "Can't learn what i already know.",
+            KNOWN = "Can't learn what I already know.",
             CANTLEARN = "All of this is way beyond meow.",
 
             --MapRecorder/MapExplorer
@@ -220,15 +220,15 @@ return{
 --fallback to speech_wilson.lua             NOTMINE_SPIDER = "only_used_by_webber",
             NOTMINE_YOTC =
             {
-                "B-But, what about me! AM I NOT GOOD ENOUGH??",
-                "I-It's fine, i get it, i wouldn't hang around trash like me either.",
+                "But what about meow! AM I NOT GOOD ENOUGH??",
+                "It's fine, i get it, i wouldn't hang around trash like me either.",
             },
 --fallback to speech_wilson.lua 			NO_HEAVY_LIFTING = "only_used_by_wanda",
             FULL_OF_CURSES = "I won't fall for it, watch.",
         },
         SLAUGHTER =
         {
-            TOOFAR = "Come back, let me slaughter you!",
+            TOOFAR = "Come back, let meow slaughter you!",
         },
         REPLATE =
         {
@@ -243,12 +243,12 @@ return{
         {
             BAD_TIMING0 = "Nyack-!",
             BAD_TIMING1 = "Dyammit, focus Welina!",
-            BAD_TIMING2 = "I'm so bad at everything...",
+            BAD_TIMING2 = "Dyamn I'm terrible at this.",
         },
         LOWER_SAIL_FAIL =
         {
             "I messed ny-up",
-            "If only i could stop disappointing myself.",
+            "If only i could stop disappointing myeowself.",
             "Are you kitten me.",
         },
         BATHBOMB =
@@ -263,7 +263,7 @@ return{
 		COMPARE_WEIGHABLE =
 		{
             FISH_TOO_SMALL = "I might as well eat you.",
-            OVERSIZEDVEGGIES_TOO_SMALL = "You're worthless too...",
+            OVERSIZEDVEGGIES_TOO_SMALL = "You're almost as worthless as me.",
 		},
         BEGIN_QUEST =
         {
@@ -310,7 +310,7 @@ return{
             NEEDBEEF = "I'll be needing the boof.",
             NEEDBEEF_CLOSER = "Get your ass here, boof.",
             BEEF_HITCHED = "I hope it gets told it's worthless.",
-            INMOOD = "I don't think it'll listen to me, but who will really...",
+            INMOOD = "I don't think it'll listen to meow, but who will really...",
         },
         MARK =
         {
@@ -384,7 +384,7 @@ return{
 
         HARVEST =
         {
-            DOER_ISNT_MODULE_OWNER = "This isn't something i would, like, do.",
+            DOER_ISNT_MODULE_OWNER = "This isn't something I would, like, do.",
         },
 
 		CAST_SPELLBOOK =
@@ -394,14 +394,14 @@ return{
 
 		CASTAOE =
 		{
-			NO_MAX_SANITY = "My mind's going blank!",
+			NO_MAX_SANITY = "Myeow mind's going blank!",
 		},
     },
 
 	ANNOUNCE_CANNOT_BUILD =
 	{
 		NO_INGREDIENTS = "Kyah, when is it ever enough.",
-		NO_TECH = "I'm too stupid to make this...",
+		NO_TECH = "I'm too stupid to myake this",
 		NO_STATION = "I can't just make this in the middle of nyowhere.",
 	},
 
@@ -436,7 +436,7 @@ return{
 --fallback to speech_wilson.lua         WIMPY = "only_used_by_wolfang",
     },
 
-	ANNOUNCE_BEES = "I'll kill you all if i have to.",
+	ANNOUNCE_BEES = "I'll kill you all if I have to.",
 	ANNOUNCE_BOOMERANG = "The consequences of myeow actions have caught up.",
 	ANNOUNCE_CHARLIE = "What's that, has my time finally come?",
 	ANNOUNCE_CHARLIE_ATTACK = "NyaAOUCH-",
@@ -454,13 +454,13 @@ return{
 	},
 	ANNOUNCE_ANTLION_TRIBUTE =
 	{
-        "I-I'm... i... s-sorry...",
-        "P-P-Please a-accept... this-",
-        "I-I... i'm... pl....",
+        "Here's your cupcake, uhh... cupcake",
+        "At least you seem happy nyow.",
+        "Alright we're all friends now.",
 	},
-	ANNOUNCE_SACREDCHEST_YES = "I-I'm worthy?! For real?",
+	ANNOUNCE_SACREDCHEST_YES = "I'm worthy?! For real?",
 	ANNOUNCE_SACREDCHEST_NO = "Oh.. Of course...",
-    ANNOUNCE_DUSK = "It'll be dark soon. Charlie will be waking up.",
+    ANNOUNCE_DUSK = "The darkness is enroaching.",
 
     --wx-78 specific
 --fallback to speech_wilson.lua     ANNOUNCE_CHARGE = "only_used_by_wx78",
@@ -558,13 +558,13 @@ return{
 	ANNOUNCE_UNIMPLEMENTED = "This one's not done yet.",
 	ANNOUNCE_WORMHOLE = "Bleh, i've seen things i shouldn't have seen",
 	ANNOUNCE_TOWNPORTALTELEPORT = "It's about time.",
-	ANNOUNCE_CANFIX = "\nIt looks lonely, i can fix that.",
+	ANNOUNCE_CANFIX = "\nIt looks lonely, I can fix that.",
 	ANNOUNCE_ACCOMPLISHMENT = "Yay whatever.",
 	ANNOUNCE_ACCOMPLISHMENT_DONE = "Who cares.",
 	ANNOUNCE_INSUFFICIENTFERTILIZER = "Needs more poop or something.",
 	ANNOUNCE_TOOL_SLIP = "Myack-.",
 	ANNOUNCE_LIGHTNING_DAMAGE_AVOIDED = "Nyah-hah, can't hit me now.",
-	ANNOUNCE_TOADESCAPING = "Dumb frog, death isn't an \"if\" but a \"when\".",
+	ANNOUNCE_TOADESCAPING = "Dumb frog, death isn't an \"if\", it's a \"when\".",
 	ANNOUNCE_TOADESCAPED = "Death will come for you, just you wait.",
 
 
@@ -579,9 +579,9 @@ return{
 	ANNOUNCE_BECOMEGHOST = "oOooooOO!!",
 	ANNOUNCE_GHOSTDRAIN = "The voices won't let up!",
 	ANNOUNCE_PETRIFED_TREES = "Someone scared these trees stiff.",
-	ANNOUNCE_KLAUS_ENRAGE = "Oh. See ya.",
+	ANNOUNCE_KLAUS_ENRAGE = "Oh. See nya.",
 	ANNOUNCE_KLAUS_UNCHAINED = "Huh, i thought only cats had more lives!",
-	ANNOUNCE_KLAUS_CALLFORHELP = "It's getting a little crowded...",
+	ANNOUNCE_KLAUS_CALLFORHELP = "A little crowded for my liking",
 
 	ANNOUNCE_MOONALTAR_MINE =
 	{
@@ -602,14 +602,14 @@ return{
 	ANNOUNCE_MOONPOTION_FAILED = "Doesn't work on me, ugh whatever.",
 
 	--winter's feast
-	ANNOUNCE_EATING_NOT_FEASTING = "I-I'd rather be alone... really...",
+	ANNOUNCE_EATING_NOT_FEASTING = "I'd rather be alone... really...",
 	ANNOUNCE_WINTERS_FEAST_BUFF = "This really hits the spot.",
 	ANNOUNCE_IS_FEASTING = "Oh nice, fancy food.",
 	ANNOUNCE_WINTERS_FEAST_BUFF_OVER = "I'm back to feeling dreadful.",
 
     --lavaarena event
-    ANNOUNCE_REVIVING_CORPSE = "G-Get u-up...",
-    ANNOUNCE_REVIVED_OTHER_CORPSE = "It-It's... it's nothing...",
+    ANNOUNCE_REVIVING_CORPSE = "Get UP...",
+    ANNOUNCE_REVIVED_OTHER_CORPSE = "Thank me, nyow...",
     ANNOUNCE_REVIVED_FROM_CORPSE = "Ugh, alive again.",
 
     ANNOUNCE_FLARE_SEEN = "Am i supposed to run up to it or what.",
@@ -691,9 +691,9 @@ return{
 
 --fallback to speech_wilson.lua     ANNOUNCE_ROYALTY =
 --fallback to speech_wilson.lua     {
---fallback to speech_wilson.lua         "Your majesty.",
+--fallback to speech_wilson.lua         "Your myeowjesty.",
 --fallback to speech_wilson.lua         "Your highness.",
---fallback to speech_wilson.lua         "My liege!",
+--fallback to speech_wilson.lua         "Myeow liege!",
 --fallback to speech_wilson.lua     },
 
     ANNOUNCE_ATTACH_BUFF_ELECTRICATTACK    = "My hair's all tingly.",
@@ -708,12 +708,12 @@ return{
     ANNOUNCE_DETACH_BUFF_PLAYERABSORPTION  = "I almost felt like going out, almost.",
     ANNOUNCE_DETACH_BUFF_WORKEFFECTIVENESS = "I can't focus like a moment ago anymore!",
     ANNOUNCE_DETACH_BUFF_MOISTUREIMMUNITY  = "Nooo, my water resistance!",
-    ANNOUNCE_DETACH_BUFF_SLEEPRESISTANCE   = "I'm droewsy as usual now...",
+    ANNOUNCE_DETACH_BUFF_SLEEPRESISTANCE   = "I'm drowsy as usual nyow...",
 
 	ANNOUNCE_OCEANFISHING_LINESNAP = "You dyamn fish, it took my tackle!",
 	ANNOUNCE_OCEANFISHING_LINETOOLOOSE = "It's too damn loose.",
 	ANNOUNCE_OCEANFISHING_GOTAWAY = "I will find you, and i will kill you.",
-	ANNOUNCE_OCEANFISHING_BADCAST = "I'm just practicing!",
+	ANNOUNCE_OCEANFISHING_BADCAST = "I'm just testing the waters.",
 	ANNOUNCE_OCEANFISHING_IDLE_QUOTE =
 	{
 		"I hate waiting ughhhhh.",
@@ -829,43 +829,43 @@ return{
 
 	ANNOUNCE_TALK_TO_PLANTS =
 	{
-        "H-Hey, there's no way t-they actually are a-alive..?",
-        "I-It hears what i'm saying..?",
+        "Can you hurry up, cupcake?",
+        "Hm... how would she do it... Uh, grow big and... i'll kiss you, darling?",
 		"Uhh, grow... big, or something.",
         "Hurry up, what's taking to long!",
-        "I wish i could live like you... buried.",
+        "I wish i could live like you... buried in the ground.",
 	},
 
-	ANNOUNCE_KITCOON_HIDEANDSEEK_START = "W-We're starting now??",
-	ANNOUNCE_KITCOON_HIDEANDSEEK_JOIN = "N-N-Need h-h-help, o-okay...",
+	ANNOUNCE_KITCOON_HIDEANDSEEK_START = "We're starting now??",
+	ANNOUNCE_KITCOON_HIDEANDSEEK_JOIN = "What do you want from me, cupcake.",
 	ANNOUNCE_KITCOON_HIDANDSEEK_FOUND =
 	{
-		"I-I uhm... h-hi.",
-		"H-H-H-He-Hello.",
-		"G-Got you-u.",
-		"A-Ack, I-I'm uh... n-nya?",
+		"Hi there.",
+		"Could you sign myeow pawtition.",
+		"Gotcha.",
+		"I'm uh... n-nya?",
 	},
-	ANNOUNCE_KITCOON_HIDANDSEEK_FOUND_ONE_MORE = "T-T-There's o-one more around.",
-	ANNOUNCE_KITCOON_HIDANDSEEK_FOUND_LAST_ONE = "Did i w-win?",
-	ANNOUNCE_KITCOON_HIDANDSEEK_FOUND_LAST_ONE_TEAM = "Phew, {name} got to the last one first...",
-	ANNOUNCE_KITCOON_HIDANDSEEK_TIME_ALMOST_UP = "T-Take your time, Welina!",
+	ANNOUNCE_KITCOON_HIDANDSEEK_FOUND_ONE_MORE = "More of them around.",
+	ANNOUNCE_KITCOON_HIDANDSEEK_FOUND_LAST_ONE = "Guh, I won??",
+	ANNOUNCE_KITCOON_HIDANDSEEK_FOUND_LAST_ONE_TEAM = "Dyamn, {name} claimed the last victim.",
+	ANNOUNCE_KITCOON_HIDANDSEEK_TIME_ALMOST_UP = "Take your time, Welina!",
 	ANNOUNCE_KITCOON_HIDANDSEEK_LOSEGAME = "Dyamn, i lost...",
-	ANNOUNCE_KITCOON_HIDANDSEEK_TOOFAR = "There's no way t-they'd run so far out.",
+	ANNOUNCE_KITCOON_HIDANDSEEK_TOOFAR = "There's no way they'd run so far out.",
 	ANNOUNCE_KITCOON_HIDANDSEEK_TOOFAR_RETURN = "This place should be better.",
-	ANNOUNCE_KITCOON_FOUND_IN_THE_WILD = "G-GyAH, w-what ya-are you...",
+	ANNOUNCE_KITCOON_FOUND_IN_THE_WILD = "What are YOU doing here, cupcake",
 
-	ANNOUNCE_TICOON_START_TRACKING	= "P-Please...",
-	ANNOUNCE_TICOON_NOTHING_TO_TRACK = "N-n-no-one... a-around?",
-	ANNOUNCE_TICOON_WAITING_FOR_LEADER = "I-uhm... y-you shouldn't h-have...",
-	ANNOUNCE_TICOON_GET_LEADER_ATTENTION = "M-Me!?? I-ah uh..",
-	ANNOUNCE_TICOON_NEAR_KITCOON = "T-There's one of them a-around.",
-	ANNOUNCE_TICOON_LOST_KITCOON = "T-They claim yet another...",
-	ANNOUNCE_TICOON_ABANDONED = "I-I'm s-sorry, t-t-they... they h-hate me.",
+	ANNOUNCE_TICOON_START_TRACKING	= "Give me a paw.",
+	ANNOUNCE_TICOON_NOTHING_TO_TRACK = "No one else around?",
+	ANNOUNCE_TICOON_WAITING_FOR_LEADER = "You shouldn't have, really.",
+	ANNOUNCE_TICOON_GET_LEADER_ATTENTION = "What, can't you see I'm busy",
+	ANNOUNCE_TICOON_NEAR_KITCOON = "There's none of them around.",
+	ANNOUNCE_TICOON_LOST_KITCOON = "They've claimed another",
+	ANNOUNCE_TICOON_ABANDONED = "They hate meow...? As usual.",
 	ANNOUNCE_TICOON_DEAD = "Oh, happens.",
 
     -- YOTB
-    ANNOUNCE_CALL_BEEF = "T-This is my assistant, say h-hello.",
-    ANNOUNCE_CANTBUILDHERE_YOTB_POST = "I-I'd rather be away from all the action!",
+    ANNOUNCE_CALL_BEEF = "This is my assistant, say hello.",
+    ANNOUNCE_CANTBUILDHERE_YOTB_POST = "I'd rather be away from all the fuss.",
     ANNOUNCE_YOTB_LEARN_NEW_PATTERN =  "Haven't seen this one around.",
 
     -- AE4AE
@@ -876,8 +876,8 @@ return{
     -- PIRATES
     ANNOUNCE_CANT_ESCAPE_CURSE = "This curse is such a pain!",
     ANNOUNCE_MONKEY_CURSE_1 = "Ohh i don't feel as catty anymore.",
-    ANNOUNCE_MONKEY_CURSE_CHANGE = "I'm a cat, not a monkey!",
-    ANNOUNCE_MONKEY_CURSE_CHANGEBACK = "Let's not talk about that, not like i have anyaone to talk to...",
+    ANNOUNCE_MONKEY_CURSE_CHANGE = "I'm a cat, not a myeownkey!",
+    ANNOUNCE_MONKEY_CURSE_CHANGEBACK = "Forget about that, cupcake.",
 
     ANNOUNCE_PIRATES_ARRIVE = "I was told piracy is bad.",
 
@@ -947,11 +947,11 @@ return{
 
         ANTLION =
         {
-            GENERIC = "O-Oh, it's the b-big bad.",
-            VERYHAPPY = "I-It seems happy.",
-            UNHAPPY = "Did i- Did i p-piss it off? It look pissed!",
+            GENERIC = "O-Oh, it's the big bad.",
+            VERYHAPPY = "It seems happy.",
+            UNHAPPY = "Did i piss it off? It look pissed!",
         },
-        ANTLIONTRINKET = "This is for making sand castles 'n stuff.",
+        ANTLIONTRINKET = "This is for making sand castles and stuff.",
         SANDSPIKE = "Myeouch, sharp.",
         SANDBLOCK = "This one looks kinda familiar.",
         GLASSSPIKE = "Sharp, dangerous.",
@@ -985,7 +985,7 @@ return{
         BERNIE_INACTIVE =
         {
             BROKEN = "Dead and gone.",
-            GENERIC = "A teddy bear?.",
+            GENERIC = "A teddy bear?",
         },
 
         BERNIE_ACTIVE = "A LIVE teddy bear?",
@@ -1021,99 +1021,99 @@ return{
 
         PLAYER =
         {
-            GENERIC = "H-Hello, %s.",
-            ATTACKER = "%s y-you're evil...",
-            MURDERER = "Y-You love killing b-boys don't you.",
-            REVIVER = "%s i-is a good person.",
-            GHOST = "%s n-n-needs a heart...",
-            FIRESTARTER = "%s why a-are you b-burning s-stuff...",
+            GENERIC = "What's up cupcake.",
+            ATTACKER = "%s, you're and evil one...",
+            MURDERER = "You love killing boys don't you.",
+            REVIVER = "%s is a good person.",
+            GHOST = "%s needs a heart.",
+            FIRESTARTER = "%s why are you burning stuff.",
         },
         WILSON =
         {
-            GENERIC = "I-I-I, uhm-mya... h-hello Mr. %s.",
-            ATTACKER = "W-Why would you hurt someone like that!",
-            MURDERER = "T-This is it, if i d-don't end you here, no one will!",
-            REVIVER = "%s i-is really n-nice.",
-            GHOST = "D-Do you r-really want to c-c-come back to this w-world.",
-            FIRESTARTER = "Y-You're starting more t-trouble than it's w-w-worth...",
+            GENERIC = "'Sup, spike-head %s.",
+            ATTACKER = "Why would you hurt someone like that!",
+            MURDERER = "This is it, if i don't end you here, no one will!",
+            REVIVER = "%s is really nice.",
+            GHOST = "Do you really want to come back to this world.",
+            FIRESTARTER = "You're starting more trouble than it's worth...",
         },
         WOLFGANG =
         {
-            GENERIC = "O-Oh g-H-Hello, Mr. %s.",
-            ATTACKER = "Y-You have to be more careful a-around others, %s!",
-            MURDERER = "Y-You. Murderer.",
-            REVIVER = "%s i-is actually pretty n-nice.",
-            GHOST = "I g-gotta find a heart.",
-            FIRESTARTER = "Y-You really want to s-stir up trouble, %s?",
+            GENERIC = "Hey, big man %s.",
+            ATTACKER = "You have to be more careful around others, %s!",
+            MURDERER = "You. Murderer.",
+            REVIVER = "%s is actually pretty nice.",
+            GHOST = "I gotta find a heart.",
+            FIRESTARTER = "You really want to stir up trouble, %s?",
         },
         WAXWELL =
         {
-            GENERIC = "I-I remember that f-face... Evil.",
-            ATTACKER = "W-What the hell, he's back causing t-trouble!",
+            GENERIC = "That face looks so familiar, so... punchable.",
+            ATTACKER = "What the hell, he's back causing trouble!",
             MURDERER = "Murderer, you will pay for this.",
-            REVIVER = "T-This has to be some sort of t-trick, %s.",
-            GHOST = "H-He's dead b-but... i should r-revive him.",
-            FIRESTARTER = "W-Why are you wreaking all our stuff again!",
+            REVIVER = "This has to be some sort of trick, %s.",
+            GHOST = "%s is looking quite dead.",
+            FIRESTARTER = "Why are you wrecking all our stuff, %s!",
         },
         WX78 =
         {
-            GENERIC = "I'm uh, uh-h-hi, %s.",
-            ATTACKER = "I-If you wanna f-fight, i'm ready for i-it!",
+            GENERIC = "Yo, tin can %s.",
+            ATTACKER = "If you wanna fight, i'm ready for it!",
             MURDERER = "I will rip you to bits, killer tin can!",
-            REVIVER = "%s i-is not really b-bad? C-Crazy...",
-            GHOST = "H-How can robots b-be ghosts like that?",
-            FIRESTARTER = "%s w-wasn't joking ab-bout burning the world down??",
+            REVIVER = "%s is not really bad? Crazy...",
+            GHOST = "How can robots be ghosts like that?",
+            FIRESTARTER = "%s wasn't joking about burning the world down??",
         },
         WILLOW =
         {
-            GENERIC = "H-h-hello, Ms. %s.",
-            ATTACKER = "%s y-you're not my friend...",
-            MURDERER = "You killer, p-prepare to die.",
-            REVIVER = "%s y-you're really good with g-ghosts.",
-            GHOST = "I-I gotta find a h-heart for y-you, %s.",
-            FIRESTARTER = "Uh-oh, s-she's really starting f-fire, unironically.",
+            GENERIC = "Hey, crazy girl %s.",
+            ATTACKER = "%s you're not my friend...",
+            MURDERER = "You killer, prepare to die.",
+            REVIVER = "%s you're really good with ghosts.",
+            GHOST = "I gotta find a heart for y-you, %s.",
+            FIRESTARTER = "Uh-oh, she's really starting fires, unironically.",
         },
         WENDY =
         {
-            GENERIC = "'Sup kid.",
-            ATTACKER = "%s is already k-killing people!",
-            MURDERER = "You think i w-won't kill a child, cupcake? Nya-hah!",
+            GENERIC = "'Sup dead-sis kid.",
+            ATTACKER = "%s is already killing people!",
+            MURDERER = "You think i won't kill a child, cupcake? Nya-hah!",
             REVIVER = "%s defies death itself... cool.",
-            GHOST = "%s, woah, you look j-just like your sister.",
-            FIRESTARTER = "I suggest you keep away from t-torches, cupcake.",
+            GHOST = "%s, you're the spitting image of your sister now. ",
+            FIRESTARTER = "Keep clear of torches next time, cupcake.",
         },
         WOODIE =
         {
-            GENERIC = "H-Hello, %s.",
-            ATTACKER = "%s w-why are y-you acting so s-strange.",
+            GENERIC = "What's up, hair-ball %s.",
+            ATTACKER = "%s why are you acting so strange.",
             MURDERER = "Axe murderer! So cool.",
-            REVIVER = "%s i-is quite in touch w-with the spirits.",
-            GHOST = "I-I'll have to find you a h-heart...",
-            BEAVER = "Nya-hah, h-how he turn into... that.",
-            BEAVERGHOST = "D-Does this count as r-roadkill?",
-            MOOSE = "Nya-hah, h-how did he turn into... that.",
-            MOOSEGHOST = "D-Does this count as r-roadkill?",
-            GOOSE = "Nya-hah, h-how did he turn into... that.",
-            GOOSEGHOST = "D-Does this count as r-roadkill?",
-            FIRESTARTER = "Y-You s-shouldn't be throwing a torch around like that!",
+            REVIVER = "%s is quite in touch with the spirits.",
+            GHOST = "I'll have to find you a heart...",
+            BEAVER = "Nya-hah, how he turn into... that.",
+            BEAVERGHOST = "Does this count as roadkill?",
+            MOOSE = "Nya-hah, how did he turn into... that.",
+            MOOSEGHOST = "Does this count as roadkill?",
+            GOOSE = "Nya-hah, how did he turn into... that.",
+            GOOSEGHOST = "Does this count as roadkill?",
+            FIRESTARTER = "You shouldn't be throwing a torch around like that!",
         },
         WICKERBOTTOM =
         {
-            GENERIC = "H-Hi, %s.",
-            ATTACKER = "%s, y-you're not telling me s-something.",
-            MURDERER = "Y-You grandmeow are t-taking things too far.",
-            REVIVER = "%s i-is a really r-relyable person.",
-            GHOST = "I'll h-help you r-right away, %s.",
-            FIRESTARTER = "I-I didn't think y-you were the type to d-destroy stuff.",
+            GENERIC = "'Sup, grandmeow %s.",
+            ATTACKER = "%s, you're acting up a little.",
+            MURDERER = "You grandmeow are taking things too far.",
+            REVIVER = "%s is a really relyable person.",
+            GHOST = "I'll help you right away, %s.",
+            FIRESTARTER = "I didn't think you were the type to destroy stuff.",
         },
         WES =
         {
-            GENERIC = "H-H-Hi, %s...",
-            ATTACKER = "%s h-he's so... c-creepy!",
-            MURDERER = "W-Wh-D-Do you hate e-everynyan too?",
-            REVIVER = "%s i-is good at h-heart...",
-            GHOST = "W-Well, at least you have d-don't have only nyaine l-lives %s...",
-            FIRESTARTER = "C-Can you s-STOP BURNING things.",
+            GENERIC = "I was told to stay away from people that look \"french\".",
+            ATTACKER = "%s he's so... creepy!",
+            MURDERER = "Do you hate everynyan too?",
+            REVIVER = "%s is good at heart...",
+            GHOST = "Well, at least you have don't have only nyaine lives %s...",
+            FIRESTARTER = "Can you STOP BURNING things.",
         },
         WEBBER =
         {
@@ -1126,30 +1126,30 @@ return{
         },
         WATHGRITHR =
         {
-            GENERIC = "I-I'm-uh, h-hello %s.",
-            ATTACKER = "I-I don't l-like you, %s...",
-            MURDERER = "S-She's b-bloodthirsty for m-my blood, kill h-her!",
-            REVIVER = "%s i-is more reliable t-than me, for sure.",
-            GHOST = "D-Do you w-want me to-I-I-uh, g-get a heart... %s?",
-            FIRESTARTER = "Y-You better k-keep away from t-those torches!",
+            GENERIC = "Hey, red-head %s.",
+            ATTACKER = "I don't like you, %s.",
+            MURDERER = "She's bloodthirsty, for my blood, kill her!",
+            REVIVER = "%s is more reliable than me, for sure.",
+            GHOST = "Do you want me to get a heart, %s?",
+            FIRESTARTER = "You better keep away from those torches!",
         },
         WINONA =
         {
-            GENERIC = "H-H-Hel-H... Hi... %s.",
-            ATTACKER = "%s, i don't like your a-attitude...",
-            MURDERER = "I'll k-kill you for my own s-sake, %s!",
-            REVIVER = "%s i-is a good f-friend, in a pinch.",
-            GHOST = "H-Heh, c-cat got your tongue, %s.",
-            FIRESTARTER = "Y-You're a little careless, with torches, %s.",
+            GENERIC = "Hi, build-a-girl %s.",
+            ATTACKER = "%s, i don't think i like your attitude...",
+            MURDERER = "I'll kill you for my own sake, %s!",
+            REVIVER = "%s is a good friend, in a pinch.",
+            GHOST = "Heh, cat got your tongue, %s.",
+            FIRESTARTER = "You're a little careless, with torches, %s.",
         },
         WORTOX =
         {
-            GENERIC = "H-Hello, %s.",
-            ATTACKER = "Y-You could get in t-trouble for acting like t-that.",
-            MURDERER = "T-Time to find out if you b-bleed, m-monster!",
-            REVIVER = "You h-h-have a soft s-spot for others, huh.",
-            GHOST = "L-Look on the b-bright side, and go towards the l-light.",
-            FIRESTARTER = "I-I don't like how you s-smell of charcoal and a-a-ash, %s.",
+            GENERIC = "Hey, demon-boy %s.",
+            ATTACKER = "You could get in trouble for acting like that.",
+            MURDERER = "Time to find out if you bleed, monster!",
+            REVIVER = "You have a soft spot for others, huh.",
+            GHOST = "Look on the bright side, and go towards the light.",
+            FIRESTARTER = "I don't like how you smell of charcoal and ash, %s.",
         },
         WORMWOOD =
         {
@@ -1158,22 +1158,22 @@ return{
             MURDERER = "All good, %s. I'll meowk it QUICK.",
             REVIVER = "You can be helpful too, i guess.",
             GHOST = "Didn't know plants die like that.",
-            FIRESTARTER = "%s i thought you didn't like fires cupcake, what's up?",
+            FIRESTARTER = "%s i thought you didn't like fires, cupcake, what's up?",
         },
         WARLY =
         {
-            GENERIC = "H-Hi. %s.",
-            ATTACKER = "%s, i-i don't like your twisted grin.",
-            MURDERER = "A-Are you one of t-those people that eat cats!?",
-            REVIVER = "Y-You're a reliable one, %s.",
-            GHOST = "O-Oh n-no, the cook got cooked.",
-            FIRESTARTER = "%s, t-the fires should stay I-IN the K-KITT-CHEN.",
+            GENERIC = "What's up, curly-hair %s.",
+            ATTACKER = "%s, i don't like your twisted grin.",
+            MURDERER = "Are you one of those people that eat cats!?",
+            REVIVER = "You're a reliable one, %s.",
+            GHOST = "Oh no, the cook got cooked.",
+            FIRESTARTER = "%s, the fires should stay IN the KITCHEN.",
         },
 
         WURT =
         {
-            GENERIC = "Hello, %s.",
-            ATTACKER = "Y-You don't seem real friendly, fishy.",
+            GENERIC = "Heyo, fish-a-fish %s.",
+            ATTACKER = "You don't seem real friendly, fishy.",
             MURDERER = "%s, just like all the other merms, disgusting.",
             REVIVER = "Doing good work out there kiddo, %s.",
             GHOST = "Is that what they call a \"fish in a barrel\" or something?",
@@ -1182,28 +1182,28 @@ return{
 
         WALTER =
         {
-            GENERIC = "'Sup, %s.",
-            ATTACKER = "T-This lil' kid's throewing punches? Hah.",
+            GENERIC = "Hey, kid.",
+            ATTACKER = "This lil' kid's throewing punches? Hah.",
             MURDERER = "Sorry kid, it's the end of the line.",
-            REVIVER = "D-Doing good work there, kid.",
+            REVIVER = "Doing good work there, kid.",
             GHOST = "Hm, i could revive you... or rather...",
             FIRESTARTER = "All that talk about fire safety and YOU'RE the one causing trouble.",
         },
 
         WANDA =
         {
-            GENERIC = "H-Hy-Hi %s.",
-            ATTACKER = "I-I... You seem d-dangerous, %s?",
-            MURDERER = "S-She's a killer, and she'll kill meow too!",
-            REVIVER = "I-I appreciate your h-help, %s.",
+            GENERIC = "It's that nerdy time grandmeow, %s.",
+            ATTACKER = "You seem rather dangerous, %s?",
+            MURDERER = "She's a killer, and she'll kill meow too!",
+            REVIVER = "I appreciate your help, %s.",
             GHOST = "Deaths catches up to everyone.",
-            FIRESTARTER = "Y-Your methods seem a bit dangerous %s.",
+            FIRESTARTER = "Your methods seem a bit dangerous, %s.",
         },
 
         WONKEY =
         {
             GENERIC = "Oh god, the meownkey has returned for ME.",
-            ATTACKER = "H-Hey, meownkey, you can't just go around attacking people.",
+            ATTACKER = "Hey, meownkey, you can't just go around attacking people.",
             MURDERER = "Alright, now you've done it, ape.",
             REVIVER = "This meownkey's more reliable than i thought.",
             GHOST = "Phew, no more annoying meownkey noises.",
@@ -1586,175 +1586,175 @@ return{
         },
         BUNDLE = "What's trapped in there is a meowstery.",
         BUNDLEWRAP = "Pyacking things for a longer trip.",
-		BACKPACK = "I wish there were porters around here.",
-		BACONEGGS = "Now that is a proper breakfast.",
-		BANDAGE = "Sticky and gooey and good for putting on booboos.",
-		BASALT = "I made a rock so heavy that even I can't lift it.", --removed
-		BEARDHAIR = "Hirsute.",
-		BEARGER = "Take whatever you want.",
-		BEARGERVEST = "See my vest.",
-		ICEPACK = "Its contents are hibernating.",
-		BEARGER_FUR = "This would make a nice rug.",
-		BEDROLL_STRAW = "I don't like sleeping rough.",
-		BEEQUEEN = "I didn't make that one! Really!",
+		BACKPACK = "Helps meow carry hoard stuff around.",
+		BACONEGGS = "You're telling meow this was baken on eggs?",
+		BANDAGE = "It's pain that relives pain, how weird.",
+		BASALT = "That's one fat rock.", --removed
+		BEARDHAIR = "I think it's the equivalent of fur on humans.",
+		BEARGER = "...Big brother..?",
+		BEARGERVEST = "Almost enough to forget about the dark, cold world.",
+		ICEPACK = "It's a portable cold-maker.",
+		BEARGER_FUR = "Scratchy stuff.",
+		BEDROLL_STRAW = "This will have me wake up with a burning back pain.",
+		BEEQUEEN = "Kill the queen bee, plunge them into anarchy.",
 		BEEQUEENHIVE =
 		{
-			GENERIC = "I am not getting that on my shoes.",
-			GROWING = "Now what are those bees up to?",
+			GENERIC = "Monarchy is inherently flawed.",
+			GROWING = "These bees just don't give up.",
 		},
-        BEEQUEENHIVEGROWN = "I don't see what all the buzz is about.",
-        BEEGUARD = "Keep your backside to yourself, madam!",
-        HIVEHAT = "Makes one feel like royalty.",
+        BEEQUEENHIVEGROWN = "That's the mother of all hives.",
+        BEEGUARD = "You really don't wanna sting meow, cupcake.",
+        HIVEHAT = "It all comes full circle.",
         MINISIGN =
         {
-            GENERIC = "It was drawn in a steady hand.",
-            UNDRAWN = "There's nothing on it, currently.",
+            GENERIC = "Don't really care about arts and all.",
+            UNDRAWN = "It's empty, like meow.",
         },
-        MINISIGN_ITEM = "A sign is useless if it has nothing to mark.",
+        MINISIGN_ITEM = "A sign is usually meownt to represent something.",
 		BEE =
 		{
-			GENERIC = "They work so hard, the fools.",
-			HELD = "Now what do I do with it?",
+			GENERIC = "All work and no play will make you a dull bee.",
+			HELD = "How the turntables.",
 		},
 		BEEBOX =
 		{
-			READY = "So tempting, but so full of bees.",
-			FULLHONEY = "So tempting, but so full of bees.",
-			GENERIC = "It holds the bees.",
-			NOHONEY = "Why do the bees not serve me?",
-			SOMEHONEY = "I should wait a bit longer.",
-			BURNT = "Honey roasted.",
+			READY = "It's time to steal all their labor.",
+			FULLHONEY = "It's time to steal all their labor.",
+			GENERIC = "The bees in it work for meow now.",
+			NOHONEY = "They do not hurry, for they do not know death is coming",
+			SOMEHONEY = "I could wait a bee-bit longer.",
+			BURNT = "Burnt honey probably doesn't taste good.",
 		},
 		MUSHROOM_FARM =
 		{
-			STUFFED = "It's so full it's almost obscene.",
-			LOTS = "The mushrooms have really taken to the log.",
-			SOME = "They seem to be doing well.",
+			STUFFED = "The meowshrooms have taken control of the log.",
+			LOTS = "That's a lot of meowshrooms in that.",
+			SOME = "Oh they're growing alright.",
 			EMPTY = "Smells... \"piney\".",
-			ROTTEN = "Rotten, all the way through. I relate.",
-			BURNT = "Only ash and ruin remain here.",
-			SNOWCOVERED = "Nothing grows in these frigid wastes.",
+			ROTTEN = "Time has taken its toll on it.",
+			BURNT = "Complete massacre.",
+			SNOWCOVERED = "The meowshrooms don't take kindly to these conditions.",
 		},
 		BEEFALO =
 		{
-			FOLLOWER = "Aw nuts, it's following me.",
-			GENERIC = "Just look at that stupid beast.",
-			NAKED = "Now it looks dumb AND pathetic.",
-			SLEEPING = "It's only marginally less stupid when it's asleep.",
+			FOLLOWER = "What do you want from meow, cupcake.",
+			GENERIC = "Dumb animals with one thing on their mind.",
+			NAKED = "Point and laugh at it.",
+			SLEEPING = "It needs rest for whatever reason.",
             --Domesticated states:
-            DOMESTICATED = "I like a creature that knows its place.",
-            ORNERY = "Yes, you understand how this works.",
-            RIDER = "I'd only ride you if I was desperate.",
-            PUDGY = "I suppose some people might find that charming.",
-            MYPARTNER = "I suppose I'm saddled with this creature now.",
+            DOMESTICATED = "It's been trapped in a false sense of security.",
+            ORNERY = "A violent hairy beast.",
+            RIDER = "This cupcake sure gets around fast.",
+            PUDGY = "A good-for-nothing tool.",
+            MYPARTNER = "Don't mind meow, i'll just be using you for a bit, cupcake.",
 		},
 
-		BEEFALOHAT = "How unfashionable.",
-		BEEFALOWOOL = "It smells like a barn.",
-		BEEHAT = "I'll wear it if I have to.",
-        BEESWAX = "I miss sealing a good letter.",
-		BEEHIVE = "Not the bees!",
-		BEEMINE = "They wait so patiently.",
+		BEEFALOHAT = "Makes you part of the pack.",
+		BEEFALOWOOL = "A carpet out of this would be real nice.",
+		BEEHAT = "An underhanded tactic against the bees.",
+        BEESWAX = "I hate how it feels, ugh.",
+		BEEHIVE = "They're all gathered in that.",
+		BEEMINE = "Awaiting further instructions.",
 		BEEMINE_MAXWELL = "Maybe I shouldn't have put that there.",--removed
-		BERRIES = "Sigh. If I have to.",
-		BERRIES_COOKED = "A little more refined, at least.",
-        BERRIES_JUICY = "Delightfully sweet with a subtle hint of tartness.",
-        BERRIES_JUICY_COOKED = "They're quite delicious, actually.",
+		BERRIES = "They taste like, uh... berries.",
+		BERRIES_COOKED = "Sticky and meowshy, a little distasteful.",
+        BERRIES_JUICY = "They taste like, uh... well they taste berrier.",
+        BERRIES_JUICY_COOKED = "Oh these go bad fast.",
 		BERRYBUSH =
 		{
-			BARREN = "It needs manure.",
-			WITHERED = "Too hot for that little bush.",
-			GENERIC = "Reduced to eating berries. Sigh.",
-			PICKED = "And now we wait.",
+			BARREN = "It's gotta get some fertilizer.",
+			WITHERED = "If you can't stand the heat, don't get planted in the kitchen.",
+			GENERIC = "This could be berry good.",
+			PICKED = "How can it afford to grow so slow, when life is so short.",
 			DISEASED = "What has brought this blight upon my world?",--removed
 			DISEASING = "Looks a little off, if you ask me.",--removed
-			BURNING = "It better not start talking to me.",
+			BURNING = "I'll send my condolences to its family.",
 		},
 		BERRYBUSH_JUICY =
 		{
-			BARREN = "It looks to be in need of assistance. Fertilizer, perhaps?",
-			WITHERED = "I know the feeling.",
-			GENERIC = "The berries will stay fresh as long as I leave them there.",
-			PICKED = "I fear I'll have to wait.",
+			BARREN = "It's gotta get some fertilizer.",
+			WITHERED = "If you can't stand the heat, don't get planted in the kitchen.",
+			GENERIC = "This one's a tall bush.",
+			PICKED = "How can it afford to grow so slow, when life is so short.",
 			DISEASED = "What has brought this blight upon my world?",--removed
 			DISEASING = "Looks a little off, if you ask me.",--removed
-			BURNING = "It better not start talking to me.",
+			BURNING = "I'll send my condolences to its family.",
 		},
 		BIGFOOT = "Now that is surely fuel for nightmares.",--removed
 		BIRDCAGE =
 		{
-			GENERIC = "You'll never get me behind bars again.",
-			OCCUPIED = "I feel for ya, feathers.",
-			SLEEPING = "You'll still be in there when you wake up.",
-			HUNGRY = "What's all the fuss about, feathers?",
-			STARVING = "Oh, come on. I fed you last week.",
-			DEAD = "That's a deep sleep.",
-			SKELETON = "Maybe he wasn't sleeping.",
+			GENERIC = "That's just life.",
+			OCCUPIED = "They're trying to keep it safe from me.",
+			SLEEPING = "Does it dream of escape.",
+			HUNGRY = "Cry about it more why don't you.",
+			STARVING = "You should be glad YOU'RE not food.",
+			DEAD = "I don't think it's waking up from that.",
+			SKELETON = "Well i can't eat it now, happy?",
 		},
-		BIRDTRAP = "They keep falling for it!",
-		CAVE_BANANA_BURNT = "I refuse to be held responsible for that.",
-		BIRD_EGG = "I like to think of it as baby bird prison.",
-		BIRD_EGG_COOKED = "Sunny side up.",
-		BISHOP = "I'm especially proud of that piece.",
-		BLOWDART_FIRE = "Just make sure to breathe out.",
-		BLOWDART_SLEEP = "Call me \"Mr. Sandman\".",
-		BLOWDART_PIPE = "A glorious tube of pain!",
-		BLOWDART_YELLOW = "Never strikes the same place twice, except when it does.",
-		BLUEAMULET = "It's frosted over.",
-		BLUEGEM = "Blue brings ice.",
+		BIRDTRAP = "Those dumb bird stand no chance against such stupid tricks.",
+		CAVE_BANANA_BURNT = "It will grow bananas no more.",
+		BIRD_EGG = "A baby is born against their will in these.",
+		BIRD_EGG_COOKED = "For a dead child, it tastes pretty good.",
+		BISHOP = "It's got some unpleasant aggression.",
+		BLOWDART_FIRE = "A solution to no problem, really.",
+		BLOWDART_SLEEP = "A deep slumber shooter.",
+		BLOWDART_PIPE = "Now that's a lotta damage.",
+		BLOWDART_YELLOW = "Those feathers sure pack an electric punch.",
+		BLUEAMULET = "It's got one eye, and a cold glare.",
+		BLUEGEM = "Feels like i'm holding a piece of ice.",
 		BLUEPRINT =
 		{
-            COMMON = "I know all about that. I... just forgot.",
-            RARE = "A rare blueprint, indeed.",
+            COMMON = "Has some stuff scribbled on it.",
+            RARE = "This one must hold valuable secrets.",
         },
-        SKETCH = "I'll need somewhere to sculpt it.",
+        SKETCH = "I'm not cut out for sculpting",
 		COOKINGRECIPECARD = 
 		{
-			GENERIC = "The writing is too faint to read.",
+			GENERIC = "I can't make out what it says.",
 		},
-		BLUE_CAP = "What could go wrong?",
-		BLUE_CAP_COOKED = "Umami!",
+		BLUE_CAP = "That's a mad cap.",
+		BLUE_CAP_COOKED = "Mad cap no longer.",
 		BLUE_MUSHROOM =
 		{
-			GENERIC = "The blue ones are good for, uh, something.",
-			INGROUND = "It's not ready.",
-			PICKED = "Another time, maybe?",
+			GENERIC = "I think i was warned not to eat random meowshrooms.",
+			INGROUND = "It's hiding from me.",
+			PICKED = "No new inhabitants yet?",
 		},
-		BOARDS = "Roughly hewn.",
-		BONESHARD = "Grind them bones.",
-		BONESTEW = "Leave no scrap unused.",
-		BUGNET = "Good for capturing defenseless insects.",
-		BUSHHAT = "There's room in there for me.",
-		BUTTER = "Some puns are irresistible.",
+		BOARDS = "Some moewshed together logs.",
+		BONESHARD = "Must've been alive at one point.",
+		BONESTEW = "It's a filling meal.",
+		BUGNET = "Sometimes you need them alive.",
+		BUSHHAT = "Artificially boosting the bush population.",
+		BUTTER = "I wanted butterfly wings, what the hell is this.",
 		BUTTERFLY =
 		{
-			GENERIC = "It's a flying flower.",
-			HELD = "It would be a shame if someone ripped the wings off of it.",
+			GENERIC = "It's pretty tasty-looking.",
+			HELD = "Ripping their wings is pretty fun.",
 		},
 		BUTTERFLYMUFFIN = "That should stop its incessant flapping.",
 		BUTTERFLYWINGS = "Ha ha ha. I got him!",
 		BUZZARD = "Carrion connoisseur.",
 
-		SHADOWDIGGER = "I'm a shadow of myself. Ha-ha!",
-        SHADOWDANCER = "What have I become.",
+		SHADOWDIGGER = "Some kind of guy i guess.",
+        SHADOWDANCER = "Dance you fool, for you are next.",
 
 		CACTUS =
 		{
-			GENERIC = "Puffer plant.",
-			PICKED = "Cactus? More like flat-tus!",
+			GENERIC = "I see myself as a cactus sometimes too.",
+			PICKED = "Flattened to the core.",
 		},
-		CACTUS_MEAT_COOKED = "Cactus comestible.",
-		CACTUS_MEAT = "It would be unwise to put that in my mouth.",
-		CACTUS_FLOWER = "This part of the cactus is always nice.",
+		CACTUS_MEAT_COOKED = "Should be edible now, i guess.",
+		CACTUS_MEAT = "This would pain me all the way down.",
+		CACTUS_FLOWER = "A delicate flower, unfortunately in my hands.",
 
 		COLDFIRE =
 		{
-			EMBERS = "I'm going to lose it.",
-			GENERIC = "How comforting.",
-			HIGH = "That will keep Charlie away for now.",
-			LOW = "It needs fuel.",
-			NORMAL = "Cold and fiery.",
-			OUT = "That's not coming back.",
+			EMBERS = "It's dying.",
+			GENERIC = "Stare into the light.",
+			HIGH = "It emits a monstrous roar.",
+			LOW = "It won't keep up at this rate.",
+			NORMAL = "It emits what i can only describe as a warm coldness.",
+			OUT = "Another one falls.",
 		},
 		CAMPFIRE =
 		{
@@ -1766,7 +1766,7 @@ return{
 			OUT = "That's not coming back.",
 		},
 		CANE = "It has pictures of fast things carved into it.",
-		CATCOON = "Catty vermin.",
+		CATCOON = "They don't like meow very much.",
 		CATCOONDEN =
 		{
 			GENERIC = "Vermin housing.",
