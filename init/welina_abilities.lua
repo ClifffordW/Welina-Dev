@@ -4,7 +4,7 @@
 
 
 AddPrefabPostInit("catcoon", function(inst, ...)
-    local DummyFn = function() end
+--[[     local DummyFn = function() end
     local _Load = inst.Load or DummyFn
 
     local function OnLoad(inst)
@@ -57,7 +57,7 @@ AddPrefabPostInit("catcoon", function(inst, ...)
 
             return ret
         end
-    end
+    end ]]
 
 
 
@@ -74,9 +74,9 @@ AddPrefabPostInit("catcoon", function(inst, ...)
     end
 
 
-    if TUNING.WELINA_CATCOONHATS == 1 then
+--[[     if TUNING.WELINA_CATCOONHATS == 1 then
         inst.AnimState:SetHatOffset(0, 80)
-    end
+    end ]]
 
     if not _G.TheWorld.ismastersim then
         return inst
@@ -88,8 +88,8 @@ AddPrefabPostInit("catcoon", function(inst, ...)
     end
 
 
-    inst.components.trader:SetAcceptTest(inst.ShouldAcceptItem)
-    inst.components.trader.onaccept = inst.OnGetItemFromPlayer
+--[[     inst.components.trader:SetAcceptTest(inst.ShouldAcceptItem)
+    inst.components.trader.onaccept = inst.OnGetItemFromPlayer ]]
 
 
 
