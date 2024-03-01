@@ -11,6 +11,7 @@ AddPrefabPostInit("catcoon", function(inst, ...)
         inst:DoTaskInTime(0.5, function()
             if inst and inst.components.follower.leader and inst.components.follower.leader.prefab == "welina" and inst.components.named.name ~= nil and not inst:HasTag("welinas_cat") then
                 inst:AddTag("welinas_cat")
+                inst.AnimState:SetBank("catcoon_hat")
             end
         end)
 
@@ -23,36 +24,40 @@ AddPrefabPostInit("catcoon", function(inst, ...)
     inst.OnGetItemFromPlayer = function(inst, giver, item, ...)
         local ret = OnGetItemFromPlayer(inst, giver, item, ...)
 
-if TUNING.WELINA_CATCOONHATS == 1 then
-        --I wear hats
-        if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
-            local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
-            if current ~= nil then
-                inst.components.inventory:DropItem(current)
+        if TUNING.WELINA_CATCOONHATS == 1 then
+            --I wear hats
+            if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
+                inst.AnimState:SetBank("catcoon_hat")
+                inst.
+                local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
+                if current ~= nil then
+                    inst.components.inventory:DropItem(current)
+                end
+                inst.components.inventory:Equip(item)
+                inst.AnimState:Show("hat")
+                
             end
-            inst.components.inventory:Equip(item)
-            inst.AnimState:Show("hat")
+
+            return ret
         end
 
-        return ret
-    end
 
 
-    
-    local ShouldAcceptItem = inst.ShouldAcceptItem or DummyFn
-    inst.ShouldAcceptItem = function(inst, item, ...)
-        local ret = ShouldAcceptItem(inst, item, ...)
+        local ShouldAcceptItem = inst.ShouldAcceptItem or DummyFn
+        inst.ShouldAcceptItem = function(inst, item, giver, ...)
+            local ret = ShouldAcceptItem(inst, item, giver, ...)
 
+            if not giver then return end
 
-        if item:HasTag("cattoy") or item:HasTag("catfood") or item:HasTag("cattoyairborne") or item:HasTag("hat") then
-            return true
-        else
-            return false
+            if item:HasTag("cattoy") or item:HasTag("catfood") or item:HasTag("cattoyairborne") or (item:HasTag("hat") and giver:HasTag("emocatgirl")) then
+                return true
+            else
+                return false
+            end
+
+            return ret
         end
-
-        return ret
     end
-end
 
 
 
@@ -69,9 +74,9 @@ end
     end
 
 
-	if TUNING.WELINA_CATCOONHATS == 1 then
-		inst.AnimState:SetHatOffset(0, 80)
-	end
+    if TUNING.WELINA_CATCOONHATS == 1 then
+        inst.AnimState:SetHatOffset(0, 80)
+    end
 
     if not _G.TheWorld.ismastersim then
         return inst
