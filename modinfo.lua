@@ -312,19 +312,19 @@ modinfo_ver = lookup.modinfo_module
 	
 	{
 		name = "WELINA_RESENTMENT",
-		label = "Welinas Resenfulness",
+		label = "Welinas Resentfulness",
 		hover = "How much of the damage Welina has taken is added to her attack.",
 		options =
 		{
 			{description = "10%", data = 0.001},
-			{description = "20%", data = 0.002, hover="Default 󰀡"},
-			{description = "30%", data = 0.003},
+			{description = "20%", data = 0.002},
+			{description = "30%", data = 0.003, hover="Default 󰀡"},
 			{description = "40%", data = 0.004},
 			{description = "50%", data = 0.005},
 			{description = "60%", data = 0.006},
 			{description = "70%", data = 0.007},
 		},
-		default = 0.002
+		default = 0.003
 	},
 
 	Title("Scrapped Features"),

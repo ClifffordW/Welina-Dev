@@ -62,7 +62,7 @@ local lang_lookups =
 		name = "Welina",
         a1 = "Nine Lives",
         a2 = "Edgy, Inside and Outside",
-        a3 = "Asocial",
+        a3 = "Resentful",
         quote = "The sound of the bell has been unusually loud today...",
         title = "The Downcat",
         favfood = "None",
@@ -73,7 +73,7 @@ local lang_lookups =
         aboutme = "A catcoon girl that doesn't find much joy in life and dreads social interaction.",
         skindesc = "Welina has a flair for the dramatic.",
 
-        bday = "Unknown",
+        bday = "March 1",
         past =
         [[Welina, Welina, Welina... I do like this name, rolls off the tongue pretty well. Anyway I subjected one of those fat catcoons to a life of human problems, to my surprise she was taking it quite well... until she wasn't. 
 She turned really nihilistic after a while, and would spend most of her time away from the other catcoons. Maybe she just started seeing herself as superior to them, or maybe she felt like an outlier amongst them. Or maybe the inescapable existential dread has caught up to her? Well such is the burden of being able to conjure complex thoughts and emotions, what'll she do anyway? Kill herself nine times? Ha!
@@ -93,7 +93,7 @@ I've presented my results to Master, and yeah, it went about as well as you'd ex
 		name = "Welina",
         a1 = "Nine Lives",
         a2 = "Edgy, Inside and Outside",
-        a3 = "Asocial",
+        a3 = "Resentful",
         quote = "The sound of the bell has been unusually loud today...",
         title = "The Downcat",
         favfood = "None",
@@ -104,7 +104,7 @@ I've presented my results to Master, and yeah, it went about as well as you'd ex
         aboutme = "A catcoon girl that doesn't find much joy in life and dreads social interaction.",
         skindesc = "Welina has a flair for the dramatic.",
 
-        bday = "Unknown",
+        bday = "March 1",
         past =
         [[Welina, Welina, Welina... I do like this name, rolls off the tongue pretty well. Anyway I subjected one of those fat catcoons to a life of human problems, to my surprise she was taking it quite well... until she wasn't. 
 She turned really nihilistic after a while, and would spend most of her time away from the other catcoons. Maybe she just started seeing herself as superior to them, or maybe she felt like an outlier amongst them. Or maybe the inescapable existential dread has caught up to her? Well such is the burden of being able to conjure complex thoughts and emotions, what'll she do anyway? Kill herself nine times? Ha!

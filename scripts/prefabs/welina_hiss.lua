@@ -20,7 +20,7 @@ local function PlayHissAnim(proxy)
 
     inst.AnimState:SetBank("welina_hiss")
     inst.AnimState:SetBuild("welina_hiss_anim")
-    inst.AnimState:PlayAnimation("fx", true)
+    inst.AnimState:PlayAnimation("idle_loop", true)
     inst.AnimState:SetFinalOffset(3)
 
     --inst:ListenForEvent("animover", inst.Remove)

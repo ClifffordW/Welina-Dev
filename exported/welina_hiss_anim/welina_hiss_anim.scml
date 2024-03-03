@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r4.1">
     <folder id="0" name="welina_hiss">
         <file id="0" name="welina_hiss/welina_hiss-0.png" width="526" height="485" pivot_x="0.494297" pivot_y="0.096907"/>
         <file id="1" name="welina_hiss/welina_hiss-1.png" width="526" height="485" pivot_x="0.494297" pivot_y="0.096907"/>
@@ -22,7 +22,7 @@
                     <object folder="0" file="0" x="25.823007" angle="0" scale_x="-1"/>
                 </key>
                 <key id="1" time="53" spin="0">
-                    <object folder="0" file="1" x="25.823007" y="7" angle="0" scale_x="-1"/>
+                    <object folder="0" file="1" x="25.823007" y="-1.490566" angle="0" scale_x="-1"/>
                 </key>
             </timeline>
         </animation>
