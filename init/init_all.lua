@@ -1,3 +1,4 @@
+GLOBAL.setmetatable(env, {__index = function(t, k) return GLOBAL.rawget(GLOBAL, k) end})
 
 local path = "init/"
 
@@ -11,6 +12,7 @@ local inits =
     
     "strings",
     
+    "stategraphs",
 
     "abilities",
 

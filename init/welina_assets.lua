@@ -50,6 +50,8 @@ AddAnim("welina_hiss_anim")
 AddAnim("catcoon_basic_hat")
 AddAnim("catcoon_actions_hat")
 
+AddAnim("welina_run_anim")
+
 table.insert(Assets, Asset("SOUND", "sound/welina.fsb"))
 table.insert(Assets, Asset("SOUNDPACKAGE", "sound/scotchmintz_characters.fev"))
 
