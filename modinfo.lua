@@ -400,6 +400,11 @@ if versiontype ~= "" then
     name = name .. "\n" .. versiontype
 end
 
+folder_name = folder_name or "workshop-"
+if not folder_name:find("workshop-") then
+	name = name .. " - GitHub Ver."
+end
+
 old_author = author
 if contributors ~= "" and contributors ~= nil and write_contributors then
     author = author .. " and " .. contributors
