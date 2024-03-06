@@ -78,7 +78,7 @@ AddPrefabPostInit("catcoon", function(inst, ...)
         inst.AnimState:SetHatOffset(0, 80)
     end ]]
 
-    if not _G.TheWorld.ismastersim then
+    if not TheWorld.ismastersim then
         return inst
     end
 

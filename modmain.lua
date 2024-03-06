@@ -382,7 +382,6 @@ modimport("init/init_all")
 
 
 
-
 if TUNING.WELINA_OSP == 1 then
     local function MayKill(self, amount)
         if self.currenthealth + amount <= 0 then
@@ -391,7 +390,7 @@ if TUNING.WELINA_OSP == 1 then
     end
 
     AddComponentPostInit("health", function(self)
-        if not _G.TheWorld.ismastersim then return end
+        if not TheWorld.ismastersim then return end
 
         local _DoDelta = self.DoDelta
         --(self:HasTag("wathom") and self:HasTag("amped")

@@ -146,8 +146,8 @@ AddStategraphState("wilson", State {
         inst.Transform:SetPredictedSixFaced()
         inst.components.locomotor:RunForward()
 
-        if not inst.AnimState:IsCurrentAnimation("run_monkey_loop") then
-            inst.AnimState:PlayAnimation("run_monkey_loop", true)
+        if not inst.AnimState:IsCurrentAnimation("run_welina_loop") then
+            inst.AnimState:PlayAnimation("run_welina_loop", true)
         end
 
         inst.sg:SetTimeout(inst.AnimState:GetCurrentAnimationLength())
@@ -281,12 +281,13 @@ AddStategraphState("wilson", State {
             inst.sg:GoToState("run")
             return
         end
+        
         inst.components.locomotor.predictrunspeed = TUNING.WILSON_RUN_SPEED + TUNING.WONKEY_SPEED_BONUS
         inst.Transform:SetPredictedSixFaced()
         inst.components.locomotor:RunForward()
 
-        if not inst.AnimState:IsCurrentAnimation("run_monkey_loop") then
-            inst.AnimState:PlayAnimation("run_monkey_loop", true)
+        if not inst.AnimState:IsCurrentAnimation("run_welina_loop") then
+            inst.AnimState:PlayAnimation("run_welina_loop", true)
         end
 
         inst.sg:SetTimeout(inst.AnimState:GetCurrentAnimationLength())

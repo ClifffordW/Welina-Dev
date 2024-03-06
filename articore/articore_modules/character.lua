@@ -114,8 +114,8 @@ end
 --Adds skin for character. Name, description, quote, is the character modded ?, is dynamic asset used?, add prefab if modded skin not used
 function AddCharacterSkin(character, skin, name, description, quote, modded, dynamicskin, addprefabs)
   local _G = GLOBAL
-  local PREFAB_SKINS = _G.PREFAB_SKINS
-  local PREFAB_SKINS_IDS = _G.PREFAB_SKINS_IDS
+  local PREFAB_SKINS = PREFAB_SKINS
+  local PREFAB_SKINS_IDS = PREFAB_SKINS_IDS
   local SKIN_AFFINITY_INFO = GLOBAL.require("skin_affinity_info")
 
   
@@ -213,7 +213,7 @@ end
 function AddCharFont(prefab)
 
   local font = "TALKINGFONT_" .. prefab:upper()
-  _G.global(font) --Fix provided by CarlZalph ty
+  global(font) --Fix provided by CarlZalph ty
   _G[font] = "talkingfont_" .. prefab
 
 
@@ -228,13 +228,13 @@ function AddCharFont(prefab)
       TheSim:UnloadPrefabs({prefab.."_font"})
 
       local Assets = {
-          Asset("FONT", _G.resolvefilepath("fonts/talkingfont_"..prefab..".zip")),
+          Asset("FONT", resolvefilepath("fonts/talkingfont_"..prefab..".zip")),
       }
-      local FontsPrefab = _G.Prefab(prefab.."_font", function() return _G.CreateEntity() end, Assets)
-      _G.RegisterPrefabs(FontsPrefab)
+      local FontsPrefab = Prefab(prefab.."_font", function() return CreateEntity() end, Assets)
+      RegisterPrefabs(FontsPrefab)
       TheSim:LoadPrefabs({prefab.."_font"})
-      TheSim:LoadFont(_G.resolvefilepath("fonts/talkingfont_"..prefab..".zip"), charfont)
-      TheSim:SetupFontFallbacks(charfont, _G.DEFAULT_FALLBACK_TABLE_OUTLINE)
+      TheSim:LoadFont(resolvefilepath("fonts/talkingfont_"..prefab..".zip"), charfont)
+      TheSim:SetupFontFallbacks(charfont, DEFAULT_FALLBACK_TABLE_OUTLINE)
   end)
 end
 
@@ -279,7 +279,7 @@ end
 function AddScorebBadge(prefab, state1, state2, state3, ...)
   local GetPlayerBadgeData_old = GLOBAL.GetPlayerBadgeData or function() end
 
-  _G.GetPlayerBadgeData = function(character, ghost, state1, state2, state3, ...)
+  GetPlayerBadgeData = function(character, ghost, state1, state2, state3, ...)
       if character == prefab then
           if ghost then
               return "ghost", "idle", "ghost_skin", 0.15, -55
