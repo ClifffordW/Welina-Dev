@@ -86,7 +86,7 @@ AddStategraphState("wilson",
             end
             inst.Transform:SetPredictedSixFaced()
             inst.components.locomotor:RunForward()
-            inst.AnimState:PlayAnimation("run_monkey_pre")
+            inst.AnimState:PlayAnimation("run_welina_pre")
             --inst.SoundEmitter:PlaySound("dontstarve_DLC002/characters/wilbur/walktorun", "walktorun") TODO SOUND
         end,
 
@@ -227,7 +227,7 @@ AddStategraphState("wilson", State {
         end
         inst.Transform:SetPredictedSixFaced()
         inst.components.locomotor:RunForward()
-        inst.AnimState:PlayAnimation("run_monkey_pre")
+        inst.AnimState:PlayAnimation("run_welina_pre")
     end,
 
     onupdate = function(inst)

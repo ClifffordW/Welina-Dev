@@ -47,8 +47,8 @@ Assets = {
 
 AddAnim("welina_hiss_anim")
 
-AddAnim("catcoon_basic_hat")
-AddAnim("catcoon_actions_hat")
+AddAnim("catcoon_basic")
+AddAnim("catcoon_actions")
 
 AddAnim("welina_run_anim")
 

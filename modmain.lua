@@ -25,7 +25,61 @@ local animation_data =
 
 
 
+AddPrefabPostInit("catcoon", function(inst)
 
+
+
+    inst.AnimState:SetHatOffset(5, 200)
+
+
+
+        local function OnGetItemFromPlayer(inst, giver, item)
+  
+        
+            --I wear hats
+            if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
+                local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
+                if current ~= nil then
+                    inst.components.inventory:DropItem(current)
+                end
+
+                inst.components.inventory:Equip(item)
+                inst.AnimState:ShowSymbol("swap_hat")
+            end
+        end
+
+
+
+        local function ShouldAcceptItem(inst, item)
+            if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
+                return true
+
+            end
+        end
+
+        local function OnRefuseItem(inst, item)
+            if inst.components.sleeper:IsAsleep() then
+                inst.components.sleeper:WakeUp()
+            end
+        end
+
+
+        if not TheWorld.ismastersim then
+            return inst
+        end
+
+
+        inst:AddComponent("trader")
+        inst.components.trader:SetAcceptTest(ShouldAcceptItem)
+        inst.components.trader.onaccept = OnGetItemFromPlayer
+        inst.components.trader.onrefuse = OnRefuseItem
+        inst.components.trader.deleteitemonaccept = false
+
+
+
+
+
+end)
 
 
 
