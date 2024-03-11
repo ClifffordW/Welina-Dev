@@ -236,7 +236,7 @@
     </folder>
     <folder id="25" name="tail">
         <file id="0" name="tail/tail-0.png" width="250" height="100" pivot_x="0.5" pivot_y="0.5"/>
-        <file id="1" name="tail/tail-6.png" width="130" height="149" pivot_x="0.5" pivot_y="0.5"/>
+        <file id="1" name="tail/tail-6.png" width="250" height="100" pivot_x="0.5" pivot_y="0.5"/>
         <file id="2" name="tail/tail-2.png" width="250" height="100" pivot_x="0" pivot_y="1"/>
         <file id="3" name="tail/tail-11.png" width="250" height="100" pivot_x="0" pivot_y="1"/>
         <file id="4" name="tail/tail-4.png" width="250" height="100" pivot_x="0" pivot_y="1"/>
@@ -2671,7 +2671,7 @@
                     <object folder="64" file="1" x="-73.2" y="20.05" angle="252.745" scale_x="0.999961" scale_y="1.06284"/>
                 </key>
                 <key id="3" time="228">
-                    <object folder="64" file="7" x="-35.857346" y="73.203521" angle="320.373" scale_x="1.27129" scale_y="0.857397"/>
+                    <object folder="64" file="1" x="-35.857346" y="73.203521" angle="320.373" scale_x="1.27129" scale_y="0.857397"/>
                 </key>
                 <key id="4" time="300" spin="-1">
                     <object folder="64" file="1" x="48.7502" y="12.625845" angle="43.7786" scale_x="0.949732" scale_y="1.29618"/>
@@ -2723,7 +2723,7 @@
                     <object folder="64" file="2" x="-30.9494" y="41.2" angle="243.185" scale_x="1.60997" scale_y="1.02984"/>
                 </key>
                 <key id="3" time="228" spin="-1">
-                    <object folder="64" file="7" x="90.142454" y="78.303621" angle="69.3271" scale_x="1.73143" scale_y="1.44238"/>
+                    <object folder="64" file="1" x="90.142454" y="78.303621" angle="69.3271" scale_x="1.73143" scale_y="1.44238"/>
                 </key>
                 <key id="4" time="300" spin="-1">
                     <object folder="64" file="2" x="31.699" y="26.359155" angle="12.0443" scale_x="1.20561" scale_y="1.06211"/>
@@ -3052,7 +3052,7 @@
             </timeline>
             <timeline id="29" name="tail_0">
                 <key id="0">
-                    <object folder="25" file="6" x="-144.7" y="179.1" angle="172.048" scale_x="0.990835" scale_y="0.990835"/>
+                    <object folder="25" file="5" x="-144.7" y="179.1" angle="172.048" scale_x="0.990835" scale_y="0.990835"/>
                 </key>
                 <key id="1" time="30">
                     <object folder="25" file="5" x="-146.238" y="176.591" angle="179.867" scale_x="0.990804" scale_y="0.990804"/>
@@ -3078,10 +3078,10 @@
             </timeline>
             <timeline id="30" name="tail_1">
                 <key id="0">
-                    <object folder="25" file="2" x="-167.9" y="176.45" angle="187.53" scale_x="0.991875" scale_y="0.991875"/>
+                    <object folder="25" file="6" x="-167.9" y="176.45" angle="187.53" scale_x="0.991875" scale_y="0.991875"/>
                 </key>
                 <key id="1" time="30">
-                    <object folder="25" file="6" x="-167.65" y="171.488" angle="195.353" scale_x="0.991734" scale_y="0.991734"/>
+                    <object folder="25" file="4" x="-167.65" y="171.488" angle="195.353" scale_x="0.991734" scale_y="0.991734"/>
                 </key>
                 <key id="2" time="68">
                     <object folder="25" file="0" x="-167.039" y="159.333" angle="214.52" scale_x="0.99139" scale_y="0.99139"/>
@@ -3104,10 +3104,10 @@
             </timeline>
             <timeline id="31" name="tail_2">
                 <key id="0">
-                    <object folder="25" file="3" x="-179.9" y="152.45" angle="242.658" scale_x="0.993363" scale_y="0.993363"/>
+                    <object folder="25" file="4" x="-179.9" y="152.45" angle="242.658" scale_x="0.993363" scale_y="0.993363"/>
                 </key>
                 <key id="1" time="30">
-                    <object folder="25" file="3" x="-177.946" y="147.086" angle="245.541" scale_x="0.993233" scale_y="0.993233"/>
+                    <object folder="25" file="2" x="-177.946" y="147.086" angle="245.541" scale_x="0.993233" scale_y="0.993233"/>
                 </key>
                 <key id="2" time="68">
                     <object folder="25" file="0" x="-173.158" y="133.946" angle="252.603" scale_x="0.992915" scale_y="0.992915"/>
@@ -3130,10 +3130,10 @@
             </timeline>
             <timeline id="32" name="tail_3">
                 <key id="0">
-                    <object folder="25" file="7" x="-165" y="92.9" angle="283.464" scale_x="0.993992" scale_y="0.993992"/>
+                    <object folder="25" file="2" x="-165" y="92.9" angle="283.464" scale_x="0.993992" scale_y="0.993992"/>
                 </key>
                 <key id="1" time="30">
-                    <object folder="25" file="7" x="-160.371" y="88.9776" angle="286.347" scale_x="0.993815" scale_y="0.993815"/>
+                    <object folder="25" file="8" x="-160.371" y="88.9776" angle="286.347" scale_x="0.993815" scale_y="0.993815"/>
                 </key>
                 <key id="2" time="68">
                     <object folder="25" file="0" x="-149.03" y="79.3686" angle="293.412" scale_x="0.993381" scale_y="0.993381"/>
@@ -3159,7 +3159,7 @@
                     <object folder="25" file="8" x="-102.75" y="53.45" angle="329.813" scale_x="0.995943" scale_y="0.995943"/>
                 </key>
                 <key id="1" time="30">
-                    <object folder="25" file="4" x="-97.5456" y="51.3849" angle="331.323" scale_x="0.995799" scale_y="0.995799"/>
+                    <object folder="25" file="6" x="-97.5456" y="51.3849" angle="331.323" scale_x="0.995799" scale_y="0.995799"/>
                 </key>
                 <key id="2" time="68">
                     <object folder="25" file="0" x="-84.7959" y="46.3257" angle="335.02" scale_x="0.995447" scale_y="0.995447"/>
