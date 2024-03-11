@@ -1,7 +1,7 @@
 modimport("articore/articore_api")
 
 
-
+local welina_sounds = require "defs.sound.fmod_defs"
 
 
 
@@ -168,7 +168,7 @@ AddStategraphState("wilson", State {
 
         TimeEvent(14 * FRAMES, function(inst)
             if animation_data.anims == "idle_loop" then
-                inst.SoundEmitter:PlaySound("scotchmintz_characters/sfx/miau")
+                inst.SoundEmitter:PlaySound(welina_sounds.welina_hiss)
             end
         end),
 

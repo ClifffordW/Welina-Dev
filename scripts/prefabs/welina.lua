@@ -1,5 +1,6 @@
 local MakePlayerCharacter = require "prefabs/player_common"
 local ex_fns = require "prefabs/player_common_extensions"
+local welina_sounds = require "defs.sound.fmod_defs"
 
 local assets = {
 	Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
@@ -196,12 +197,12 @@ local function HealthWarning(inst)
 			
 		end
 		if not TheFocalPoint.SoundEmitter:PlayingSound("deathbell")  then
-			TheFocalPoint.SoundEmitter:PlaySound(TUNING.WELINA_LASTLIFE_MUSIC or "scotchmintz_characters/sfx/welina_bell", "deathbell")
+			TheFocalPoint.SoundEmitter:PlaySound(TUNING.WELINA_LASTLIFE_MUSIC or welina_sounds.welina_closetodeath., "deathbell")
 		end
 
 		inst:DoTaskInTime(0.01, function()
 			if inst._welina_numDeaths and inst._welina_numDeaths == 10 and not inst:HasTag("playerghost") then
-				TheFocalPoint.SoundEmitter:PlaySound("scotchmintz_characters/sfx/welina_finalbell", "finalbell")
+				TheFocalPoint.SoundEmitter:PlaySound(welina_sounds.welina_deathbell, "finalbell")
 			end
 		end)
 		
