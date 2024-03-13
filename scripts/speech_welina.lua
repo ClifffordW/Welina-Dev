@@ -1987,52 +1987,52 @@ return{
 
 		ENDTABLE =
 		{
-			BURNT = "That was uncalled for.",
-			GENERIC = "Purely decorative.",
-			EMPTY = "An empty vessel awaiting decoration or light.",
-			WILTED = "Every lovely flower must one day wilt.",
-			FRESHLIGHT = "A temporary reprieve from the shadow.",
-			OLDLIGHT = "I believe it is Wilson's turn to fetch bulbs.", -- will be wilted soon, light radius will be very small at this point
+			BURNT = "Everything eventually dies.",
+			GENERIC = "It's just decor to spice up my boring life.",
+			EMPTY = "Empty and useless, just like meow.",
+			WILTED = "The passage of time is a cruel thing.",
+			FRESHLIGHT = "Temporyary salvation from the eternal darkness.",
+			OLDLIGHT = "Its life has come to an end.", -- will be wilted soon, light radius will be very small at this point
 		},
 		DECIDUOUSTREE =
 		{
-			BURNING = "Oops.",
-			BURNT = "Bathed in fire.",
-			CHOPPED = "That's not about to grow back.",
-			POISON = "Shut your maw!",
-			GENERIC = "An acquaintance of mine describes them as \"leafy\".",
+			BURNING = "That's a shyame.",
+			BURNT = "Another one bites the dust.",
+			CHOPPED = "It probably won't just grow back like that.",
+			POISON = "Don't even think about birchnutting all over meow.",
+			GENERIC = "These trees look too whimsical for my taste.",
 		},
-		ACORN = "A more outdoorsy type might be able to make something of this.",
-        ACORN_SAPLING = "Huh, it seems to belong in the ground.",
-		ACORN_COOKED = "Over an open fire.",
-		BIRCHNUTDRAKE = "A nut with legs! How terrifying!",
+		ACORN = "I let it begin a nyew life, but why would i.",
+        ACORN_SAPLING = "It's probably content with such a life.",
+		ACORN_COOKED = "Even it cracked under pressure.",
+		BIRCHNUTDRAKE = "Very aggressive, for its size.",
 		EVERGREEN =
 		{
-			BURNING = "Oops.",
-			BURNT = "Bathed in fire.",
-			CHOPPED = "That's not about to grow back.",
-			GENERIC = "An acquaintance of mine describes them as \"piney\".",
+			BURNING = "That's a shyame.",
+			BURNT = "Another one bites the dust.",
+			CHOPPED = "It probably won't just grow back like that.",
+			GENERIC = "Spiky, sturdy, green.",
 		},
 		EVERGREEN_SPARSE =
 		{
-			BURNING = "Oops.",
-			BURNT = "Dust to dust.",
-			CHOPPED = "I put it out of its misery.",
-			GENERIC = "It looks sickly.",
+			BURNING = "That's a shyame.",
+			BURNT = "Another one bites the dust.",
+			CHOPPED = "It probably won't just grow back like that.",
+			GENERIC = "It reminds meow a lot of myeowself.",
 		},
 		TWIGGYTREE =
 		{
-			BURNING = "Oops.",
-			BURNT = "Bathed in fire.",
-			CHOPPED = "That's not about to grow back.",
-			GENERIC = "The tree of an amateur.",
-			DISEASED = "What has brought this blight upon my world?", --unimplemented
+			BURNING = "That's a shyame.",
+			BURNT = "Another one bites the dust.",
+			CHOPPED = "It probably won't just grow back like that.",
+			GENERIC = "A pathetic, weak tree.",
+			DISEASED = "What has brought this blight upon the world?", --unimplemented
 		},
-		TWIGGY_NUT_SAPLING = "It's of no use in it's current state. Only time will tell.",
-        TWIGGY_OLD = "Look at you. You're useless.",
-		TWIGGY_NUT = "I could plant it... but why?",
-		EYEPLANT = "The Meat Bulb's pawns.",
-		INSPECTSELF = "I still look dapper, right? As if I need to check.",
+		TWIGGY_NUT_SAPLING = "Circle of life.",
+        TWIGGY_OLD = "The wind could tip it over.",
+		TWIGGY_NUT = "It has to be put down under.",
+		EYEPLANT = "It's staring at meow, judging meow.",
+		INSPECTSELF = "Meow in all my atrocity.",
 		FARMPLOT =
 		{
 			GENERIC = "Do I look like a farmer?",
@@ -2040,20 +2040,20 @@ return{
 			NEEDSFERTILIZER = "It needs to be... refreshed.",
 			BURNT = "A harvest of ashes.",
 		},
-		FEATHERHAT = "I always considered myself the peacock of people.",
-		FEATHER_CROW = "Black is the color of sleep.",
-		FEATHER_ROBIN = "Red is the color of fire.",
-		FEATHER_ROBIN_WINTER = "Grey is the color of pain.",
-		FEATHER_CANARY = "Yellow is the color of naivety.",
-		FEATHERPENCIL = "Not as elegant as a quill and inkwell, but it'll do.",
-        COOKBOOK = "Very well. If I can master the dark arts, how hard could cooking be?",
+		FEATHERHAT = "I'm not on good terms with the birds.",
+		FEATHER_CROW = "Black suits meow the most.",
+		FEATHER_ROBIN = "Weird, it's kind of warm.",
+		FEATHER_ROBIN_WINTER = "Seeing this feather reminds meow of the cold.",
+		FEATHER_CANARY = "The tastiest birds, if you ask meow.",
+		FEATHERPENCIL = "This is how people write, pretty creative.",
+        COOKBOOK = "It's a book about cooking or whatever.",
 		FEM_PUPPET = "Better her than me.", --single player
 		FIREFLIES =
 		{
-			GENERIC = "How pretty.",
-			HELD = "I could squish them if I wanted to.",
+			GENERIC = "They glow, and they never stop glowing.",
+			HELD = "Would eating them make meow brighter.",
 		},
-		FIREHOUND = "I put fire gems in there as a joke.",
+		FIREHOUND = "It's one with a short temper.",
 		FIREPIT =
 		{
 			EMBERS = "I should attend to that.",
