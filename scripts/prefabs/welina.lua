@@ -197,7 +197,7 @@ local function HealthWarning(inst)
 			
 		end
 		if not TheFocalPoint.SoundEmitter:PlayingSound("deathbell")  then
-			TheFocalPoint.SoundEmitter:PlaySound(TUNING.WELINA_LASTLIFE_MUSIC or welina_sounds.welina_closetodeath., "deathbell")
+			TheFocalPoint.SoundEmitter:PlaySound(TUNING.WELINA_LASTLIFE_MUSIC or welina_sounds.welina_closetodeath, "deathbell")
 		end
 
 		inst:DoTaskInTime(0.01, function()

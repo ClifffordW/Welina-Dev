@@ -14,7 +14,7 @@ local is_modenabled = KnownModIndex:IsModEnabled(modnameFancy)
 
 
 
-local animation_data = 
+local animation_data =
 {
     frames_anim = is_modenabled and 220 or 64,
     camera_distance = is_modenabled and 7 or 13,
@@ -26,59 +26,48 @@ local animation_data =
 
 
 AddPrefabPostInit("catcoon", function(inst)
-
-
-
     inst.AnimState:SetHatOffset(5, 200)
 
 
 
-        local function OnGetItemFromPlayer(inst, giver, item)
-  
-        
-            --I wear hats
-            if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
-                local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
-                if current ~= nil then
-                    inst.components.inventory:DropItem(current)
-                end
-
-                inst.components.inventory:Equip(item)
-                inst.AnimState:ShowSymbol("swap_hat")
+    local function OnGetItemFromPlayer(inst, giver, item)
+        --I wear hats
+        if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
+            local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
+            if current ~= nil then
+                inst.components.inventory:DropItem(current)
             end
+
+            inst.components.inventory:Equip(item)
+            inst.AnimState:ShowSymbol("swap_hat")
         end
+    end
 
 
 
-        local function ShouldAcceptItem(inst, item)
-            if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
-                return true
-
-            end
+    local function ShouldAcceptItem(inst, item)
+        if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
+            return true
         end
+    end
 
-        local function OnRefuseItem(inst, item)
-            if inst.components.sleeper:IsAsleep() then
-                inst.components.sleeper:WakeUp()
-            end
+    local function OnRefuseItem(inst, item)
+        if inst.components.sleeper:IsAsleep() then
+            inst.components.sleeper:WakeUp()
         end
+    end
 
 
-        if not TheWorld.ismastersim then
-            return inst
-        end
+    if not TheWorld.ismastersim then
+        return inst
+    end
 
 
-        inst:AddComponent("trader")
-        inst.components.trader:SetAcceptTest(ShouldAcceptItem)
-        inst.components.trader.onaccept = OnGetItemFromPlayer
-        inst.components.trader.onrefuse = OnRefuseItem
-        inst.components.trader.deleteitemonaccept = false
-
-
-
-
-
+    inst:AddComponent("trader")
+    inst.components.trader:SetAcceptTest(ShouldAcceptItem)
+    inst.components.trader.onaccept = OnGetItemFromPlayer
+    inst.components.trader.onrefuse = OnRefuseItem
+    inst.components.trader.deleteitemonaccept = false
 end)
 
 
@@ -91,16 +80,10 @@ AddStategraphState("wilson", State {
     tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph" },
 
     onenter = function(inst)
-
-        
-
-
-
-
         if animation_data.anims == "idle_loop" then
             inst.AnimState:PlayAnimation("research")
         end
-        
+
         inst.components.health:SetPercent(0.01)
 
         inst.components.locomotor:StopMoving()
@@ -120,11 +103,10 @@ AddStategraphState("wilson", State {
         local panic_ents = TheSim:FindEntities(x, y, z, 20)
 
         for k, v in pairs(panic_ents) do
-            
             if v.components.combat then
                 v.components.combat:DropTarget()
             end
-            
+
 
 
 
@@ -160,7 +142,7 @@ AddStategraphState("wilson", State {
                 inst.SoundEmitter:PlaySound("fortnig/fortnite/theme", "fortnitedancetheme")
             end
 
-            inst.AnimState:PlayAnimation(animation_data.anims, animation_data.anims == "idle_loop" and true or false) 
+            inst.AnimState:PlayAnimation(animation_data.anims, animation_data.anims == "idle_loop" and true or false)
 
             inst.Transform:SetNoFaced()
         end),
@@ -260,11 +242,11 @@ AddPrefabPostInit("welina", function(inst, data, ...)
         if data ~= nil and data.welina_numDeaths ~= nil then
             inst.welina_numDeaths = data.welina_numDeaths
         end
-        
+
         if inst.welina_numDeaths and inst.net_welina_numDeaths then
             inst.net_welina_numDeaths:set(inst.welina_numDeaths)
         end
-      
+
 
         print("WORKING AS INTENDED")
 
@@ -280,7 +262,6 @@ end)
 
 
 AddPlayerPostInit(function(inst, data, ...)
-
     if inst.prefab ~= "welina" then
         GLOBAL.TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
 
@@ -323,36 +304,27 @@ AddPlayerPostInit(function(inst, data, ...)
         local _OnSave = inst.Save or DummyFn
         local _OnLoad = inst.OnLoad or DummyFn
         function OnSave(inst, data)
-
             local ret = _OnSave(inst, data)
 
             data.welina_numDeaths = inst.welina_numDeaths and inst.welina_numDeaths or nil
 
             return ret
         end
-        
-        function OnLoad(inst, data)
 
+        function OnLoad(inst, data)
             local ret = _OnLoad(inst, data)
 
-            if data and data.welina_numDeaths ~= nil  then
+            if data and data.welina_numDeaths ~= nil then
                 inst.welina_numDeaths = data.welina_numDeaths
-        
-    
-        
             end
 
             return ret
         end
-    
-    
-    
-    
 
         inst.SaveForReroll = SaveForReroll
         inst.LoadForReroll = LoadForReroll
 
-    
+
 
 
 
@@ -360,7 +332,6 @@ AddPlayerPostInit(function(inst, data, ...)
 
         inst.OnSave = OnSave
         inst.OnLoad = OnLoad
-
     end
 end)
 
@@ -401,13 +372,13 @@ end)
     function OnSave(inst, data)
         data.welina_numDeaths = inst.welina_numDeaths and inst.welina_numDeaths or nil
     end
-    
+
     function OnLoad(inst, data)
         if data and data.welina_numDeaths ~= nil then
             inst.welina_numDeaths = data.welina_numDeaths
-    
 
-    
+
+
         end
     end
 
@@ -429,10 +400,101 @@ end) ]]
 
 
 
-
-
 modimport("init/init_all")
 
+
+
+
+
+
+
+
+
+
+AddPrefabPostInit("catcoonden", function(inst, ...)
+    local function temperaturetick(inst, sleeper)
+        if sleeper.components.temperature ~= nil then
+            if inst.is_cooling then
+                if sleeper.components.temperature:GetCurrent() > TUNING.SLEEP_TARGET_TEMP_TENT then
+                    sleeper.components.temperature:SetTemperature(sleeper.components.temperature:GetCurrent() -
+                    TUNING.SLEEP_TEMP_PER_TICK)
+                end
+            elseif sleeper.components.temperature:GetCurrent() < TUNING.SLEEP_TARGET_TEMP_TENT then
+                sleeper.components.temperature:SetTemperature(sleeper.components.temperature:GetCurrent() +
+                TUNING.SLEEP_TEMP_PER_TICK)
+            end
+        end
+    end
+
+    local function PlaySleepLoopSoundTask(inst, stopfn)
+        -- inst.SoundEmitter:PlaySound("dontstarve/common/tent_sleep")
+    end
+    local function stopsleepsound(inst)
+        if inst.sleep_tasks ~= nil then
+            for i, v in ipairs(inst.sleep_tasks) do
+                v:Cancel()
+            end
+            inst.sleep_tasks = nil
+        end
+    end
+
+    local function startsleepsound(inst, len)
+        stopsleepsound(inst)
+        inst.sleep_tasks =
+        {
+            inst:DoPeriodicTask(len, PlaySleepLoopSoundTask, 33 * FRAMES),
+            inst:DoPeriodicTask(len, PlaySleepLoopSoundTask, 47 * FRAMES),
+        }
+    end
+
+    local function onwake(inst, sleeper, nostatechange)
+        inst.AnimState:PlayAnimation("idle")
+        inst.SoundEmitter:PlaySound("webber2/common/spiderden/out")
+        stopsleepsound(inst)
+    end
+
+    local function onsleep(inst, sleeper)
+        inst.AnimState:PlayAnimation("idle")
+        inst.SoundEmitter:PlaySound("webber2/common/spiderden/in")
+        startsleepsound(inst, inst.AnimState:GetCurrentAnimationLength())
+    end
+
+
+
+
+    local function AddSleepingBag(inst)
+        if inst.components.sleepingbag == nil then
+            inst:AddComponent("sleepingbag")
+        end
+
+        inst.components.sleepingbag.onsleep = onsleep
+        inst.components.sleepingbag.onwake = onwake
+
+        inst.components.sleepingbag.health_tick = TUNING.SLEEP_HEALTH_PER_TICK * 1.5
+        inst.components.sleepingbag.hunger_tick = TUNING.SLEEP_HUNGER_PER_TICK * 1.5
+        inst.components.sleepingbag.dryingrate = math.max(0, -TUNING.SLEEP_WETNESS_PER_TICK / TUNING.SLEEP_TICK_PERIOD)
+
+        inst.components.sleepingbag:SetTemperatureTickFn(temperaturetick)
+
+        inst:AddTag("tent")
+    end
+
+
+
+
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+
+
+
+
+    inst:DoTaskInTime(0, function()
+        AddSleepingBag(inst)
+    end)
+
+end)
 
 
 
@@ -461,8 +523,18 @@ if TUNING.WELINA_OSP == 1 then
             end
         end
     end)
-
 end
+
+
+
+AddComponentAction("SCENE", "prototyper", function(inst, doer, actions, right)
+    if not inst.prefab ~= "wcard_diary" then
+        if not right   then
+            table.insert(actions, ACTIONS.OPEN_CRAFTING)
+        end
+    end
+end)
+
 
 
 

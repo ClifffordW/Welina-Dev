@@ -14,7 +14,6 @@ CharacterAbillity("welina", "Nine Lives", "Edgy, Inside and Outside", "Resentful
 
 
 
-
 local general_scripts = require("play_generalscripts")
 
 STRINGS.STAGEACTOR.WELINA1 = {
