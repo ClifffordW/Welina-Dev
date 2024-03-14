@@ -175,9 +175,33 @@ GHOST = "Oh no, she's down a life!",
 FIRESTARTER = "I should teach you about fire safety, %s.",
 }
 
-STRINGS.NAMES.WELINA_COLLAR = "Spiked Collar"
-STRINGS.RECIPE_DESC.WELINA_COLLAR = "Put your feline friends on the edge."
-STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR = "Never forgive, never forget."
+STRINGS.NAMES.WELINA_COLLAR_SPIKED = "Spiked Collar"
+STRINGS.RECIPE_DESC.WELINA_COLLAR_SPIKED = "Put your feline friends on the edge."
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_SPIKED = "Never forgive, never forget."
+
+
+STRINGS.NAMES.WELINA_COLLAR_REGEN = "Rejuvenating Collar"
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_REGEN = "Never forgive, never forget."
+
+
+STRINGS.NAMES.WELINA_COLLAR_BOMB = "Explosive Collar"
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_BOMB = "Explosive idea neverthless."
+
+
+STRINGS.NAMES.WELINA_COLLAR_GLASS = "Shattered Collar"
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_GLASS = "Never forgive, never forget."
+
+
+STRINGS.NAMES.WELINA_COLLAR_ARMOR = "Sturdy Collar"
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_ARMOR = "Never forgive, never forget."
+
+
+STRINGS.NAMES.WELINA_COLLAR_LIGHT = "Enlightning Collar"
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_LIGHT = "Never forgive, never forget."
+
+
+
+
 
 
 local namerandoms = 
@@ -238,13 +262,13 @@ if KnownModIndex:IsModEnabled("workshop-3021568491") then
 
 
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WILDCARD = 
-{
-	GENERIC = "Hello bun-girl.",
-	ATTACKER = "I guess that nasty personality isn't just for show.",
-	MURDERER = "I've got a gravestone prepared with your name on it!",
-	REVIVER = "Can't shake off the feeling that she doesn't really care.",
-	GHOST = "Ms.Magician here needs a heart.",
-	FIRESTARTER = "Was burning that part of your magic act or something?",
-}
+    {
+        GENERIC = "Hello bun-girl.",
+        ATTACKER = "I guess that nasty personality isn't just for show.",
+        MURDERER = "I've got a gravestone prepared with your name on it!",
+        REVIVER = "Can't shake off the feeling that she doesn't really care.",
+        GHOST = "Ms.Magician here needs a heart.",
+        FIRESTARTER = "Was burning that part of your magic act or something?",
+    }
 
 end

@@ -87,14 +87,7 @@ local function onequip(inst, owner)
             
 
         end
-    else
-        owner:DoTaskInTime(0, function()
-            if inst and inst:IsValid() then
-                owner.components.inventory:Unequip(EQUIPSLOTS.HEAD)
-                owner.components.inventory:GiveItem(inst)
-            end
 
-        end)
 
 
     end
@@ -195,6 +188,7 @@ local function MakeCollar(name)
         inst.components.equippable.equipslot = EQUIPSLOTS.BODY
         inst.components.equippable:SetOnUnequip(onunequip)
         inst.components.equippable:SetOnEquip(onequip)
+        inst.components.equippable.restrictedtag = "sinner"
 
 
         inst:AddComponent("inventoryitem")

@@ -413,6 +413,7 @@ local function fn()
 	inst:AddTag("smallcreature")
 	inst:AddTag("animal")
 	inst:AddTag("catcoon")
+	inst:AddTag("sinner")
 
     --trader (from trader component) added to pristine state for optimization
     inst:AddTag("trader")
