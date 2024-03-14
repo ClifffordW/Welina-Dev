@@ -2,6 +2,8 @@
 --AddPrefab("welina_hiss")
 --AddPrefab("catcoonden")
 AddPrefab("welina_collar")
+AddPrefab("welina_catnip")
+AddPrefab("welina_catcoon")
 
 
 

@@ -31,6 +31,40 @@ AddPrefabPostInit("catcoon", function(inst)
 
 
     local function OnGetItemFromPlayer(inst, giver, item)
+        if inst.components.sleeper:IsAsleep() then
+            inst.components.sleeper:WakeUp()
+        end
+        if inst.components.combat.target == giver then
+            inst.components.combat:SetTarget(nil)
+            inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/pickup")
+        elseif giver.components.leader ~= nil then
+            
+                if item:HasTag("catnip") then 
+                    inst:Hide()
+                    local catcoon_replace = SpawnPrefab("welina_catcoon")
+                    catcoon_replace.Transform:SetPosition(inst.Transform:GetWorldPosition())
+                    giver.components.leader:AddFollower(catcoon_replace)
+                    catcoon_replace:AddTag("catnipped")
+
+
+                    inst:Remove()
+                end
+
+                if giver.components.minigame_participator == nil then
+                    giver:PushEvent("makefriend")
+                    giver.components.leader:AddFollower(inst)
+                end
+                inst.last_hairball_time = GetTime()
+                inst.hairball_friend_interval = math.random(2,4) -- Jumpstart the hairball timer (slot machine time!)
+                inst.components.follower:AddLoyaltyTime(item:HasTag("catnip") and 9999999999999999 or TUNING.CATCOON_LOYALTY_PER_ITEM)
+                if not inst.sg:HasStateTag("busy") then
+                    inst:FacePoint(giver.Transform:GetWorldPosition())
+                    inst.sg:GoToState("pawground")
+                end
+        end
+        item:Remove()
+
+
         --I wear hats
         if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
             local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
@@ -48,15 +82,23 @@ AddPrefabPostInit("catcoon", function(inst)
     local function ShouldAcceptItem(inst, item)
         if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
             return true
+        elseif item:HasTag("cattoy") or item:HasTag("catfood") or item:HasTag("cattoyairborne") then
+            return true
+        elseif item:HasTag("catnip") then
+            return true 
+        else
+            return false
         end
     end
 
     local function OnRefuseItem(inst, item)
+        inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hiss_pre")
         if inst.components.sleeper:IsAsleep() then
             inst.components.sleeper:WakeUp()
+        -- elseif not inst.sg:HasStateTag("busy") then
+        -- 	inst.sg:GoToState("hiss")
         end
     end
-
 
     if not TheWorld.ismastersim then
         return inst
@@ -66,8 +108,11 @@ AddPrefabPostInit("catcoon", function(inst)
     inst:AddComponent("trader")
     inst.components.trader:SetAcceptTest(ShouldAcceptItem)
     inst.components.trader.onaccept = OnGetItemFromPlayer
-    inst.components.trader.onrefuse = OnRefuseItem
-    inst.components.trader.deleteitemonaccept = false
+
+
+
+
+
 end)
 
 
@@ -150,7 +195,7 @@ AddStategraphState("wilson", State {
 
         TimeEvent(14 * FRAMES, function(inst)
             if animation_data.anims == "idle_loop" then
-                inst.SoundEmitter:PlaySound(welina_sounds.welina_hiss)
+                inst.SoundEmitter:PlaySound(welina_sounds.welina_hiss.event)
             end
         end),
 

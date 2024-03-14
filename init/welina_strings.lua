@@ -180,6 +180,19 @@ STRINGS.RECIPE_DESC.WELINA_COLLAR = "Put your feline friends on the edge."
 STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR = "Never forgive, never forget."
 
 
+local namerandoms = 
+
+{
+    "Catcoon",
+    "Sinner",
+    "Mentos",
+}
+
+local name = namerandoms[math.random(1, #namerandoms)]
+
+STRINGS.NAMES.WELINA_CATCOON = name or "Sinner"
+
+
 -------------------------------------- Whisky Stuff -----------------------------------------------------------------
 
 if KnownModIndex:IsModEnabled("workshop-2858309592") then

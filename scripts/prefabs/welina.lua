@@ -202,7 +202,7 @@ local function HealthWarning(inst)
 
 		inst:DoTaskInTime(0.01, function()
 			if inst._welina_numDeaths and inst._welina_numDeaths == 10 and not inst:HasTag("playerghost") then
-				TheFocalPoint.SoundEmitter:PlaySound(welina_sounds.welina_deathbell, "finalbell")
+				TheFocalPoint.SoundEmitter:PlaySound(welina_sounds.welina_deathbell.event, "finalbell")
 			end
 		end)
 		
