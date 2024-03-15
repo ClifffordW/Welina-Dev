@@ -15,16 +15,23 @@ local function ReflectDamage(inst, data)
 
 			data.attacker.components.health:DoDelta(-data.damage * TUNING.WELINA_REFLECT_AMOUNT or 5)
 
-
+        
 
 
 
 	end
 end
 
+local function OnExplodeFn(inst)
+    local explode = SpawnPrefab("explode_small")
+    explode.Transform:SetPosition(inst.Transform:GetWorldPosition())
+    explode.Transform:SetScale(4,4,4)
+end
+
+
 local function BoomCollar(inst, owner)
     
-    
+    inst.components.explosive:OnBurnt()
 
 end
 
@@ -38,9 +45,7 @@ local function onequip(inst, owner)
     print(name)
     if owner.prefab == "welina_catcoon" then
         if name == "bomb" then
-            owner:ListenForEvent("death", function()
-                inst.components.explosive:OnBurnt()
-            end)
+            owner:ListenForEvent("death", BoomCollar, inst)
 
         elseif name == "spiked" then
 
@@ -48,10 +53,7 @@ local function onequip(inst, owner)
 
         elseif name == "glass" then
 
-            inst.fx = SpawnPrefab("moonpulse_spawner")
-            inst.fx.entity:AddFollower()
-            inst.fx.entity:SetParent(owner.entity)
-            inst.fx.Follower:FollowSymbol(owner.GUID, "catcoon_head", 0, 0, 0)
+
 
 
             owner.components.combat.damagemultiplier = 3
@@ -149,11 +151,7 @@ end
 
 
 
-local function OnExplodeFn(inst)
-    local explode = SpawnPrefab("explode_small")
-    explode.Transform:SetPosition(inst.Transform:GetWorldPosition())
-    explode.Transform:SetScale(4,4,4)
-end
+
 
 local function MakeCollar(name)
     local function fn()
