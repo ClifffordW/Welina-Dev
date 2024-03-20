@@ -303,7 +303,7 @@ local function OnGetItemFromPlayer(inst, giver, item)
 			inst.hairball_friend_interval = math.random(2,4) -- Jumpstart the hairball timer (slot machine time!)
 			if not inst.sg:HasStateTag("busy") then
 				inst:FacePoint(giver.Transform:GetWorldPosition())
-				inst.sg:GoToState("idle")
+				inst.sg:GoToState("pawground")
 			end
 		end
 		item:Remove()
