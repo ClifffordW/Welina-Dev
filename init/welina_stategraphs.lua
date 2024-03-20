@@ -1,7 +1,7 @@
 
 
 local function ConfigureRunState(inst)
-    if inst.components.rider and inst.components.rider:IsRiding() then
+    if  inst.components.rider:IsRiding() then
         inst.sg.statemem.riding = true
         inst.sg.statemem.groggy = inst:HasTag("groggy")
         inst.sg:AddStateTag("nodangle")

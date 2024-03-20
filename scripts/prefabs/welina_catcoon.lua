@@ -283,6 +283,10 @@ local function ShouldAcceptItem(inst, item)
 
 	elseif item:HasTag("cattoy") or item:HasTag("catfood") or item:HasTag("cattoyairborne") then
 		return true
+	
+	elseif item.prefab == "winter_food4" then
+		-- NOTES(CW): Fruitcake hack. No escaping the eternal fruitcake
+		return false
 	else
 		print("FALSE")
 		return false
@@ -324,7 +328,7 @@ local function OnGetItemFromPlayer(inst, giver, item)
 		inst.components.inventory:Equip(item)
 		inst.AnimState:Show("hat")
 	end
-
+	--]]
 	if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.BODY then
 		local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.BODY)
 		if current ~= nil then
@@ -333,9 +337,8 @@ local function OnGetItemFromPlayer(inst, giver, item)
 
 
 		inst.components.inventory:Equip(item)
-		inst.AnimState:Show("hat")
 	end
-	--]]
+	
 end
 
 local function OnRefuseItem(inst, item)
