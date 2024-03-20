@@ -51,7 +51,7 @@ local function onequip(inst, owner)
 
             owner:ListenForEvent("attacked", ReflectDamage)
 
-        elseif name == "glass" then
+        elseif name == "glass" and owner.components.combat then
 
 
 
@@ -69,7 +69,7 @@ local function onequip(inst, owner)
                 owner.components.health:DoDelta(50)
             end)
 
-        elseif name == "armor" then
+        elseif name == "armor" and owner.components.combat then
 
             owner.components.combat.externaldamagetakenmultipliers:SetModifier(owner, 0.9, "armorcollar")
 
@@ -111,7 +111,7 @@ local function onunequip(inst, owner)
 
         owner:RemoveEventCallback("attacked", ReflectDamage)
 
-    elseif name == "glass" then
+    elseif name == "glass" and owner.components.combat then
 
         owner.components.combat.damagemultiplier = 0
 
@@ -138,7 +138,7 @@ local function onunequip(inst, owner)
             inst._light = nil
         end
 
-    elseif name == "armor" then
+    elseif name == "armor" and owner.components.combat then
 
         owner.components.combat.externaldamagetakenmultipliers:RemoveModifier(owner)
     end
