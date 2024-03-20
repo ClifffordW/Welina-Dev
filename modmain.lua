@@ -59,12 +59,13 @@ AddPrefabPostInit("catcoon", function(inst)
                 inst.components.follower:AddLoyaltyTime(item:HasTag("catnip") and 9999999999999999 or TUNING.CATCOON_LOYALTY_PER_ITEM)
                 if not inst.sg:HasStateTag("busy") then
                     inst:FacePoint(giver.Transform:GetWorldPosition())
-                    inst.sg:GoToState("pawground")
+                    inst.sg:GoToState("idle")
                 end
         end
         item:Remove()
 
 
+--[[
         --I wear hats
         if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
             local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
@@ -75,6 +76,7 @@ AddPrefabPostInit("catcoon", function(inst)
             inst.components.inventory:Equip(item)
             inst.AnimState:ShowSymbol("swap_hat")
         end
+		--]]
     end
 
 
@@ -554,7 +556,6 @@ if TUNING.WELINA_OSP == 1 then
         if not TheWorld.ismastersim then return end
 
         local _DoDelta = self.DoDelta
-        --(self:HasTag("wathom") and self:HasTag("amped")
         function self:DoDelta(amount, overtime, cause, ignore_invincible, afflicter, ignore_absorb, ...)
             local currentpercent = self:GetPercent()
 
@@ -571,7 +572,7 @@ if TUNING.WELINA_OSP == 1 then
 end
 
 
-
+--[[
 AddComponentAction("SCENE", "prototyper", function(inst, doer, actions, right)
     if not inst.prefab ~= "wcard_diary" then
         if not right   then
@@ -579,13 +580,7 @@ AddComponentAction("SCENE", "prototyper", function(inst, doer, actions, right)
         end
     end
 end)
+--]]
 
 
 
-
-
-
-
---Stuff is now sorted to proper files
-
---SKY: This is organized really really well, awesome job!

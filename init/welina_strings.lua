@@ -175,29 +175,204 @@ GHOST = "Oh no, she's down a life!",
 FIRESTARTER = "I should teach you about fire safety, %s.",
 }
 
+STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA =
+{
+GENERIC = "A feline human, not the weirdest thing I've seen today",
+ATTACKER = "It would be wiser to work together, %s!",
+MURDERER = "Looks like I'll have to erase you off this timeline myself!",
+REVIVER = "Cats are pretty good friends, and so are you, %s.",
+GHOST = "I assume you have more lives to yourself?",
+FIRESTARTER = "This cat's way too excited to be playing with fire.",
+}
+
+
+
+STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_CATCOON = "I don't have time to play with you."
+STRINGS.CHARACTERS.WURT.DESCRIBE.WELINA_CATCOON = "You funny, florp!"
+STRINGS.CHARACTERS.WALTER.DESCRIBE.WELINA_CATCOON = "You're a weird looking racoon."
+STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WELINA_CATCOON = "Hello, kitty!"
+STRINGS.CHARACTERS.WORTOX.DESCRIBE.WELINA_CATCOON = "I prefer playing with smarter mortals."
+STRINGS.CHARACTERS.WARLY.DESCRIBE.WELINA_CATCOON = "What perky little ears."
+STRINGS.CHARACTERS.WINONA.DESCRIBE.WELINA_CATCOON = "She'll keep the rats outta the factory."
+STRINGS.CHARACTERS.WEBBER.DESCRIBE.WELINA_CATCOON = "A bit more feral than grandpa's cat."
+STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WELINA_CATCOON = "Oh! Cute meat with fur."
+STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WELINA_CATCOON = "Catty vermin."
+STRINGS.CHARACTERS.WOODIE.DESCRIBE.WELINA_CATCOON = "Pests."
+STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WELINA_CATCOON = "A sort of a wildcat. Handsome fellow."
+STRINGS.CHARACTERS.WX78.DESCRIBE.WELINA_CATCOON = "CLAWS OUT."
+STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA_CATCOON = "I wonder if it had a twin, too"
+STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WELINA_CATCOON = "Wolfgang does not trust it."
+STRINGS.CHARACTERS.WILLOW.DESCRIBE.WELINA_CATCOON = "Here, kitty!"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_CATCOON = "A playful little thing."
+
+
+STRINGS.NAMES.WELINA_CATNIP = "Coonnip"
+STRINGS.RECIPE_DESC.WELINA_CATNIP = "They'll go mad for it."
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_CATNIP = "I have to be careful not to get anya on myeowself."
+
+STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_CATNIP = "It smells quite pleasant."
+STRINGS.CHARACTERS.WURT.DESCRIBE.WELINA_CATNIP = "Is food for catcoons?"
+STRINGS.CHARACTERS.WALTER.DESCRIBE.WELINA_CATNIP = "Catcoons go crazy for this stuff."
+STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WELINA_CATNIP = "Eating for cat"
+STRINGS.CHARACTERS.WORTOX.DESCRIBE.WELINA_CATNIP = "Hyuyu, it turns them mad."
+STRINGS.CHARACTERS.WARLY.DESCRIBE.WELINA_CATNIP = "Animals don't really care about the presentation."
+STRINGS.CHARACTERS.WINONA.DESCRIBE.WELINA_CATNIP = "Some kind of catcoon drug?"
+STRINGS.CHARACTERS.WEBBER.DESCRIBE.WELINA_CATNIP = "Bleh, it tastes horrible."
+STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WELINA_CATNIP = "Offering for the cat beast."
+STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WELINA_CATNIP = "These animals are easy to control."
+STRINGS.CHARACTERS.WOODIE.DESCRIBE.WELINA_CATNIP = "They'll go crazy for that, eh?"
+STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WELINA_CATNIP = "This is not healthy for a cat to consume."
+STRINGS.CHARACTERS.WX78.DESCRIBE.WELINA_CATNIP = "HA HA, THEY'LL EAT EACH OTHER FOR A DROP OF THIS."
+STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA_CATNIP = "They really only care about eating."
+STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WELINA_CATNIP = "Is taste like dirt."
+STRINGS.CHARACTERS.WILLOW.DESCRIBE.WELINA_CATNIP = "Hey what's that inside, can i burn it?"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_CATNIP = "I'm glad I'm not a cat now."
+
+
 STRINGS.NAMES.WELINA_COLLAR_SPIKED = "Spiked Collar"
 STRINGS.RECIPE_DESC.WELINA_COLLAR_SPIKED = "Put your feline friends on the edge."
 STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_SPIKED = "Never forgive, never forget."
 
+STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_COLLAR_SPIKED = "These collars aren't purely for the looks, are they?"
+STRINGS.CHARACTERS.WURT.DESCRIBE.WELINA_COLLAR_SPIKED = "For catcoons to feel pretty."
+STRINGS.CHARACTERS.WALTER.DESCRIBE.WELINA_COLLAR_SPIKED = "Ms.Welina wants her friends to look good too!"
+STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WELINA_COLLAR_SPIKED = "Fur friend clothes"
+STRINGS.CHARACTERS.WORTOX.DESCRIBE.WELINA_COLLAR_SPIKED = "She's just using them for her own gain, isn't she."
+STRINGS.CHARACTERS.WARLY.DESCRIBE.WELINA_COLLAR_SPIKED = "That's one stylish collar."
+STRINGS.CHARACTERS.WINONA.DESCRIBE.WELINA_COLLAR_SPIKED = "That cat girl has a weird sense of fashion."
+STRINGS.CHARACTERS.WEBBER.DESCRIBE.WELINA_COLLAR_SPIKED = "We want collars for our spider friends too!"
+STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WELINA_COLLAR_SPIKED = "'Tis no armor."
+STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WELINA_COLLAR_SPIKED = "Doesn't look like it'd fit on those fat catcoons."
+STRINGS.CHARACTERS.WOODIE.DESCRIBE.WELINA_COLLAR_SPIKED = "That'd look good on you, Lucy."
+STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WELINA_COLLAR_SPIKED = "A cat would really brighten the mood."
+STRINGS.CHARACTERS.WX78.DESCRIBE.WELINA_COLLAR_SPIKED = "I DON'T CARE ABOUT THIS CAT JUNK."
+STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA_COLLAR_SPIKED = "Each collar tells a different story."
+STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WELINA_COLLAR_SPIKED = "Is not even fit on Wolfgangs muscular neck."
+STRINGS.CHARACTERS.WILLOW.DESCRIBE.WELINA_COLLAR_SPIKED = "That looks sick!"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_COLLAR_SPIKED = "Claim your own catcoon today!"
+
+
+
 
 STRINGS.NAMES.WELINA_COLLAR_REGEN = "Rejuvenating Collar"
-STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_REGEN = "Never forgive, never forget."
+STRINGS.RECIPE_DESC.WELINA_COLLAR_REGEN = "The healing is only a side effect."
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_REGEN = "How does it work? Dunno."
+
+STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_COLLAR_REGEN = "These collars aren't purely for the looks, are they?"
+STRINGS.CHARACTERS.WURT.DESCRIBE.WELINA_COLLAR_REGEN = "For catcoons to feel pretty."
+STRINGS.CHARACTERS.WALTER.DESCRIBE.WELINA_COLLAR_REGEN = "Ms.Welina wants her friends to look good too!"
+STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WELINA_COLLAR_REGEN = "Fur friend clothes"
+STRINGS.CHARACTERS.WORTOX.DESCRIBE.WELINA_COLLAR_REGEN = "She's just using them for her own gain, isn't she."
+STRINGS.CHARACTERS.WARLY.DESCRIBE.WELINA_COLLAR_REGEN = "That's one stylish collar."
+STRINGS.CHARACTERS.WINONA.DESCRIBE.WELINA_COLLAR_REGEN = "That cat girl has a weird sense of fashion."
+STRINGS.CHARACTERS.WEBBER.DESCRIBE.WELINA_COLLAR_REGEN = "We want collars for our spider friends too!"
+STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WELINA_COLLAR_REGEN = "'Tis no armor."
+STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WELINA_COLLAR_REGEN = "Doesn't look like it'd fit on those fat catcoons."
+STRINGS.CHARACTERS.WOODIE.DESCRIBE.WELINA_COLLAR_REGEN = "That'd look good on you, Lucy."
+STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WELINA_COLLAR_REGEN = "A cat would really brighten the mood."
+STRINGS.CHARACTERS.WX78.DESCRIBE.WELINA_COLLAR_REGEN = "I DON'T CARE ABOUT THIS CAT JUNK."
+STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA_COLLAR_REGEN = "Each collar tells a different story."
+STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WELINA_COLLAR_REGEN = "Is not even fit on Wolfgangs muscular neck."
+STRINGS.CHARACTERS.WILLOW.DESCRIBE.WELINA_COLLAR_REGEN = "That looks sick!"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_COLLAR_REGEN = "Claim your own catcoon today!"
+
+
 
 
 STRINGS.NAMES.WELINA_COLLAR_BOMB = "Explosive Collar"
-STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_BOMB = "Explosive idea neverthless."
+STRINGS.RECIPE_DESC.WELINA_COLLAR_BOMB = "Martyrdom."
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_BOMB = "Oh, to take all my enyamies to meow grave."
+
+STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_COLLAR_BOMB = "These collars aren't purely for the looks, are they?"
+STRINGS.CHARACTERS.WURT.DESCRIBE.WELINA_COLLAR_BOMB = "For catcoons to feel pretty."
+STRINGS.CHARACTERS.WALTER.DESCRIBE.WELINA_COLLAR_BOMB = "Ms.Welina wants her friends to look good too!"
+STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WELINA_COLLAR_BOMB = "Fur friend clothes"
+STRINGS.CHARACTERS.WORTOX.DESCRIBE.WELINA_COLLAR_BOMB = "She's just using them for her own gain, isn't she."
+STRINGS.CHARACTERS.WARLY.DESCRIBE.WELINA_COLLAR_BOMB = "That's one stylish collar."
+STRINGS.CHARACTERS.WINONA.DESCRIBE.WELINA_COLLAR_BOMB = "That cat girl has a weird sense of fashion."
+STRINGS.CHARACTERS.WEBBER.DESCRIBE.WELINA_COLLAR_BOMB = "We want collars for our spider friends too!"
+STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WELINA_COLLAR_BOMB = "'Tis no armor."
+STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WELINA_COLLAR_BOMB = "Doesn't look like it'd fit on those fat catcoons."
+STRINGS.CHARACTERS.WOODIE.DESCRIBE.WELINA_COLLAR_BOMB = "That'd look good on you, Lucy."
+STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WELINA_COLLAR_BOMB = "A cat would really brighten the mood."
+STRINGS.CHARACTERS.WX78.DESCRIBE.WELINA_COLLAR_BOMB = "I DON'T CARE ABOUT THIS CAT JUNK."
+STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA_COLLAR_BOMB = "Each collar tells a different story."
+STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WELINA_COLLAR_BOMB = "Is not even fit on Wolfgangs muscular neck."
+STRINGS.CHARACTERS.WILLOW.DESCRIBE.WELINA_COLLAR_BOMB = "That looks sick!"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_COLLAR_BOMB = "Claim your own catcoon today!"
+
+
 
 
 STRINGS.NAMES.WELINA_COLLAR_GLASS = "Shattered Collar"
-STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_GLASS = "Never forgive, never forget."
+STRINGS.RECIPE_DESC.WELINA_COLLAR_GLASS = "Cut some glass with your class."
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_GLASS = "Shattered glass is a real dangerous thing."
+
+STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_COLLAR_GLASS = "These collars aren't purely for the looks, are they?"
+STRINGS.CHARACTERS.WURT.DESCRIBE.WELINA_COLLAR_GLASS = "For catcoons to feel pretty."
+STRINGS.CHARACTERS.WALTER.DESCRIBE.WELINA_COLLAR_GLASS = "Ms.Welina wants her friends to look good too!"
+STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WELINA_COLLAR_GLASS = "Fur friend clothes"
+STRINGS.CHARACTERS.WORTOX.DESCRIBE.WELINA_COLLAR_GLASS = "She's just using them for her own gain, isn't she."
+STRINGS.CHARACTERS.WARLY.DESCRIBE.WELINA_COLLAR_GLASS = "That's one stylish collar."
+STRINGS.CHARACTERS.WINONA.DESCRIBE.WELINA_COLLAR_GLASS = "That cat girl has a weird sense of fashion."
+STRINGS.CHARACTERS.WEBBER.DESCRIBE.WELINA_COLLAR_GLASS = "We want collars for our spider friends too!"
+STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WELINA_COLLAR_GLASS = "'Tis no armor."
+STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WELINA_COLLAR_GLASS = "Doesn't look like it'd fit on those fat catcoons."
+STRINGS.CHARACTERS.WOODIE.DESCRIBE.WELINA_COLLAR_GLASS = "That'd look good on you, Lucy."
+STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WELINA_COLLAR_GLASS = "A cat would really brighten the mood."
+STRINGS.CHARACTERS.WX78.DESCRIBE.WELINA_COLLAR_GLASS = "I DON'T CARE ABOUT THIS CAT JUNK."
+STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA_COLLAR_GLASS = "Each collar tells a different story."
+STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WELINA_COLLAR_GLASS = "Is not even fit on Wolfgangs muscular neck."
+STRINGS.CHARACTERS.WILLOW.DESCRIBE.WELINA_COLLAR_GLASS = "That looks sick!"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_COLLAR_GLASS = "Claim your own catcoon today!"
+
 
 
 STRINGS.NAMES.WELINA_COLLAR_ARMOR = "Sturdy Collar"
-STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_ARMOR = "Never forgive, never forget."
+STRINGS.RECIPE_DESC.WELINA_COLLAR_ARMOR = "Never leave home without one."
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_ARMOR = "This should keep them safe for a while longer."
+
+STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_COLLAR_ARMOR = "These collars aren't purely for the looks, are they?"
+STRINGS.CHARACTERS.WURT.DESCRIBE.WELINA_COLLAR_ARMOR = "For catcoons to feel pretty."
+STRINGS.CHARACTERS.WALTER.DESCRIBE.WELINA_COLLAR_ARMOR = "Ms.Welina wants her friends to look good too!"
+STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WELINA_COLLAR_ARMOR = "Fur friend clothes"
+STRINGS.CHARACTERS.WORTOX.DESCRIBE.WELINA_COLLAR_ARMOR = "She's just using them for her own gain, isn't she."
+STRINGS.CHARACTERS.WARLY.DESCRIBE.WELINA_COLLAR_ARMOR = "That's one stylish collar."
+STRINGS.CHARACTERS.WINONA.DESCRIBE.WELINA_COLLAR_ARMOR = "That cat girl has a weird sense of fashion."
+STRINGS.CHARACTERS.WEBBER.DESCRIBE.WELINA_COLLAR_ARMOR = "We want collars for our spider friends too!"
+STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WELINA_COLLAR_ARMOR = "'Tis no armor."
+STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WELINA_COLLAR_ARMOR = "Doesn't look like it'd fit on those fat catcoons."
+STRINGS.CHARACTERS.WOODIE.DESCRIBE.WELINA_COLLAR_ARMOR = "That'd look good on you, Lucy."
+STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WELINA_COLLAR_ARMOR = "A cat would really brighten the mood."
+STRINGS.CHARACTERS.WX78.DESCRIBE.WELINA_COLLAR_ARMOR = "I DON'T CARE ABOUT THIS CAT JUNK."
+STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA_COLLAR_ARMOR = "Each collar tells a different story."
+STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WELINA_COLLAR_ARMOR = "Is not even fit on Wolfgangs muscular neck."
+STRINGS.CHARACTERS.WILLOW.DESCRIBE.WELINA_COLLAR_ARMOR = "That looks sick!"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_COLLAR_ARMOR = "Claim your own catcoon today!"
+
 
 
 STRINGS.NAMES.WELINA_COLLAR_LIGHT = "Enlightning Collar"
-STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_LIGHT = "Never forgive, never forget."
+STRINGS.RECIPE_DESC.WELINA_COLLAR_LIGHT = "As bright as cats can get."
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_LIGHT = "Light up the way, will ya."
+
+STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_COLLAR_LIGHT = "These collars aren't purely for the looks, are they?"
+STRINGS.CHARACTERS.WURT.DESCRIBE.WELINA_COLLAR_LIGHT = "For catcoons to feel pretty."
+STRINGS.CHARACTERS.WALTER.DESCRIBE.WELINA_COLLAR_LIGHT = "Ms.Welina wants her friends to look good too!"
+STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WELINA_COLLAR_LIGHT = "Fur friend clothes"
+STRINGS.CHARACTERS.WORTOX.DESCRIBE.WELINA_COLLAR_LIGHT = "She's just using them for her own gain, isn't she."
+STRINGS.CHARACTERS.WARLY.DESCRIBE.WELINA_COLLAR_LIGHT = "That's one stylish collar."
+STRINGS.CHARACTERS.WINONA.DESCRIBE.WELINA_COLLAR_LIGHT = "That cat girl has a weird sense of fashion."
+STRINGS.CHARACTERS.WEBBER.DESCRIBE.WELINA_COLLAR_LIGHT = "We want collars for our spider friends too!"
+STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WELINA_COLLAR_LIGHT = "'Tis no armor."
+STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WELINA_COLLAR_LIGHT = "Doesn't look like it'd fit on those fat catcoons."
+STRINGS.CHARACTERS.WOODIE.DESCRIBE.WELINA_COLLAR_LIGHT = "That'd look good on you, Lucy."
+STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WELINA_COLLAR_LIGHT = "A cat would really brighten the mood."
+STRINGS.CHARACTERS.WX78.DESCRIBE.WELINA_COLLAR_LIGHT = "I DON'T CARE ABOUT THIS CAT JUNK."
+STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA_COLLAR_LIGHT = "Each collar tells a different story."
+STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WELINA_COLLAR_LIGHT = "Is not even fit on Wolfgangs muscular neck."
+STRINGS.CHARACTERS.WILLOW.DESCRIBE.WELINA_COLLAR_LIGHT = "That looks sick!"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_COLLAR_LIGHT = "Claim your own catcoon today!"
 
 
 
@@ -210,6 +385,56 @@ local namerandoms =
     "Catcoon",
     "Sinner",
     "Mentos",
+	"Lux",
+	"Diego",
+	"Jackz",
+	"John Uncompromising",
+	"Creatura",
+	"Douglas",
+	"Cliff Ford",
+	"Juicer",
+	"The Amazing Maxwell",
+	"Beagle",
+	"Sewer",
+	"Lavender",
+	"Dallas",
+	"Chains",
+	"Hoxton",
+	"Wolf",
+	"Dog",
+	"Cringus",
+	"Big Boobs",
+	"Kanye",
+	"Froggert",
+	"Warrior",
+	"Pumkin",
+	"Vez",
+	"Coach",
+	"Nick",
+	"Ellis",
+	"Rochelle",
+	"Man",
+	"Cuteof",
+	"Noop",
+	"Kicker",
+	"Muncher",
+	"Sleeper",
+	"Bishop",
+	"Miku",
+	"Driller",
+	"God",
+	"Destroyer Of Worlds",
+	"Wright",
+	"Clicker",
+	"Limbusser",
+	"Soggy Cat",
+	"Suguri",
+	"Gunner",
+	"Bosco",
+	"Engineer",
+	"Scout",
+	"Teto",
+	"Figgy",
 }
 
 local name = namerandoms[math.random(1, #namerandoms)]
@@ -234,12 +459,12 @@ if KnownModIndex:IsModEnabled("workshop-2858309592") then
 
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKY = 
 {
-	GENERIC = "I uh... see you have a lot of weight on your shoulders.",
-	ATTACKER = "How can a cupcake like you harm someone.",
-	MURDERER = "End of the line, cupcake. Time to deflate you.",
+	GENERIC = "I uh... see you have a lot of weight on your shoulders, %s.",
+	ATTACKER = "How can someone like you harm anyone.",
+	MURDERER = "End of the line, dude. Time to deflate you.",
 	REVIVER = "Well, at least someone's here reliable",
 	GHOST = "I'll have to make this right.",
-	FIRESTARTER = "Burning stuff doesn't really fit you, cupcake.",
+	FIRESTARTER = "Burning stuff doesn't really fit you, dude.",
 }
 
 end
@@ -264,8 +489,8 @@ if KnownModIndex:IsModEnabled("workshop-3021568491") then
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WILDCARD = 
     {
         GENERIC = "Hello bun-girl.",
-        ATTACKER = "I guess that nasty personality isn't just for show.",
-        MURDERER = "I've got a gravestone prepared with your name on it!",
+        ATTACKER = "I guess that nyasty personyality isn't just for the show.",
+        MURDERER = "I've got a gravestone prepared with your nyame on it!",
         REVIVER = "Can't shake off the feeling that she doesn't really care.",
         GHOST = "Ms.Magician here needs a heart.",
         FIRESTARTER = "Was burning that part of your magic act or something?",
