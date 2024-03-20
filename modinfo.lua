@@ -344,7 +344,7 @@ modinfo_ver = lookup.modinfo_module
 
 	
 	Title("Cliffford's Shenanigans 󰀩"),
-	
+--[[	
 	{
 		name = "WELINA_CATCOONHATS",
 		label = "Hatted Catcoons",
@@ -356,7 +356,7 @@ modinfo_ver = lookup.modinfo_module
 		},
 		default = 0
 	},
-
+--]]
 
 
 	{

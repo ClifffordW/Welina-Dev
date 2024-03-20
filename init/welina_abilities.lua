@@ -94,9 +94,9 @@ AddPrefabPostInit("catcoon", function(inst, ...)
 
 
 
-    if TUNING.WELINA_REFLECT == 1 then
+
         inst:ListenForEvent("attacked", Hiss)
-    end
+
 
     inst.OnLoad = OnLoad
 end)

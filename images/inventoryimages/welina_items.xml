@@ -2,13 +2,13 @@
 <Atlas>
 	<Texture filename="welina_items.tex" />
 	<Elements>
-		<Element name="welina_catnip.tex" u1="0.001" u2="0.2411875" v2="0.999" v1="0.78615625" variant="" />
+		<Element name="welina_catnip.tex" u1="0.001" u2="0.2411875" v2="0.999" v1="0.78225" variant="" />
 		<Element name="welina_collar.tex" u1="0.2431875" u2="0.483375" v2="0.999" v1="0.7588125" variant="" />
-		<Element name="welina_collar_armor.tex" u1="0.001" u2="0.21384375" v2="0.78415625" v1="0.55959375" variant="" />
+		<Element name="welina_collar_armor.tex" u1="0.001" u2="0.22165625" v2="0.78025" v1="0.5556875" variant="" />
 		<Element name="welina_collar_bomb.tex" u1="0.485375" u2="0.72946875" v2="0.999" v1="0.72365625" variant="" />
-		<Element name="welina_collar_glass.tex" u1="0.21584375" u2="0.4286875" v2="0.7568125" v1="0.53225" variant="" />
-		<Element name="welina_collar_light.tex" u1="0.001" u2="0.27634375" v2="0.53025" v1="0.3056875" variant="" />
-		<Element name="welina_collar_regen.tex" u1="0.001" u2="0.21775" v2="0.3036875" v1="0.07521875" variant="" />
+		<Element name="welina_collar_glass.tex" u1="0.22365625" u2="0.4365" v2="0.7568125" v1="0.53225" variant="" />
+		<Element name="welina_collar_light.tex" u1="0.001" u2="0.27634375" v2="0.53025" v1="0.30178125" variant="" />
+		<Element name="welina_collar_regen.tex" u1="0.001" u2="0.21775" v2="0.29978125" v1="0.0713125" variant="" />
 		<Element name="welina_den.tex" u1="0.73146875" u2="0.952125" v2="0.999" v1="0.77053125" variant="" />
 	</Elements>
 </Atlas>

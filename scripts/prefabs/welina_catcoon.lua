@@ -307,13 +307,13 @@ local function OnGetItemFromPlayer(inst, giver, item)
 			inst.components.follower:AddLoyaltyTime(TUNING.CATCOON_LOYALTY_PER_ITEM)
 			if not inst.sg:HasStateTag("busy") then
 				inst:FacePoint(giver.Transform:GetWorldPosition())
-				inst.sg:GoToState("pawground")
+				inst.sg:GoToState("idle")
 			end
 		end
 		item:Remove()
 	end
 
-
+--[[
 	--I wear hats
 	if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
 		local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
@@ -339,6 +339,7 @@ local function OnGetItemFromPlayer(inst, giver, item)
 		inst.components.inventory:Equip(item)
 		inst.AnimState:Show("hat")
 	end
+	--]]
 end
 
 local function OnRefuseItem(inst, item)
@@ -455,11 +456,11 @@ local function fn()
 	inst:DoTaskInTime(0.5, function()
 		if inst.components.follower and inst.components.follower:GetLeader() then
 			inst.components.named:SetName(inst.components.follower:GetLeader().name.."'s Catcoon")
-
+--[[
 			if inst.components.inventory and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD) and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD).prefab == "antlionhat" then
 				inst.components.named:SetName(inst.components.follower:GetLeader().name.."'s Lawnmower")
 			end
-
+--]]
 	
 		end
 	end)
