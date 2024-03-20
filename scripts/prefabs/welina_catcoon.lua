@@ -298,13 +298,9 @@ local function OnGetItemFromPlayer(inst, giver, item)
 			inst.components.combat:SetTarget(nil)
 			inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/pickup")
 		elseif giver.components.leader ~= nil then
-			if giver.components.minigame_participator == nil then
-				giver:PushEvent("makefriend")
-				giver.components.leader:AddFollower(inst)
-			end
+
 			inst.last_hairball_time = GetTime()
 			inst.hairball_friend_interval = math.random(2,4) -- Jumpstart the hairball timer (slot machine time!)
-			inst.components.follower:AddLoyaltyTime(TUNING.CATCOON_LOYALTY_PER_ITEM)
 			if not inst.sg:HasStateTag("busy") then
 				inst:FacePoint(giver.Transform:GetWorldPosition())
 				inst.sg:GoToState("idle")
