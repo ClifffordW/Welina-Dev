@@ -307,7 +307,7 @@ local function OnGetItemFromPlayer(inst, giver, item)
 			inst.components.follower:AddLoyaltyTime(TUNING.CATCOON_LOYALTY_PER_ITEM)
 			if not inst.sg:HasStateTag("busy") then
 				inst:FacePoint(giver.Transform:GetWorldPosition())
-				inst.sg:GoToState("idle")
+				inst.sg:GoToState("pawground")
 			end
 		end
 		item:Remove()

@@ -59,7 +59,7 @@ AddPrefabPostInit("catcoon", function(inst)
                 inst.components.follower:AddLoyaltyTime(item:HasTag("catnip") and 9999999999999999 or TUNING.CATCOON_LOYALTY_PER_ITEM)
                 if not inst.sg:HasStateTag("busy") then
                     inst:FacePoint(giver.Transform:GetWorldPosition())
-                    inst.sg:GoToState("idle")
+                    inst.sg:GoToState("pawground")
                 end
         end
         item:Remove()
