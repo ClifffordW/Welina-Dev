@@ -273,6 +273,11 @@ end
 
 
 local function ShouldAcceptItem(inst, item)
+	--NOTES(CW): No escaping the eternal fruitcake
+	if item.prefab == "winter_food4" then 
+		return
+	end
+
     if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
         
 
@@ -281,12 +286,8 @@ local function ShouldAcceptItem(inst, item)
 	elseif item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.BODY and string.find(item.prefab, "welina_collar") then
 		return true
 
-	elseif item:HasTag("cattoy") or item:HasTag("catfood") or item:HasTag("cattoyairborne") then
+	elseif item:HasTag("cattoy") or item:HasTag("catfood") or item:HasTag("cattoyairborne")   then
 		return true
-	
-	elseif item.prefab == "winter_food4" then
-		-- NOTES(CW): Fruitcake hack. No escaping the eternal fruitcake
-		return false
 	else
 		print("FALSE")
 		return false
