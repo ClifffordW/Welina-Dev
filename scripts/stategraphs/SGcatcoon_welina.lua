@@ -533,7 +533,7 @@ CommonStates.AddCombatStates(states,
         --TimeEvent(0*FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/swipe_pre") end),
         TimeEvent(5*FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/swipe") end),
         TimeEvent(9*FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/swipe_whoosh") end),
-        TimeEvent(16*FRAMES, function(inst) inst.components.combat:DoAttack(inst.sg.statemem.target) end),
+        TimeEvent(16*FRAMES, function(inst) if inst.components.combat then inst.components.combat:DoAttack(inst.sg.statemem.target) end end),
 	},
 
 	deathtimeline =

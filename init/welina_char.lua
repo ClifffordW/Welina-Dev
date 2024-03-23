@@ -1,6 +1,7 @@
 PrefabFiles = {
 	"welina",
 	"welina_skins",
+	"explodepulse"
 }
 
 

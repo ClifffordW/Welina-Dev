@@ -24,7 +24,7 @@ end
 
 local function BoomCollar(inst, owner)
     inst.components.explosive:OnBurnt()
-    SpawnPrefab("moonpulse_spawner").Transform:SetPosition(owner.Transform:GetWorldPosition())
+    SpawnPrefab("explodepulse_spawner").Transform:SetPosition(owner.Transform:GetWorldPosition())
 end
 
 
