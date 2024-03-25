@@ -23,8 +23,10 @@ end
 
 
 local function BoomCollar(inst, owner)
+
     inst.components.explosive:OnBurnt()
     SpawnPrefab("explodepulse_spawner").Transform:SetPosition(owner.Transform:GetWorldPosition())
+    inst:Remove()
 end
 
 
@@ -38,9 +40,23 @@ local LIGHT_RADIUS = 2
 local LIGHT_INTENSITY = 0.8
 local LIGHT_FALLOFF = 0.5
 
+
+
+
+
+
 -- Function to handle equip event
 local function onequip(inst, owner)
     local name = string.gsub(inst.prefab, COLLAR_PREFIX, "")
+
+
+    owner.attachedcollar = SpawnPrefab("collar_attachement")
+    local collarattach = owner.attachedcollar
+    print(name)
+    collarattach.AnimState:PlayAnimation(name)
+    collarattach.entity:SetParent(owner.entity)
+	collarattach.Follower:FollowSymbol(owner.GUID, "catcoon_head", 0,-50,0, true,nil, 0)
+
 
     if name == "bomb" then
         owner:ListenForEvent("death", function() BoomCollar(inst, owner) end)
@@ -101,6 +117,28 @@ end
 
 
 
+local function fn_attachedcollar()
+	local inst = CreateEntity()
+
+	--[[Non-networked entity]]
+	inst.entity:AddTransform()
+	inst.entity:AddAnimState()
+	inst.entity:AddFollower()
+
+
+	inst.AnimState:SetBank("kitcoon_nametag")
+	inst.AnimState:SetBuild("welina_collar")
+
+
+
+
+
+	inst:AddComponent("highlightchild")
+
+	inst.persists = false
+
+	return inst
+end
 
 
 
@@ -122,7 +160,7 @@ local function MakeCollar(name)
 
         MakeInventoryFloatable(inst)
 
-
+        inst:AddTag("welinacatcoon_collar")
 
 
         inst.entity:SetPristine()
@@ -137,7 +175,9 @@ local function MakeCollar(name)
         inst.components.equippable.equipslot = EQUIPSLOTS.BODY
         inst.components.equippable:SetOnUnequip(onunequip)
         inst.components.equippable:SetOnEquip(onequip)
-        inst.components.equippable.restrictedtag = "sinner"
+
+        local allowed = {"sinner", "emocatgirl"}
+
 
 
         inst:AddComponent("inventoryitem")
@@ -167,4 +207,5 @@ return MakeCollar("spiked"),
     MakeCollar("bomb"),
     MakeCollar("glass"),
     MakeCollar("armor"),
-    MakeCollar("light")
+    MakeCollar("light"),
+    Prefab("collar_attachement", fn_attachedcollar, assets, prefabs)

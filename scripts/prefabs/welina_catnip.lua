@@ -104,6 +104,8 @@ local function fn()
     inst.AnimState:SetBuild("welina_catnip")
     inst.AnimState:PlayAnimation("idle")
 
+    inst.AnimState:SetScale(.75,1)
+
     MakeInventoryFloatable(inst)
 
     inst:AddTag("catnip")

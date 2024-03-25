@@ -378,6 +378,17 @@ local master_postinit = function(inst)
         inst.components.eater:SetIgnoresSpoilage(true)
     end
 
+
+
+
+	
+    if inst.components.petleash ~= nil then
+        inst._OnSpawnPet = inst.components.petleash.onspawnfn
+        inst._OnDespawnPet = inst.components.petleash.ondespawnfn
+    else
+        inst:AddComponent("petleash")
+    end
+
 	inst.components.locomotor:SetExternalSpeedMultiplier(inst, "welina_speed_mod", TUNING.WELINA_MOVESPEED)
 
 	if inst.components.efficientuser == nil then

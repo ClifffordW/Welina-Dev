@@ -29,6 +29,8 @@ AddCharacterRecipe("catcoonden", -- name
 --]]
 
 
+
+
 AddCharacterRecipe("welina_collar_spiked", -- name
     {                                 -- ingredients
         GLOBAL.Ingredient("coontail", 2),

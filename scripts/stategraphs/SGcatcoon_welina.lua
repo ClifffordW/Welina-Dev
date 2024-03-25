@@ -27,7 +27,7 @@ local events=
                 else
                     inst.sg:GoToState("pounceplay", data.target)
                 end
-            elseif data.target and data.target:IsValid() and inst:GetDistanceSqToInst(data.target) > TUNING.CATCOON_MELEE_RANGE*TUNING.CATCOON_MELEE_RANGE then
+            elseif data.target and data.target:IsValid()   and inst:GetDistanceSqToInst(data.target) > TUNING.CATCOON_MELEE_RANGE*TUNING.CATCOON_MELEE_RANGE and not inst:HasTag("swimming") then
                 inst.sg:GoToState("pounceattack", data.target)
             else
                 inst.sg:GoToState("attack", data.target)
@@ -45,6 +45,7 @@ local states=
         onenter = function(inst)
             inst.components.locomotor:StopMoving()
             inst.AnimState:PlayAnimation("idle_loop")
+        
         end,
 
         timeline =
@@ -63,6 +64,11 @@ local states=
         tags = {"moving", "canrotate"},
 
         onenter = function(inst)
+
+            if inst:HasTag("swimming") then 
+                inst.sg:GoToState("run")
+            end
+
             inst.AnimState:PlayAnimation("walk_pre")
         end,
 
@@ -405,9 +411,13 @@ local states=
 
         onenter = function(inst)
             inst.Physics:Stop()
-            inst.AnimState:PlayAnimation("taunt_pre")
-            inst.AnimState:PushAnimation("taunt", false)
-            inst.AnimState:PushAnimation("taunt_pst", false)
+                inst.AnimState:PlayAnimation("taunt_pre")
+                inst.AnimState:PushAnimation("taunt", false)
+                inst.AnimState:PushAnimation("taunt_pst", false)
+   
+
+        
+        
         end,
 
         timeline =
@@ -430,7 +440,12 @@ local states=
             inst.components.locomotor:Stop()
             inst.components.locomotor:EnableGroundSpeedMultiplier(false)
             inst.components.combat:StartAttack()
+            
             inst.AnimState:PlayAnimation("jump_atk")
+            
+   
+
+
             inst.hiss = (target:HasTag("smallcreature") and math.random() <= .5)
         end,
 
@@ -542,6 +557,65 @@ CommonStates.AddCombatStates(states,
 	},
 })
 
+
+CommonStates.AddRunStates(states,
+{
+    runtimeline =
+    {
+        TimeEvent(0, function(inst)
+            if inst:HasTag("swimming") then
+                inst.SoundEmitter:PlaySound("turnoftides/common/together/water/splash/jump_small",nil,.25)
+            end
+        end),
+        FrameEvent(4, function(inst)
+            if inst:HasTag("swimming") then
+                inst.SoundEmitter:PlaySound("turnoftides/common/together/water/splash/jump_small",nil,.25)
+            end
+        end),
+    },
+},
+{
+    startrun = "walk_pre",
+    run = "action",
+    stoprun = "walk_pst",
+})
+
+
+
+
+CommonStates.AddAmphibiousCreatureHopStates(states,
+{ -- config
+	swimming_clear_collision_frame = 9 * FRAMES,
+},
+{ -- anims
+},
+{ -- timeline
+	hop_pre =
+	{
+		TimeEvent(0, function(inst)
+            
+
+			if inst:HasTag("swimming") then
+				SpawnPrefab("splash_green").Transform:SetPosition(inst.Transform:GetWorldPosition())
+			end
+		end),
+	},
+	hop_pst = {
+		FrameEvent(4, function(inst)
+			if inst:HasTag("swimming") then
+                inst.waterfx:Show()
+				inst.components.locomotor:Stop()
+				SpawnPrefab("splash_green").Transform:SetPosition(inst.Transform:GetWorldPosition())
+			end
+		end),
+		FrameEvent(6, function(inst)
+			if not inst:HasTag("swimming") then
+                inst.components.locomotor:StopMoving()
+			end
+		end),
+	}
+})
+
 CommonStates.AddSleepStates(states,
 {
     starttimeline =
@@ -560,7 +634,6 @@ CommonStates.AddSleepStates(states,
     },
 })
 CommonStates.AddFrozenStates(states)
-CommonStates.AddHopStates(states, true, {pre = "walK_pre", loop = "jump_atk", pst = "walk_pst"})
 CommonStates.AddSinkAndWashAshoreStates(states)
 
 return StateGraph("catcoon_welina", states, events, "idle", actionhandlers)
