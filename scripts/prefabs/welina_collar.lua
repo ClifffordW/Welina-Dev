@@ -50,12 +50,7 @@ local function onequip(inst, owner)
     local name = string.gsub(inst.prefab, COLLAR_PREFIX, "")
 
 
-    owner.attachedcollar = SpawnPrefab("collar_attachement")
-    local collarattach = owner.attachedcollar
-    print(name)
-    collarattach.AnimState:PlayAnimation(name)
-    collarattach.entity:SetParent(owner.entity)
-	collarattach.Follower:FollowSymbol(owner.GUID, "catcoon_head", 0,-50,0, true,nil, 0)
+
 
 
     if name == "bomb" then
@@ -98,7 +93,7 @@ local function onunequip(inst, owner)
     elseif name == "glass" and owner.components.combat then
         owner.components.combat.damagemultiplier = 0
     elseif name == "regen" then
-        if owner:IsValid() and owner.health_task then
+        if owner:IsValid() and owner.components.health and owner.health_task then
             local current_hp = owner.components.health:GetPercent()
             owner.components.health:SetMaxHealth(TUNING.CATCOON_LIFE)
             owner.components.health:SetPercent(current_hp)
