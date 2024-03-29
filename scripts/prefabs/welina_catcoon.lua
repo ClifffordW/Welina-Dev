@@ -323,7 +323,7 @@ local function OnGetItemFromPlayer(inst, giver, item)
 		item:Remove()
 	end
 
-	--[[
+	
 	--I wear hats
 	if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
 		local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
@@ -338,7 +338,7 @@ local function OnGetItemFromPlayer(inst, giver, item)
 		inst.components.inventory:Equip(item)
 		inst.AnimState:Show("hat")
 	end
-	--]]
+	--
 	if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.BODY then
 		local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.BODY)
 		if current ~= nil then
@@ -457,7 +457,7 @@ local function fn()
 
 	MakeCharacterPhysics(inst, 1, 0.5)
 
-	inst.AnimState:SetBank("catcoon")
+	inst.AnimState:SetBank("welina_catcoon")
 	inst.AnimState:SetBuild("welina_catcoon")
 	inst.AnimState:PlayAnimation("idle_loop")
 
@@ -471,7 +471,7 @@ local function fn()
 	--trader (from trader component) added to pristine state for optimization
 	inst:AddTag("trader")
 
-	inst.AnimState:SetHatOffset(5, 200)
+	inst.AnimState:SetHatOffset(150, 280)
 
 	inst.entity:SetPristine()
 
@@ -507,11 +507,11 @@ local function fn()
 	inst:DoTaskInTime(0.5, function()
 		if inst.components.follower and inst.components.follower:GetLeader() then
 			inst.components.named:SetName(inst.components.follower:GetLeader().name .. "'s Catcoon")
-			--[[
+			
 			if inst.components.inventory and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD) and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD).prefab == "antlionhat" then
 				inst.components.named:SetName(inst.components.follower:GetLeader().name.."'s Lawnmower")
 			end
---]]
+--
 		end
 	end)
 

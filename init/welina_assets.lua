@@ -47,11 +47,11 @@ Assets = {
 
 AddAnim("welina_hiss_anim")
 
---AddAnim("catcoon_basic")
---AddAnim("catcoon_actions")
+AddAnim("catcoon_basic")
+AddAnim("catcoon_actions")
 
-AddAnim("welina_run_anim")
-AddAnim("welina_catnip")
+AddAnim("welina_catcoon_basic")
+AddAnim("welina_catcoon_actions")
 
 AddDynamic("welina_catcoon")
 
