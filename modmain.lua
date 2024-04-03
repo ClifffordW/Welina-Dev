@@ -37,6 +37,9 @@ AddPrefabPostInit("catcoon", function(inst)
 					pt.z = pt.z + offset.z
 				end
 				giver.components.petleash:SpawnPetAt(pt.x, 0, pt.z, "welina_catcoon")
+				
+
+
 				inst:Remove()
 			end
 			if not item:HasTag("catnip") then

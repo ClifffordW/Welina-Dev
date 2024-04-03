@@ -443,6 +443,40 @@ local function fn_water()
 	return inst
 end
 
+
+local function OnLocomote(inst)
+
+
+	
+    if inst.components.locomotor:WantsToMoveForward() then
+
+
+		if inst.components.inventory and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD) and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD).prefab == "antlionhat" then
+			if not inst.SoundEmitter:PlayingSound("lawnmower") then
+
+				inst.SoundEmitter:PlaySound("lawnmower/sfx/mower_loop", "lawnmower", 0.75)
+
+				
+	
+			end
+		end
+
+
+    else
+		
+		if inst.components.inventory and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD) and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD).prefab == "antlionhat" then
+
+			if  inst.SoundEmitter:PlayingSound("lawnmower") then
+				inst.SoundEmitter:KillSound("lawnmower")
+				inst.SoundEmitter:PlaySound("lawnmower/sfx/mower_stop",  0.75)
+			end
+		end
+
+    end
+end
+
+
+
 local function fn()
 	local inst = CreateEntity()
 
@@ -458,7 +492,7 @@ local function fn()
 	MakeCharacterPhysics(inst, 1, 0.5)
 
 	inst.AnimState:SetBank("welina_catcoon")
-	inst.AnimState:SetBuild("welina_catcoon")
+	inst.AnimState:SetBuild("catcoon_build")
 	inst.AnimState:PlayAnimation("idle_loop")
 
 	inst.scrapbook_deps = { "meat", "coontail" }
@@ -488,8 +522,8 @@ local function fn()
 	inst.components.combat:SetDefaultDamage(TUNING.CATCOON_DAMAGE)
 	inst.components.combat:SetRange(TUNING.CATCOON_ATTACK_RANGE)
 	inst.components.combat:SetAttackPeriod(TUNING.CATCOON_ATTACK_PERIOD)
-	inst.components.combat:SetKeepTargetFunction(KeepTargetFn)
-	inst.components.combat:SetRetargetFunction(3, RetargetFn)
+	--inst.components.combat:SetKeepTargetFunction(KeepTargetFn)
+	--inst.components.combat:SetRetargetFunction(3, RetargetFn)
 	inst.components.combat:SetHurtSound("dontstarve_DLC001/creatures/catcoon/hurt")
 	inst:ListenForEvent("attacked", OnAttacked)
 	inst.components.combat.battlecryinterval = 20
@@ -612,6 +646,13 @@ local function fn()
 
 	inst:ListenForEvent("gainrainimmunity", OnRainImmunity)
 	inst:ListenForEvent("loserainimmunity", OnRainVulnerable)
+
+	inst.custom_spawnfx = "beefalo_transform_fx"
+	inst.custom_spawnfx_scale = 0.62
+
+
+--[[ 	inst.OnLocomote = OnLocomote
+    inst:ListenForEvent("locomote", inst.OnLocomote) ]]
 
 
 	return inst
