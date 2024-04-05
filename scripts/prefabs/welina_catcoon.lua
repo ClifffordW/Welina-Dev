@@ -598,7 +598,7 @@ local function fn()
 	inst.components.locomotor:SetAllowPlatformHopping(true)
 
 	inst:AddComponent("amphibiouscreature")
-	inst.components.amphibiouscreature:SetBanks("catcoon", "catcoon")
+	inst.components.amphibiouscreature:SetBanks("welina_catcoon", "welina_catcoon")
 	inst.components.amphibiouscreature:SetEnterWaterFn(function(inst)
 		inst.landspeed = inst.components.locomotor.runspeed
 		inst.components.locomotor.runspeed = TUNING.HOUND_SWIM_SPEED

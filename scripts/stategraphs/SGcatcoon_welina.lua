@@ -588,6 +588,9 @@ CommonStates.AddAmphibiousCreatureHopStates(states,
 	swimming_clear_collision_frame = 9 * FRAMES,
 },
 { -- anims
+pre = "action",
+pst = "action",
+
 },
 { -- timeline
 	hop_pre =
@@ -615,6 +618,7 @@ CommonStates.AddAmphibiousCreatureHopStates(states,
 		end),
 	}
 })
+
 
 CommonStates.AddSleepStates(states,
 {
