@@ -507,6 +507,12 @@ local function fn()
 
 	inst.AnimState:SetHatOffset(150, 280)
 
+	inst.waterfx = SpawnPrefab("welina_catcoon_water_ripple")
+	inst.waterfx.entity:SetParent(inst.entity)
+	inst.waterfx.Follower:FollowSymbol(inst.GUID, "catcoon_torso", -20,80,0, false,nil)
+	inst.waterfx.AnimState:SetScale(0.75,0.75)
+	inst.waterfx:Hide()
+
 	inst.entity:SetPristine()
 
 	if not TheWorld.ismastersim then
@@ -622,11 +628,7 @@ local function fn()
 	inst.force_onwenthome_message = true -- for onwenthome event
 	inst:ListenForEvent("onwenthome", OnWentHome)
 
-	inst.waterfx = SpawnPrefab("welina_catcoon_water_ripple")
-	inst.waterfx.entity:SetParent(inst.entity)
-	inst.waterfx.Follower:FollowSymbol(inst.GUID, "catcoon_torso", -20,80,0, false,nil)
-	inst.waterfx.AnimState:SetScale(0.75,0.75)
-	inst.waterfx:Hide()
+
 
 
 	MakeSmallBurnableCharacter(inst, "catcoon_torso", Vector3(1, 0, 1))

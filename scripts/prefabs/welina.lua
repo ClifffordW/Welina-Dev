@@ -105,9 +105,7 @@ end
 local function OnTakeDamage(inst, data)
 	if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
 		local attackerGUID = data.attacker.GUID
-		local attackerPrefab = data.attacker.prefab
 
-		-- Check if the attacker's GUID has changed
 		if inst.attackerDamageBonuses == nil then
 			inst.attackerDamageBonuses = {}
 		end
@@ -116,18 +114,34 @@ local function OnTakeDamage(inst, data)
 			inst.attackerDamageBonuses[attackerGUID] = 0
 		end
 
-		-- Calculate the bonus damage for this attacker
 		local damageToAdd = math.floor(data.damage) * TUNING.WELINA_RESENTMENT
 
-		-- Add the bonus damage to the total for this attacker
 		inst.attackerDamageBonuses[attackerGUID] = inst.attackerDamageBonuses[attackerGUID] + damageToAdd
 
-		-- Apply the bonus damage as a multiplier to the character's damage
 		local totalDamageMultiplier = 1 + inst.attackerDamageBonuses[attackerGUID]
 		inst.components.combat.externaldamagemultipliers:SetModifier(
 			"bonus_damage_" .. attackerGUID,
 			totalDamageMultiplier
 		)
+
+		if inst.components.sanity then
+			local is_boss = data.attacker:HasTag("epic") and 0.005 or 0.15
+
+			inst.components.sanity:AddSanityPenalty("sanity_penalty_" .. attackerGUID, data.damage * is_boss * 0.25)
+			print("Sanity Penalty: " .. data.damage * is_boss * 0.5)
+		end
+
+		data.attacker:ListenForEvent("death", function()
+			if inst.attackerDamageBonuses[attackerGUID] ~= nil then
+				inst.attackerDamageBonuses[attackerGUID] = 0
+				inst.components.combat.externaldamagemultipliers:RemoveModifier("bonus_damage_" .. attackerGUID)
+			end
+			inst:DoTaskInTime(0, function()
+				if inst.components.sanity then
+					inst.components.sanity:RemoveSanityPenalty("sanity_penalty_" .. attackerGUID)
+				end
+			end)
+		end, data.attacker)
 
 		print(
 			"Total bonus damage from attacker with GUID "
@@ -136,14 +150,6 @@ local function OnTakeDamage(inst, data)
 				.. inst.attackerDamageBonuses[attackerGUID]
 		)
 		print("Default damage: " .. data.damage)
-
-		-- Listen for the attacker's death event to reset the bonus damage
-		data.attacker:ListenForEvent("death", function()
-			if inst.attackerDamageBonuses[attackerGUID] ~= nil then
-				inst.attackerDamageBonuses[attackerGUID] = 0 -- Reset the bonus damage when the mob dies
-				inst.components.combat.externaldamagemultipliers:RemoveModifier("bonus_damage_" .. attackerGUID)
-			end
-		end, data.attacker)
 	end
 end
 
@@ -255,21 +261,15 @@ end
 
 function DoEffects(pet)
 	local spawnfx, scale = "", pet.custom_spawnfx_scale or 1
-	
-
 
 	if not pet.no_spawn_fx then
-		spawnfx = SpawnPrefab(pet.custom_spawnfx or (pet:HasTag("flying") and "spawn_fx_small_high" or "spawn_fx_small"))
-		
+		spawnfx =
+			SpawnPrefab(pet.custom_spawnfx or (pet:HasTag("flying") and "spawn_fx_small_high" or "spawn_fx_small"))
+
 		spawnfx.Transform:SetPosition(pet.Transform:GetWorldPosition())
 		--Custom Scale perhaps
 		spawnfx.Transform:SetScale(scale, scale, scale)
-
-	
-	
 	end
-	
-
 end
 
 function OnSpawnPet(inst, pet)

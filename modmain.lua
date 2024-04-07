@@ -2,6 +2,11 @@ modimport("articore/articore_api")
 
 
 
+
+
+
+
+
 local welina_sounds = require("defs.sound.fmod_defs")
 
 local modnameFancy = "workshop-1637709131"
@@ -210,6 +215,12 @@ AddStategraphState(
 		onexit = function(inst) end,
 	})
 )
+
+
+
+
+
+
 
 AddPrefabPostInit("welina", function(inst, data, ...)
 	local DummyFn = function() end
