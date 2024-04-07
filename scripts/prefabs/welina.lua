@@ -143,6 +143,16 @@ local function OnTakeDamage(inst, data)
 			end)
 		end, data.attacker)
 
+
+		data.attacker:ListenForEvent("onremove", function()
+
+			inst:DoTaskInTime(0, function()
+				if inst.components.sanity then
+					inst.components.sanity:RemoveSanityPenalty("sanity_penalty_" .. attackerGUID)
+				end
+			end)
+		end, data.attacker)
+
 		print(
 			"Total bonus damage from attacker with GUID "
 				.. attackerGUID
