@@ -107,6 +107,7 @@ local function OnTakeDamage(inst, data)
 	if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
 		local attackerGUID = data.attacker.GUID
 
+
 		if inst.attackerDamageBonuses == nil then
 			inst.attackerDamageBonuses = {}
 		end
@@ -130,19 +131,10 @@ local function OnTakeDamage(inst, data)
 
 			inst.components.sanity:AddSanityPenalty("sanity_penalty_" .. attackerGUID, data.damage * is_boss * 0.25)
 			print("Sanity Penalty: " .. data.damage * is_boss * 0.5)
+
 		end
 
-		data.attacker:ListenForEvent("death", function()
-			if inst.attackerDamageBonuses[attackerGUID] ~= nil then
-				inst.attackerDamageBonuses[attackerGUID] = 0
-				inst.components.combat.externaldamagemultipliers:RemoveModifier("bonus_damage_" .. attackerGUID)
-			end
-			inst:DoTaskInTime(0, function()
-				if inst.components.sanity then
-					inst.components.sanity:RemoveSanityPenalty("sanity_penalty_" .. attackerGUID)
-				end
-			end)
-		end, data.attacker)
+
 
 
 		data.attacker:ListenForEvent("onremove", function()
@@ -151,12 +143,13 @@ local function OnTakeDamage(inst, data)
 				inst.attackerDamageBonuses[attackerGUID] = 0
 				inst.components.combat.externaldamagemultipliers:RemoveModifier("bonus_damage_" .. attackerGUID)
 			end
+			inst:DoTaskInTime(0.25, function()
 
-			inst:DoTaskInTime(0, function()
-				if inst.components.sanity then
+				if inst.components.sanity ~= nil and inst.replica.sanity ~= nil and inst.components.sanity.sanity_penalties["sanity_penalty_" .. attackerGUID] ~= nil then
 					inst.components.sanity:RemoveSanityPenalty("sanity_penalty_" .. attackerGUID)
 				end
 			end)
+			
 		end, data.attacker)
 
 		print(
