@@ -127,7 +127,7 @@ local function OnTakeDamage(inst, data)
 		)
 
 		if inst.components.sanity then
-			local is_boss = data.attacker:HasTag("epic") and 0.005 or 0.15
+			local is_boss = data.attacker:HasTag("epic") and 0.025 or 0.085
 
 			inst.components.sanity:AddSanityPenalty("sanity_penalty_" .. attackerGUID, data.damage * is_boss * 0.25)
 			print("Sanity Penalty: " .. data.damage * is_boss * 0.5)
