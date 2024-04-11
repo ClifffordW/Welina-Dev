@@ -104,65 +104,56 @@ local function welina_numDeaths_dirty(inst)
 end
 
 local function OnTakeDamage(inst, data)
-	if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
-		local attackerGUID = data.attacker.GUID
+    if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
+        local attackerGUID = data.attacker.GUID
 
+        if inst.attackerDamageBonuses == nil then
+            inst.attackerDamageBonuses = {}
+        end
 
-		if inst.attackerDamageBonuses == nil then
-			inst.attackerDamageBonuses = {}
-		end
+        if inst.attackerDamageBonuses[attackerGUID] == nil then
+            inst.attackerDamageBonuses[attackerGUID] = 0
+        end
 
-		if inst.attackerDamageBonuses[attackerGUID] == nil then
-			inst.attackerDamageBonuses[attackerGUID] = 0
-		end
+        local damageToAdd = math.floor(data.damage) * TUNING.WELINA_RESENTMENT
 
-		local damageToAdd = math.floor(data.damage) * TUNING.WELINA_RESENTMENT
+        inst.attackerDamageBonuses[attackerGUID] = inst.attackerDamageBonuses[attackerGUID] + damageToAdd
 
-		inst.attackerDamageBonuses[attackerGUID] = inst.attackerDamageBonuses[attackerGUID] + damageToAdd
+        local totalDamageMultiplier = 1 + inst.attackerDamageBonuses[attackerGUID]
+        inst.components.combat.externaldamagemultipliers:SetModifier(
+            "bonus_damage_" .. attackerGUID,
+            totalDamageMultiplier
+        )
 
-		local totalDamageMultiplier = 1 + inst.attackerDamageBonuses[attackerGUID]
-		inst.components.combat.externaldamagemultipliers:SetModifier(
-			"bonus_damage_" .. attackerGUID,
-			totalDamageMultiplier
-		)
+        if inst.components.sanity then
+            local is_boss = data.attacker:HasTag("epic") and 0.025 or 0.085
 
-		if inst.components.sanity then
-			local is_boss = data.attacker:HasTag("epic") and 0.025 or 0.085
+            inst.components.sanity:AddSanityPenalty("sanity_penalty_" .. attackerGUID, data.damage * is_boss * 0.25)
+            print("Sanity Penalty: " .. data.damage * is_boss * 0.5)
+        end
 
-			inst.components.sanity:AddSanityPenalty("sanity_penalty_" .. attackerGUID, data.damage * is_boss * 0.25)
-			print("Sanity Penalty: " .. data.damage * is_boss * 0.5)
+        data.attacker:ListenForEvent("onremove", function()
+            inst:DoTaskInTime(0.25, function()
+                if inst.attackerDamageBonuses[attackerGUID] ~= nil then
+                    inst.components.combat.externaldamagemultipliers:RemoveModifier("bonus_damage_" .. attackerGUID)
+                end
 
-		end
+                if inst.components.sanity ~= nil and inst.replica.sanity ~= nil and inst.components.sanity.sanity_penalties["sanity_penalty_" .. attackerGUID] ~= nil then
+                    inst.components.sanity:RemoveSanityPenalty("sanity_penalty_" .. attackerGUID)
+                end
+            end)
+        end, data.attacker)
 
-
-
-
-		data.attacker:ListenForEvent("onremove", function()
-
-
-			
-			inst:DoTaskInTime(0.25, function()
-
-				if inst.attackerDamageBonuses[attackerGUID] ~= nil then
-					inst.components.combat.externaldamagemultipliers:RemoveModifier("bonus_damage_" .. attackerGUID)
-				end
-
-				if inst.components.sanity ~= nil and inst.replica.sanity ~= nil and inst.components.sanity.sanity_penalties["sanity_penalty_" .. attackerGUID] ~= nil then
-					inst.components.sanity:RemoveSanityPenalty("sanity_penalty_" .. attackerGUID)
-				end
-			end)
-			
-		end, data.attacker)
-
-		print(
-			"Total bonus damage from attacker with GUID "
-				.. attackerGUID
-				.. ": "
-				.. inst.attackerDamageBonuses[attackerGUID]
-		)
-		print("Default damage: " .. data.damage)
-	end
+        print(
+            "Total bonus damage from attacker with GUID "
+                .. attackerGUID
+                .. ": "
+                .. inst.attackerDamageBonuses[attackerGUID]
+        )
+        print("Default damage: " .. data.damage)
+    end
 end
+
 
 local function HealthWarning(inst)
 	local health = inst.replica.health:GetPercent()
