@@ -1,7 +1,7 @@
 modimport("articore/articore_api")
 
 
-
+local _G = GLOBAL
 
 
 
@@ -10,7 +10,7 @@ modimport("articore/articore_api")
 local welina_sounds = require("defs.sound.fmod_defs")
 
 local modnameFancy = "workshop-1637709131"
-local is_modenabled = KnownModIndex:IsModEnabled(modnameFancy)
+local is_modenabled = _G.KnownModIndex:IsModEnabled(modnameFancy)
 
 local animation_data = {
 	frames_anim = is_modenabled and 220 or 64,

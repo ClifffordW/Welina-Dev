@@ -1,5 +1,6 @@
 local MakePlayerCharacter = require("prefabs/player_common")
-local ex_fns = require("prefabs/player_common_extensions")
+local ex_fns = require "prefabs/player_common_extensions"
+
 local welina_sounds = require("defs.sound.fmod_defs")
 
 local assets = {
@@ -146,6 +147,11 @@ local function OnTakeDamage(inst, data)
 
 		data.attacker:ListenForEvent("onremove", function()
 
+			if inst.attackerDamageBonuses[attackerGUID] ~= nil then
+				inst.attackerDamageBonuses[attackerGUID] = 0
+				inst.components.combat.externaldamagemultipliers:RemoveModifier("bonus_damage_" .. attackerGUID)
+			end
+
 			inst:DoTaskInTime(0, function()
 				if inst.components.sanity then
 					inst.components.sanity:RemoveSanityPenalty("sanity_penalty_" .. attackerGUID)
@@ -236,16 +242,16 @@ local function OnDeath(inst)
 
 		--TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
 		inst:RemoveEventCallback("respawnfromghost", ex_fns.OnRespawnFromGhost)
-	else
-		inst:ListenForEvent("respawnfromghost", ex_fns.OnRespawnFromGhost)
+		
+
 	end
 end
 
-function OnSave(inst, data)
+local function OnSave(inst, data)
 	data.welina_numDeaths = inst.welina_numDeaths and inst.welina_numDeaths or 0
 end
 
-function OnLoad(inst, data)
+local function OnLoad(inst, data)
 	if data and data.welina_numDeaths ~= nil then
 		inst.welina_numDeaths = data.welina_numDeaths or 0
 
@@ -263,8 +269,8 @@ function OnLoad(inst, data)
 				HealthWarning(inst)
 			end)
 			inst:RemoveEventCallback("respawnfromghost", ex_fns.OnRespawnFromGhost)
-		else
-			inst:ListenForEvent("respawnfromghost", ex_fns.OnRespawnFromGhost)
+			
+
 		end
 	end
 end
