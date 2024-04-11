@@ -139,11 +139,13 @@ local function OnTakeDamage(inst, data)
 
 		data.attacker:ListenForEvent("onremove", function()
 
-			if inst.attackerDamageBonuses[attackerGUID] ~= nil then
-				inst.attackerDamageBonuses[attackerGUID] = 0
-				inst.components.combat.externaldamagemultipliers:RemoveModifier("bonus_damage_" .. attackerGUID)
-			end
+
+			
 			inst:DoTaskInTime(0.25, function()
+
+				if inst.attackerDamageBonuses[attackerGUID] ~= nil then
+					inst.components.combat.externaldamagemultipliers:RemoveModifier("bonus_damage_" .. attackerGUID)
+				end
 
 				if inst.components.sanity ~= nil and inst.replica.sanity ~= nil and inst.components.sanity.sanity_penalties["sanity_penalty_" .. attackerGUID] ~= nil then
 					inst.components.sanity:RemoveSanityPenalty("sanity_penalty_" .. attackerGUID)
