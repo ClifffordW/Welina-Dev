@@ -12,7 +12,7 @@ local inits =
     
     "strings",
     
-    "stategraphs",
+   --"stategraphs",
 
     "abilities",
 

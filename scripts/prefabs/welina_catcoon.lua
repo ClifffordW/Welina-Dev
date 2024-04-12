@@ -191,7 +191,7 @@ local function OnAttacked(inst, data)
 end
 
 local function KeepTargetFn(inst, target)
-	if not inst:HasTag("swimming") then
+	--if not inst:HasTag("swimming") then
 		if target:HasTag("catcoon") then
 			return (
 				target
@@ -211,7 +211,7 @@ local function KeepTargetFn(inst, target)
 			)
 		end
 	end
-end
+
 
 local RETARGET_TAGS = { "_health" }
 local RETARGET_NO_TAGS = { "INLIMBO", "notarget", "invisible" }
@@ -338,7 +338,7 @@ local function OnGetItemFromPlayer(inst, giver, item)
 		inst.components.inventory:Equip(item)
 		inst.AnimState:Show("hat")
 	end
-	--
+	
 	if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.BODY then
 		local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.BODY)
 		if current ~= nil then
@@ -399,11 +399,10 @@ local function OnRainVulnerable(inst)
 end
 
 
-
+--[[
 local function fn_water()
 	local inst = CreateEntity()
 
-	--[[Non-networked entity]]
 	inst.entity:AddTransform()
 	inst.entity:AddAnimState()
 	inst.entity:AddFollower()
@@ -442,7 +441,7 @@ local function fn_water()
 
 	return inst
 end
-
+--]]
 
 local function OnLocomote(inst)
 
@@ -505,14 +504,14 @@ local function fn()
 	--trader (from trader component) added to pristine state for optimization
 	inst:AddTag("trader")
 
-	inst.AnimState:SetHatOffset(150, 280)
-
+	inst.AnimState:SetHatOffset(145, 260)
+--[[
 	inst.waterfx = SpawnPrefab("welina_catcoon_water_ripple")
 	inst.waterfx.entity:SetParent(inst.entity)
 	inst.waterfx.Follower:FollowSymbol(inst.GUID, "catcoon_torso", -20,80,0, false,nil)
 	inst.waterfx.AnimState:SetScale(0.75,0.75)
 	inst.waterfx:Hide()
-
+--]]
 	inst.entity:SetPristine()
 
 	if not TheWorld.ismastersim then
@@ -551,7 +550,7 @@ local function fn()
 			if inst.components.inventory and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD) and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD).prefab == "antlionhat" then
 				inst.components.named:SetName(inst.components.follower:GetLeader().name.."'s Lawnmower")
 			end
---
+
 		end
 	end)
 
@@ -587,7 +586,7 @@ local function fn()
 	inst.components.sleeper:SetSleepTest(SleepTest)
 
 	inst:AddComponent("locomotor")
-	inst.components.locomotor.walkspeed = 3 * 1.5
+	inst.components.locomotor.walkspeed = 3 * 1.2
 
 	inst:AddComponent("inventory")
 	inst.components.inventory.maxslots = 4
@@ -602,7 +601,7 @@ local function fn()
 	inst.components.embarker.antic = false
 
 	inst.components.locomotor:SetAllowPlatformHopping(true)
-
+--[[
 	inst:AddComponent("amphibiouscreature")
 	inst.components.amphibiouscreature:SetBanks("welina_catcoon", "welina_catcoon")
 	inst.components.amphibiouscreature:SetEnterWaterFn(function(inst)
@@ -620,13 +619,15 @@ local function fn()
 			inst.components.locomotor.hop_distance = inst.hop_distance
 		end
 	end)
-
+	
 	inst.components.locomotor.pathcaps = { allowocean = true }
+--]]
 
 	inst:WatchWorldState("israining", OnIsRaining)
 
 	inst.force_onwenthome_message = true -- for onwenthome event
 	inst:ListenForEvent("onwenthome", OnWentHome)
+
 
 
 
@@ -649,7 +650,7 @@ local function fn()
 	inst:ListenForEvent("gainrainimmunity", OnRainImmunity)
 	inst:ListenForEvent("loserainimmunity", OnRainVulnerable)
 
-	inst.custom_spawnfx = "beefalo_transform_fx"
+	inst.custom_spawnfx = "toadstool_cap_releasefx"
 	inst.custom_spawnfx_scale = 0.62
 
 
@@ -660,5 +661,5 @@ local function fn()
 	return inst
 end
 
-return Prefab("welina_catcoon", fn, assets, prefabs),
-Prefab("welina_catcoon_water_ripple", fn_water, assets, prefabs)
+return Prefab("welina_catcoon", fn, assets, prefabs)
+--Prefab("welina_catcoon_water_ripple", fn_water, assets, prefabs)

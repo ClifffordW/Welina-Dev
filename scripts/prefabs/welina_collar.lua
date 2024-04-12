@@ -33,13 +33,11 @@ end
 
 -- Constants
 local COLLAR_PREFIX = "welina_collar_"
-local ARMOR_COLLAR_MODIFIER = "armorcollar"
+--local ARMOR_COLLAR_MODIFIER = "armorcollar"
 local LIGHT_COLOR = { 169 / 255, 231 / 255, 245 / 255 }
 local LIGHT_RADIUS = 2
 local LIGHT_INTENSITY = 0.8
 local LIGHT_FALLOFF = 0.5
-
-
 
 
 
@@ -56,8 +54,14 @@ local function onequip(inst, owner)
         owner:ListenForEvent("death", function() BoomCollar(inst, owner) end)
     elseif name == "spiked" then
         owner:ListenForEvent("attacked", ReflectDamage)
+		if inst.components.fueled ~= nil then
+			inst.components.fueled:StartConsuming()
+		end
     elseif name == "glass" and owner.components.combat then
         owner.components.combat.damagemultiplier = 3
+		if inst.components.fueled ~= nil then
+			inst.components.fueled:StartConsuming()
+		end
     elseif name == "regen" then
         local current_hp = owner.components.health:GetPercent()
         owner.components.health:SetMaxHealth(TUNING.CATCOON_LIFE * 2)
@@ -65,8 +69,16 @@ local function onequip(inst, owner)
         owner.health_task = inst:DoPeriodicTask(5, function()
             owner.components.health:DoDelta(50)
         end)
+		if inst.components.fueled ~= nil then
+			inst.components.fueled:StartConsuming()
+		end
+		--[[
     elseif name == "armor" and owner.components.combat then
         owner.components.combat.externaldamagetakenmultipliers:SetModifier(owner, 0.9, ARMOR_COLLAR_MODIFIER)
+		if inst.components.fueled ~= nil then
+			inst.components.fueled:StartConsuming()
+		end
+		--]]
     elseif name == "light" then
         if inst._light == nil then
             inst._light = SpawnPrefab("alterguardianhatlight")
@@ -78,6 +90,9 @@ local function onequip(inst, owner)
             inst._light.Light:Enable(true)
             inst._light.Light:EnableClientModulation(true)
         end
+		if inst.components.fueled ~= nil then
+			inst.components.fueled:StartConsuming()
+		end
     end
 end
 
@@ -89,8 +104,14 @@ local function onunequip(inst, owner)
         owner:RemoveEventCallback("death", BoomCollar, inst)
     elseif name == "spiked" then
         owner:RemoveEventCallback("attacked", ReflectDamage)
+		if inst.components.fueled ~= nil then
+			inst.components.fueled:StopConsuming()
+		end
     elseif name == "glass" and owner.components.combat then
         owner.components.combat.damagemultiplier = 0
+		if inst.components.fueled ~= nil then
+			inst.components.fueled:StopConsuming()
+		end
     elseif name == "regen" then
         if owner:IsValid() and owner.components.health and owner.health_task then
             local current_hp = owner.components.health:GetPercent()
@@ -98,14 +119,25 @@ local function onunequip(inst, owner)
             owner.components.health:SetPercent(current_hp)
             owner.health_task:Cancel()
             owner.health_task = nil
-        end
+			if inst.components.fueled ~= nil then
+				inst.components.fueled:StopConsuming()
+			end
+        end		
     elseif name == "light" then
         if inst._light and inst._light:IsValid() then
             inst._light:Remove()
             inst._light = nil
         end
+		if inst.components.fueled ~= nil then
+			inst.components.fueled:StopConsuming()
+		end
+		--[[
     elseif name == "armor" and owner.components.combat then
         owner.components.combat.externaldamagetakenmultipliers:RemoveModifier(owner)
+		if inst.components.fueled ~= nil then
+			inst.components.fueled:StopConsuming()
+		end
+		--]]
     end
 end
 
@@ -169,8 +201,14 @@ local function MakeCollar(name)
         inst.components.equippable.equipslot = EQUIPSLOTS.BODY
         inst.components.equippable:SetOnUnequip(onunequip)
         inst.components.equippable:SetOnEquip(onequip)
+		inst.components.equippable.restrictedtag = "sinner"
+		
+		inst:AddComponent("fueled")
+		--inst.components.fueled.fueltype = FUELTYPE.USAGE
+		inst.components.fueled:InitializeFuelLevel(480*5)
+		inst.components.fueled:SetDepletedFn(inst.Remove)
 
-        local allowed = {"sinner", "emocatgirl"}
+        --local allowed = {"sinner"}
 
 
 
@@ -200,6 +238,6 @@ return MakeCollar("spiked"),
     MakeCollar("regen"),
     MakeCollar("bomb"),
     MakeCollar("glass"),
-    MakeCollar("armor"),
+   -- MakeCollar("armor"),
     MakeCollar("light"),
     Prefab("collar_attachement", fn_attachedcollar, assets, prefabs)

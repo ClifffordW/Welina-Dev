@@ -232,6 +232,24 @@ modinfo_ver = lookup.modinfo_module
 		default = 1
 	},
 	
+		{
+		name = "WELINA_SANITY_MULT",
+		label = "Welinas Negative Sanity Multiplier",
+		hover = "Welinas resistance to sanity drain auras.",
+		options =
+		{
+			{description = ".10", data = .10},
+			{description = ".25", data = .25},
+			{description = ".50", data = .50, hover="Default 󰀡"},
+			{description = ".65", data = .65},
+			{description = ".75", data = .75},
+			{description = ".85", data = .85},
+			{description = "1", data = 1},
+			
+		},
+		default = .50
+	},
+	
 	Title("Abillities 󰀩"),
 	
 
@@ -285,6 +303,18 @@ modinfo_ver = lookup.modinfo_module
 		name = "WELINA_REFLECT",
 		label = "Welinas Edgyness",
 		hover = "Disable or enable Welina reflecting damage.",
+		options =
+		{
+			{description = "Enabled", data = 1, hover="Default 󰀡"},
+			{description = "Disabled", data = 0},
+		},
+		default = 1
+	},
+	
+		{
+		name = "WELINA_INSOMNIA",
+		label = "Welinas Insomnia",
+		hover = "Disable or enable Welina not being able to sleep.",
 		options =
 		{
 			{description = "Enabled", data = 1, hover="Default 󰀡"},

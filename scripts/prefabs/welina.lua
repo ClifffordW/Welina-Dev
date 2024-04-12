@@ -29,7 +29,7 @@ end
 local PROX_CHECK_TAGS = { "player", "_follower" }
 local PROX_CANT_TAGS = { "emocatgirl" }
 
-function GetFollowerPenalty(inst, max, modifierchange)
+local function GetFollowerPenalty(inst, max, modifierchange)
 	local x, y, z = inst.Transform:GetWorldPosition()
 
 	local asocial = TheSim:FindEntities(x, y, z, 6, nil, PROX_CANT_TAGS, PROX_CHECK_TAGS)
@@ -104,7 +104,7 @@ local function welina_numDeaths_dirty(inst)
 end
 
 local function OnTakeDamage(inst, data)
-    if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
+ if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
         local attackerGUID = data.attacker.GUID
 
         if inst.attackerDamageBonuses == nil then
@@ -124,23 +124,25 @@ local function OnTakeDamage(inst, data)
             "bonus_damage_" .. attackerGUID,
             totalDamageMultiplier
         )
-
+--[[
         if inst.components.sanity then
             local is_boss = data.attacker:HasTag("epic") and 0.025 or 0.085
 
             inst.components.sanity:AddSanityPenalty("sanity_penalty_" .. attackerGUID, data.damage * is_boss * 0.25)
             print("Sanity Penalty: " .. data.damage * is_boss * 0.5)
-        end
 
+        end
+--]]
         data.attacker:ListenForEvent("onremove", function()
             inst:DoTaskInTime(0.25, function()
                 if inst.attackerDamageBonuses[attackerGUID] ~= nil then
                     inst.components.combat.externaldamagemultipliers:RemoveModifier("bonus_damage_" .. attackerGUID)
                 end
-
+--[[
                 if inst.components.sanity ~= nil and inst.replica.sanity ~= nil and inst.components.sanity.sanity_penalties["sanity_penalty_" .. attackerGUID] ~= nil then
                     inst.components.sanity:RemoveSanityPenalty("sanity_penalty_" .. attackerGUID)
                 end
+--]]
             end)
         end, data.attacker)
 
@@ -150,10 +152,9 @@ local function OnTakeDamage(inst, data)
                 .. ": "
                 .. inst.attackerDamageBonuses[attackerGUID]
         )
-        print("Default damage: " .. data.damage)
+        print("Default damage: " .. data.damage)--]]
     end
 end
-
 
 local function HealthWarning(inst)
 	local health = inst.replica.health:GetPercent()
@@ -203,7 +204,11 @@ end
 
 local function OnDeath(inst)
 	local health = inst.components.health:GetPercent()
-
+	--[[
+		if inst.components.slipperyfeet ~= nil then
+			inst:RemoveComponent("slipperyfeet")
+		end
+--]]
 	if not inst.welina_numDeaths then
 		inst.welina_numDeaths = 1
 		inst:DoTaskInTime(0, function()
@@ -237,6 +242,8 @@ local function OnSave(inst, data)
 	data.welina_numDeaths = inst.welina_numDeaths and inst.welina_numDeaths or 0
 end
 
+
+
 local function OnLoad(inst, data)
 	if data and data.welina_numDeaths ~= nil then
 		inst.welina_numDeaths = data.welina_numDeaths or 0
@@ -261,7 +268,7 @@ local function OnLoad(inst, data)
 	end
 end
 
-function DoEffects(pet)
+local function DoEffects(pet)
 	local spawnfx, scale = "", pet.custom_spawnfx_scale or 1
 
 	if not pet.no_spawn_fx then
@@ -274,7 +281,7 @@ function DoEffects(pet)
 	end
 end
 
-function OnSpawnPet(inst, pet)
+local function OnSpawnPet(inst, pet)
 	--Delayed in case we need to relocate for migration spawning
 	pet:DoTaskInTime(0, DoEffects)
 	if pet.components.spawnfader ~= nil then
@@ -282,7 +289,7 @@ function OnSpawnPet(inst, pet)
 	end
 end
 
-function OnDespawnPet(inst, pet)
+local function OnDespawnPet(inst, pet)
 	if not inst.is_snapshot_user_session then
 		DoEffects(pet)
 	end
@@ -296,6 +303,11 @@ local common_postinit = function(inst)
 	inst.MiniMapEntity:SetIcon("welina.tex")
 
 	inst.net_welina_numDeaths = net_smallbyte(inst.GUID, "inst.welina_numDeaths", "welina_numDeaths_dirty")
+
+
+	if TUNING.WELINA_INSOMNIA == 1 then
+		inst:AddTag("insomniac")
+	end
 
 	inst:AddTag("emocatgirl")
 
@@ -342,8 +354,8 @@ local master_postinit = function(inst)
 
 	inst.components.sanity:SetMax(TUNING.WELINA_SANITY)
 	--inst.components.sanity.sanity_aura_immune = true
-	inst.components.sanity.night_drain_mult = TUNING.WENDY_SANITY_MULT
-	inst.components.sanity.neg_aura_mult = TUNING.WENDY_SANITY_MULT
+	--inst.components.sanity.night_drain_mult = TUNING.WELINA_SANITY_MULT
+	--inst.components.sanity.neg_aura_mult = TUNING.WELINA_SANITY_MULT
 	inst.components.sanity:AddSanityAuraImmunity("ghost")
 	inst.components.sanity:SetPlayerGhostImmunity(true)
 
@@ -362,8 +374,10 @@ local master_postinit = function(inst)
 	if inst.components.petleash ~= nil then
 		inst._OnSpawnPet = inst.components.petleash.onspawnfn
 		inst._OnDespawnPet = inst.components.petleash.ondespawnfn
+		inst.components.petleash:SetMaxPets(inst.components.petleash:GetMaxPets() + 4)
 	else
 		inst:AddComponent("petleash")
+		inst.components.petleash:SetMaxPets(7)
 	end
 	local petleash = inst.components.petleash
 	petleash:SetOnSpawnFn(OnSpawnPet)
@@ -390,6 +404,7 @@ local master_postinit = function(inst)
 	end
 
 	inst:ListenForEvent("attacked", OnTakeDamage)
+	
 
 	inst.OnSave = OnSave
 	inst.OnLoad = OnLoad

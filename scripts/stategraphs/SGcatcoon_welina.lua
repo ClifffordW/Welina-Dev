@@ -27,14 +27,16 @@ local events=
                 else
                     inst.sg:GoToState("pounceplay", data.target)
                 end
-            elseif data.target and data.target:IsValid()   and inst:GetDistanceSqToInst(data.target) > TUNING.CATCOON_MELEE_RANGE*TUNING.CATCOON_MELEE_RANGE and not inst:HasTag("swimming") then
-                inst.sg:GoToState("pounceattack", data.target)
+					--elseif data.target and data.target:IsValid()   and inst:GetDistanceSqToInst(data.target) > TUNING.CATCOON_MELEE_RANGE*TUNING.CATCOON_MELEE_RANGE and not inst:HasTag("swimming") then
+					elseif data.target and data.target:IsValid() and inst:GetDistanceSqToInst(data.target) > TUNING.CATCOON_MELEE_RANGE*TUNING.CATCOON_MELEE_RANGE then
+			   inst.sg:GoToState("pounceattack", data.target)
             else
                 inst.sg:GoToState("attack", data.target)
             end
         end
     end),
 }
+
 
 local states=
 {
@@ -64,11 +66,11 @@ local states=
         tags = {"moving", "canrotate"},
 
         onenter = function(inst)
-
+--[[
             if inst:HasTag("swimming") then 
                 inst.sg:GoToState("run")
             end
-
+--]]
             inst.AnimState:PlayAnimation("walk_pre")
         end,
 
@@ -557,7 +559,7 @@ CommonStates.AddCombatStates(states,
 	},
 })
 
-
+--[[
 CommonStates.AddRunStates(states,
 {
     runtimeline =
@@ -618,7 +620,7 @@ pst = "action",
 		end),
 	}
 })
-
+--]]
 
 CommonStates.AddSleepStates(states,
 {
@@ -629,14 +631,20 @@ CommonStates.AddSleepStates(states,
 
     sleeptimeline =
     {
+		TimeEvent(1 * FRAMES, function(inst) inst.AnimState:SetDeltaTimeMultiplier(.25) end),
+	
         TimeEvent(37*FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/sleep") end)
     },
 
     waketimeline =
     {
+		TimeEvent(1 * FRAMES, function(inst) inst.AnimState:SetDeltaTimeMultiplier(1) end),
+		
         TimeEvent(31*FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/pickup") end)
     },
 })
+
+CommonStates.AddHopStates(states, true, {pre = "walK_pre", loop = "jump_atk", pst = "walk_pst"})
 CommonStates.AddFrozenStates(states)
 CommonStates.AddSinkAndWashAshoreStates(states)
 

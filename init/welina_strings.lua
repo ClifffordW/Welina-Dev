@@ -177,7 +177,7 @@ FIRESTARTER = "I should teach you about fire safety, %s.",
 
 STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA =
 {
-GENERIC = "A feline human, not the weirdest thing I've seen today",
+GENERIC = "A feline human, not the weirdest thing I've seen today.",
 ATTACKER = "It would be wiser to work together, %s!",
 MURDERER = "Looks like I'll have to erase you off this timeline myself!",
 REVIVER = "Cats are pretty good friends, and so are you, %s.",
@@ -185,7 +185,17 @@ GHOST = "I assume you have more lives to yourself?",
 FIRESTARTER = "This cat's way too excited to be playing with fire.",
 }
 
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA =
+{
+GENERIC = "Hmph, another freak like meow.",
+ATTACKER = "You're not acting in my best interest, are you?",
+MURDERER = "I knew better than anyaone it'd come to this.",
+REVIVER = "She know her way around ghosts, I should know.",
+GHOST = "You'll be outta this world if you keep that up.",
+FIRESTARTER = "It's tempting to watch the world burn, isn't it.",
+}
 
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_CATCOON = "He's ready to throw his life away for meow."
 
 STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_CATCOON = "I don't have time to play with you."
 STRINGS.CHARACTERS.WURT.DESCRIBE.WELINA_CATCOON = "You funny, florp!"
@@ -256,7 +266,7 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_COLLAR_SPIKED = "Claim your own catco
 
 STRINGS.NAMES.WELINA_COLLAR_REGEN = "Rejuvenating Collar"
 STRINGS.RECIPE_DESC.WELINA_COLLAR_REGEN = "The healing is only a side effect."
-STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_REGEN = "How does it work? Dunno."
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_REGEN = "It makes it more comfortable to live with the pain."
 
 STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_COLLAR_REGEN = "These collars aren't purely for the looks, are they?"
 STRINGS.CHARACTERS.WURT.DESCRIBE.WELINA_COLLAR_REGEN = "For catcoons to feel pretty."
@@ -280,7 +290,7 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_COLLAR_REGEN = "Claim your own catcoo
 
 
 STRINGS.NAMES.WELINA_COLLAR_BOMB = "Explosive Collar"
-STRINGS.RECIPE_DESC.WELINA_COLLAR_BOMB = "Martyrdom."
+STRINGS.RECIPE_DESC.WELINA_COLLAR_BOMB = "I'm taking you with me."
 STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_BOMB = "Oh, to take all my enyamies to meow grave."
 
 STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_COLLAR_BOMB = "These collars aren't purely for the looks, are they?"
@@ -327,7 +337,7 @@ STRINGS.CHARACTERS.WILLOW.DESCRIBE.WELINA_COLLAR_GLASS = "That looks sick!"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_COLLAR_GLASS = "Claim your own catcoon today!"
 
 
-
+--[[
 STRINGS.NAMES.WELINA_COLLAR_ARMOR = "Sturdy Collar"
 STRINGS.RECIPE_DESC.WELINA_COLLAR_ARMOR = "Never leave home without one."
 STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_ARMOR = "This should keep them safe for a while longer."
@@ -349,7 +359,7 @@ STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA_COLLAR_ARMOR = "Each collar tells a dif
 STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WELINA_COLLAR_ARMOR = "Is not even fit on Wolfgangs muscular neck."
 STRINGS.CHARACTERS.WILLOW.DESCRIBE.WELINA_COLLAR_ARMOR = "That looks sick!"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_COLLAR_ARMOR = "Claim your own catcoon today!"
-
+--]]
 
 
 STRINGS.NAMES.WELINA_COLLAR_LIGHT = "Enlightning Collar"
@@ -450,7 +460,7 @@ if KnownModIndex:IsModEnabled("workshop-2858309592") then
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYBUNDLE = "It's full of something alright, and it ain't cupcakes."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYBUNDLEWRAP = "It's spider-made wraps."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYMASK = "This is so stupid it might just work."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYRIBBON = "Ugh, too girl, next."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYRIBBON = "Ugh, too girly, next."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYSUNHAT = "I'd wear it if it was black, but alas."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYSUNGLASSES = "These could actually fit my style, huh."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYWHIP = "It's ridiculously sticky, how does she use it."
@@ -462,7 +472,7 @@ if KnownModIndex:IsModEnabled("workshop-2858309592") then
 	GENERIC = "I uh... see you have a lot of weight on your shoulders, %s.",
 	ATTACKER = "How can someone like you harm anyone.",
 	MURDERER = "End of the line, dude. Time to deflate you.",
-	REVIVER = "Well, at least someone's here reliable",
+	REVIVER = "Well, at least someone's here reliable.",
 	GHOST = "I'll have to make this right.",
 	FIRESTARTER = "Burning stuff doesn't really fit you, dude.",
 }
@@ -471,27 +481,27 @@ end
 
 if KnownModIndex:IsModEnabled("workshop-3021568491") then
 
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT = "How does she fit all of herself in that?"
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_BLACK = "How does she fit all of herself in that?"
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_WHITE = "How does she fit all of herself in that?"
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_RED = "How does she fit all of herself in that?"
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_YELLOW = "How does she fit all of herself in that?"
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT = "She fits into it so seamlessly."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_BLACK = "She fits into it so seamlessly."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_WHITE = "She fits into it so seamlessly."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_RED = "She fits into it so seamlessly."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_YELLOW = "She fits into it so seamlessly."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD = "Questionable choice of design."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_BLACK = "Questionable choice of design."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_WHITE = "Questionable choice of design."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_RED = "Questionable choice of design."
 	STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_YELLOW = "Questionable choice of design."
-	STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_DIARY = "I was told nyot to touch that, nyot that i was going to anyaway."
+	STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_DIARY = "I'm just a part of her freak show."
 	STRINGS.CHARACTERS.WELINA.DESCRIBE.RABBIT_WCARD = "Should turn it into a cat next time."
 	
 
 
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WILDCARD = 
     {
-        GENERIC = "Hello bun-girl.",
+        GENERIC = "Hello, Ms.%s.",
         ATTACKER = "I guess that nyasty personyality isn't just for the show.",
         MURDERER = "I've got a gravestone prepared with your nyame on it!",
-        REVIVER = "Can't shake off the feeling that she doesn't really care.",
+        REVIVER = "Her facade is almost convincing.",
         GHOST = "Ms.Magician here needs a heart.",
         FIRESTARTER = "Was burning that part of your magic act or something?",
     }

@@ -77,6 +77,7 @@ AddCharacterRecipe("welina_collar_regen", -- name
     }
 )
 
+--[[
 AddCharacterRecipe("welina_collar_armor", -- name
     {                                 -- ingredients
         GLOBAL.Ingredient("coontail", 2),
@@ -99,6 +100,7 @@ AddCharacterRecipe("welina_collar_armor", -- name
         "TOOLS",
     }
 )
+--]]
 
 AddCharacterRecipe("welina_collar_light", -- name
     {                                 -- ingredients

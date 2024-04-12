@@ -153,6 +153,8 @@ AddStategraphState(
 		},
 
 		timeline = {
+		
+			--TimeEvent(1 * FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hiss_pre") end),
 
 			TimeEvent(10 * FRAMES, function(inst)
 				if animation_data.anims == "idle_loop" then
@@ -172,7 +174,8 @@ AddStategraphState(
 
 			TimeEvent(14 * FRAMES, function(inst)
 				if animation_data.anims == "idle_loop" then
-					inst.SoundEmitter:PlaySound(welina_sounds.welina_hiss.event)
+					--inst.SoundEmitter:PlaySound(welina_sounds.welina_hiss.event)
+					inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hiss")
 				end
 			end),
 
@@ -382,7 +385,7 @@ end)
 end) ]]
 
 modimport("init/init_all")
-
+--[[
 AddPrefabPostInit("catcoonden", function(inst, ...)
 	local function temperaturetick(inst, sleeper)
 		if sleeper.components.temperature ~= nil then
@@ -457,6 +460,7 @@ AddPrefabPostInit("catcoonden", function(inst, ...)
 		AddSleepingBag(inst)
 	end)
 end)
+--]]
 
 if TUNING.WELINA_OSP == 1 then
 	local function MayKill(self, amount)
