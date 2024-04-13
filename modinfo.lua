@@ -325,7 +325,7 @@ modinfo_ver = lookup.modinfo_module
 	
 		{
 		name = "WELINA_REFLECT_AMOUNT",
-		label = "Welinas Edgyness Strenght",
+		label = "Welinas Edgyness Strength",
 		hover = "Amount of damage reflected back to attacker.",
 		options =
 		{
@@ -346,15 +346,15 @@ modinfo_ver = lookup.modinfo_module
 		hover = "How much of the damage Welina has taken is added to her attack.",
 		options =
 		{
-			{description = "10%", data = 0.001},
-			{description = "20%", data = 0.002},
-			{description = "30%", data = 0.003, hover="Default 󰀡"},
-			{description = "40%", data = 0.004},
-			{description = "50%", data = 0.005},
-			{description = "60%", data = 0.006},
-			{description = "70%", data = 0.007},
+			{description = "10%", data = 0.1},
+			{description = "20%", data = 0.2},
+			{description = "30%", data = 0.3, hover="Default 󰀡"},
+			{description = "40%", data = 0.4},
+			{description = "50%", data = 0.5},
+			{description = "60%", data = 0.6},
+			{description = "70%", data = 0.7},
 		},
-		default = 0.003
+		default = 0.3
 	},
 
 	Title("Scrapped Features"),
