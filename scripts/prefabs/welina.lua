@@ -115,11 +115,15 @@ local function OnTakeDamage(inst, data)
 
     local damageToAdd = math.floor(data.damage) * TUNING.WELINA_RESENTMENT
     local attackerDamageBonus = inst.attackerDamageBonuses[attacker]
-    inst.attackerDamageBonuses[attacker] = attackerDamageBonus == nil and damageToAdd or attackerDamageBonus + damageToAdd
+    inst.attackerDamageBonuses[attacker] =
+        attackerDamageBonus == nil and damageToAdd
+        or attackerDamageBonus + damageToAdd
 end
 
 local function GetBonusDamage(inst, victim, damage, weapon)
-    return (inst.attackerDamageBonuses == nil or inst.attackerDamageBonuses[victim] == nil) and 0 or inst.attackerDamageBonuses[victim];
+    return
+        (inst.attackerDamageBonuses == nil or inst.attackerDamageBonuses[victim] == nil) and 0
+        or inst.attackerDamageBonuses[victim]
 end
 
 local function HealthWarning(inst)
@@ -259,7 +263,9 @@ local function OnDespawnPet(inst, pet)
 end
 
 local function OnWorldEntityDeath(inst, data)
-    inst.attackerDamageBonuses[data.inst] = nil
+    if inst.attackerDamageBonuses ~= nil then
+        inst.attackerDamageBonuses[data.inst] = nil
+    end
 end
 
 -- This initializes for both the server and client. Tags can be added here.
