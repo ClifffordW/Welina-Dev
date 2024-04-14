@@ -10,7 +10,7 @@ local lang_lookups = {
             desc = "Adds Welina, the low-spirited cat girl.",
             changes = [[
 			
-󰀈 Release
+󰀈 Fixed issue where welina would get stuck if hit by entity that would cause a knockback.
 		
 			]]
         },
@@ -75,7 +75,7 @@ local lookupconf = lang_lookups.modinfo_config[locale] or lang_lookups.modinfo_c
 versiontype = ""
 name = lookup.name
 author = "mentos"
-version = "1.0.0"
+version = "1.0.1"
 config = false
 Language = "en"
 contributors = "Cliffford W."

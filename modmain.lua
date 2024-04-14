@@ -184,14 +184,12 @@ AddStategraphState(
 			end),
 
 			TimeEvent(animation_data.frames_anim * FRAMES, function(inst)
-				inst:RemoveTag("NOTARGET")
+				
 				inst.AnimState:SetBuild("welina")
 				inst.AnimState:SetBank("wilson")
 				inst.components.locomotor:StopMoving()
-				if inst.components.playercontroller ~= nil then
-					inst.components.playercontroller:Enable(true)
-				end
-				inst.components.health:SetInvincible(false)
+
+
 				inst:Show()
 				inst.Transform:SetFourFaced()
 				inst.components.inventory:Open()
@@ -215,7 +213,17 @@ AddStategraphState(
 
 		onupdate = function(inst) end,
 
-		onexit = function(inst) end,
+		onexit = function(inst) 
+			
+			inst:RemoveTag("NOTARGET")
+			
+			if inst.components.health ~= nil then
+				inst.components.health:SetInvincible(false)
+			end
+			if inst.components.playercontroller ~= nil then
+				inst.components.playercontroller:Enable(true)
+			end
+		end,
 	})
 )
 
