@@ -52,6 +52,26 @@ Assets = {
 }
 
 
+--For menu remix compatibility
+table.insert(Assets, Asset("SOUND", "sound/welina.fsb"))
+table.insert(Assets, Asset("SOUNDPACKAGE", "sound/scotchmintz_characters.fev"))
+if TUNING.MENUREMIX_MODDEDCHAR_VOICES then
+    TUNING.MENUREMIX_MODDEDCHAR_VOICES.welina = "scotchmintz_characters/characters/welina/talk_LP"
+end
+
+if STRINGS.MENUREMIX then
+    STRINGS.MENUREMIX.MODDEDCHARACTER_LINES.welina = 
+    {
+        "This looks purr-fect!",
+        "This is litter-arly odd feeling",
+        "Wel-in-an amazing showdown. I'm the perfect cat ",
+        "Miau!",
+
+
+    }
+
+end
+
 local STRINGS = GLOBAL.STRINGS
 
 --Localization for Chinese (S/T)
