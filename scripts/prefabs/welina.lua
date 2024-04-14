@@ -325,9 +325,9 @@ local master_postinit = function(inst)
     inst.components.hunger:SetMax(TUNING.WELINA_HUNGER)
 
     inst.components.sanity:SetMax(TUNING.WELINA_SANITY)
-    --inst.components.sanity.sanity_aura_immune = true
-    --inst.components.sanity.night_drain_mult = TUNING.WELINA_SANITY_MULT
-    --inst.components.sanity.neg_aura_mult = TUNING.WELINA_SANITY_MULT
+    inst.components.sanity.sanity_aura_immune = true
+    inst.components.sanity.night_drain_mult = TUNING.WELINA_SANITY_MULT
+    inst.components.sanity.neg_aura_mult = TUNING.WELINA_SANITY_MULT
     inst.components.sanity:AddSanityAuraImmunity("ghost")
     inst.components.sanity:SetPlayerGhostImmunity(true)
 
