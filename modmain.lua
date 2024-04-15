@@ -102,7 +102,6 @@ AddPrefabPostInit("catcoon", function(inst)
 		return inst
 	end
 
-	inst:AddComponent("trader")
 	inst.components.trader:SetAcceptTest(ShouldAcceptItem)
 	inst.components.trader.onaccept = OnGetItemFromPlayer
 end)

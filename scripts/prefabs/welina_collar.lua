@@ -22,7 +22,7 @@ local function OnExplodeFn(inst)
 end
 
 
-local function BoomCollar(inst, owner)
+local function BoomCollar(inst)
 
     inst.components.explosive:OnBurnt()
     inst:Remove()
@@ -39,7 +39,14 @@ local LIGHT_RADIUS = 2
 local LIGHT_INTENSITY = 0.8
 local LIGHT_FALLOFF = 0.5
 
+local function RegenCollar(owner)
+    
+        if owner.health_task then
+            owner.health_task:Cancel()
+            owner.health_task = nil
+        end
 
+end
 
 
 -- Function to handle equip event
@@ -48,51 +55,59 @@ local function onequip(inst, owner)
 
 
 
+    if owner:IsValid() and owner.components.health and not owner.components.health:IsDead() then
+
+        if name == "bomb" then
+            owner:ListenForEvent("death", function() BoomCollar(inst, owner) end)
+        elseif name == "spiked" then
+            owner:ListenForEvent("attacked", ReflectDamage)
+            if inst.components.fueled ~= nil then
+                inst.components.fueled:StartConsuming()
+            end
+        elseif name == "glass" and owner.components.combat then
+            owner.components.combat.damagemultiplier = 3
+            if inst.components.fueled ~= nil then
+                inst.components.fueled:StartConsuming()
+            end
+        elseif name == "regen" then
+            
+                local current_hp = owner.components.health:GetPercent()
+                owner.components.health:SetMaxHealth(TUNING.CATCOON_LIFE * 2)
+                owner.components.health:SetPercent(current_hp)
+                owner.health_task = inst:DoPeriodicTask(5, function()
+                    owner.components.health:DoDelta(50)
+                end)
+                if inst.components.fueled ~= nil then
+                    inst.components.fueled:StartConsuming()
+                end
+            
+                owner:ListenForEvent("death", RegenCollar)
 
 
-    if name == "bomb" then
-        owner:ListenForEvent("death", function() BoomCollar(inst, owner) end)
-    elseif name == "spiked" then
-        owner:ListenForEvent("attacked", ReflectDamage)
-		if inst.components.fueled ~= nil then
-			inst.components.fueled:StartConsuming()
-		end
-    elseif name == "glass" and owner.components.combat then
-        owner.components.combat.damagemultiplier = 3
-		if inst.components.fueled ~= nil then
-			inst.components.fueled:StartConsuming()
-		end
-    elseif name == "regen" then
-        local current_hp = owner.components.health:GetPercent()
-        owner.components.health:SetMaxHealth(TUNING.CATCOON_LIFE * 2)
-        owner.components.health:SetPercent(current_hp)
-        owner.health_task = inst:DoPeriodicTask(5, function()
-            owner.components.health:DoDelta(50)
-        end)
-		if inst.components.fueled ~= nil then
-			inst.components.fueled:StartConsuming()
-		end
-		--[[
-    elseif name == "armor" and owner.components.combat then
-        owner.components.combat.externaldamagetakenmultipliers:SetModifier(owner, 0.9, ARMOR_COLLAR_MODIFIER)
-		if inst.components.fueled ~= nil then
-			inst.components.fueled:StartConsuming()
-		end
-		--]]
-    elseif name == "light" then
-        if inst._light == nil then
-            inst._light = SpawnPrefab("alterguardianhatlight")
-            inst._light.entity:SetParent(owner.entity)
-            inst._light.Light:SetRadius(LIGHT_RADIUS)
-            inst._light.Light:SetIntensity(LIGHT_INTENSITY)
-            inst._light.Light:SetFalloff(LIGHT_FALLOFF)
-            inst._light.Light:SetColour(unpack(LIGHT_COLOR))
-            inst._light.Light:Enable(true)
-            inst._light.Light:EnableClientModulation(true)
+
+            
+            --[[
+        elseif name == "armor" and owner.components.combat then
+            owner.components.combat.externaldamagetakenmultipliers:SetModifier(owner, 0.9, ARMOR_COLLAR_MODIFIER)
+            if inst.components.fueled ~= nil then
+                inst.components.fueled:StartConsuming()
+            end
+            --]]
+        elseif name == "light" then
+            if inst._light == nil then
+                inst._light = SpawnPrefab("alterguardianhatlight")
+                inst._light.entity:SetParent(owner.entity)
+                inst._light.Light:SetRadius(LIGHT_RADIUS)
+                inst._light.Light:SetIntensity(LIGHT_INTENSITY)
+                inst._light.Light:SetFalloff(LIGHT_FALLOFF)
+                inst._light.Light:SetColour(unpack(LIGHT_COLOR))
+                inst._light.Light:Enable(true)
+                inst._light.Light:EnableClientModulation(true)
+            end
+            if inst.components.fueled ~= nil then
+                inst.components.fueled:StartConsuming()
+            end
         end
-		if inst.components.fueled ~= nil then
-			inst.components.fueled:StartConsuming()
-		end
     end
 end
 
@@ -113,7 +128,7 @@ local function onunequip(inst, owner)
 			inst.components.fueled:StopConsuming()
 		end
     elseif name == "regen" then
-        if owner:IsValid() and owner.components.health and owner.health_task then
+        if owner:IsValid() and owner.components.health and not owner.components.health:IsDead() and owner.health_task then
             local current_hp = owner.components.health:GetPercent()
             owner.components.health:SetMaxHealth(TUNING.CATCOON_LIFE)
             owner.components.health:SetPercent(current_hp)
@@ -122,6 +137,9 @@ local function onunequip(inst, owner)
 			if inst.components.fueled ~= nil then
 				inst.components.fueled:StopConsuming()
 			end
+
+            owner:RemoveEventCallback("death", RegenCollar)
+
         end		
     elseif name == "light" then
         if inst._light and inst._light:IsValid() then
