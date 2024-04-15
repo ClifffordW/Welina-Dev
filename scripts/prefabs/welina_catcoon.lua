@@ -214,7 +214,7 @@ local function KeepTargetFn(inst, target)
 
 
 local RETARGET_TAGS = { "_health" }
-local RETARGET_NO_TAGS = { "INLIMBO", "notarget", "invisible" }
+local RETARGET_NO_TAGS = { "INLIMBO", "notarget", "invisible", "companion", }
 
 local function RetargetFn(inst)
 	return FindEntity(inst, TUNING.CATCOON_TARGET_DIST, function(guy)
