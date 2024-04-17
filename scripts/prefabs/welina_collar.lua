@@ -22,11 +22,7 @@ local function OnExplodeFn(inst)
 end
 
 
-local function BoomCollar(inst)
 
-    inst.components.explosive:OnBurnt()
-    inst:Remove()
-end
 
 
 
@@ -58,7 +54,16 @@ local function onequip(inst, owner)
     if owner:IsValid() and owner.components.health and not owner.components.health:IsDead() then
 
         if name == "bomb" then
-            owner:ListenForEvent("death", function() BoomCollar(inst, owner) end)
+
+
+            local function BoomCollar()
+
+                inst.components.explosive:OnBurnt()
+                inst:Remove()
+            end
+
+
+            owner:ListenForEvent("death", BoomCollar)
         elseif name == "spiked" then
             owner:ListenForEvent("attacked", ReflectDamage)
             if inst.components.fueled ~= nil then
@@ -116,7 +121,7 @@ local function onunequip(inst, owner)
     local name = string.gsub(inst.prefab, COLLAR_PREFIX, "")
 
     if name == "bomb" then
-        owner:RemoveEventCallback("death", BoomCollar, inst)
+
     elseif name == "spiked" then
         owner:RemoveEventCallback("attacked", ReflectDamage)
 		if inst.components.fueled ~= nil then
@@ -236,12 +241,14 @@ local function MakeCollar(name)
 
         inst.healthtask = nil
 
-        if name == "bomb" then
-            inst:AddComponent("explosive")
-            inst.components.explosive:SetOnExplodeFn(OnExplodeFn)
-            inst.components.explosive.explosivedamage = 1000
-            inst.components.explosive.explosiverange = 10
-        end
+        inst:DoTaskInTime(0.1, function()
+            if name == "bomb" then
+                inst:AddComponent("explosive")
+                inst.components.explosive:SetOnExplodeFn(OnExplodeFn)
+                inst.components.explosive.explosivedamage = 1000
+                inst.components.explosive.explosiverange = 10
+            end
+        end)
 
 
 
