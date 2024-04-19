@@ -15,6 +15,9 @@ Assets = {
 
     Asset( "IMAGE", "bigportraits/welina_none.tex" ),
     Asset( "ATLAS", "bigportraits/welina_none.xml" ),
+	
+	Asset( "IMAGE", "bigportraits/ms_welina_gown.tex" ),
+    Asset( "ATLAS", "bigportraits/ms_welina_gown.xml" ),
 
 	
 	Asset( "IMAGE", "images/map_icons/welina.tex" ),
@@ -45,6 +48,7 @@ Assets = {
 }
 
 
+
 AddAnim("welina_run_anim")
 
 AddAnim("welina_hiss_anim")
@@ -54,6 +58,7 @@ AddAnim("catcoon_actions")
 
 AddAnim("welina_catcoon_basic")
 AddAnim("welina_catcoon_actions")
+
 
 
 --AddSound("lawnmower")

@@ -3514,131 +3514,131 @@ return{
         BATHBOMB = "Smells nice though, don't it.",
         TRAP_STARFISH =
         {
-            GENERIC = "It's just a silly starfish.",
-            CLOSED = "Devious thing.",
+            GENERIC = "It's trying to impersonate a star.",
+            CLOSED = "It doesn't like being stepped on? Shame.",
         },
-        DUG_TRAP_STARFISH = "What would be the most devilish place to put it?",
+        DUG_TRAP_STARFISH = "I can indirectly kill something with this.",
         SPIDER_MOON =
         {
-        	GENERIC = "How monstrous.",
-        	SLEEPING = "I'd rather not wake it.",
-        	DEAD = "Good riddance.",
+        	GENERIC = "That sure looks painful.",
+        	SLEEPING = "It will have to return to it's horrible existence some day.",
+        	DEAD = "Phew, good.",
         },
-        MOONSPIDERDEN = "I'd rather not peek inside.",
+        MOONSPIDERDEN = "Deformed beyond recognition.",
 		FRUITDRAGON =
 		{
-			GENERIC = "They aren't very sociable.",
-			RIPE = "I bet it's delicious.",
-			SLEEPING = "Sleep is only a temporary escape.",
+			GENERIC = "There's a language barrier between us.",
+			RIPE = "It looks kinda tasty.",
+			SLEEPING = "I envy those who can dream.",
 		},
         PUFFIN =
         {
-            GENERIC = "It's a puffin.",
-            HELD = "I'm gonna turn you into puffin' stuff.",
-            SLEEPING = "Sleep is only a temporary escape.",
+            GENERIC = "Looks as edible as any other bird.",
+            HELD = "Mhmmrm, I haven't had water birds yet.",
+            SLEEPING = "I envy those who can dream.",
         },
 
-		MOONGLASSAXE = "Go on. Axe me what the moon's made of.",
-		GLASSCUTTER = "Sharp like my wit.",
+		MOONGLASSAXE = "So sharp, so pretty.",
+		GLASSCUTTER = "This is so not cutting edge.",
 
         ICEBERG =
         {
-            GENERIC = "Ice, ice, maybe.", --unimplemented
-            MELTED = "It's melted.", --unimplemented
+            GENERIC = "How icy.", --unimplemented
+            MELTED = "Maybe I can freeze it back up with my glare.", --unimplemented
         },
-        ICEBERG_MELTED = "It's melted.", --unimplemented
+        ICEBERG_MELTED = "All watered down.", --unimplemented
 
-        MINIFLARE = "For those with a flare for the dramatic.",
-        MEGAFLARE = "I'd have to be foolish or desperate to use that.",
+        MINIFLARE = "The last thing I'd want is for everyone to know where I am.",
+        MEGAFLARE = "This is a horrible idea.",
 
 		MOON_FISSURE =
 		{
-			GENERIC = "It's not shadow magic.",
-			NOLIGHT = "I've more important things to deal with than holes in the ground.",
+			GENERIC = "Too bright for my eyes.",
+			NOLIGHT = "I'm tempted to squeeze into that.",
 		},
         MOON_ALTAR =
         {
-            MOON_ALTAR_WIP = "There is powerful energy pouring out of it.",
-            GENERIC = "Yes. I desire the knowledge of the moon.",
+            MOON_ALTAR_WIP = "Totally not just putting random stuff together.",
+            GENERIC = "Ugh, great, more voices.",
         },
 
-        MOON_ALTAR_IDOL = "Let me know your wishes, and I will oblige.",
-        MOON_ALTAR_GLASS = "This is not its desired destination.",
-        MOON_ALTAR_SEED = "Where shall I take you?",
+        MOON_ALTAR_IDOL = "Fancy-looking thing.",
+        MOON_ALTAR_GLASS = "I think it's trying to sell meow something.",
+        MOON_ALTAR_SEED = "I hate when rocks talk to me.",
 
-        MOON_ALTAR_ROCK_IDOL = "The thing inside wants out.",
-        MOON_ALTAR_ROCK_GLASS = "The thing inside wants out.",
-        MOON_ALTAR_ROCK_SEED = "The thing inside wants out.",
+        MOON_ALTAR_ROCK_IDOL = "Whatever is in there wants to not be in there.",
+        MOON_ALTAR_ROCK_GLASS = "Whatever is in there wants to not be in there.",
+        MOON_ALTAR_ROCK_SEED = "Whatever is in there wants to not be in there.",
 
-        MOON_ALTAR_CROWN = "This powerful energy... I've seen it before.",
-        MOON_ALTAR_COSMIC = "It is not yet time?",
+        MOON_ALTAR_CROWN = "I'm not worthy of this kind of power.",
+        MOON_ALTAR_COSMIC = "Has the time not come yet.",
 
-        MOON_ALTAR_ASTRAL = "Why do I get the sense... ah, I'm sure it's nothing.",
-        MOON_ALTAR_ICON = "I know where you need to be.",
-        MOON_ALTAR_WARD = "I'll take you to the others.",
+        MOON_ALTAR_ASTRAL = "I'm getting a bad feeling, but I'm always feeling bad so... whatever.",
+        MOON_ALTAR_ICON = "Where's this one supposed to be even.",
+        MOON_ALTAR_WARD = "Probably imporant or whatever.",
 
         SEAFARING_PROTOTYPER =
         {
-            GENERIC = "Now to see if Higgsbury's ideas hold water.",
-            BURNT = "Well, it's useless now.",
+            GENERIC = "If it was a good day I would be fishing.",
+            BURNT = "Smells like burnt fish.",
         },
-        BOAT_ITEM = "I've been reduced to a common shipyard laborer.",
-        BOAT_GRASS_ITEM = "Am I building a boat or weaving a basket?",
-        STEERINGWHEEL_ITEM = "Hard labor? Isn't that Winona's forte?",
-        ANCHOR_ITEM = "Can't someone else assemble it?",
-        MAST_ITEM = "Do I look like a shipyard laborer?",
+        BOAT_ITEM = "Cats don't float? They do now.",
+        BOAT_GRASS_ITEM = "This is NOT safe.",
+        STEERINGWHEEL_ITEM = "The cat spinner.",
+        ANCHOR_ITEM = "It's important to have someone to hold you tight.",
+        MAST_ITEM = "Ship stuff isn't my specialty at all.",
         MUTATEDHOUND =
         {
-        	DEAD = "That is probably for the best.",
-        	GENERIC = "If anything ever looked evil, it's that.",
-        	SLEEPING = "I don't desire to rouse it.",
+        	DEAD = "Put out of its misery.",
+        	GENERIC = "I hope it's in terrible pain.",
+        	SLEEPING = "One swift swing to put it out.",
         },
 
         MUTATED_PENGUIN =
         {
-			DEAD = "Good riddance.",
-			GENERIC = "What an atrocious beast.",
-			SLEEPING = "May you never wake.",
+			DEAD = "It's dead. Good.",
+			GENERIC = "O.M.G this is, like, the ugliest little bird i've seen in my life.",
+			SLEEPING = "It'd be better off dead.",
 		},
         CARRAT =
         {
-        	DEAD = "Disgusting.",
-        	GENERIC = "That carrot is revolting!",
-        	HELD = "You thought you could fool me?",
-        	SLEEPING = "I'm sure it is diseased.",
+        	DEAD = "Nyuck.",
+        	GENERIC = "What the nyahk.",
+        	HELD = "No more running around, cupcake.",
+        	SLEEPING = "Wonder how many diseases it has.",
         },
 
 		BULLKELP_PLANT =
         {
-            GENERIC = "Disgusting. I'll have someone else pick it.",
-            PICKED = "We already took the food parts.",
+            GENERIC = "Slimy, wet. Green.",
+            PICKED = "There's nothing to take off it.",
         },
-		BULLKELP_ROOT = "For keeping the peasantry in line.",
-        KELPHAT = "You really expect me to wear this?",
-		KELP = "Can I eat something that's not slimy for once?",
-		KELP_COOKED = "This was not an improvement.",
-		KELP_DRIED = "Sadly, I've eaten worse out here.",
+		BULLKELP_ROOT = "A bit weird to use.",
+        KELPHAT = "Nyahh, it'll get my hair wet.",
+		KELP = "I guess this is all I deserve.",
+		KELP_COOKED = "Less nyucky now.",
+		KELP_DRIED = "Tastes too vegan.",
 
-		GESTALT = "It communes with us through them.",
-        GESTALT_GUARD = "I think it would be best to keep my distance.",
+		GESTALT = "Am I starting so see things again.",
+        GESTALT_GUARD = "They don't look friendly one dyamn bit.",
 
-		COOKIECUTTER = "Stay back, you!",
-		COOKIECUTTERSHELL = "Hmph. I suppose this could be useful.",
-		COOKIECUTTERHAT = "This doesn't look dapper at all.",
+		COOKIECUTTER = "As long as it's not trying to cut my flesh.",
+		COOKIECUTTERSHELL = "That's like, a shell.",
+		COOKIECUTTERHAT = "Cuter cutter hat.",
 		SALTSTACK =
 		{
-			GENERIC = "Odd...",
-			MINED_OUT = "It's been mined down to nothing.",
-			GROWING = "It seems to be growing back...",
+			GENERIC = "Why does that rock look so white.",
+			MINED_OUT = "Someone got to the bottom of this.",
+			GROWING = "It grows back huh.",
 		},
-		SALTROCK = "Am I to be a salt miner now?",
-		SALTBOX = "This will extend the life of our supplies somewhat.",
+		SALTROCK = "All this salt will make meow salty.",
+		SALTBOX = "Keeps stuff fresher, but honestly, I don't really care.",
 
-		TACKLESTATION = "I suppose I could use a relaxing day of fishing.",
-		TACKLESKETCH = "What forbidden fishing knowledge do you hold?",
+		TACKLESTATION = "Born to fish.",
+		TACKLESKETCH = "It holds secrets beyond my comprehension.",
 
-        MALBATROSS = "I've no desire to do battle with that thing.",
-        MALBATROSS_FEATHER = "This would be a nice feather in my cap.",
+        MALBATROSS = "DYAMN, that's a meal and a half.",
+        MALBATROSS_FEATHER = "Blue feathers... so soft and light.",
         MALBATROSS_BEAK = "Ugh, I don't want to touch that.",
         MAST_MALBATROSS_ITEM = "Must I do everything?",
         MAST_MALBATROSS = "A warning to any waterfowl that cross us.",

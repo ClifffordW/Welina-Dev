@@ -24,6 +24,9 @@ Assets = {
 
     Asset("IMAGE", "bigportraits/welina_none.tex" ),
     Asset("ATLAS", "bigportraits/welina_none.xml" ),
+	
+	Asset( "IMAGE", "bigportraits/ms_welina_gown.tex" ),
+    Asset( "ATLAS", "bigportraits/ms_welina_gown.xml" ),
 
     --Big Portraits End
 
@@ -50,6 +53,8 @@ Assets = {
 
 
 }
+
+AddDynamic("ms_welina_gown")
 
 
 --For menu remix compatibility
@@ -147,7 +152,7 @@ local lookup = (lang_lookups[locale] or lang_lookups.en)
 
 AddCharacter("welina", lookup.name , "female", lookup.title, lookup.quote, lookup.skindesc,"welina", "welina", "Slim", false)
 CharacterAbillity("welina", lookup.a1 , lookup.a2 , lookup.a3)
-
+AddCharacterSkin("welina", "ms_welina_gown", "The Restless", "It's sometimes tempting to shut yourself in dreams.", "When my eyes close, I see terrible things.", true, true, false)
 
 
 

@@ -347,7 +347,7 @@ local master_postinit = function(inst)
     if inst.components.petleash ~= nil then
         inst._OnSpawnPet = inst.components.petleash.onspawnfn
         inst._OnDespawnPet = inst.components.petleash.ondespawnfn
-        inst.components.petleash:SetMaxPets(inst.components.petleash:GetMaxPets() + 4)
+        inst.components.petleash:SetMaxPets(inst.components.petleash:GetMaxPets() + 7)
     else
         inst:AddComponent("petleash")
         inst.components.petleash:SetMaxPets(7)
