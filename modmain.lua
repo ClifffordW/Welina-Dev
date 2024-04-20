@@ -107,6 +107,18 @@ AddPrefabPostInit("catcoon", function(inst)
 			inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/pickup")
 		elseif giver.components.leader ~= nil then
 			if item:HasTag("catnip") then
+				
+				if giver.components.petleash:IsFull() then
+
+					giver.components.talker:Say("I've too many kitties.")
+
+					return 
+				end
+				
+				
+
+
+
 				inst:Hide()
 				local theta = math.random() * 2 * PI
 				local pt = inst:GetPosition()
@@ -231,7 +243,13 @@ AddStategraphState(
 
 			TimeEvent(10 * FRAMES, function(inst)
 				if animation_data.anims == "idle_loop" then
-					inst.AnimState:SetBuild("welina_hiss_anim")
+					local skin_build = inst.AnimState:GetBuild()
+					local contains_welina = string.find(skin_build, "ms_welina")
+					inst.sg.statemem.welinaskin = contains_welina and string.gsub(skin_build, "ms_welina", "") or ""
+
+					inst.AnimState:SetBuild("welina_hiss_anim"..inst.sg.statemem.welinaskin)
+					
+					
 					inst.AnimState:SetBank("welina_hiss")
 				else
 					inst.SoundEmitter:PlaySound("fortnig/fortnite/theme", "fortnitedancetheme")
@@ -254,11 +272,18 @@ AddStategraphState(
 
 			TimeEvent(62 * FRAMES, function(inst)
 				inst.sg:RemoveStateTag("busy")
+
+			end),
+
+			TimeEvent(63 * FRAMES, function(inst)
+				inst.AnimState:PlayAnimation("idle_pst")
+
 			end),
 
 			TimeEvent(animation_data.frames_anim * FRAMES, function(inst)
 				
-				inst.AnimState:SetBuild("welina")
+				print(inst.sg.statemem.welinaskin)
+				inst.AnimState:SetBuild(inst.sg.statemem.welinaskin ~= "" and "ms_welina"..inst.sg.statemem.welinaskin or "welina")
 				inst.AnimState:SetBank("wilson")
 				inst.components.locomotor:StopMoving()
 

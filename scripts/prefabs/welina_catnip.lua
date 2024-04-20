@@ -9,7 +9,7 @@ local prefabs =
 
 }
 
-require("writeables").AddLayout("welina_collar", 
+require("writeables").AddLayout("welina_catnip", 
 {
     prompt = STRINGS.KITCOON_NAMING.MENU_PROMPT,
     animbank = "ui_welina_collar",
@@ -37,7 +37,7 @@ require("writeables").AddLayout("welina_collar",
 })
 
 local function OnUseOnKitcoon(inst, target, doer)
---[[     if target.components.follower.leader ~= nil and target.components.follower.leader.prefab == "welina" then return end 
+    if target.components.follower.leader ~= nil and target.components.follower.leader.prefab == "welina" then return end 
 
 	inst.naming_target = target
 
@@ -58,7 +58,7 @@ local function OnUseOnKitcoon(inst, target, doer)
 			inst.naming_target = nil
 		end
 	end
-    inst:ListenForEvent("onremove", inst.onrmeove_naming_target, inst.naming_target) ]]
+    inst:ListenForEvent("onremove", inst.onrmeove_naming_target, inst.naming_target)
 
 	return true
 end
@@ -88,7 +88,7 @@ local function on_stop_use(inst)
 end
 
 local function IsCatcoon(inst, target, doer)
-	return target:HasTag("catcoon")
+	return target:HasTag("sinner")
 end
 
 local function fn()
@@ -118,8 +118,8 @@ local function fn()
     end
 
     inst:AddComponent("inspectable")
-
---[[ 	inst:AddComponent("writeable")
+--[[ 
+	inst:AddComponent("writeable")
 	inst.components.writeable:SetDefaultWriteable(false)
 	inst.components.writeable:SetAutomaticDescriptionEnabled(false)
 	inst.components.writeable:SetWriteableDistance(TUNING.KITCOON_NAMING_DIST)
@@ -132,6 +132,10 @@ local function fn()
     inst.components.inventoryitem.atlasname = "images/inventoryimages/welina_items.xml"
 
     inst:AddComponent("tradable")
+
+--[[     inst:AddComponent("useabletargeteditem")
+    inst.components.useabletargeteditem:SetOnUseFn(OnUseOnKitcoon)
+    inst.components.useabletargeteditem:SetOnStopUseFn(on_stop_use) ]]
 
 
     return inst
