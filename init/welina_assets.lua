@@ -63,7 +63,7 @@ AddAnim("welina_catcoon_actions")
 
 
 
---AddSound("lawnmower")
+AddSound("lawnmower")
 
 
 table.insert(Assets, Asset("SOUND", "sound/welina.fsb"))

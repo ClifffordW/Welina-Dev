@@ -653,10 +653,11 @@ local function fn()
 	inst.custom_spawnfx = "toadstool_cap_releasefx"
 	inst.custom_spawnfx_scale = 0.62
 
+	if TUNING.WELINA_CATCOON_LAWNMOWER == 1 then
 
---[[ 	inst.OnLocomote = OnLocomote
-    inst:ListenForEvent("locomote", inst.OnLocomote) ]]
-
+		inst.OnLocomote = OnLocomote
+		inst:ListenForEvent("locomote", inst.OnLocomote)
+	end
 
 	return inst
 end

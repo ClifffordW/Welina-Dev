@@ -403,6 +403,19 @@ modinfo_ver = lookup.modinfo_module
 		default = "scotchmintz_characters/sfx/welina_bell"
 	},
 
+	{
+		name = "WELINA_CATCOON_LAWNMOWER",
+		label = "Catcoon Lawnmower",
+		hover = "Give your catcoon Turf-raiser helm and enjoy the sounds!.",
+		options =
+		{
+			{description = "Enable", data = 1},
+			{description = "Disable", data = 0, hover="Default 󰀡"},
+
+			
+		},
+		default = 0
+	},
 
 	Title(lookup.mod_v..": "..version),
 	Title(lookup.modinfo_v..": "..modinfo_ver)

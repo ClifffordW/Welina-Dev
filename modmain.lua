@@ -245,9 +245,9 @@ AddStategraphState(
 				if animation_data.anims == "idle_loop" then
 					local skin_build = inst.AnimState:GetBuild()
 					local contains_welina = string.find(skin_build, "ms_welina")
-					inst.sg.statemem.welinaskin = contains_welina and string.gsub(skin_build, "ms_welina", "") or ""
+					inst.skinname = contains_welina and string.gsub(skin_build, "ms_welina", "") or ""
 
-					inst.AnimState:SetBuild("welina_hiss_anim"..inst.sg.statemem.welinaskin)
+					inst.AnimState:SetBuild("welina_hiss_anim"..inst.skinname)
 					
 					
 					inst.AnimState:SetBank("welina_hiss")
@@ -276,22 +276,23 @@ AddStategraphState(
 			end),
 
 			TimeEvent(63 * FRAMES, function(inst)
-				inst.AnimState:PlayAnimation("idle_pst")
+				inst.AnimState:PlayAnimation("idle_pst", false)
 
 			end),
 
 			TimeEvent(animation_data.frames_anim * FRAMES, function(inst)
-				
-				print(inst.sg.statemem.welinaskin)
-				inst.AnimState:SetBuild(inst.sg.statemem.welinaskin ~= "" and "ms_welina"..inst.sg.statemem.welinaskin or "welina")
-				inst.AnimState:SetBank("wilson")
-				inst.components.locomotor:StopMoving()
+				inst:DoTaskInTime(0.032, function()
+					print(inst.sg.statemem.welinaskin)
+					inst.AnimState:SetBuild(inst.skinname ~= "" and "ms_welina"..inst.skinname or "welina")
+					inst.AnimState:SetBank("wilson")
+					inst.components.locomotor:StopMoving()
 
 
-				inst:Show()
-				inst.Transform:SetFourFaced()
-				inst.components.inventory:Open()
-				inst:SetCameraDistance(animation_data.camera_distance + 8)
+					inst:Show()
+					inst.Transform:SetFourFaced()
+					inst.components.inventory:Open()
+					inst:SetCameraDistance(animation_data.camera_distance + 8)
+				end)
 			end),
 
 			TimeEvent(68 * FRAMES, function(inst)
