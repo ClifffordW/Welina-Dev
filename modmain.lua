@@ -282,7 +282,6 @@ AddStategraphState(
 
 			TimeEvent(animation_data.frames_anim * FRAMES, function(inst)
 				inst:DoTaskInTime(0.032, function()
-					print(inst.sg.statemem.welinaskin)
 					inst.AnimState:SetBuild(inst.skinname ~= "" and "ms_welina"..inst.skinname or "welina")
 					inst.AnimState:SetBank("wilson")
 					inst.components.locomotor:StopMoving()
@@ -316,6 +315,9 @@ AddStategraphState(
 			
 			inst:RemoveTag("NOTARGET")
 			
+			if inst.skinname then 
+				inst.skinname = nil
+			end
 			if inst.components.health ~= nil then
 				inst.components.health:SetInvincible(false)
 			end
