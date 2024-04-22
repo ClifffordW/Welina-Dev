@@ -409,18 +409,18 @@ AddPlayerPostInit(function(inst, data, ...)
 			return unpack(ret)
 		end
 
-		local _OnSave = inst.Save or DummyFn
+		local _OnSave = inst.OnSave or DummyFn
 		local _OnLoad = inst.OnLoad or DummyFn
-		local function OnSave(inst, data)
-			local ret = _OnSave(inst, data)
+		local function OnSave(inst, data, ...)
+			local ret = _OnSave(inst, data, ...)
 
 			data.welina_numDeaths = inst.welina_numDeaths and inst.welina_numDeaths or nil
 
 			return ret
 		end
 
-		local function OnLoad(inst, data)
-			local ret = _OnLoad(inst, data)
+		local function OnLoad(inst, data, ...)
+			local ret = _OnLoad(inst, data, ...)
 
 			if data and data.welina_numDeaths ~= nil then
 				inst.welina_numDeaths = data.welina_numDeaths
