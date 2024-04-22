@@ -373,7 +373,9 @@ AddPrefabPostInit("welina", function(inst, data, ...)
 end)
 
 AddPlayerPostInit(function(inst, data, ...)
+
 	if inst.prefab ~= "welina" then
+
 		GLOBAL.TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
 
 		local DummyFn = function() end

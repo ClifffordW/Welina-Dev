@@ -62,6 +62,10 @@ AddAnim("welina_catcoon_basic")
 AddAnim("welina_catcoon_actions")
 
 
+--Player collars
+AddAnim("swap_collar_bomb")
+AddAnim("swap_collar_spiked")
+-------------------------------
 
 AddSound("lawnmower")
 

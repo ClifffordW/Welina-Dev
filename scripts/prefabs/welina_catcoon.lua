@@ -501,6 +501,9 @@ local function fn()
 	inst:AddTag("catcoon")
 	inst:AddTag("sinner")
 
+	--For custom characters also so they can wear them
+	inst:AddTag("welinacollar_wearer")
+
 	--trader (from trader component) added to pristine state for optimization
 	inst:AddTag("trader")
 

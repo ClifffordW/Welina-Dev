@@ -45,21 +45,41 @@ local function RegenCollar(owner)
 end
 
 
+
+
 -- Function to handle equip event
 local function onequip(inst, owner)
+
+
     local name = string.gsub(inst.prefab, COLLAR_PREFIX, "")
 
 
 
     if owner:IsValid() and owner.components.health and not owner.components.health:IsDead() then
+        local isplayer = owner:HasTag("player")
+        if isplayer then
+            local skin_build = inst:GetSkinBuild()
+            if skin_build ~= nil then
+                owner:PushEvent("equipskinneditem", inst:GetSkinName())
+                owner.AnimState:OverrideItemSkinSymbol("swap_body", skin_build, "swap_body", inst.GUID, "torso_amulets")
+            else
+                owner.AnimState:OverrideSymbol("swap_body", "swap_collar_"..name, "swap_body")
+            end
+
+
+
+        end
+
 
         if name == "bomb" then
 
 
             local function BoomCollar()
-
                 inst.components.explosive:OnBurnt()
-                inst:Remove()
+
+                inst:DoTaskInTime(1.85, function()
+                    inst:Remove()
+                end)
             end
 
 
@@ -119,6 +139,19 @@ end
 -- Function to handle unequip event
 local function onunequip(inst, owner)
     local name = string.gsub(inst.prefab, COLLAR_PREFIX, "")
+    local isplayer = owner:HasTag("player")
+
+    if isplayer then
+        owner.AnimState:ClearOverrideSymbol("swap_body")
+        local skin_build = inst:GetSkinBuild()
+        if skin_build ~= nil then
+            owner:PushEvent("unequipskinneditem", inst:GetSkinName())
+        end
+
+
+
+    end
+
 
     if name == "bomb" then
 
@@ -128,7 +161,7 @@ local function onunequip(inst, owner)
 			inst.components.fueled:StopConsuming()
 		end
     elseif name == "glass" and owner.components.combat then
-        owner.components.combat.damagemultiplier = 0
+        owner.components.combat.damagemultiplier = 1
 		if inst.components.fueled ~= nil then
 			inst.components.fueled:StopConsuming()
 		end
@@ -224,7 +257,7 @@ local function MakeCollar(name)
         inst.components.equippable.equipslot = EQUIPSLOTS.BODY
         inst.components.equippable:SetOnUnequip(onunequip)
         inst.components.equippable:SetOnEquip(onequip)
-		inst.components.equippable.restrictedtag = "sinner"
+		inst.components.equippable.restrictedtag = "welinacollar_wearer"
 		
 		inst:AddComponent("fueled")
 		--inst.components.fueled.fueltype = FUELTYPE.USAGE
