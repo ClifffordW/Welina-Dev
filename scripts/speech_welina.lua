@@ -120,11 +120,11 @@ return{
         {
             GENERIC = "Yeah how about nyot.",
             DEAD = "I don't think the dead, like, need this.",
-            SLEEPING = "I should let it sleep, i'm not important enough.",
+            SLEEPING = "I should let it sleep, I'm not important enough.",
             BUSY = "I guess I'm the least of its worries right meow.",
             ABIGAILHEART = "Life's unfair like that.",
             GHOSTHEART = "But it wants to kill meow.",
-            NOTGEM = "Not the right thing, i guess.",
+            NOTGEM = "Not the right thing, I guess.",
             WRONGGEM = "I'd rather keep the gems for, like, myeowself.", 
             NOTSTAFF = "That's nyot the right thing.",
             MUSHROOMFARM_NEEDSSHROOM = "It's a meowshroom planter. It's for MEOWshrooms",
@@ -132,7 +132,7 @@ return{
             MUSHROOMFARM_NOMOONALLOWED = "What's wrong, just stick in there dyamnit.",
             SLOTFULL = "Ugh, just jam yourself in there, dyamn.",
             FOODFULL = "We've already placed something on the altar.",
-            NOTDISH = "Not even i would eat this.",
+            NOTDISH = "Not even I would eat this.",
             DUPLICATE = "I do nyot need two of the same thing.",
             NOTSCULPTABLE = "It's not the right thing, it just wasn't meant to be the right thing.",
 --fallback to speech_wilson.lua             NOTATRIUMKEY = "It's shaped like something it's not to be shaped like.",
@@ -147,22 +147,22 @@ return{
             SPIDERNOHAT = "Can't keep it in my pocket like that.",
             TERRARIUM_REFUSE = "It nyeeds somethin' REALLY specific.",
             TERRARIUM_COOLDOWN = "That weird tree in it hasn't grown yet.",
-            NOTAMONKEY = "But i'm not a myeownkey.",
-            QUEENBUSY = "Hey, don't ignore me, cupcake.",
+            NOTAMONKEY = "But I'm not a myeownkey.",
+            QUEENBUSY = "Hey, don't ignore meow, cupcake.",
         },
         GIVETOPLAYER =
         {
             FULL = "Carrying a lot on your shoulder too?",
             DEAD = "They're off this world already.",
             SLEEPING = "Hey, wake up, wake up, wake up, wake up wake up wake up.",
-            BUSY = "Oh, yeah, just ignore me, cupcake.",
+            BUSY = "Oh, yeah, just ignore meow, cupcake.",
         },
         GIVEALLTOPLAYER =
         {
             FULL = "Carrying a lot on your shoulder too?",
             DEAD = "They're off this world already.",
             SLEEPING = "Hey, wake up, wake up, wake up, wake up wake up wake up.",
-            BUSY = "Oh, yeah, just ignore me, cupcake.",
+            BUSY = "Oh, yeah, just ignore meow, cupcake.",
         },
         WRITE =
         {
@@ -179,7 +179,7 @@ return{
             BURNING = "Oh well.",
             INUSE = "It's already being used and abused.",
             NOTENOUGHHAIR = "I'll need something I can work with.",
-            NOOCCUPANT = "There's NO ONE.",
+            NOOCCUPANT = "There's NO NYAN.",
         },
         ATTUNE =
         {
@@ -189,7 +189,7 @@ return{
         {
             TARGETINCOMBAT = "A bit dangerous right meow.",
             INUSE = "It's already seeing some action alright.",
-			SLEEPING = "Ugh, why do you always sleep when i NEED you.",
+			SLEEPING = "Ugh, why do you always sleep when I NEED you.",
         },
         SADDLE =
         {
@@ -211,7 +211,7 @@ return{
         },
         WRAPBUNDLE =
         {
-            EMPTY = "Should i wrap myeowself in it.",
+            EMPTY = "Should I wrap myeowself in it.",
         },
         PICKUP =
         {
@@ -221,7 +221,7 @@ return{
             NOTMINE_YOTC =
             {
                 "But what about meow! AM I NOT GOOD ENOUGH??",
-                "It's fine, i get it, i wouldn't hang around trash like me either.",
+                "It's fine, I get it, I wouldn't hang around trash like meow either.",
             },
 --fallback to speech_wilson.lua 			NO_HEAVY_LIFTING = "only_used_by_wanda",
             FULL_OF_CURSES = "I won't fall for it, watch.",
@@ -248,7 +248,7 @@ return{
         LOWER_SAIL_FAIL =
         {
             "I messed ny-up",
-            "If only i could stop disappointing myeowself.",
+            "If only I could stop disappointing myeowself.",
             "Are you kitten me.",
         },
         BATHBOMB =
@@ -263,7 +263,7 @@ return{
 		COMPARE_WEIGHABLE =
 		{
             FISH_TOO_SMALL = "I might as well eat you.",
-            OVERSIZEDVEGGIES_TOO_SMALL = "You're almost as worthless as me.",
+            OVERSIZEDVEGGIES_TOO_SMALL = "You're almost as worthless as meow.",
 		},
         BEGIN_QUEST =
         {
@@ -303,7 +303,7 @@ return{
             --construction is PREFABNAME_REASON
             BEEF_BELL_INVALID_TARGET = "Nyah, not gonna work.",
             BEEF_BELL_ALREADY_USED = "It's already got, like, an owner.",
-            BEEF_BELL_HAS_BEEF_ALREADY = "One's already too myuch for me.",
+            BEEF_BELL_HAS_BEEF_ALREADY = "One's already too myuch for meow.",
         },
         HITCHUP =
         {
@@ -319,7 +319,7 @@ return{
         },
         YOTB_STARTCONTEST =
         {
-            DOESNTWORK = "H-Hello? Judge? Hello?",
+            DOESNTWORK = "Hello? Judge? Hello?",
             ALREADYACTIVE = "There's another place holding a contest around.",
         },
         YOTB_UNLOCKSKIN =
@@ -443,7 +443,7 @@ return{
 --fallback to speech_wilson.lua 	ANNOUNCE_CHARLIE_MISSED = "only_used_by_winona", --winona specific
 	ANNOUNCE_COLD = "T-This cc-cold is... killing m-me-meow...",
 	ANNOUNCE_HOT = "This heat is driving meow insane!",
-	ANNOUNCE_CRAFTING_FAIL = "Kah- i messed somethin' up.",
+	ANNOUNCE_CRAFTING_FAIL = "Kah- I messed somethin' up.",
 	ANNOUNCE_DEERCLOPS = "Someone, or something, is not happy.",
 	ANNOUNCE_CAVEIN = "There's something nyaup there!",
 	ANNOUNCE_ANTLION_SINKHOLE =
@@ -3638,153 +3638,153 @@ return{
 		TACKLESKETCH = "It holds secrets beyond my comprehension.",
 
         MALBATROSS = "DYAMN, that's a meal and a half.",
-        MALBATROSS_FEATHER = "Blue feathers... so soft and light.",
-        MALBATROSS_BEAK = "Ugh, I don't want to touch that.",
-        MAST_MALBATROSS_ITEM = "Must I do everything?",
-        MAST_MALBATROSS = "A warning to any waterfowl that cross us.",
-		MALBATROSS_FEATHERED_WEAVE = "Hopefully it catches the wind as well as the eye.",
+        MALBATROSS_FEATHER = "Blue feathers... so soft.",
+        MALBATROSS_BEAK = "This is beak cinema.",
+        MAST_MALBATROSS_ITEM = "Where mast I place this.",
+        MAST_MALBATROSS = "This surely helps get nowhere faster.",
+		MALBATROSS_FEATHERED_WEAVE = "Catch the wind, feel the flow.",
 
         GNARWAIL =
         {
-            GENERIC = "Perhaps it could be reasoned with.",
-            BROKENHORN = "It seems you've lost something, pal.",
-            FOLLOWER = "We've come to an agreement.",
-            BROKENHORN_FOLLOWER = "Shame about your horn, pal.",
+            GENERIC = "Looking roughed up.",
+            BROKENHORN = "It's got a broken soul, I mean horn.",
+            FOLLOWER = "Looks like we're \"friends\" now.",
+            BROKENHORN_FOLLOWER = "So uh... how'd you lose, that.",
         },
-        GNARWAIL_HORN = "Impressive.",
+        GNARWAIL_HORN = "Could stab my heart out with this.",
 
-        WALKINGPLANK = "Jumping off would ruin what's left of my suit.",
-        WALKINGPLANK_GRASS = "Jumping off would ruin what's left of my suit.",
-        OAR = "I have no desire to toil like a common sailor.",
-		OAR_DRIFTWOOD = "Hmph. I've never been one for manual lab-oar.",
+        WALKINGPLANK = "I will NYOT.",
+        WALKINGPLANK_GRASS = "I will NYOT.",
+        OAR = "Ugh, it'll splash water all over meow.",
+		OAR_DRIFTWOOD = "Too close to water for comfort.",
 
-		OCEANFISHINGROD = "A more in-depth approach to fishing.",
-		OCEANFISHINGBOBBER_NONE = "It seems to be missing something.",
-        OCEANFISHINGBOBBER_BALL = "How quaint.",
-        OCEANFISHINGBOBBER_OVAL = "It's made of tougher stuff.",
-		OCEANFISHINGBOBBER_CROW = "I used to see quill floats like this back in England.",
-		OCEANFISHINGBOBBER_ROBIN = "I used to see quill floats like this back in England.",
-		OCEANFISHINGBOBBER_ROBIN_WINTER = "I used to see quill floats like this back in England.",
-		OCEANFISHINGBOBBER_CANARY = "I used to see quill floats like this back in England.",
-		OCEANFISHINGBOBBER_GOOSE = "A bit of extra flair goes a long way.",
-		OCEANFISHINGBOBBER_MALBATROSS = "A bit of extra flair goes a long way.",
+		OCEANFISHINGROD = "For the more stubborn types of fish.",
+		OCEANFISHINGBOBBER_NONE = "To catch fyesh you must first think like a fyesh.",
+        OCEANFISHINGBOBBER_BALL = "Ballin.",
+        OCEANFISHINGBOBBER_OVAL = "Now that's tougher.",
+		OCEANFISHINGBOBBER_CROW = "Almost fell for it myeowself.",
+		OCEANFISHINGBOBBER_ROBIN = "Almost fell for it myeowself",
+		OCEANFISHINGBOBBER_ROBIN_WINTER = "Almost fell for it myeowself",
+		OCEANFISHINGBOBBER_CANARY = "Almost fell for it myeowself",
+		OCEANFISHINGBOBBER_GOOSE = "Almost fell for it myeowself",
+		OCEANFISHINGBOBBER_MALBATROSS = "Almost fell for it myeowself",
 
-		OCEANFISHINGLURE_SPINNER_RED = "At least I don't have to use worms.",
-		OCEANFISHINGLURE_SPINNER_GREEN = "At least I don't have to use worms.",
-		OCEANFISHINGLURE_SPINNER_BLUE = "At least I don't have to use worms.",
-		OCEANFISHINGLURE_SPOON_RED = "At least I don't have to use worms.",
-		OCEANFISHINGLURE_SPOON_GREEN = "At least I don't have to use worms.",
-		OCEANFISHINGLURE_SPOON_BLUE = "At least I don't have to use worms.",
-		OCEANFISHINGLURE_HERMIT_RAIN = "Go fishing in the rain? And ruin my last good suit?",
-		OCEANFISHINGLURE_HERMIT_SNOW = "Why would anyone want to fish while it's snowing?",
-		OCEANFISHINGLURE_HERMIT_DROWSY = "I think Higgsbury already got too close to one of these.",
-		OCEANFISHINGLURE_HERMIT_HEAVY = "I'm reluctant to see what manner of fish would bite THAT.",
+		OCEANFISHINGLURE_SPINNER_RED = "Fish are so simple to trick.",
+		OCEANFISHINGLURE_SPINNER_GREEN = "Fish are so simple to trick.",
+		OCEANFISHINGLURE_SPINNER_BLUE = "Fish are so simple to trick.",
+		OCEANFISHINGLURE_SPOON_RED = "Fish are so simple to trick.",
+		OCEANFISHINGLURE_SPOON_GREEN = "Fish are so simple to trick.",
+		OCEANFISHINGLURE_SPOON_BLUE = "Fish are so simple to trick.",
+		OCEANFISHINGLURE_HERMIT_RAIN = "I'm not going fishing during rain, that's dumb.",
+		OCEANFISHINGLURE_HERMIT_SNOW = "All the snow will scare the fyesh away.",
+		OCEANFISHINGLURE_HERMIT_DROWSY = "Uh-huh, should do the trick, I guess.",
+		OCEANFISHINGLURE_HERMIT_HEAVY = "For the fyesh with refined taste.",
 
-		OCEANFISH_SMALL_1 = "This was barely worth my time.",
-		OCEANFISH_SMALL_2 = "Hardly bigger than a minnow.",
-		OCEANFISH_SMALL_3 = "I was hoping for something bigger.",
-		OCEANFISH_SMALL_4 = "Just a cold fish.",
-		OCEANFISH_SMALL_5 = "Its smell oddly reminds me of the theater house...",
-		OCEANFISH_SMALL_6 = "What an ugly thing.",
-		OCEANFISH_SMALL_7 = "It seems more plant than fish.",
-		OCEANFISH_SMALL_8 = "The sunfish! It burns!",
-        OCEANFISH_SMALL_9 = "How vulgar.",
+		OCEANFISH_SMALL_1 = "Not much but, ugh. Can't you be bigger.",
+		OCEANFISH_SMALL_2 = "Unlucky.",
+		OCEANFISH_SMALL_3 = "I want more. Do I deserve more, though.",
+		OCEANFISH_SMALL_4 = "You won't be so cold when I'll grill you.",
+		OCEANFISH_SMALL_5 = "Ah, the smell of terrified fyesh.",
+		OCEANFISH_SMALL_6 = "At least no nyan will laugh at your ugly face after I eat you.",
+		OCEANFISH_SMALL_7 = "Am I being tricked, this looks like a plant.",
+		OCEANFISH_SMALL_8 = "Now that's hot.",
+        OCEANFISH_SMALL_9 = "What's up, cupcake.",
 
-		OCEANFISH_MEDIUM_1 = "It looks positively revolting.",
-		OCEANFISH_MEDIUM_2 = "It has a rather unsettling stare.",
-		OCEANFISH_MEDIUM_3 = "I'd best take care to avoid those spines.",
-		OCEANFISH_MEDIUM_4 = "I'm not sure it was worth the effort.",
-		OCEANFISH_MEDIUM_5 = "What an odd creature.",
-		OCEANFISH_MEDIUM_6 = "Don't be koi with me.",
-		OCEANFISH_MEDIUM_7 = "Don't be koi with me.",
-		OCEANFISH_MEDIUM_8 = "Stay frosty, pal.",
-        OCEANFISH_MEDIUM_9 = "It seems we share an appreciation for figs.",
+		OCEANFISH_MEDIUM_1 = "Hey lil' ugly.",
+		OCEANFISH_MEDIUM_2 = "Looking mighty tasty.",
+		OCEANFISH_MEDIUM_3 = "A bit on the spiky side, like meow.",
+		OCEANFISH_MEDIUM_4 = "I don't discriminate, all fyesh is edible.",
+		OCEANFISH_MEDIUM_5 = "Must've been made fun of as a child.",
+		OCEANFISH_MEDIUM_6 = "Just look at your ugly lil' face.",
+		OCEANFISH_MEDIUM_7 = "Just look at your ugly lil' face.",
+		OCEANFISH_MEDIUM_8 = "What's with the cold attitude.",
+        OCEANFISH_MEDIUM_9 = "Mhmmm, it's making me hungry.",
 
-		PONDFISH = "Fresh from the murky depths.",
-		PONDEEL = "It slithers all the way down.",
+		PONDFISH = "Ohh, looks like you came to the wrong side of the pond, cupcake.",
+		PONDEEL = "Exotic.",
 
-        FISHMEAT = "Ugh, it's still twitching.",
-        FISHMEAT_COOKED = "Bland... but acceptable.",
-        FISHMEAT_SMALL = "I'm reduced to scavenging scraps.",
-        FISHMEAT_SMALL_COOKED = "That was barely an appetizer.",
-		SPOILED_FISH = "How vile.",
+        FISHMEAT = "Nothing beats that.",
+        FISHMEAT_COOKED = "So good~",
+        FISHMEAT_SMALL = "Hey, at least it's fyesh.",
+        FISHMEAT_SMALL_COOKED = "Hmhm, appetizer. HAHAHAHAHAHAHA.",
+		SPOILED_FISH = "Nyuck, what a waste.",
 
-		FISH_BOX = "Ugh, the smell... the things I do for a decent meal.",
-        POCKET_SCALE = "I keep it next to my pocket watch and my pocket comb.",
+		FISH_BOX = "Prison for my fyesh.",
+        POCKET_SCALE = "On a dreadfulness scale from one to ten, my life is a ten.",
 
-		TACKLECONTAINER = "Can I really even call it a \"box\"?",
-		SUPERTACKLECONTAINER = "Not the most refined design, but it's functional.",
+		TACKLECONTAINER = "I have too many problems to tackle.",
+		SUPERTACKLECONTAINER = "There's nothing super about it.",
 
 		TROPHYSCALE_FISH =
 		{
-			GENERIC = "Perhaps I might reign again... as the king of fishing!",
+			GENERIC = "Not all fyesh is built equal.",
 			HAS_ITEM = "Weight: {weight}\nCaught by: {owner}",
-			HAS_ITEM_HEAVY = "Weight: {weight}\nCaught by: {owner}\nEnjoy your moment while it lasts...",
-			BURNING = "No! NOO!",
-			BURNT = "All my ambitions go up in smoke.",
-			OWNER = "Weight: {weight}\nCaught by: {owner}\nBow down before your fishing master!",
-			OWNER_HEAVY = "Weight: {weight}\nCaught by: {owner}\nImpressive, isn't it?",
+			HAS_ITEM_HEAVY = "Weight: {weight}\nCaught by: {owner}\nMhmmrm, smells fyeshy.",
+			BURNING = "Good things never last.",
+			BURNT = "Can't have anything in this world.",
+			OWNER = "Weight: {weight}\nCaught by: {owner}\nI feel slightly less miserable.",
+			OWNER_HEAVY = "Weight: {weight}\nCaught by: {owner}\nOne of the few things I'm not terrible at.",
 		},
 
-		OCEANFISHABLEFLOTSAM = "Disappointing.",
+		OCEANFISHABLEFLOTSAM = "It had dreams and aspirations once.",
 
-		CALIFORNIAROLL = "I don't think I truly appreciated those sunny shores.",
-		SEAFOODGUMBO = "It looks passable.",
-		SURFNTURF = "A very balanced meal, I suppose.",
+		CALIFORNIAROLL = "Mrmhm, smells good.",
+		SEAFOODGUMBO = "Seeing sea food makes meow hungry.",
+		SURFNTURF = "Stuff from the water just tastes better.",
 
-        WOBSTER_SHELLER = "I'd prefer it without the sharp, pinching claws.",
-        WOBSTER_DEN = "What manner of creature lives in there?",
-        WOBSTER_SHELLER_DEAD = "Excellent.",
-        WOBSTER_SHELLER_DEAD_COOKED = "I forgot my bib.",
+        WOBSTER_SHELLER = "Those are some mighty claws.",
+        WOBSTER_DEN = "They think they're safe in there.",
+        WOBSTER_SHELLER_DEAD = "You got off easy.",
+        WOBSTER_SHELLER_DEAD_COOKED = "Well it was already dead so.",
 
-        LOBSTERBISQUE = "Ah, I do enjoy the finer things.",
-        LOBSTERDINNER = "Finally, something to suit my refined palate.",
+        LOBSTERBISQUE = "Almost too good to be true.",
+        LOBSTERDINNER = "I'm so undeserving of such luxury.",
 
-        WOBSTER_MOONGLASS = "They didn't look like that when I was in charge.",
-        MOONGLASS_WOBSTER_DEN = "I suppose life finds a way.",
+        WOBSTER_MOONGLASS = "This one is all messed up.",
+        MOONGLASS_WOBSTER_DEN = "There's shard and stuff in it.",
 
-		TRIDENT = "It seems to have struck a chord.",
+		TRIDENT = "I can rock with this.",
 
 		WINCH =
 		{
-			GENERIC = "We are to start dredging up what lies beneath now, are we?",
-			RETRIEVING_ITEM = "It seems I've gotten a hold of something.",
-			HOLDING_ITEM = "Interesting.",
+			GENERIC = "It's meant for getting this I was never meant to get.",
+			RETRIEVING_ITEM = "I guess it got something.",
+			HOLDING_ITEM = "Hm, whatever that is.",
 		},
 
         HERMITHOUSE = {
-            GENERIC = "What a sad little hovel.",
-            BUILTUP = "It's an improvement.",
+            GENERIC = "That's one pathetic shack.",
+            BUILTUP = "Beats having no roof at all, I guess.",
         },
 
-        SHELL_CLUSTER = "That was not worth the effort.",
+        SHELL_CLUSTER = "Ugh, what a waste of time.",
         --
 		SINGINGSHELL_OCTAVE3 =
 		{
-			GENERIC = "Hm?",
+			GENERIC = "Ughh, there's enough noises as is.",
 		},
 		SINGINGSHELL_OCTAVE4 =
 		{
-			GENERIC = "No, go on, keep playing that same note. It's not irritating at all.",
+			GENERIC = "Quuuuuiiiieeeet.",
 		},
 		SINGINGSHELL_OCTAVE5 =
 		{
-			GENERIC = "I've quite lost my taste for music.",
+			GENERIC = "Shut up shut up shut up.",
         },
 
-        CHUM = "Say, that chum doesn't look so good.",
+        CHUM = "Chummer.",
 
         SUNKENCHEST =
         {
-            GENERIC = "How whimsical.",
-            LOCKED = "How annoying. It's locked.",
+            GENERIC = "I feel like it'll unleash a curse on meow or something.",
+            LOCKED = "Locked inside of itself, like my soul.",
         },
 
-        HERMIT_BUNDLE = "How... quaint.",
-        HERMIT_BUNDLE_SHELLS = "Nautical decor was never my style.",
+        HERMIT_BUNDLE = "I, uh... thanks? I guess.",
+        HERMIT_BUNDLE_SHELLS = "What am I supposed to do with this garbage.",
 
-        RESKIN_TOOL = "Presto change-o! Ahem... old habit.",
-        MOON_FISSURE_PLUGGED = "It's almost genius in its simplicity... but it does smell.",
+        RESKIN_TOOL = "It changes things from the outside, but not the inside.",
+        MOON_FISSURE_PLUGGED = "There's a way to plug just about anything.",
 
 
 		----------------------- ROT STRINGS GO ABOVE HERE ------------------
@@ -3792,60 +3792,60 @@ return{
 		-- Walter
         WOBYBIG =
         {
-            "I'd rather not get hair all over my suit.",
-            "I'd rather not get hair all over my suit.",
+            "Ugly, smelly. Disgusting.",
+            "Ugly, smelly. Disgusting.",
         },
         WOBYSMALL =
         {
-            "She slobbers...",
-            "She slobbers...",
+            "Wanna see how far I can kick it?",
+            "Wanna see how far I can kick it?",
         },
-		WALTERHAT = "It's not quite my style.",
-		SLINGSHOT = "A rather childish weapon, but quite effective in the right hands.",
-		SLINGSHOTAMMO_ROCK = "Not particularly creative.",
-		SLINGSHOTAMMO_MARBLE = "Not particularly creative.",
-		SLINGSHOTAMMO_THULECITE = "Ah, now that might be interesting.",
-        SLINGSHOTAMMO_GOLD = "Ah, now that might be interesting.",
-        SLINGSHOTAMMO_SLOW = "Ah, now that might be interesting.",
-        SLINGSHOTAMMO_FREEZE = "Ah, now that might be interesting.",
-		SLINGSHOTAMMO_POOP = "Must he leave that lying around? I nearly ruined my shoes.",
-        PORTABLETENT = "Oh, how I miss sleeping indoors.",
-        PORTABLETENT_ITEM = "Surely someone else can set it up.",
+		WALTERHAT = "This kid is too bright and cheery for this world.",
+		SLINGSHOT = "Touch from afar.",
+		SLINGSHOTAMMO_ROCK = "Bunch of pebbles and stuff.",
+		SLINGSHOTAMMO_MARBLE = "Bunch of pebbles and stuff.",
+		SLINGSHOTAMMO_THULECITE = "Bunch of pebbles and stuff.",
+        SLINGSHOTAMMO_GOLD = "Bunch of pebbles and stuff.",
+        SLINGSHOTAMMO_SLOW = "Bunch of pebbles and stuff.",
+        SLINGSHOTAMMO_FREEZE = "Bunch of pebbles and stuff.",
+		SLINGSHOTAMMO_POOP = "Bunch of pebbles and stuff.",
+        PORTABLETENT = "I'm so tired... of everything.",
+        PORTABLETENT_ITEM = "I don't even know how to set these up.",
 
         -- Wigfrid
-        BATTLESONG_DURABILITY = "No. I do NOT sing.",
-        BATTLESONG_HEALTHGAIN = "No. I do NOT sing.",
-        BATTLESONG_SANITYGAIN = "No. I do NOT sing.",
-        BATTLESONG_SANITYAURA = "No. I do NOT sing.",
-        BATTLESONG_FIRERESISTANCE = "No. I do NOT sing.",
-        BATTLESONG_INSTANT_TAUNT = "My acts were always a bit more improvisational.",
-        BATTLESONG_INSTANT_PANIC = "My acts were always a bit more improvisational.",
+        BATTLESONG_DURABILITY = "You don't wanna hear meow sing.",
+        BATTLESONG_HEALTHGAIN = "You don't wanna hear meow sing.",
+        BATTLESONG_SANITYGAIN = "You don't wanna hear meow sing.",
+        BATTLESONG_SANITYAURA = "You don't wanna hear meow sing.",
+        BATTLESONG_FIRERESISTANCE = "You don't wanna hear meow sing.",
+        BATTLESONG_INSTANT_TAUNT = "There's just scribbles and swears in this.",
+        BATTLESONG_INSTANT_PANIC = "There's just scribbles and swears in this.",
 
         -- Webber
-        MUTATOR_WARRIOR = "I'm not eating that.",
-        MUTATOR_DROPPER = "How sickeningly endearing.",
-        MUTATOR_HIDER = "I'm not eating that.",
-        MUTATOR_SPITTER = "How sickeningly endearing.",
-        MUTATOR_MOON = "I'm not eating that.",
-        MUTATOR_HEALER = "How sickeningly endearing.",
-        SPIDER_WHISTLE = "It's probably covered in spider spit.",
-        SPIDERDEN_BEDAZZLER = "Careful child, it's a slippery slope towards a career in the arts.",
-        SPIDER_HEALER = "I don't think that's one of mine.",
-        SPIDER_REPELLENT = "If only loud noises were really enough to deter them.",
-        SPIDER_HEALER_ITEM = "Just in case I lose my mind entirely and want to heal those little pests.",
+        MUTATOR_WARRIOR = "That kid is so repulsive.",
+        MUTATOR_DROPPER = "That kid is so repulsive.",
+        MUTATOR_HIDER = "That kid is so repulsive.",
+        MUTATOR_SPITTER = "That kid is so repulsive.",
+        MUTATOR_MOON = "That kid is so repulsive.",
+        MUTATOR_HEALER = "That kid is so repulsive.",
+        SPIDER_WHISTLE = "That kid is so repulsive.",
+        SPIDERDEN_BEDAZZLER = "Art's kinda calming, I guess.",
+        SPIDER_HEALER = "Oh my god it's so ugly.",
+        SPIDER_REPELLENT = "Do they hate the noise or what.",
+        SPIDER_HEALER_ITEM = "Some spit on a leaf or something.",
 
 		-- Wendy
-		GHOSTLYELIXIR_SLOWREGEN = "It appears someone has been toying with the dark arts and crafts.",
-		GHOSTLYELIXIR_FASTREGEN = "It appears someone has been toying with the dark arts and crafts.",
-		GHOSTLYELIXIR_SHIELD = "It appears someone has been toying with the dark arts and crafts.",
-		GHOSTLYELIXIR_ATTACK = "It appears someone has been toying with the dark arts and crafts.",
-		GHOSTLYELIXIR_SPEED = "It appears someone has been toying with the dark arts and crafts.",
-		GHOSTLYELIXIR_RETALIATION = "It appears someone has been toying with the dark arts and crafts.",
+		GHOSTLYELIXIR_SLOWREGEN = "There's no way I'm drinking that.",
+		GHOSTLYELIXIR_FASTREGEN = "There's no way I'm drinking that.",
+		GHOSTLYELIXIR_SHIELD = "There's no way I'm drinking that.",
+		GHOSTLYELIXIR_ATTACK = "There's no way I'm drinking that.",
+		GHOSTLYELIXIR_SPEED = "There's no way I'm drinking that.",
+		GHOSTLYELIXIR_RETALIATION = "There's no way I'm drinking that.",
 		SISTURN =
 		{
-			GENERIC = "I can't help but wonder... no, it couldn't be.",
-			SOME_FLOWERS = "Perhaps I should pay my respects as well.",
-			LOTS_OF_FLOWERS = "It has a strangely calming effect.",
+			GENERIC = "Hm, there can be beauty in meowsery.",
+			SOME_FLOWERS = "Life doesn't get better if you sugar coat it.",
+			LOTS_OF_FLOWERS = "It always ends the same.",
 		},
 
         --Wortox
@@ -3853,12 +3853,12 @@ return{
 
         PORTABLECOOKPOT_ITEM =
         {
-            GENERIC = "An instrument of the dark culinary arts.",
-            DONE = "Let's hope something palatable has come of it.",
+            GENERIC = "For the ones who know what they're doing.",
+            DONE = "Better be worth the wait.",
 
-			COOKING_LONG = "I must exercise patience...",
-			COOKING_SHORT = "It will be finished shortly.",
-			EMPTY = "Dismally devoid of foodstuffs.",
+			COOKING_LONG = "I have patience, but life is not endless.",
+			COOKING_SHORT = "Not much time left.",
+			EMPTY = "As empty as meow.",
         },
 
         PORTABLEBLENDER_ITEM = "Does it have to make such a horrible racket?",

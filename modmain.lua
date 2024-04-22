@@ -110,7 +110,7 @@ AddPrefabPostInit("catcoon", function(inst)
 				
 				if giver.components.petleash:IsFull() then
 
-					giver.components.talker:Say("I've too many kitties.")
+					giver.components.talker:Say("That's one too many.")
 
 					return 
 				end
@@ -295,8 +295,8 @@ AddStategraphState(
 
 			TimeEvent(68 * FRAMES, function(inst)
 				if animation_data.anims == "idle_loop" then
-					inst.AnimState:PlayAnimation("emote_jumpcheer")
-					inst.AnimState:SetFrame(40)
+					inst.AnimState:PlayAnimation("staff")
+					inst.AnimState:SetFrame(60)
 					inst.AnimState:SetDeltaTimeMultiplier(0.85)
 				end
 			end),
