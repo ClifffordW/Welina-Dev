@@ -275,13 +275,12 @@ AddStategraphState(
 
 			end),
 
-			TimeEvent(63 * FRAMES, function(inst)
-				inst.AnimState:PlayAnimation("idle_pst", false)
+			TimeEvent(62 * FRAMES, function(inst)
+				inst.AnimState:PushAnimation("idle_pst", false)
 
 			end),
 
 			TimeEvent(animation_data.frames_anim * FRAMES, function(inst)
-				inst:DoTaskInTime(0.032, function()
 					inst.AnimState:SetBuild(inst.skinname ~= "" and "ms_welina"..inst.skinname or "welina")
 					inst.AnimState:SetBank("wilson")
 					inst.components.locomotor:StopMoving()
@@ -291,7 +290,7 @@ AddStategraphState(
 					inst.Transform:SetFourFaced()
 					inst.components.inventory:Open()
 					inst:SetCameraDistance(animation_data.camera_distance + 8)
-				end)
+				
 			end),
 
 			TimeEvent(68 * FRAMES, function(inst)
@@ -412,7 +411,7 @@ AddPlayerPostInit(function(inst, data, ...)
 
 		local _OnSave = inst.Save or DummyFn
 		local _OnLoad = inst.OnLoad or DummyFn
-		function OnSave(inst, data)
+		local function OnSave(inst, data)
 			local ret = _OnSave(inst, data)
 
 			data.welina_numDeaths = inst.welina_numDeaths and inst.welina_numDeaths or nil
@@ -420,7 +419,7 @@ AddPlayerPostInit(function(inst, data, ...)
 			return ret
 		end
 
-		function OnLoad(inst, data)
+		local function OnLoad(inst, data)
 			local ret = _OnLoad(inst, data)
 
 			if data and data.welina_numDeaths ~= nil then
