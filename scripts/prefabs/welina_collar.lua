@@ -15,6 +15,17 @@ local function ReflectDamage(inst, data)
     end
 end
 
+
+local function OnIgniteFn(inst)
+    --inst.SoundEmitter:PlaySound("dontstarve/common/blackpowder_fuse_LP", "hiss")
+    DefaultBurnFn(inst)
+end
+
+local function OnExtinguishFn(inst)
+    inst.SoundEmitter:KillSound("hiss")
+    DefaultExtinguishFn(inst)
+end
+
 local function OnExplodeFn(inst)
     local explode = SpawnPrefab("explode_small")
     explode.Transform:SetPosition(inst.Transform:GetWorldPosition())
@@ -77,9 +88,8 @@ local function onequip(inst, owner)
             local function BoomCollar()
                 inst.components.explosive:OnBurnt()
 
-                inst:DoTaskInTime(1.85, function()
-                    inst:Remove()
-                end)
+        
+                
             end
 
 
@@ -276,6 +286,15 @@ local function MakeCollar(name)
 
         inst:DoTaskInTime(0.1, function()
             if name == "bomb" then
+                MakeSmallBurnable(inst, 3 + math.random() * 3)
+                MakeSmallPropagator(inst)
+                --V2C: Remove default OnBurnt handler, as it conflicts with
+                --explosive component's OnBurnt handler for removing itself
+                inst.components.burnable:SetOnBurntFn(nil)
+                inst.components.burnable:SetOnIgniteFn(OnIgniteFn)
+                inst.components.burnable:SetOnExtinguishFn(OnExtinguishFn)
+
+
                 inst:AddComponent("explosive")
                 inst.components.explosive:SetOnExplodeFn(OnExplodeFn)
                 inst.components.explosive.explosivedamage = 1000

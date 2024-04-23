@@ -283,6 +283,7 @@ local common_postinit = function(inst)
 
     inst:AddTag("emocatgirl")
 
+
     --inst.components.talker.font = TALKINGFONT_WELINA
 
     if TUNING.WELINA_9LIVES == 1 then
