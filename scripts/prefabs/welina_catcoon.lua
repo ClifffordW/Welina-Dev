@@ -7,6 +7,8 @@ local assets = {
 	Asset("SOUND", "sound/catcoon.fsb"),
 }
 
+local fmodtable = require("defs.sound.fmodtable_lawnmower").Event
+
 local prefabs = {
 	"mole",
 	"rabbit",
@@ -192,29 +194,28 @@ end
 
 local function KeepTargetFn(inst, target)
 	--if not inst:HasTag("swimming") then
-		if target:HasTag("catcoon") then
-			return (
-				target
-				and target.components.combat
-				and target.components.health
-				and not target.components.health:IsDead()
-				and not (inst.components.follower and inst.components.follower:IsLeaderSame(target))
-				and not (inst.components.follower and inst.components.follower.leader == target)
-			)
-		else
-			return (
-				target
-				and target.components.combat
-				and target.components.health
-				and not target.components.health:IsDead()
-				and not (inst.components.follower and inst.components.follower.leader == target)
-			)
-		end
+	if target:HasTag("catcoon") then
+		return (
+			target
+			and target.components.combat
+			and target.components.health
+			and not target.components.health:IsDead()
+			and not (inst.components.follower and inst.components.follower:IsLeaderSame(target))
+			and not (inst.components.follower and inst.components.follower.leader == target)
+		)
+	else
+		return (
+			target
+			and target.components.combat
+			and target.components.health
+			and not target.components.health:IsDead()
+			and not (inst.components.follower and inst.components.follower.leader == target)
+		)
 	end
-
+end
 
 local RETARGET_TAGS = { "_health" }
-local RETARGET_NO_TAGS = { "INLIMBO", "notarget", "invisible", "companion", }
+local RETARGET_NO_TAGS = { "INLIMBO", "notarget", "invisible", "companion" }
 
 local function RetargetFn(inst)
 	return FindEntity(inst, TUNING.CATCOON_TARGET_DIST, function(guy)
@@ -323,7 +324,6 @@ local function OnGetItemFromPlayer(inst, giver, item)
 		item:Remove()
 	end
 
-	
 	--I wear hats
 	if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
 		local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
@@ -331,14 +331,13 @@ local function OnGetItemFromPlayer(inst, giver, item)
 			inst.components.inventory:DropItem(current)
 		end
 		if item.prefab == "antlionhat" and giver then
-			
-			inst.components.named:SetName(giver and giver.name.."'s Lawnmower" or "Lawnmower")
+			inst.components.named:SetName(giver and giver.name .. "'s Lawnmower" or "Lawnmower")
 		end
 
 		inst.components.inventory:Equip(item)
 		inst.AnimState:Show("hat")
 	end
-	
+
 	if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.BODY then
 		local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.BODY)
 		if current ~= nil then
@@ -398,7 +397,6 @@ local function OnRainVulnerable(inst)
 	inst:ScheduleRaining()
 end
 
-
 --[[
 local function fn_water()
 	local inst = CreateEntity()
@@ -444,37 +442,29 @@ end
 --]]
 
 local function OnLocomote(inst)
-
-
-	
-    if inst.components.locomotor:WantsToMoveForward() then
-
-
-		if inst.components.inventory and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD) and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD).prefab == "antlionhat" then
+	if inst.components.locomotor:WantsToMoveForward() then
+		if
+			inst.components.inventory
+			and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
+			and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD).prefab == "antlionhat"
+		then
 			if not inst.SoundEmitter:PlayingSound("lawnmower") then
-
-				inst.SoundEmitter:PlaySound("lawnmower/sfx/mower_loop", "lawnmower", 0.75)
-
-				
-	
+				inst.SoundEmitter:PlaySound(fmodtable.mower_loop, "lawnmower", 0.75)
 			end
 		end
-
-
-    else
-		
-		if inst.components.inventory and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD) and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD).prefab == "antlionhat" then
-
-			if  inst.SoundEmitter:PlayingSound("lawnmower") then
+	else
+		if
+			inst.components.inventory
+			and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
+			and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD).prefab == "antlionhat"
+		then
+			if inst.SoundEmitter:PlayingSound("lawnmower") then
 				inst.SoundEmitter:KillSound("lawnmower")
-				inst.SoundEmitter:PlaySound("lawnmower/sfx/mower_stop",  0.75)
+				inst.SoundEmitter:PlaySound(fmodtable.mower_stop, 0.75)
 			end
 		end
-
-    end
+	end
 end
-
-
 
 local function fn()
 	local inst = CreateEntity()
@@ -508,7 +498,7 @@ local function fn()
 	inst:AddTag("trader")
 
 	inst.AnimState:SetHatOffset(145, 260)
---[[
+	--[[
 	inst.waterfx = SpawnPrefab("welina_catcoon_water_ripple")
 	inst.waterfx.entity:SetParent(inst.entity)
 	inst.waterfx.Follower:FollowSymbol(inst.GUID, "catcoon_torso", -20,80,0, false,nil)
@@ -549,11 +539,14 @@ local function fn()
 	inst:DoTaskInTime(0.5, function()
 		if inst.components.follower and inst.components.follower:GetLeader() then
 			inst.components.named:SetName(inst.components.follower:GetLeader().name .. "'s Catcoon")
-			
-			if inst.components.inventory and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD) and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD).prefab == "antlionhat" then
-				inst.components.named:SetName(inst.components.follower:GetLeader().name.."'s Lawnmower")
-			end
 
+			if
+				inst.components.inventory
+				and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
+				and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD).prefab == "antlionhat"
+			then
+				inst.components.named:SetName(inst.components.follower:GetLeader().name .. "'s Lawnmower")
+			end
 		end
 	end)
 
@@ -594,9 +587,6 @@ local function fn()
 	inst:AddComponent("inventory")
 	inst.components.inventory.maxslots = 4
 
-
-
-
 	-- boat hopping
 	inst.components.locomotor:SetAllowPlatformHopping(true)
 	inst:AddComponent("embarker")
@@ -604,7 +594,7 @@ local function fn()
 	inst.components.embarker.antic = false
 
 	inst.components.locomotor:SetAllowPlatformHopping(true)
---[[
+	--[[
 	inst:AddComponent("amphibiouscreature")
 	inst.components.amphibiouscreature:SetBanks("welina_catcoon", "welina_catcoon")
 	inst.components.amphibiouscreature:SetEnterWaterFn(function(inst)
@@ -631,10 +621,6 @@ local function fn()
 	inst.force_onwenthome_message = true -- for onwenthome event
 	inst:ListenForEvent("onwenthome", OnWentHome)
 
-
-
-
-
 	MakeSmallBurnableCharacter(inst, "catcoon_torso", Vector3(1, 0, 1))
 	MakeSmallFreezableCharacter(inst)
 
@@ -657,7 +643,6 @@ local function fn()
 	inst.custom_spawnfx_scale = 0.62
 
 	if TUNING.WELINA_CATCOON_LAWNMOWER == 1 then
-
 		inst.OnLocomote = OnLocomote
 		inst:ListenForEvent("locomote", inst.OnLocomote)
 	end
