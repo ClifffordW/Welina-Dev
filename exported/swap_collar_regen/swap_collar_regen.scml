@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r4.1">
     <folder id="0" name="swap_body">
         <file id="0" name="swap_body/swap_body-0.png" width="104" height="120" pivot_x="0.520668" pivot_y="0.201254"/>
         <file id="1" name="swap_body/swap_body-1.png" width="108" height="120" pivot_x="0.493282" pivot_y="0.186046"/>
