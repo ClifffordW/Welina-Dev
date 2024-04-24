@@ -105,42 +105,51 @@ local function welina_numDeaths_dirty(inst)
 end
 
 local function GetResentfulnessHealthPenalty(inst, attacker, resentment)
-    if attacker == nil or attacker.components.health == nil or inst.resentfulness == nil then
+    if attacker == nil or attacker.components.welina_resentable == nil then
         return 0
     end
 
-    if resentment == nil then resentment = inst.resentfulness[attacker] or 0 end
+    if resentment == nil then
+        resentment = attacker.components.welina_resentable:GetResentedness(inst.userid)
+    end
     local penaltyPercent = attacker:HasTag("epic") and TUNING.WELINA_RESENTMENT_MAX_HP_PENALTY_MULT_BOSS
         or TUNING.WELINA_RESENTMENT_MAX_HP_PENALTY_MULT
 
     return (resentment * penaltyPercent) / TUNING.WELINA_HEALTH
 end
 
-local function OnTakeDamage(inst, data)
+local function StackResentfulness(inst, data)
     local attacker = data.attacker
     local mounted = inst.components.rider ~= nil and inst.components.rider:IsRiding() or false
     if data.damage == nil or attacker == nil or mounted then
         return
     end
 
-    if inst.resentfulness == nil then
-        inst.resentfulness = {}
+    local resentable = data.attacker.components.welina_resentable
+    if resentable == nil then
+        return
     end
 
     local resentment = math.floor(data.damage)
-    local previousResentment = inst.resentfulness[attacker]
-    inst.resentfulness[attacker] = previousResentment == nil and resentment
-        or previousResentment + resentment
+    resentable:AddResentedness(inst.userid, resentment)
 
     -- Add resentfulness health penalty.
     local health = inst.components.health
     if health ~= nil then health:DeltaPenalty(GetResentfulnessHealthPenalty(inst, attacker, resentment)) end
 end
 
+local function OnTakeDamage(inst, data)
+    StackResentfulness(inst, data)
+
+    if TUNING.WELINA_REFLECT == 1 then
+        Hiss(inst, data)
+    end
+end
+
 local function GetBonusDamage(inst, victim, damage, weapon)
     local mounted = inst.components.rider ~= nil and inst.components.rider:IsRiding() or false
-    local resentment = (inst.resentfulness == nil or inst.resentfulness[victim] == nil or mounted) and 0
-        or inst.resentfulness[victim]
+    local resentedness = victim.components.welina_resentable
+    local resentment = (resentedness == nil or mounted) and 0 or resentedness:GetResentedness(inst.userid)
     return resentment * TUNING.WELINA_RESENTMENT
 end
 
@@ -223,13 +232,13 @@ end
 
 local function OnSave(inst, data)
     data.welina_numDeaths = inst.welina_numDeaths and inst.welina_numDeaths or 0
-    data.resentfulness = inst.resentfulness
 end
 
-local function OnLoad(inst, data)
+local function OnLoad(inst, data, newents)
     if data == nil then
         return
     end
+
     if data.welina_numDeaths ~= nil then
         inst.welina_numDeaths = data.welina_numDeaths or 0
 
@@ -248,9 +257,6 @@ local function OnLoad(inst, data)
             end)
             inst:RemoveEventCallback("respawnfromghost", ex_fns.OnRespawnFromGhost)
         end
-    end
-    if data.resentfulness ~= nil then
-        inst.resentfulness = data.resentfulness
     end
 end
 
@@ -283,12 +289,10 @@ local function OnDespawnPet(inst, pet)
 end
 
 local function OnWorldEntityDeath(inst, data)
-    if data.inst ~= nil and inst.resentfulness ~= nil and inst.resentfulness[data.inst] ~= nil then
+    if data.inst ~= nil and data.inst.components.welina_resentable ~= nil then
         -- Remove resentfulness health penalty.
         local health = inst.components.health
         if health ~= nil then health:DeltaPenalty(-GetResentfulnessHealthPenalty(inst, data.inst)) end
-
-        inst.resentfulness[data.inst] = nil
     end
 end
 
@@ -393,10 +397,6 @@ local master_postinit = function(inst)
 
     if TUNING.WELINA_9LIVES == 1 then
         inst:ListenForEvent("death", OnDeath)
-    end
-
-    if TUNING.WELINA_REFLECT == 1 then
-        inst:ListenForEvent("attacked", Hiss)
     end
 
     inst:ListenForEvent("attacked", OnTakeDamage)
