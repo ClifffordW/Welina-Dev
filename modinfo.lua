@@ -323,6 +323,38 @@ configuration_options = {
 		default = 0.3,
 	},
 
+	{
+		name = "WELINA_RESENTMENT_MAX_HP_PENALTY_MULT",
+		label = "Resentfulness HP Penalty",
+		hover = "How much of the damage Welina has taken is subtracted from maximum health.",
+		options = {
+			{ description = "10%", data = 0.1 },
+			{ description = "20%", data = 0.2, hover = "Default 󰀡"  },
+			{ description = "30%", data = 0.3 },
+			{ description = "40%", data = 0.4 },
+			{ description = "50%", data = 0.5 },
+			{ description = "60%", data = 0.6 },
+			{ description = "70%", data = 0.7 },
+		},
+		default = 0.2,
+	},
+
+	{
+		name = "WELINA_RESENTMENT_MAX_HP_PENALTY_MULT_BOSS",
+		label = "Boss Resentfulness HP Penalty",
+		hover = "Only applies for bosses. How much of the damage Welina has taken is subtracted from maximum health.",
+		options = {
+			{ description = "10%", data = 0.1, hover = "Default 󰀡"  },
+			{ description = "20%", data = 0.2 },
+			{ description = "30%", data = 0.3 },
+			{ description = "40%", data = 0.4 },
+			{ description = "50%", data = 0.5 },
+			{ description = "60%", data = 0.6 },
+			{ description = "70%", data = 0.7 },
+		},
+		default = 0.1,
+	},
+
 	Title("Scrapped Features"),
 
 	{
