@@ -12,7 +12,7 @@ do
 	_G = GLOBAL
 end
 
-PLAYER_SYMBOLS = require("articore.articore_modules.player_symbols")
+--PLAYER_SYMBOLS = require("articore.articore_modules.player_symbols")
 
 GetPlayer = function()
 	return ThePlayer
