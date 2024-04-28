@@ -365,7 +365,7 @@ configuration_options = {
 			{ description = "Enabled", data = 1, hover = "Default 󰀡" },
 			{ description = "Disabled", data = 0 },
 		},
-		default = 0,
+		default = 1,
 	},
 
 	Title("Cliffford's Shenanigans 󰀩"),

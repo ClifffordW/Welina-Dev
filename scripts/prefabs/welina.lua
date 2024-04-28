@@ -30,20 +30,19 @@ end
 local PROX_CHECK_TAGS = { "player", "_follower" }
 local PROX_CANT_TAGS = { "emocatgirl" }
 
-local function GetFollowerPenalty(inst, max, modifierchange)
-    local x, y, z = inst.Transform:GetWorldPosition()
+local function GetWetnessPenalty(inst, max, modifierchange)
+    local wetness = inst.components.moisture:GetMoisture()
 
-    local asocial = TheSim:FindEntities(x, y, z, 6, nil, PROX_CANT_TAGS, PROX_CHECK_TAGS)
-    local asocial_followers = #asocial
-
-    local modifiername = 1 - asocial_followers * (modifierchange or 0.25)
+    local modifiername = 1 - wetness * (modifierchange or 0.01)
     modifiername = math.max(modifiername, max or 0.95)
 
     return modifiername
 end
 
 local function AsocialWork(inst, data)
-    local workModifier = GetFollowerPenalty(inst, 0.25)
+    local workModifier = GetWetnessPenalty(inst, 0.25)
+
+
 
     inst.components.workmultiplier:AddMultiplier(ACTIONS.CHOP, workModifier, inst)
     inst.components.workmultiplier:AddMultiplier(ACTIONS.MINE, workModifier, inst)
@@ -51,34 +50,18 @@ local function AsocialWork(inst, data)
 end
 
 local function SanityScrew(inst)
-    local x, y, z = inst.Transform:GetWorldPosition()
+    local sanityModifier = GetWetnessPenalty(inst, 0.5, 0.025)
+    print(sanityModifier)
 
-    local asocial = TheSim:FindEntities(x, y, z, 6, nil, PROX_CANT_TAGS, PROX_CHECK_TAGS)
-    local asocial_followers = #asocial
-
-    local is_catcoon_companion = nil
-    for k, v in pairs(asocial) do
-        if v.prefab == "catcoon" and v:HasTag("welinas_cat") then
-            is_catcoon_companion = true
-        end
-    end
-
-    local sanityModifier = 0 + -asocial_followers * (is_catcoon_companion == nil and 0.5 or 0.025)
-
-    sanityModifier = math.max(sanityModifier, -3)
-
-    inst.components.sanity.dapperness = sanityModifier
+    inst.components.sanity.dapperness = sanityModifier - 1
 end
 
 local function DamageScrew(inst, data)
-    local damageModifier = GetFollowerPenalty(inst, 0.45, 0.05)
+    local damageModifier = GetWetnessPenalty(inst, 0.45, 0.05)
 
     inst.components.combat.damagemultiplier = damageModifier
-
-    if data.damage ~= nil then
-        --print(data.damage)
-    end
 end
+
 
 local function Hiss(inst, data)
     if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
