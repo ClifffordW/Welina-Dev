@@ -1,4 +1,4 @@
---Describe Wildcard
+--Describe Welina
 
 
 STRINGS.CHARACTERS.WEBBER.DESCRIBE.WELINA =
@@ -195,7 +195,7 @@ GHOST = "You'll be outta this world if you keep that up.",
 FIRESTARTER = "It's tempting to watch the world burn, isn't it.",
 }
 
-STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_CATCOON = "He's ready to throw his life away for meow."
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_CATCOON = "Smells like cat spirit."
 
 STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_CATCOON = "I don't have time to play with you."
 STRINGS.CHARACTERS.WURT.DESCRIBE.WELINA_CATCOON = "You funny, florp!"
@@ -210,10 +210,33 @@ STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WELINA_CATCOON = "Catty vermin."
 STRINGS.CHARACTERS.WOODIE.DESCRIBE.WELINA_CATCOON = "Pests."
 STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WELINA_CATCOON = "A sort of a wildcat. Handsome fellow."
 STRINGS.CHARACTERS.WX78.DESCRIBE.WELINA_CATCOON = "CLAWS OUT."
-STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA_CATCOON = "I wonder if it had a twin, too"
+STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA_CATCOON = "I wonder if it had a twin, too."
 STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WELINA_CATCOON = "Wolfgang does not trust it."
 STRINGS.CHARACTERS.WILLOW.DESCRIBE.WELINA_CATCOON = "Here, kitty!"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_CATCOON = "A playful little thing."
+
+
+STRINGS.NAMES.WELINA_CATCOONDEN = "Sad Catcoon Den"
+STRINGS.RECIPE_DESC.WELINA_CATCOONDEN = "How depressing."
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_CATCOON_DEN = "The color change helps make the atmosphere worse."
+
+STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_CATCOON_DEN = "It looks like something's been living in there for a while."
+STRINGS.CHARACTERS.WURT.DESCRIBE.WELINA_CATCOON_DEN = "Something skritching inside."
+STRINGS.CHARACTERS.WALTER.DESCRIBE.WELINA_CATCOON_DEN = "I think something live there!"
+STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WELINA_CATCOON_DEN = "Anyone home?"
+STRINGS.CHARACTERS.WORTOX.DESCRIBE.WELINA_CATCOON_DEN = "A home for friends."
+STRINGS.CHARACTERS.WARLY.DESCRIBE.WELINA_CATCOON_DEN = "How many critters can fit in there?"
+STRINGS.CHARACTERS.WINONA.DESCRIBE.WELINA_CATCOON_DEN = "We all gotta sleep."
+STRINGS.CHARACTERS.WEBBER.DESCRIBE.WELINA_CATCOON_DEN = "Trunk house."
+STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WELINA_CATCOON_DEN = "Cute meat lives there."
+STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WELINA_CATCOON_DEN = "Vermin housing."
+STRINGS.CHARACTERS.WOODIE.DESCRIBE.WELINA_CATCOON_DEN = "Ugh, how many more live do you have?"
+STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WELINA_CATCOON_DEN = "An excellent hollow for a den."
+STRINGS.CHARACTERS.WX78.DESCRIBE.WELINA_CATCOON_DEN = "LIFE LOOP ITERATING."
+STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA_CATCOON_DEN = "I could curl up and die in there."
+STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WELINA_CATCOON_DEN = "Stump is suspicious."
+STRINGS.CHARACTERS.WILLOW.DESCRIBE.WELINA_CATCOON_DEN = "I wouldn't burn it while someone lives there."
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_CATCOON_DEN = "It's a den in a stump."
 
 
 STRINGS.NAMES.WELINA_CATNIP = "Coonnip"
@@ -471,10 +494,10 @@ if KnownModIndex:IsModEnabled("workshop-2858309592") then
 {
 	GENERIC = "I uh... see you have a lot of weight on your shoulders, %s.",
 	ATTACKER = "How can someone like you harm anyone.",
-	MURDERER = "End of the line, dude. Time to deflate you.",
+	MURDERER = "End of the line, cupcake. Time to deflate you.",
 	REVIVER = "Well, at least someone's here reliable.",
 	GHOST = "I'll have to make this right.",
-	FIRESTARTER = "Burning stuff doesn't really fit you, dude.",
+	FIRESTARTER = "Burning stuff doesn't really fit you, cupcake.",
 }
 
 end

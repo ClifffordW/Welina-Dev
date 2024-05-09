@@ -43,7 +43,26 @@ table.insert(prefabs, CreatePrefabSkin("ms_welina_gown", {
 	skin_tags = { "BASE", "WELINA"},
 }))
 
+table.insert(prefabs, CreatePrefabSkin("ms_welina_doorman", {
+	assets =
+	{
+		Asset( "DYNAMIC_ANIM", "anim/dynamic/ms_welina_doorman.zip" ),
+		Asset( "PKGREF", "anim/dynamic/ms_welina_doorman.dyn" ),
+	},
 
+	skins = {
+		normal_skin = "ms_welina_doorman",
+		ghost_skin = "ghost_welina_build",
+	},
+
+	base_prefab = "welina",
+	build_name_override = "ms_welina_doorman",
+
+	type = "base",
+	rarity = "Character",
+
+	skin_tags = { "BASE", "WELINA"},
+}))
 
 
 return unpack(prefabs)

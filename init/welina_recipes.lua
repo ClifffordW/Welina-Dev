@@ -1,22 +1,23 @@
 
 --AddPrefab("welina_hiss")
---AddPrefab("catcoonden")
+AddPrefab("welina_catcoonden")
 AddPrefab("welina_collar")
 AddPrefab("welina_catnip")
 AddPrefab("welina_catcoon")
 
 
---[[
-STRINGS.RECIPE_DESC.CATCOONDEN = "Cozy."
 
-AddCharacterRecipe("catcoonden", -- name
+STRINGS.RECIPE_DESC.WELINA_CATCOONDEN = "Cozy."
+
+AddCharacterRecipe("welina_catcoonden", -- name
     {                            -- ingredients
-        Ingredient("papyrus", 5),
-        Ingredient("nightmarefuel", 5),
+		Ingredient("boards", 4),
+        Ingredient("coontail", 4),
+        Ingredient("wetgoop", 2),
     },
     GLOBAL.TECH.NONE, -- tech
     {              -- config
-        placer = "catcoonden_placer",
+        placer = "welina_catcoonden_placer",
         builder_tag = "emocatgirl",
         atlas = "images/inventoryimages/welina_items.xml",
         image = "catcoon_den.tex",
@@ -26,7 +27,7 @@ AddCharacterRecipe("catcoonden", -- name
         "MAGIC",
         "MODS",
     })
---]]
+
 
 
 
@@ -152,7 +153,7 @@ AddCharacterRecipe("welina_collar_bomb", -- name
     {                                 -- ingredients
         GLOBAL.Ingredient("coontail", 2),
         GLOBAL.Ingredient("gunpowder", 2),
-		GLOBAL.Ingredient("nitre", 5),
+		GLOBAL.Ingredient("nitre", 3),
     },
     GLOBAL.TECH.NONE, -- tech
     {                        -- config
@@ -174,7 +175,7 @@ AddCharacterRecipe("welina_collar_bomb", -- name
 
 AddCharacterRecipe("welina_catnip", -- name
     {                                 -- ingredients
-        GLOBAL.Ingredient("foliage", 3),
+        GLOBAL.Ingredient("foliage", 2),
         GLOBAL.Ingredient("petals", 5),
 		GLOBAL.Ingredient("ash", 5),
     },

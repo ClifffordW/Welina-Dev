@@ -7,7 +7,7 @@ PrefabFiles = {
 AddCharacter("welina", "Welina", "female", "The Downcat", "The sound of the bell has been unusually loud today...", "Welina has a flair for the dramatic.", "welina", "welina", "Slim", false)
 CharacterAbillity("welina", "Nine Lives", "Edgy, Inside and Outside", "Resentful")
 AddCharacterSkin("welina", "ms_welina_gown", "The Restless", "It's sometimes tempting to shut yourself in dreams.", "When my eyes close, I see terrible things.", true, true, false)
-
+AddCharacterSkin("welina", "ms_welina_doorman", "The Over-Bored", "Short cut for short-tempered cat.", "That's a pretty... metal.. origin story...", true, true, false)
 
 
 

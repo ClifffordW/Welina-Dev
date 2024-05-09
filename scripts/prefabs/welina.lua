@@ -39,6 +39,12 @@ local function GetWetnessPenalty(inst, max, modifierchange)
     return modifiername
 end
 
+local function OnAttackOther(inst, data)
+	if data.target:HasTag("raidrat") and not data.target.components.health:IsDead() then
+		data.target.components.health:Kill()
+	end
+end
+
 local function AsocialWork(inst, data)
     local workModifier = GetWetnessPenalty(inst, 0.25)
 
@@ -50,14 +56,14 @@ local function AsocialWork(inst, data)
 end
 
 local function SanityScrew(inst)
-    local sanityModifier = GetWetnessPenalty(inst, 0.5, 0.025)
+    local sanityModifier = GetWetnessPenalty(inst, 0.3, 0.0025)
     print(sanityModifier)
 
     inst.components.sanity.dapperness = sanityModifier - 1
 end
 
 local function DamageScrew(inst, data)
-    local damageModifier = GetWetnessPenalty(inst, 0.45, 0.05)
+    local damageModifier = GetWetnessPenalty(inst, 0.30, 0.01)
 
     inst.components.combat.damagemultiplier = damageModifier
 end
@@ -243,6 +249,7 @@ local function OnLoad(inst, data, newents)
     end
 end
 
+
 local function DoEffects(pet)
     local spawnfx, scale = "", pet.custom_spawnfx_scale or 1
 
@@ -256,6 +263,7 @@ local function DoEffects(pet)
     end
 end
 
+
 local function OnSpawnPet(inst, pet)
     --Delayed in case we need to relocate for migration spawning
     pet:DoTaskInTime(0, DoEffects)
@@ -264,12 +272,14 @@ local function OnSpawnPet(inst, pet)
     end
 end
 
+
 local function OnDespawnPet(inst, pet)
     if not inst.is_snapshot_user_session then
         DoEffects(pet)
     end
     pet:Remove()
 end
+
 
 local function OnWorldEntityDeath(inst, data)
     if data.inst ~= nil and data.inst.components.welina_resentable ~= nil then
@@ -279,6 +289,26 @@ local function OnWorldEntityDeath(inst, data)
     end
 end
 
+
+ local NIGHTVISION_COLOURCUBES =
+{
+    day = "images/colour_cubes/ruins_light_cc.tex",
+    dusk = "images/colour_cubes/ruins_dim_cc.tex",
+    night = "images/colour_cubes/purple_moon_cc.tex",
+    full_moon = "images/colour_cubes/purple_moon_cc.tex",
+}
+
+local function SetNightVision(inst, enable)
+    if TheWorld.state.isnight or TheWorld:HasTag("cave") then
+        inst.components.playervision:ForceNightVision(true)
+        inst.components.playervision:SetCustomCCTable(NIGHTVISION_COLOURCUBES)
+    else
+        inst.components.playervision:ForceNightVision(false)
+        inst.components.playervision:SetCustomCCTable(nil)
+    end
+end 
+
+
 -- This initializes for both the server and client. Tags can be added here.
 
 local common_postinit = function(inst)
@@ -286,12 +316,18 @@ local common_postinit = function(inst)
     inst.MiniMapEntity:SetIcon("welina.tex")
 
     inst.net_welina_numDeaths = net_smallbyte(inst.GUID, "inst.welina_numDeaths", "welina_numDeaths_dirty")
+	
+	inst:AddTag("emocatgirl")
+	
+	inst:AddTag("welinacollar_wearer")
 
     if TUNING.WELINA_INSOMNIA == 1 then
         inst:AddTag("insomniac")
     end
-
-    inst:AddTag("emocatgirl")
+	
+	if KnownModIndex:IsModEnabled("workshop-2039181790") then
+		inst:AddTag("ratimmune")
+	end
 
     --inst.components.talker.font = TALKINGFONT_WELINA
 
@@ -316,6 +352,17 @@ local common_postinit = function(inst)
             end)
         )
     end
+	
+	
+    inst:WatchWorldState( "isday", SetNightVision)
+	inst:WatchWorldState( "isdusk", SetNightVision)
+	inst:WatchWorldState( "isnight", SetNightVision)
+    inst:WatchWorldState( "iscaveday", SetNightVision)
+	inst:WatchWorldState( "iscavedusk", SetNightVision)
+	inst:WatchWorldState( "iscavenight", SetNightVision)
+    
+    SetNightVision(inst)
+
 
     --inst.customidleanim = "idle_wendy"
 end
@@ -383,6 +430,14 @@ local master_postinit = function(inst)
     end
 
     inst:ListenForEvent("attacked", OnTakeDamage)
+	
+	if KnownModIndex:IsModEnabled("workshop-2039181790") then
+		inst:ListenForEvent("onattackother", OnAttackOther)
+	end
+	
+	
+	
+
 
     inst:ListenForEvent("entity_death", function(_, data)
         OnWorldEntityDeath(inst, data)

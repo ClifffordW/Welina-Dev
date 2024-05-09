@@ -27,6 +27,9 @@ Assets = {
 	
 	Asset( "IMAGE", "bigportraits/ms_welina_gown.tex" ),
     Asset( "ATLAS", "bigportraits/ms_welina_gown.xml" ),
+	
+	Asset( "IMAGE", "bigportraits/ms_welina_doorman.tex" ),
+    Asset( "ATLAS", "bigportraits/ms_welina_doorman.xml" ),
 
     --Big Portraits End
 
@@ -55,6 +58,7 @@ Assets = {
 }
 
 AddDynamic("ms_welina_gown")
+AddDynamic("ms_welina_doorman")
 
 
 --For menu remix compatibility
@@ -90,7 +94,7 @@ local lang_lookups =
         a3 = "Resentful",
         quote = "The sound of the bell has been unusually loud today...",
         title = "The Downcat",
-        favfood = "None",
+        favfood = "Unagi",
         favfood_string = "Favourite Food",
         hidden = "Is yet to be revealed.",
         bday_h = "Birthday",
@@ -98,7 +102,7 @@ local lang_lookups =
         aboutme = "A catcoon girl that doesn't find much joy in life and dreads social interaction.",
         skindesc = "Welina has a flair for the dramatic.",
 
-        bday = "March 1",
+        bday = "April 13",
         past =
         [[Welina, Welina, Welina... I do like this name, rolls off the tongue pretty well. Anyway I subjected one of those fat catcoons to a life of human problems, to my surprise she was taking it quite well... until she wasn't. 
 She turned really nihilistic after a while, and would spend most of her time away from the other catcoons. Maybe she just started seeing herself as superior to them, or maybe she felt like an outlier amongst them. Or maybe the inescapable existential dread has caught up to her? Well such is the burden of being able to conjure complex thoughts and emotions, what'll she do anyway? Kill herself nine times? Ha!
@@ -121,7 +125,7 @@ I've presented my results to Master, and yeah, it went about as well as you'd ex
         a3 = "Resentful",
         quote = "The sound of the bell has been unusually loud today...",
         title = "The Downcat",
-        favfood = "None",
+        favfood = "Unagi",
         favfood_string = "Favourite Food",
         hidden = "Is yet to be revealed.",
         bday_h = "Birthday",
@@ -129,7 +133,7 @@ I've presented my results to Master, and yeah, it went about as well as you'd ex
         aboutme = "A catcoon girl that doesn't find much joy in life and dreads social interaction.",
         skindesc = "Welina has a flair for the dramatic.",
 
-        bday = "March 1",
+        bday = "April 13",
         past =
         [[Welina, Welina, Welina... I do like this name, rolls off the tongue pretty well. Anyway I subjected one of those fat catcoons to a life of human problems, to my surprise she was taking it quite well... until she wasn't. 
 She turned really nihilistic after a while, and would spend most of her time away from the other catcoons. Maybe she just started seeing herself as superior to them, or maybe she felt like an outlier amongst them. Or maybe the inescapable existential dread has caught up to her? Well such is the burden of being able to conjure complex thoughts and emotions, what'll she do anyway? Kill herself nine times? Ha!
@@ -153,7 +157,7 @@ local lookup = (lang_lookups[locale] or lang_lookups.en)
 AddCharacter("welina", lookup.name , "female", lookup.title, lookup.quote, lookup.skindesc,"welina", "welina", "Slim", false)
 CharacterAbillity("welina", lookup.a1 , lookup.a2 , lookup.a3)
 AddCharacterSkin("welina", "ms_welina_gown", "The Restless", "It's sometimes tempting to shut yourself in dreams.", "When my eyes close, I see terrible things.", true, true, false)
-
+AddCharacterSkin("welina", "ms_welina_doorman", "The Over-Bored", "Welina tries on a shorter cut.", "That's a pretty... metal.. origin story...", true, true, false)
 
 
 

@@ -18,6 +18,9 @@ Assets = {
 	
 	Asset( "IMAGE", "bigportraits/ms_welina_gown.tex" ),
     Asset( "ATLAS", "bigportraits/ms_welina_gown.xml" ),
+	
+	Asset( "IMAGE", "bigportraits/ms_welina_doorman.tex" ),
+    Asset( "ATLAS", "bigportraits/ms_welina_doorman.xml" ),
 
 	
 	Asset( "IMAGE", "images/map_icons/welina.tex" ),
@@ -49,15 +52,17 @@ Assets = {
 
 
 
-AddAnim("welina_run_anim")
+--AddAnim("welina_run_anim")
 
 AddAnim("welina_hiss_anim")
 AddAnim("welina_hiss_anim_gown")
+AddAnim("welina_hiss_anim_doorman")
 
 
-AddAnim("catcoon_basic")
-AddAnim("catcoon_actions")
+--AddAnim("catcoon_basic")
+--AddAnim("catcoon_actions")
 
+AddAnim("welina_catcoon_den")
 AddAnim("welina_catcoon_basic")
 AddAnim("welina_catcoon_actions")
 
@@ -65,6 +70,9 @@ AddAnim("welina_catcoon_actions")
 --Player collars
 AddAnim("swap_collar_bomb")
 AddAnim("swap_collar_spiked")
+AddAnim("swap_collar_regen")
+AddAnim("swap_collar_light")
+AddAnim("swap_collar_glass")
 -------------------------------
 
 AddSound("lawnmower")
