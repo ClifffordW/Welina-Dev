@@ -57,7 +57,7 @@ end
 
 local function SanityScrew(inst)
     local sanityModifier = GetWetnessPenalty(inst, 0.3, 0.0025)
-    print(sanityModifier)
+    --print(sanityModifier)
 
     inst.components.sanity.dapperness = sanityModifier - 1
 end
@@ -72,7 +72,7 @@ end
 local function Hiss(inst, data)
     if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
         if inst.components.rider and inst.components.rider:IsRiding() then
-            print(inst.components.rider:IsRiding())
+            --print(inst.components.rider:IsRiding())
             data.attacker.components.health:DoDelta(-data.damage * (TUNING.WELINA_REFLECT_AMOUNT or 5) / 2)
         else
             data.attacker.components.health:DoDelta(-data.damage * TUNING.WELINA_REFLECT_AMOUNT or 5)
@@ -290,18 +290,50 @@ local function OnWorldEntityDeath(inst, data)
 end
 
 
- local NIGHTVISION_COLOURCUBES =
+
+
+local NV_COLOURCUBES =
 {
-    day = "images/colour_cubes/ruins_light_cc.tex",
-    dusk = "images/colour_cubes/ruins_dim_cc.tex",
-    night = "images/colour_cubes/purple_moon_cc.tex",
-    full_moon = "images/colour_cubes/purple_moon_cc.tex",
+    autumn =
+    {
+        day = "images/colour_cubes/ruins_light_cc.tex",
+        dusk = "images/colour_cubes/ruins_dim_cc.tex",
+        night = "images/colour_cubes/night03_cc.tex",
+        full_moon = "images/colour_cubes/purple_moon_cc.tex"
+    },
+    winter =
+    {
+        day = "images/colour_cubes/ruins_light_cc.tex",
+        dusk = "images/colour_cubes/ruins_dim_cc.tex",
+        night = "images/colour_cubes/night04_cc.tex",
+        full_moon = "images/colour_cubes/purple_moon_cc.tex"
+    },
+    spring =
+    {
+        day = "images/colour_cubes/ruins_light_cc.tex",
+        dusk = "images/colour_cubes/ruins_dim_cc.tex",
+        night = "images/colour_cubes/spring_dusk_cc.tex",--"images/colour_cubes/spring_night_cc.tex",
+        full_moon = "images/colour_cubes/purple_moon_cc.tex"
+    },
+    summer =
+    {
+        day = "images/colour_cubes/ruins_light_cc.tex",
+        dusk = "images/colour_cubes/ruins_dim_cc.tex",
+        night = "images/colour_cubes/summer_night_cc.tex",
+        full_moon = "images/colour_cubes/purple_moon_cc.tex"
+    },
 }
 
 local function SetNightVision(inst, enable)
+
+    local season = TheWorld.state.season
+
+        
+
+
     if TheWorld.state.isnight or TheWorld:HasTag("cave") then
         inst.components.playervision:ForceNightVision(true)
-        inst.components.playervision:SetCustomCCTable(NIGHTVISION_COLOURCUBES)
+        inst.components.playervision:SetCustomCCTable(NV_COLOURCUBES[season])
     else
         inst.components.playervision:ForceNightVision(false)
         inst.components.playervision:SetCustomCCTable(nil)
@@ -360,6 +392,7 @@ local common_postinit = function(inst)
     inst:WatchWorldState( "iscaveday", SetNightVision)
 	inst:WatchWorldState( "iscavedusk", SetNightVision)
 	inst:WatchWorldState( "iscavenight", SetNightVision)
+    inst:WatchWorldState(  "season", SetNightVision)
     
     SetNightVision(inst)
 
