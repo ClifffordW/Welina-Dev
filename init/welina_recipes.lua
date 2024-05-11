@@ -9,6 +9,7 @@ AddPrefab("welina_catcoon")
 
 STRINGS.RECIPE_DESC.WELINA_CATCOONDEN = "Cozy."
 
+if TUNING.WELINA_CRAFTABLE_DENS == 1 then
 AddCharacterRecipe("welina_catcoonden", -- name
     {                            -- ingredients
 		Ingredient("boards", 4),
@@ -20,14 +21,14 @@ AddCharacterRecipe("welina_catcoonden", -- name
         placer = "welina_catcoonden_placer",
         builder_tag = "emocatgirl",
         atlas = "images/inventoryimages/welina_items.xml",
-        image = "catcoon_den.tex",
+        image = "welina_den.tex",
 
     },
     { -- filters
-        "MAGIC",
+        "STRUCTURES",
         "MODS",
     })
-
+end
 
 
 

@@ -121,10 +121,10 @@ local function StackResentfulness(inst, data)
 
     local resentment = math.floor(data.damage)
     resentable:AddResentedness(inst.userid, resentment)
-
+		
     -- Add resentfulness health penalty.
     local health = inst.components.health
-    if health ~= nil then health:DeltaPenalty(GetResentfulnessHealthPenalty(inst, attacker, resentment)) end
+    if TUNING.WELINA_RESENTMENT_MAX_HP == 1 and health ~= nil then health:DeltaPenalty(GetResentfulnessHealthPenalty(inst, attacker, resentment)) end	
 end
 
 local function OnTakeDamage(inst, data)
@@ -385,7 +385,7 @@ local common_postinit = function(inst)
         )
     end
 	
-	
+	if TUNING.WELINA_NIGHTVISION == 1 then
     inst:WatchWorldState( "isday", SetNightVision)
 	inst:WatchWorldState( "isdusk", SetNightVision)
 	inst:WatchWorldState( "isnight", SetNightVision)
@@ -395,7 +395,7 @@ local common_postinit = function(inst)
     inst:WatchWorldState(  "season", SetNightVision)
     
     SetNightVision(inst)
-
+	end
 
     --inst.customidleanim = "idle_wendy"
 end
@@ -452,7 +452,7 @@ local master_postinit = function(inst)
         inst:AddComponent("efficientuser")
     end
 
-    if TUNING.WELINA_ASOCIALITY == 1 then
+    if TUNING.WELINA_WATERPENALTY == 1 then
         inst:ListenForEvent("working", AsocialWork)
         inst:ListenForEvent("sanitydelta", SanityScrew)
         inst:ListenForEvent("onattackother", DamageScrew)

@@ -10,7 +10,13 @@ local lang_lookups = {
 			desc = "Adds Welina, the low-spirited cat girl.",
 			changes = [[
 			
-󰀈 Fixed issue where welina would get stuck if hit by entity that would cause a knockback.
+󰀈 New Welina skin - The Over-Bored
+
+󰀈 Resentfulness stacks now also come with health trauma
+
+󰀈 Welina now becomes weaker the wetter she gets
+
+󰀈 Added new quotes and configs
 		
 			]],
 		},
@@ -322,10 +328,21 @@ configuration_options = {
 		},
 		default = 0.3,
 	},
+	
+		{
+		name = "WELINA_RESENTMENT_MAX_HP",
+		label = "Resentfulness HP Trauma",
+		hover = "Disable or enable Welina taking max health damage when hit.",
+		options = {
+			{ description = "Enabled", data = 1, hover = "Default 󰀡" },
+			{ description = "Disabled", data = 0 },
+		},
+		default = 1,
+	},
 
 	{
 		name = "WELINA_RESENTMENT_MAX_HP_PENALTY_MULT",
-		label = "Resentfulness HP Penalty",
+		label = "Resentfulness HP Penalty Amount",
 		hover = "How much of the damage Welina has taken is subtracted from maximum health.",
 		options = {
 			{ description = "10%", data = 0.1 },
@@ -341,7 +358,7 @@ configuration_options = {
 
 	{
 		name = "WELINA_RESENTMENT_MAX_HP_PENALTY_MULT_BOSS",
-		label = "Boss Resentfulness HP Penalty",
+		label = "Boss Resentfulness HP Penalty Amount",
 		hover = "Only applies for bosses. How much of the damage Welina has taken is subtracted from maximum health.",
 		options = {
 			{ description = "10%", data = 0.1, hover = "Default 󰀡"  },
@@ -355,17 +372,39 @@ configuration_options = {
 		default = 0.1,
 	},
 
-	Title("Scrapped Features"),
-
 	{
-		name = "WELINA_ASOCIALITY",
-		label = "Welinas Asociality",
-		hover = "Disable or enable Welina becoming weaker when near other players or followers.",
+		name = "WELINA_WATERPENALTY",
+		label = "Welinas Wetness Penalty",
+		hover = "Disable or enable Welina becoming weaker when wet.",
 		options = {
-			{ description = "Enabled", data = 1, hover = "Default 󰀡" },
-			{ description = "Disabled", data = 0 },
+			{ description = "Enabled", data = 1},
+			{ description = "Disabled", data = 0, hover = "Default 󰀡"  },
 		},
 		default = 1,
+	},
+	
+	Title("Extra Abillities 󰀩"),
+	
+	{
+		name = "WELINA_NIGHTVISION",
+		label = "Welinas Nightvision",
+		hover = "Disable or enable Welina having nightvision.",
+		options = {
+			{ description = "Enabled", data = 1},
+			{ description = "Disabled", data = 0, hover = "Default 󰀡"  },
+		},
+		default = 0,
+	},
+	
+	{
+		name = "WELINA_CRAFTABLE_DENS",
+		label = "Craftable Catcoon Dens",
+		hover = "Disable or enable Welina having the ability to craft catcoon dens.",
+		options = {
+			{ description = "Enabled", data = 1},
+			{ description = "Disabled", data = 0, hover = "Default 󰀡"  },
+		},
+		default = 0,
 	},
 
 	Title("Cliffford's Shenanigans 󰀩"),

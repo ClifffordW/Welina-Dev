@@ -320,8 +320,8 @@ local function fn()
 
     inst.MiniMapEntity:SetIcon("catcoonden.png")
 
-    inst.AnimState:SetBank("welina_catcoon_den")
-    inst.AnimState:SetBuild("catcoon_den")
+    inst.AnimState:SetBank("catcoon_den")
+    inst.AnimState:SetBuild("welina_catcoon_den")
     inst.AnimState:PlayAnimation("idle")
 
     inst:AddTag("structure")
@@ -386,7 +386,7 @@ local function fn()
     inst.components.activatable.inactive = true
 
     MakeMediumBurnable(inst)
-    AddToRegrowthManager(inst)
+    --AddToRegrowthManager(inst)
     MakeSmallPropagator(inst)
 
     ---------------------
@@ -411,5 +411,5 @@ local function fn()
 end
 
 return Prefab("welina_catcoonden", fn, assets, prefabs),
-MakePlacer("welina_catcoonden_placer", "welina_catcoon_den", "catcoon_den", "idle" )
+MakePlacer("welina_catcoonden_placer", "catcoon_den", "welina_catcoon_den", "idle" )
 
