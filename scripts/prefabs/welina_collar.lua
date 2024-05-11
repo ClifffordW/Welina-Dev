@@ -60,8 +60,16 @@ local function onequip(inst, owner)
 
 		if name == "bomb" then
 			local function BoomCollar()
+
+				if not inst.components.equippable:IsEquipped() then
+					return
+				end
+
 				if inst:IsValid() and owner:IsValid() then
+					
 					inst.components.explosive:OnBurnt()
+					
+				
 				end
 
 				owner:RemoveEventCallback("death", BoomCollar)
