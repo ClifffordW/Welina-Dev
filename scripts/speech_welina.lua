@@ -1438,11 +1438,11 @@ return{
         MUSHTREE_MEDIUM =
         {
             GENERIC = "It's the meowtaphorical middle of the pack",
-            BLOOM = "DON'T, do that next to me.",
+            BLOOM = "DON'T, do that next to meow.",
         },
         MUSHTREE_SMALL =
         {
-            GENERIC = "It's almost as tall as me.",
+            GENERIC = "It's taller than meow.",
             BLOOM = "Can't you do that in private?",
         },
         MUSHTREE_TALL_WEBBED = "The white spiders claimed it.",
@@ -1453,7 +1453,7 @@ return{
         },
         SPORE_MEDIUM =
         {
-            GENERIC = "Red makes me feel more aggressive.",
+            GENERIC = "Red makes meow feel more aggressive.",
             HELD = "It's kind of washing its color on meow.",
         },
         SPORE_SMALL =
@@ -1528,12 +1528,12 @@ return{
 
 		POWCAKE = "A dreadful creation.",
         CAVE_ENTRANCE = "Something's sealed under that, for a reason likely.",
-        CAVE_ENTRANCE_RUINS = "Curiosity won't kill me, surely.",
+        CAVE_ENTRANCE_RUINS = "Curiosity won't kill meow, surely.",
 
        	CAVE_ENTRANCE_OPEN =
         {
-            GENERIC = "That wasn't very bright of me...",
-            OPEN = "Will curiosity kill me?",
+            GENERIC = "That wasn't very bright of meow...",
+            OPEN = "Will curiosity kill meow?",
             FULL = "T-There's one too many on the other end.",
         },
         CAVE_EXIT =
@@ -1544,7 +1544,7 @@ return{
         },
 
 		MAXWELLPHONOGRAPH = "The forgotten tune.",--single player
-		BOOMERANG = "My actions always end up harming me.",
+		BOOMERANG = "My actions always end up harming meow.",
 		PIGGUARD = "A de meownority of pigmen.",
 		ABIGAIL =
 		{
@@ -1578,10 +1578,10 @@ return{
 			REMAINS_EYE_BONE = "It's weirdly soothing.",
 			REMAINS_THINGIE = "It's weirdly soothing.",
 		},
-		AXE = "My axe is my friend, it helps me relax.",
+		AXE = "My axe is my friend, it helps meow relax.",
 		BABYBEEFALO =
 		{
-			GENERIC = "Seeing you suddenly made me feel better about my looks, cupcake.",
+			GENERIC = "Seeing you suddenly made meow feel better about my looks, cupcake.",
 		    SLEEPING = "Keep dreaming, death will catch up to you soon.",
         },
         BUNDLE = "What's trapped in there is a meowstery.",
@@ -1595,7 +1595,7 @@ return{
 		BEARGERVEST = "Almost enough to forget about the dark, cold world.",
 		ICEPACK = "It's a portable cold-maker.",
 		BEARGER_FUR = "Scratchy stuff.",
-		BEDROLL_STRAW = "This will have me wake up with a burning back pain.",
+		BEDROLL_STRAW = "This will have meow wake up with a burning back pain.",
 		BEEQUEEN = "Kill the queen bee, plunge them into anarchy.",
 		BEEQUEENHIVE =
 		{
@@ -1667,7 +1667,7 @@ return{
 			GENERIC = "This could be berry good.",
 			PICKED = "How can it afford to grow so slow, when life is so short.",
 			DISEASED = "What has brought this blight upon my world?",--removed
-			DISEASING = "Looks a little off, if you ask me.",--removed
+			DISEASING = "Looks a little off, if you ask meow.",--removed
 			BURNING = "I'll send my condolences to its family.",
 		},
 		BERRYBUSH_JUICY =
@@ -1677,14 +1677,14 @@ return{
 			GENERIC = "This one's a tall bush.",
 			PICKED = "How can it afford to grow so slow, when life is so short.",
 			DISEASED = "What has brought this blight upon my world?",--removed
-			DISEASING = "Looks a little off, if you ask me.",--removed
+			DISEASING = "Looks a little off, if you ask meow.",--removed
 			BURNING = "I'll send my condolences to its family.",
 		},
 		BIGFOOT = "Now that is surely fuel for nightmares.",--removed
 		BIRDCAGE =
 		{
 			GENERIC = "That's just life.",
-			OCCUPIED = "They're trying to keep it safe from me.",
+			OCCUPIED = "They're trying to keep it safe from meow.",
 			SLEEPING = "Does it dream of escape.",
 			HUNGRY = "Cry about it more why don't you.",
 			STARVING = "You should be glad YOU'RE not food.",
@@ -1717,7 +1717,7 @@ return{
 		BLUE_MUSHROOM =
 		{
 			GENERIC = "I think i was warned not to eat random meowshrooms.",
-			INGROUND = "It's hiding from me.",
+			INGROUND = "It's hiding from meow.",
 			PICKED = "No new inhabitants yet?",
 		},
 		BOARDS = "Some moewshed together logs.",
@@ -1744,7 +1744,7 @@ return{
 			PICKED = "Flattened to the core.",
 		},
 		CACTUS_MEAT_COOKED = "Should be edible now, i guess.",
-		CACTUS_MEAT = "This would pain me all the way down.",
+		CACTUS_MEAT = "This would pain meow all the way down.",
 		CACTUS_FLOWER = "A delicate flower, unfortunately in my hands.",
 
 		COLDFIRE =
@@ -1841,7 +1841,7 @@ return{
         CHESSJUNK1 = "Some unfinished rubble.",
         CHESSJUNK2 = "Who am i to judge art.",
         CHESSJUNK3 = "How does it exist with no sight or hearing.",
-		CHESTER = "It's close enough to a dog for me to dislike it.",
+		CHESTER = "It's close enough to a dog for meow to dislike it.",
 		CHESTER_EYEBONE =
 		{
 			GENERIC = "Erm, awkward.",
@@ -1969,7 +1969,7 @@ return{
 		DRAGONFRUIT = "It's way more exotic than i'm used to.",
 		DRAGONFRUIT_COOKED = "A little less exotic now but, it works.",
 		DRAGONFRUIT_SEEDS = "Dragon seeds, probably grows dragons.",
-		DRAGONPIE = "The sweetness does not bring me joy.",
+		DRAGONPIE = "The sweetness does not bring meow joy.",
 		DRUMSTICK = "The meat of the birds.",
 		DRUMSTICK_COOKED = "Fried to perfection.",
 		DUG_BERRYBUSH = "Let's explore the world together, bush.",
@@ -2047,7 +2047,7 @@ return{
 		FEATHER_CANARY = "The tastiest birds, if you ask meow.",
 		FEATHERPENCIL = "This is how people write, pretty creative.",
         COOKBOOK = "It's a book about cooking or whatever.",
-		FEM_PUPPET = "Better her than me.", --single player
+		FEM_PUPPET = "Better her than meow.", --single player
 		FIREFLIES =
 		{
 			GENERIC = "They glow, and they never stop glowing.",
@@ -2101,7 +2101,7 @@ return{
         {
 			GENERIC = "Whatever that's supposed to be.",
 			FUNNY = "Something's wrong here, isn't it.",
-			COMPLETE = "Why do I get the feeling it will come to life and kill me.",
+			COMPLETE = "Why do I get the feeling it will come to life and kill meow.",
         },
         STALKER = "I hate when I'm right.",
         STALKER_ATRIUM = "The God that failed.",
@@ -2241,7 +2241,7 @@ return{
 		LUCY = "That's one sexy axe.",
 		LUREPLANT = "Meat-eating orchids forgive no one just yet.",
 		LUREPLANTBULB = "I can make it work for meow now.",
-		MALE_PUPPET = "Better him than me.", --single player
+		MALE_PUPPET = "Better him than meow.", --single player
 
 		MANDRAKE_ACTIVE = "It's like claws on a chalkboard to my sensitive ears",
 		MANDRAKE_PLANTED = "I have an urge to rip it out of the ground.",
@@ -2270,7 +2270,7 @@ return{
             BURNING = "Fire is a common weakness.",
             BURNT = "There's not myuch left to do with it now.",
             CHOPPED = "It didn't put up a fight.",
-            GENERIC = "Spiky. Unpleasant. Like me.",
+            GENERIC = "Spiky. Unpleasant. Like meow.",
         },
         MAXWELL = "Looks like a jackass.",--single player
         MAXWELLHEAD = "What's with that big floating head.",--removed
@@ -2478,7 +2478,7 @@ return{
             GENERIC = "These ones taste a lot like snow.",
             HELD = "Brrr, cold to hold.",
         },
-        ROBOT_PUPPET = "Better them than me.", --single player
+        ROBOT_PUPPET = "Better them than meow.", --single player
         ROCK_LIGHT =
         {
             GENERIC = "The top of this lava pit has cooled into a fine crust.",--removed
@@ -2526,7 +2526,7 @@ return{
 			GENERIC = "Can get some sticks to play with, I guess.",
 			PICKED = "Hurry up and grooow.",
 			DISEASED = "What has brought this blight upon my world?", --removed
-			DISEASING = "Looks a little off, if you ask me.", --removed
+			DISEASING = "Looks a little off, if you ask meow.", --removed
 		},
    		SCARECROW =
    		{
@@ -2575,7 +2575,7 @@ return{
 		SILK = "Silky smooth, hmph, nyaice.",
 		SKELETON = "Looks like they've found the way out.",
 		SCORCHED_SKELETON = "This one didn't go out pretty.",
-		SKULLCHEST = "That chest is calling to me.", --removed
+		SKULLCHEST = "That chest is calling to meow.", --removed
 		SMALLBIRD =
 		{
 			GENERIC = "Tender age in bloom.",
@@ -2723,7 +2723,7 @@ return{
 		TRINKET_21 = "I wish I had a wife to beat with this.", --Egg Beater
 		TRINKET_22 = "Ughh, at least something to look forward to in life.", --Frayed Yarn
 		TRINKET_23 = "Shoes don't have horns, the nyack.", --Shoehorn
-		TRINKET_24 = "You're telling me this jar is made out of a cat???", --Lucky Cat Jar
+		TRINKET_24 = "You're telling meow this jar is made out of a cat???", --Lucky Cat Jar
 		TRINKET_25 = "Oh wow, smells awful.", --Air Unfreshener
 		TRINKET_26 = "How far we've advanced.", --Potato Cup
 		TRINKET_27 = "It's for hanging, clothes.", --Coat Hanger
@@ -2872,7 +2872,7 @@ return{
         {
             GENERIC = "It's ready.",
             EMPTY = "It requires an offering.",
-            BURNT = "It's of no use to me like this.",
+            BURNT = "It's of no use to meow like this.",
         },
 
         YOTC_CARRAT_GYM_DIRECTION =
@@ -2896,7 +2896,7 @@ return{
         YOTC_CARRAT_GYM_STAMINA =
         {
             GENERIC = "An exercise machine... the most dastardly of inventions.",
-            RAT = "You will thank me for making you stronger.",
+            RAT = "You will thank meow for making you stronger.",
             BURNT = "Useless.",
         },
 
@@ -2931,7 +2931,7 @@ return{
 
         YOTR_RABBITSHRINE =
         {
-            GENERIC = "What do you have in store for me?",
+            GENERIC = "What do you have in store for meow?",
             EMPTY = "It requires an offering.",
             BURNT = "A pity.",
         },
@@ -3009,7 +3009,7 @@ return{
 			BURNT = "There's burnt aprons here.",
 		},
 		WARG = "Always outnumbered, never outgunned.",
-        WARGLET = "Let me put you out of your horrible existence.",
+        WARGLET = "Let meow put you out of your horrible existence.",
 
 		WASPHIVE = "Stingy, like meow.",
 		WATERBALLOON = "It's filled with evil.",
@@ -3203,7 +3203,7 @@ return{
 
 		LAVAARENA_FEATHERCROWNHAT = "Horsefeathers.",
         LAVAARENA_HEALINGFLOWERHAT = "I could use the invigoration.",
-        LAVAARENA_LIGHTDAMAGERHAT = "That is not suited to me.",
+        LAVAARENA_LIGHTDAMAGERHAT = "That is not suited to meow.",
         LAVAARENA_STRONGDAMAGERHAT = "I'd never wear such an undapper thing.",
         LAVAARENA_TIARAFLOWERPETALSHAT = "A decent wreath, should I feel like healing.",
         LAVAARENA_EYECIRCLETHAT = "I must have it.",
@@ -3225,7 +3225,7 @@ return{
 		QUAGMIRE_ALTAR_STATUE1 = "I do like a good statue.",
 		QUAGMIRE_PARK_FOUNTAIN = "Just useless rubble now.",
 
-        QUAGMIRE_HOE = "This is so very beneath me.",
+        QUAGMIRE_HOE = "This is so very beneath meow.",
 
         QUAGMIRE_TURNIP = "It's a big, bulbous turnip.",
         QUAGMIRE_TURNIP_COOKED = "Hardly improves the taste.",
@@ -3304,7 +3304,7 @@ return{
 		},
 		QUAGMIRE_MUSHROOMS = "Fungus has its uses.",
         QUAGMIRE_MEALINGSTONE = "This looks like it requires hard labor.",
-		QUAGMIRE_PEBBLECRAB = "You can't hide from me.",
+		QUAGMIRE_PEBBLECRAB = "You can't hide from meow.",
 
 
 		QUAGMIRE_RUBBLE_CARRIAGE = "Carriage carnage.",
@@ -3332,7 +3332,7 @@ return{
         },
         QUAGMIRE_SWAMPIG = "Don't touch the suit.",
 
-        QUAGMIRE_PORTAL = "Nobody listens to me.",
+        QUAGMIRE_PORTAL = "Nobody listens to meow.",
         QUAGMIRE_SALTROCK = "It must be ground down before we use it.",
         QUAGMIRE_SALT = "Adding too much is an a-salt on the senses.",
         --food--
@@ -3362,7 +3362,7 @@ return{
         QUAGMIRE_POT_HANGER = "I can put this to good use.",
         QUAGMIRE_POT_HANGER_ITEM = "Well I'M not setting it up.",
         QUAGMIRE_GRILL = "I believe I can barbeque.",
-        QUAGMIRE_GRILL_ITEM = "No use to me here.",
+        QUAGMIRE_GRILL_ITEM = "No use to meow here.",
         QUAGMIRE_GRILL_SMALL = "I'd prefer a larger grill.",
         QUAGMIRE_GRILL_SMALL_ITEM = "At least it's portable.",
         QUAGMIRE_OVEN = "This makes things much more convenient.",
@@ -3384,7 +3384,7 @@ return{
             GENERIC = "Seems we've got it open.",
             LOCKED = "It needs a key.",
         },
-        QUAGMIRE_PARKSPIKE = "Spikey. Like me.",
+        QUAGMIRE_PARKSPIKE = "Spikey. Like meow.",
         QUAGMIRE_CRABTRAP = "Dinner should be arriving any moment.",
         QUAGMIRE_TRADER_MERM = "Good day to you, sir.",
         QUAGMIRE_TRADER_MERM2 = "I tip my hat to you sir.",
@@ -3564,7 +3564,7 @@ return{
 
         MOON_ALTAR_IDOL = "Fancy-looking thing.",
         MOON_ALTAR_GLASS = "I think it's trying to sell meow something.",
-        MOON_ALTAR_SEED = "I hate when rocks talk to me.",
+        MOON_ALTAR_SEED = "I hate when rocks talk to meow.",
 
         MOON_ALTAR_ROCK_IDOL = "Whatever is in there wants to not be in there.",
         MOON_ALTAR_ROCK_GLASS = "Whatever is in there wants to not be in there.",
@@ -3698,7 +3698,7 @@ return{
 		OCEANFISH_MEDIUM_6 = "Just look at your ugly lil' face.",
 		OCEANFISH_MEDIUM_7 = "Just look at your ugly lil' face.",
 		OCEANFISH_MEDIUM_8 = "What's with the cold attitude.",
-        OCEANFISH_MEDIUM_9 = "Mhmmm, it's making me hungry.",
+        OCEANFISH_MEDIUM_9 = "Mhmmm, it's making meow hungry.",
 
 		PONDFISH = "Ohh, looks like you came to the wrong side of the pond, cupcake.",
 		PONDEEL = "Exotic.",
@@ -3868,7 +3868,7 @@ return{
             DONE = "The spice of life.",
         },
         SPICEPACK = "Spice makes anything a bit better.",
-        SPICE_GARLIC = "The smell keeps others from getting close to me. Good.",
+        SPICE_GARLIC = "The smell keeps others from getting close to meow. Good.",
         SPICE_SUGAR = "Iced honey.",
         SPICE_CHILI = "Nyickes, this one's hot.",
         SPICE_SALT = "A little salt goes a long way.",
@@ -4027,7 +4027,7 @@ return{
 
         SPORE_MOON = "Don't wanna get too close to that.",
 
-        MOON_CAP = "Hmhm, it's trying to put me to sleep.",
+        MOON_CAP = "Hmhm, it's trying to put meow to sleep.",
         MOON_CAP_COOKED = "But I won't let it.",
 
         MUSHTREE_MOON = "Moons definitely had a hand in the making of that.",
@@ -4144,7 +4144,7 @@ return{
 		NUTRIENTSGOGGLESHAT = "Huh, those guys used to farm? Well now they're in the ground that gets farmed.",
 		PLANTREGISTRYHAT = "Would look acceptable if I painted it black, and maybe put a few spikes on it.",
 
-        FARM_SOIL_DEBRIS = "Trash, useless, malicious. Like meow.",
+        FARM_SOIL_DEBRIS = "Trash, useless, meowlicious. Like meow.",
 
 		FIRENETTLES = "Burn baby burn.",
 		FORGETMELOTS = "I don't wanna be forgotten.",
@@ -4245,7 +4245,7 @@ return{
 		CARNIVALGAME_SHOOTING_KIT = "Where do I place this thing.",
 		CARNIVALGAME_SHOOTING_STATION =
 		{
-			GENERIC = "It requires payment.",
+			GENERIC = "Nothing in this life is free.",
 			PLAYING = "Another mindless diversion.",
 		},
 		CARNIVALGAME_SHOOTING_TARGET =
@@ -4256,7 +4256,7 @@ return{
 
 		CARNIVALGAME_SHOOTING_BUTTON =
 		{
-			GENERIC = "It requires payment.",
+			GENERIC = "Nothing in this life is free.",
 			PLAYING = "Well, I suppose a bit of destruction might be relaxing.",
 		},
 
@@ -4311,15 +4311,15 @@ return{
 			UNCOMMON = "Measly things. In my time I made proper statues...",
 			GENERIC = "One more thing to clutter the ground.",
 		},
-		CARNIVALDECOR_FIGURE_KIT = "Curiosity always seems to get the better of me.",
-		CARNIVALDECOR_FIGURE_KIT_SEASON2 = "Curiosity always seems to get the better of me.",
+		CARNIVALDECOR_FIGURE_KIT = "Curiosity always seems to get the better of meow.",
+		CARNIVALDECOR_FIGURE_KIT_SEASON2 = "Curiosity always seems to get the better of meow.",
 
         CARNIVAL_BALL = "How novel.", --unimplemented
 		CARNIVAL_SEEDPACKET = "About as pleasant as you'd expect.",
 		CARNIVALFOOD_CORNTEA = "Surely you're not serious?",
 
         CARNIVAL_VEST_A = "Far too jaunty for my taste.",
-        CARNIVAL_VEST_B = "At least it will give me some respite from this wretched heat.",
+        CARNIVAL_VEST_B = "At least it will give moow some respite from this wretched heat.",
         CARNIVAL_VEST_C = "It affords some protection from the sun's burning rays.",
 
         -- YOTB
@@ -4440,7 +4440,7 @@ return{
         ALTERGUARDIAN_PHASE3DEADORB = "This power, it feels like... but it couldn't be...",
         ALTERGUARDIAN_PHASE3DEAD = "I don't know what to believe. All this time, I thought that They were...",
 
-        ALTERGUARDIANHAT = "It makes me uneasy... but I can't deny its power.",
+        ALTERGUARDIANHAT = "It makes meow uneasy... but I can't deny its power.",
         ALTERGUARDIANHATSHARD = "Even shattered, it holds power.",
 
         MOONSTORM_GLASS = {
