@@ -59,15 +59,17 @@ local function onequip(inst, owner)
 		end
 
 		if name == "bomb" then
-			local function BoomCollar()
-				if inst:IsValid() and owner:IsValid() then
-					inst.components.explosive:OnBurnt()
+			if not inst.BoomCollar then
+				inst.BoomCollar = function()
+					if inst:IsValid() and owner:IsValid() then
+						inst.components.explosive:OnBurnt()
+					end
 				end
 
-				owner:RemoveEventCallback("death", BoomCollar)
+				owner:ListenForEvent("death", inst.BoomCollar)
+
 			end
 
-			owner:ListenForEvent("death", BoomCollar)
 		elseif name == "spiked" then
 			owner:ListenForEvent("attacked", ReflectDamage)
 			if inst.components.fueled ~= nil then
@@ -130,6 +132,12 @@ local function onunequip(inst, owner)
 	end
 
 	if name == "bomb" then
+		
+		if inst.BoomCollar ~= nil then
+			owner:RemoveEventCallback("death", inst.BoomCollar)
+			inst.BoomCollar = nil
+		end
+
 	elseif name == "spiked" then
 		owner:RemoveEventCallback("attacked", ReflectDamage)
 		if inst.components.fueled ~= nil then
