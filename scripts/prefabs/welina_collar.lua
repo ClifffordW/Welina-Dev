@@ -42,6 +42,23 @@ local function RegenCollar(owner)
 	end
 end
 
+
+local function BoomCollar(inst, owner)
+
+	if not inst.components.equippable:IsEquipped() then
+		return
+	end
+
+	if inst:IsValid() and owner:IsValid() then
+		
+		inst.components.explosive:OnBurnt()
+		
+		inst:Remove()
+	end
+
+	owner:RemoveEventCallback("death", BoomCollar)
+end
+
 -- Function to handle equip event
 local function onequip(inst, owner)
 	local name = inst.collarname
@@ -59,23 +76,9 @@ local function onequip(inst, owner)
 		end
 
 		if name == "bomb" then
-			local function BoomCollar()
 
-				if not inst.components.equippable:IsEquipped() then
-					return
-				end
 
-				if inst:IsValid() and owner:IsValid() then
-					
-					inst.components.explosive:OnBurnt()
-					
-				
-				end
-
-				owner:RemoveEventCallback("death", BoomCollar)
-			end
-
-			owner:ListenForEvent("death", BoomCollar)
+			owner:ListenForEvent("death", function() BoomCollar(inst, owner) end)
 		elseif name == "spiked" then
 			owner:ListenForEvent("attacked", ReflectDamage)
 			if inst.components.fueled ~= nil then
@@ -138,6 +141,8 @@ local function onunequip(inst, owner)
 	end
 
 	if name == "bomb" then
+		owner:RemoveEventCallback("death", function() BoomCollar(inst, owner) end)
+
 	elseif name == "spiked" then
 		owner:RemoveEventCallback("attacked", ReflectDamage)
 		if inst.components.fueled ~= nil then
