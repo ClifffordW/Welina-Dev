@@ -30,6 +30,20 @@ function EnableMod()
     end
 end
     
+
+
+--[[     _G.GetCurrentAnimation = function()
+        if _G.IsConsole() then print("This does not work on consoles!") return end
+
+        local inst = ConsoleWorldEntityUnderMouse() or nil
+        if inst ~= nil then
+            return string.match(inst.entity:GetDebugString(), "anim: ([^ ]+) ")
+        end
+
+
+
+        return string.match(input.entity:GetDebugString(), "anim: ([^ ]+) ")
+    end ]]
     
 
 function Wishes()

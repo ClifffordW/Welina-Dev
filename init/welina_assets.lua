@@ -46,6 +46,10 @@ Assets = {
 	
 	Asset("ANIM", "anim/welina_collar.zip"),
 	Asset("ANIM", "anim/ui_welina_collar.zip"),
+
+
+    Asset("ANIM", "anim/welina_voidclothhat.zip"),
+
 	
     
 }

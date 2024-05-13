@@ -6,6 +6,8 @@ PrefabFiles = {
 Assets = {
 	Asset("ANIM", "anim/welina.zip"),
 	Asset("ANIM", "anim/ghost_welina_build.zip"),
+    Asset("ANIM", "anim/welina_voidclothhat.zip"),
+
 
     Asset("IMAGE", "images/saveslot_portraits/welina.tex" ),
     Asset("ATLAS", "images/saveslot_portraits/welina.xml" ),
