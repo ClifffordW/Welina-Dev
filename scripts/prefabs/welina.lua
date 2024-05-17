@@ -351,7 +351,7 @@ local common_postinit = function(inst)
 	
 	inst:AddTag("emocatgirl")
 	
-	inst:AddTag("welinacollar_wearer")
+	--inst:AddTag("welinacollar_wearer")
 
     if TUNING.WELINA_INSOMNIA == 1 then
         inst:AddTag("insomniac")
