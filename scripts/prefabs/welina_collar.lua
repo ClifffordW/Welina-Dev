@@ -81,9 +81,11 @@ local function onequip(inst, owner)
 				inst.components.fueled:StartConsuming()
 			end
 		elseif name == "regen" then
-			local current_hp = owner.components.health:GetPercent()
-			owner.components.health:SetMaxHealth(TUNING.CATCOON_LIFE * 2)
-			owner.components.health:SetPercent(current_hp)
+			inst.currentowner_hp, inst.currentowner_maxhp = owner.components.health:GetPercent(), owner.components.health.maxhealth
+			print(inst.currentowner_hp, inst.currentowner_maxhp)
+
+			owner.components.health:SetMaxHealth(isplayer and inst.currentowner_maxhp * 2 or TUNING.CATCOON_LIFE * 2)
+			owner.components.health:SetPercent(inst.currentowner_hp)
 			owner.health_task = inst:DoPeriodicTask(5, function()
 				owner.components.health:DoDelta(50)
 			end)
@@ -155,15 +157,17 @@ local function onunequip(inst, owner)
 			and not owner.components.health:IsDead()
 			and owner.health_task
 		then
-			local current_hp = owner.components.health:GetPercent()
-			owner.components.health:SetMaxHealth(TUNING.CATCOON_LIFE)
-			owner.components.health:SetPercent(current_hp)
+
+
+			owner.components.health:SetMaxHealth(isplayer and inst.currentowner_maxhp or TUNING.CATCOON_LIFE)
+			owner.components.health:SetPercent(inst.currentowner_hp)
 			owner.health_task:Cancel()
 			owner.health_task = nil
 			if inst.components.fueled ~= nil then
 				inst.components.fueled:StopConsuming()
 			end
 
+			inst.currentowner_hp, inst.currentowner_maxhp = nil, nil
 			owner:RemoveEventCallback("death", RegenCollar)
 		end
 	elseif name == "light" then
