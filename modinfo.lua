@@ -97,7 +97,7 @@ shipwrecked_compatible = false
 all_clients_require_mod = true
 client_only_mod = false
 server_only_mod = false
-server_filter_tags = { "character", "welina" }
+server_filter_tags = { "character", "welina", "welina_oldvoidcowl" }
 
 local scales = {}
 for i = 1, 20 do
