@@ -178,12 +178,41 @@ AddPrefabPostInit("catcoon", function(inst)
         end
     end
 
+    local RETARGET_TAGS = {"_health"}
+local RETARGET_NO_TAGS = {"INLIMBO", "notarget", "invisible", "sinner" }
+
+local function RetargetFn(inst)
+    return FindEntity(inst, TUNING.CATCOON_TARGET_DIST,
+        function(guy)
+        	if guy:HasTag("catcoon") then
+        		return 	not (inst.components.follower and inst.components.follower:IsLeaderSame(guy))
+        				and not (inst.components.follower and guy.components.follower and inst.components.follower.leader == nil and guy.components.follower.leader == nil)
+        				and guy.components.health
+	            		and not guy.components.health:IsDead()
+	            		and inst.components.combat:CanTarget(guy)
+        	else
+            	return 	((guy:HasTag("monster") or guy:HasTag("smallcreature"))
+	            		and guy.components.health
+	            		and not guy.components.health:IsDead()
+	            		and inst.components.combat:CanTarget(guy)
+	            		and not (inst.components.follower and inst.components.follower.leader ~= nil and guy:HasTag("abigail")))
+            			and not (inst.components.follower and inst.components.follower:IsLeaderSame(guy))
+	            	or 	(guy:HasTag("cattoyairborne")
+            			and not (inst.components.follower and inst.components.follower:IsLeaderSame(guy)))
+	        end
+        end, 
+		RETARGET_TAGS, RETARGET_NO_TAGS)
+end
+
     if not TheWorld.ismastersim then
         return inst
     end
 
     inst.components.trader:SetAcceptTest(ShouldAcceptItem)
     inst.components.trader.onaccept = OnGetItemFromPlayer
+
+    inst.components.combat:SetRetargetFunction(3, RetargetFn)
+
 end)
 
 AddStategraphState(
@@ -602,6 +631,29 @@ if TUNING.WELINA_OSP == 1 then
         end
     end)
 end
+
+
+
+local eatercomp = require("components/eater")
+
+local OldFunc = eatercomp.PrefersToEat
+
+eatercomp.PrefersToEat = function(self, food,...)
+    local ret = { OldFunc(self, food, ...) }
+    if food.prefab == "welina_catnip" and not self.inst:HasTag("emocatgirl")  then
+        
+        --CW: catnip hack. Hope it doesnt look sussy - _-"
+        return false
+
+    end
+    return unpack(ret)
+end
+
+
+
+
+
+
 
 --[[
 AddComponentAction("SCENE", "prototyper", function(inst, doer, actions, right)

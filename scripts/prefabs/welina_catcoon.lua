@@ -521,7 +521,7 @@ local function fn()
 	inst.components.combat:SetRange(TUNING.CATCOON_ATTACK_RANGE)
 	inst.components.combat:SetAttackPeriod(TUNING.CATCOON_ATTACK_PERIOD)
 	inst.components.combat:SetKeepTargetFunction(KeepTargetFn)
-	inst.components.combat:SetRetargetFunction(3, RetargetFn)
+	--inst.components.combat:SetRetargetFunction(3, RetargetFn)
 	inst.components.combat:SetHurtSound("dontstarve_DLC001/creatures/catcoon/hurt")
 	inst:ListenForEvent("attacked", OnAttacked)
 	inst.components.combat.battlecryinterval = 20

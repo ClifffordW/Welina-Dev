@@ -91,6 +91,112 @@ local function IsCatcoon(inst, target, doer)
 	return target:HasTag("sinner")
 end
 
+
+local NV_COLOURCUBES =
+{
+    autumn =
+    {
+        day = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
+        dusk = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
+        night = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
+        full_moon = "images/colour_cubes/snow_cc.tex"
+    },
+    winter =
+    {
+        day = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
+        dusk = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
+        night = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
+        full_moon = "images/colour_cubes/snow_cc.tex"
+    },
+    spring =
+    {
+        day = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
+        dusk = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
+        night = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),--"images/colour_cubes/spring_night_cc.tex",
+        full_moon = "images/colour_cubes/snow_cc.tex"
+    },
+    summer =
+    {
+        day = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
+        dusk = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
+        night = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
+        full_moon = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
+    },
+}
+
+local function SetCatnipped(inst, enable)
+
+    local season = TheWorld.state.season
+
+    if  inst.components.debuffable:HasDebuff("catnipbuff") then
+        inst.components.playervision:ForceNightVision(true)
+        inst.components.playervision:SetCustomCCTable(NV_COLOURCUBES[season])
+
+
+    else
+        inst.components.playervision:ForceNightVision(false)
+        inst.components.playervision:SetCustomCCTable(nil)
+
+
+
+        
+    end
+
+
+   
+        
+
+    
+    
+
+end 
+
+
+local function WatchCatnipState(inst)
+    if  inst.components.debuffable:HasDebuff("catnipbuff") then
+        inst:WatchWorldState( "isday", SetCatnipped)
+        inst:WatchWorldState( "isdusk", SetCatnipped)
+        inst:WatchWorldState( "isnight", SetCatnipped)
+        inst:WatchWorldState( "iscaveday", SetCatnipped)
+        inst:WatchWorldState( "iscavedusk", SetCatnipped)
+        inst:WatchWorldState( "iscavenight", SetCatnipped)
+        inst:WatchWorldState(  "season", SetCatnipped)
+
+    else
+
+
+        inst:StopWatchingWorldState( "isday", SetCatnipped)
+        inst:StopWatchingWorldState( "isdusk", SetCatnipped)
+        inst:StopWatchingWorldState( "isnight", SetCatnipped)
+        inst:StopWatchingWorldState( "iscaveday", SetCatnipped)
+        inst:StopWatchingWorldState( "iscavedusk", SetCatnipped)
+        inst:StopWatchingWorldState( "iscavenight", SetCatnipped)
+        inst:StopWatchingWorldState(  "season", SetCatnipped)
+    end
+
+end
+
+local function CatnipEaten(inst, eater)
+    
+    if eater.prefab == "welina" then
+        
+
+        
+        eater:AddDebuff("catnipbuff", "catnipbuff")
+
+
+
+
+        
+        eater.components.health:DeltaPenalty(-0.2)
+        eater.components.grogginess:AddGrogginess(2, 7)
+
+    else
+        eater.components.talker:Say("It tastes like cat piss. ewww")
+    end
+
+end
+
 local function fn()
     local inst = CreateEntity()
 
@@ -117,6 +223,14 @@ local function fn()
         return inst
     end
 
+
+    inst:AddComponent("edible")
+    inst.components.edible.hungervalue = TUNING.CALORIES_TINY
+    inst.components.edible.healthvalue = TUNING.HEALING_TINY
+    inst.components.edible.foodtype = FOODTYPE.VEGGIE
+    inst.components.edible:SetOnEatenFn(CatnipEaten)
+
+
     inst:AddComponent("inspectable")
 --[[ 
 	inst:AddComponent("writeable")
@@ -141,4 +255,127 @@ local function fn()
     return inst
 end
 
-return Prefab("welina_catnip", fn, assets)
+
+
+
+--CatnipBuff
+local function OnTick(inst, target)
+    if target.components.health ~= nil and
+        not target.components.health:IsDead() and
+        not target:HasTag("playerghost") then
+        target.components.health:DoDelta(2, nil, "catnip")
+
+
+
+
+
+    else
+        inst.components.debuff:Stop()
+    end
+end
+
+local function KnockHerOut(target)
+    if target.components.sanity:GetPercent() == 0 then
+        target.components.grogginess:AddGrogginess(3, 2)
+
+        target:RemoveEventCallback("sanitydelta", KnockHerOut)
+    end
+end
+
+local function OnAttached(inst, target)
+    inst.entity:SetParent(target.entity)
+    inst.Transform:SetPosition(0, 0, 0) --in case of loading
+    inst.task = inst:DoPeriodicTask(5, OnTick, nil, target)
+
+    SetCatnipped(target)
+    WatchCatnipState(target)
+
+    target.components.sanity.dapperness = -0.33
+    target.components.locomotor:SetExternalSpeedMultiplier(inst, "catnipboost", TUNING.WELINA_MOVESPEED * 1.75)
+
+
+    inst:ListenForEvent("death", function()
+        inst.components.debuff:Stop()
+        target.components.sanity.dapperness = 0
+        target.components.locomotor:RemoveExternalSpeedMultiplier(target, "catnipboost")
+
+        SetCatnipped(target)
+        WatchCatnipState(target)
+        
+    end, target)
+
+    inst:ListenForEvent("knockedout", function()
+        inst.components.debuff:Stop()
+        target.components.sanity.dapperness = 0
+        target.components.locomotor:RemoveExternalSpeedMultiplier(target, "catnipboost")
+        SetCatnipped(target)
+        WatchCatnipState(target)
+
+    end, target)
+
+
+    target:ListenForEvent("sanitydelta", KnockHerOut)
+
+
+
+  
+
+
+end
+
+local function OnTimerDone(inst, data)
+    if data.name == "catnipover" then
+        inst.components.debuff:Stop()
+    end
+end
+
+local function OnExtended(inst, target)
+    inst.components.timer:StopTimer("catnipover")
+    inst.components.timer:StartTimer("catnipover", 999999999)
+    inst.task:Cancel()
+    inst.task = inst:DoPeriodicTask(5, OnTick, nil, target)
+end
+
+local function fn_catnip()
+    local inst = CreateEntity()
+
+    if not TheWorld.ismastersim then
+        --Not meant for client!
+        inst:DoTaskInTime(0, inst.Remove)
+
+        return inst
+    end
+
+    inst.entity:AddTransform()
+
+    --[[Non-networked entity]]
+    --inst.entity:SetCanSleep(false)
+    inst.entity:Hide()
+    inst.persists = false
+
+    inst:AddTag("CLASSIFIED")
+
+    inst:AddComponent("debuff")
+    inst.components.debuff:SetAttachedFn(OnAttached)
+    inst.components.debuff:SetDetachedFn(inst.Remove)
+    inst.components.debuff:SetExtendedFn(OnExtended)
+    inst.components.debuff.keepondespawn = true
+
+    inst:AddComponent("timer")
+    inst.components.timer:StartTimer("regenover", TUNING.JELLYBEAN_DURATION)
+    inst:ListenForEvent("timerdone", OnTimerDone)
+
+    return inst
+end
+
+
+
+
+
+
+
+
+
+
+return Prefab("welina_catnip", fn, assets),
+ Prefab("catnipbuff", fn_catnip, assets)

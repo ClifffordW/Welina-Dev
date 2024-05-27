@@ -59,7 +59,10 @@ local function SanityScrew(inst)
     local sanityModifier = GetWetnessPenalty(inst, 0.3, 0.0025)
     --print(sanityModifier)
 
-    inst.components.sanity.dapperness = sanityModifier - 1
+    if not inst.components.debuffable:HasDebuff("catnipbuff") then
+        inst.components.sanity.dapperness = sanityModifier - 1
+    end
+
 end
 
 local function DamageScrew(inst, data)
@@ -411,6 +414,7 @@ local master_postinit = function(inst)
 
     -- Stats
     inst.components.health:SetMaxHealth(TUNING.WELINA_HEALTH)
+    
 
     inst.components.hunger:SetMax(TUNING.WELINA_HUNGER)
 

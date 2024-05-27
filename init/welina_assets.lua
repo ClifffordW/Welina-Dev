@@ -50,6 +50,9 @@ Assets = {
 
     Asset("ANIM", "anim/welina_voidclothhat.zip"),
 
+
+    Asset("IMAGE", resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"))
+
 	
     
 }
