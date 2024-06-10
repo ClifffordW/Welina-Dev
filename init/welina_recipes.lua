@@ -1,4 +1,3 @@
-
 --AddPrefab("welina_hiss")
 AddPrefab("welina_catcoonden")
 AddPrefab("welina_collar")
@@ -6,18 +5,44 @@ AddPrefab("welina_catnip")
 AddPrefab("welina_catcoon")
 
 
+AddPrefab("catcoonball")
+
 
 STRINGS.RECIPE_DESC.WELINA_CATCOONDEN = "Cozy."
 
 if TUNING.WELINA_CRAFTABLE_DENS == 1 then
-AddCharacterRecipe("welina_catcoonden", -- name
-    {                            -- ingredients
-		Ingredient("boards", 4),
+    AddCharacterRecipe("welina_catcoonden", -- name
+        {                               -- ingredients
+            Ingredient("boards", 4),
+            Ingredient("coontail", 4),
+            Ingredient("wetgoop", 2),
+        },
+        GLOBAL.TECH.NONE, -- tech
+        {             -- config
+            placer = "welina_catcoonden_placer",
+            builder_tag = "emocatgirl",
+            atlas = "images/inventoryimages/welina_items.xml",
+            image = "welina_den.tex",
+
+        },
+        { -- filters
+            "STRUCTURES",
+            "MODS",
+        })
+end
+
+
+STRINGS.RECIPE_DESC.CATCOONBALL = "Bouncy!"
+
+
+AddCharacterRecipe("catcoonball", -- name
+    {                             -- ingredients
+        Ingredient("boards", 4),
         Ingredient("coontail", 4),
         Ingredient("wetgoop", 2),
     },
     GLOBAL.TECH.NONE, -- tech
-    {              -- config
+    {                 -- config
         placer = "welina_catcoonden_placer",
         builder_tag = "emocatgirl",
         atlas = "images/inventoryimages/welina_items.xml",
@@ -28,19 +53,18 @@ AddCharacterRecipe("welina_catcoonden", -- name
         "STRUCTURES",
         "MODS",
     })
-end
 
 
 
 
 AddCharacterRecipe("welina_collar_spiked", -- name
-    {                                 -- ingredients
+    {                                      -- ingredients
         GLOBAL.Ingredient("coontail", 2),
         GLOBAL.Ingredient("nightmarefuel", 2),
-		GLOBAL.Ingredient("flint", 5),
+        GLOBAL.Ingredient("flint", 5),
     },
     GLOBAL.TECH.NONE, -- tech
-    {                        -- config
+    {                 -- config
 
         atlas = "images/inventoryimages/welina_items.xml",
         image = "welina_collar.tex",
@@ -57,13 +81,13 @@ AddCharacterRecipe("welina_collar_spiked", -- name
 )
 
 AddCharacterRecipe("welina_collar_regen", -- name
-    {                                 -- ingredients
+    {                                     -- ingredients
         GLOBAL.Ingredient("coontail", 2),
         GLOBAL.Ingredient("bandage", 1),
-		GLOBAL.Ingredient("goldnugget", 5),
+        GLOBAL.Ingredient("goldnugget", 5),
     },
     GLOBAL.TECH.NONE, -- tech
-    {                        -- config
+    {                 -- config
 
         atlas = "images/inventoryimages/welina_items.xml",
         image = "welina_collar_regen.tex",
@@ -105,13 +129,13 @@ AddCharacterRecipe("welina_collar_armor", -- name
 --]]
 
 AddCharacterRecipe("welina_collar_light", -- name
-    {                                 -- ingredients
+    {                                     -- ingredients
         GLOBAL.Ingredient("coontail", 2),
         GLOBAL.Ingredient("lightbulb", 1),
-		GLOBAL.Ingredient("goldnugget", 3),
+        GLOBAL.Ingredient("goldnugget", 3),
     },
     GLOBAL.TECH.NONE, -- tech
-    {                        -- config
+    {                 -- config
 
         atlas = "images/inventoryimages/welina_items.xml",
         image = "welina_collar_light.tex",
@@ -128,13 +152,13 @@ AddCharacterRecipe("welina_collar_light", -- name
 )
 
 AddCharacterRecipe("welina_collar_glass", -- name
-    {                                 -- ingredients
+    {                                     -- ingredients
         GLOBAL.Ingredient("coontail", 2),
         GLOBAL.Ingredient("moonrocknugget", 1),
-		GLOBAL.Ingredient("moonglass", 5),
+        GLOBAL.Ingredient("moonglass", 5),
     },
     GLOBAL.TECH.NONE, -- tech
-    {                        -- config
+    {                 -- config
 
         atlas = "images/inventoryimages/welina_items.xml",
         image = "welina_collar_glass.tex",
@@ -151,13 +175,13 @@ AddCharacterRecipe("welina_collar_glass", -- name
 )
 
 AddCharacterRecipe("welina_collar_bomb", -- name
-    {                                 -- ingredients
+    {                                    -- ingredients
         GLOBAL.Ingredient("coontail", 2),
         GLOBAL.Ingredient("gunpowder", 2),
-		GLOBAL.Ingredient("nitre", 3),
+        GLOBAL.Ingredient("nitre", 3),
     },
     GLOBAL.TECH.NONE, -- tech
-    {                        -- config
+    {                 -- config
 
         atlas = "images/inventoryimages/welina_items.xml",
         image = "welina_collar_bomb.tex",
@@ -175,13 +199,13 @@ AddCharacterRecipe("welina_collar_bomb", -- name
 
 
 AddCharacterRecipe("welina_catnip", -- name
-    {                                 -- ingredients
+    {                               -- ingredients
         GLOBAL.Ingredient("foliage", 2),
         GLOBAL.Ingredient("petals", 5),
-		GLOBAL.Ingredient("ash", 5),
+        GLOBAL.Ingredient("ash", 5),
     },
     GLOBAL.TECH.NONE, -- tech
-    {                        -- config
+    {                 -- config
 
         atlas = "images/inventoryimages/welina_items.xml",
         image = "welina_catnip.tex",

@@ -31,6 +31,50 @@ local function restore_toy_tag(targ, tag)
 	targ:AddTag(tag)
 end
 
+local function HasCatcoonBait(inst)
+    local ball = inst.components.inventory:FindItem(function(item) return item:HasTag("catbait") end)
+    if ball then
+        -- print("I have the ball!")
+        return true
+    end
+end
+
+local function GetRidOfTheBall(inst)
+    local ball = inst.components.inventory:FindItem(function(item) return item:HasTag("catbait") end)
+    local action
+    local player
+
+
+    if inst.components.follower and inst.components.follower.leader then
+        player = inst.components.follower.leader
+    else
+        return
+    end
+
+    if math.random() < TUNING.CATCOONBALL_PASS_TO_PLAYER_CHANCE then
+        action = BufferedAction(inst, player, ACTIONS.CATPLAYGROUND, ball)
+        
+        inst:DoTaskInTime(1.5, function()
+            player.components.inventory:GiveItem(ball)
+        end)
+
+    else
+        local pos = inst:GetPosition()
+        local offset, _, _ = FindWalkableOffset(inst:GetPosition(), math.random()*2*PI, math.random()*5 + 5, 8, true, false) -- try to avoid walls
+
+        if offset then
+            action = BufferedAction(inst, nil, ACTIONS.CATPLAYAIR, ball, pos + offset)
+        else
+            action = BufferedAction(inst, player, ACTIONS.CATPLAYAIR, ball)
+        end
+        inst.components.inventory:DropItem(ball)
+
+        -- doer, target, action, invobject, pos, recipe, distance, rotation
+    end
+    
+    return action
+end
+
 local function PlayAction(inst)
     if inst.sg:HasStateTag("busy") or (inst.hairball_friend_interval and inst.hairball_friend_interval <= 5) then 
 		return
@@ -132,10 +176,42 @@ local function WhineAction(inst)
     end
 end
 
+
+local function TakeBallAction(inst)
+    local pt = inst:GetPosition()
+    local ents = TheSim:FindEntities(pt.x, pt.y, pt.z, 50*2, nil, {"aquatic", "falling", "FX", "NOCLICK", "DECOR", "INLIMBO"})
+
+    for _, item in ipairs(ents) do
+        
+        local owner = item.components.inventoryitem and item.components.inventoryitem.owner
+        if not owner and item:HasTag("catbait") and item:IsOnValidGround() then
+            -- print('monkey eat ball', item:HasTag('falling'), item:HasTag('aquatic'))
+            return BufferedAction(inst, item, ACTIONS.CATPLAYGROUND)
+        end
+    end
+end
+
 function WelinaCatcoonBrain:OnStart()
     local root =
     PriorityNode(
     {
+
+        SequenceNode{
+            ConditionNode(function() return HasCatcoonBait(self.inst) end, "HasBall"),
+            ParallelNodeAny {
+                WaitNode(4+math.random()*2),
+                Panic(self.inst),
+            },
+            DoAction(self.inst, GetRidOfTheBall),
+        },
+
+
+
+
+
+        DoAction(self.inst, TakeBallAction, "takeballact", true),
+
+
         BrainCommon.PanicWhenScared(self.inst, 1),
 		BrainCommon.PanicTrigger(self.inst),
         IfNode(function() return ShouldHairball(self.inst) end, "hairball",

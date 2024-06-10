@@ -51,9 +51,12 @@ Assets = {
     Asset("ANIM", "anim/welina_voidclothhat.zip"),
 
 
-    Asset("IMAGE", resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"))
+    Asset("IMAGE", resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex")),
 
 	
+
+    Asset("ANIM", "anim/monkey_ball.zip"),
+	Asset("ANIM", "anim/swap_monkeyball.zip"),
     
 }
 
