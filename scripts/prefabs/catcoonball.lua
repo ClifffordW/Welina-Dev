@@ -1,7 +1,7 @@
 local assets=
 {
-	Asset("ANIM", "anim/monkey_ball.zip"),
-	Asset("ANIM", "anim/swap_monkeyball.zip"),
+	Asset("ANIM", "anim/welina_cattoy.zip"),
+	Asset("ANIM", "anim/swap_welina_cattoy.zip"),
 }
 
 local prefabs=
@@ -83,7 +83,7 @@ local function fn()
     inst.entity:AddNetwork()
 
 	inst.AnimState:SetBank("monkeyball")
-	inst.AnimState:SetBuild("monkey_ball")
+	inst.AnimState:SetBuild("welina_cattoy")
 	inst.AnimState:PlayAnimation("idle")
 
     MakeSmallBurnable(inst)
@@ -140,4 +140,4 @@ local function fn()
 	return inst
 end
 
-return Prefab("catcoonball", fn, assets, prefabs)
+return Prefab("welina_cattoy", fn, assets, prefabs)

@@ -5,7 +5,7 @@ AddPrefab("welina_catnip")
 AddPrefab("welina_catcoon")
 
 
-AddPrefab("catcoonball")
+AddPrefab("welina_cattoy")
 
 
 STRINGS.RECIPE_DESC.WELINA_CATCOONDEN = "Cozy."
@@ -32,25 +32,24 @@ if TUNING.WELINA_CRAFTABLE_DENS == 1 then
 end
 
 
-STRINGS.RECIPE_DESC.CATCOONBALL = "Bouncy!"
+STRINGS.RECIPE_DESC.WELINA_CATTOY = "Bouncy!"
 
 
-AddCharacterRecipe("catcoonball", -- name
+AddCharacterRecipe("welina_cattoy", -- name
     {                             -- ingredients
-        Ingredient("boards", 4),
-        Ingredient("coontail", 4),
+        Ingredient("silk", 4),
+        Ingredient("coontail", 1),
         Ingredient("wetgoop", 2),
     },
     GLOBAL.TECH.NONE, -- tech
     {                 -- config
-        placer = "welina_catcoonden_placer",
         builder_tag = "emocatgirl",
         atlas = "images/inventoryimages/welina_items.xml",
-        image = "welina_den.tex",
+        image = "welina_cattoy.tex",
 
     },
     { -- filters
-        "STRUCTURES",
+        "TOOLS",
         "MODS",
     })
 

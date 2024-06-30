@@ -4226,7 +4226,7 @@ return{
 		CARNIVALGAME_MEMORY_STATION =
 		{
 			GENERIC = "Nothing in this life is free.",
-			PLAYING = "I have the meowmory of a cat.",
+			PLAYING = "I never forget.",
 		},
 		CARNIVALGAME_MEMORY_CARD =
 		{
@@ -4238,421 +4238,421 @@ return{
 		CARNIVALGAME_HERDING_STATION =
 		{
 			GENERIC = "Nothing in this life is free.",
-			PLAYING = "Such pointless frivolity...",
+			PLAYING = "Yeah yeah, let's get on with it.",
 		},
-		CARNIVALGAME_HERDING_CHICK = "Get back here, you blasted contraption!",
+		CARNIVALGAME_HERDING_CHICK = "Hey, get back here you-",
 
 		CARNIVALGAME_SHOOTING_KIT = "Where do I place this thing.",
 		CARNIVALGAME_SHOOTING_STATION =
 		{
 			GENERIC = "Nothing in this life is free.",
-			PLAYING = "Another mindless diversion.",
+			PLAYING = "Something to take my mind off this terrible life.",
 		},
 		CARNIVALGAME_SHOOTING_TARGET =
 		{
-			GENERIC = "What are they hiding down there...",
-			PLAYING = "I'm certain it's rigged.",
+			GENERIC = "They're hiding something from meow.",
+			PLAYING = "It's rigged against meow, just like my whole life.",
 		},
 
 		CARNIVALGAME_SHOOTING_BUTTON =
 		{
 			GENERIC = "Nothing in this life is free.",
-			PLAYING = "Well, I suppose a bit of destruction might be relaxing.",
+			PLAYING = "Destroying stuff is always relaxing.",
 		},
 
-		CARNIVALGAME_WHEELSPIN_KIT = "I suppose I'm expected to set this up myself?",
+		CARNIVALGAME_WHEELSPIN_KIT = "Where do I place this thing.",
 		CARNIVALGAME_WHEELSPIN_STATION =
 		{
-			GENERIC = "It requires payment.",
-			PLAYING = "A meaningless victory.",
+			GENERIC = "Nothing in this life is free.",
+			PLAYING = "A hollow victory.",
 		},
 
-		CARNIVALGAME_PUCKDROP_KIT = "I suppose I'm expected to set this up myself?",
+		CARNIVALGAME_PUCKDROP_KIT = "Where do I place this thing.",
 		CARNIVALGAME_PUCKDROP_STATION =
 		{
-			GENERIC = "It requires payment.",
-			PLAYING = "I imagine some people might find this amusing.",
+			GENERIC = "Nothing in this life is free.",
+			PLAYING = "This isn't really \"fun\", but I don't really find anything \"fun\" so.",
 		},
 
-		CARNIVAL_PRIZEBOOTH_KIT = "Must I do everything around here?",
+		CARNIVAL_PRIZEBOOTH_KIT = "Where do I place this thing.",
 		CARNIVAL_PRIZEBOOTH =
 		{
-			GENERIC = "I somehow doubt they'd have anything I want.",
+			GENERIC = "The only prize I need is to eat that big bird.",
 		},
 
-		CARNIVALCANNON_KIT = "Must I do everything around here?",
+		CARNIVALCANNON_KIT = "Where do I place this thing.",
 		CARNIVALCANNON =
 		{
-			GENERIC = "This place is turning into a circus.",
-			COOLDOWN = "That's more than enough cheer for one day.",
+			GENERIC = "It scares meow..",
+			COOLDOWN = "I can be at peace for nyow.",
 		},
 
-		CARNIVAL_PLAZA_KIT = "It's so... ugh... whimsical.",
+		CARNIVAL_PLAZA_KIT = "Where do I place this thing.",
 		CARNIVAL_PLAZA =
 		{
-			GENERIC = "It's about as festive as I like it. Which is not at all.",
-			LEVEL_2 = "The birds seem to enjoy it. Some creatures just lack any taste.",
-			LEVEL_3 = "I think that's about as much clutter as one could possibly throw on a tree.",
+			GENERIC = "A pathetic tree.",
+			LEVEL_2 = "They find the trash on the tree \"festive\" or something.",
+			LEVEL_3 = "Hmph, boring.",
 		},
 
-		CARNIVALDECOR_EGGRIDE_KIT = "There's no end to the work around here, it seems.",
-		CARNIVALDECOR_EGGRIDE = "Wonderful. It's even tackier than I imagined it would be.",
+		CARNIVALDECOR_EGGRIDE_KIT = "Where do I place this thing.",
+		CARNIVALDECOR_EGGRIDE = "Hope the eggs are having fun, cause I sure am not.",
 
-		CARNIVALDECOR_LAMP_KIT = "There's no end to the work around here, it seems.",
-		CARNIVALDECOR_LAMP = "A paltry light source. But it will do.",
-		CARNIVALDECOR_PLANT_KIT = "There's no end to the work around here, it seems.",
-		CARNIVALDECOR_PLANT = "At least it's small and somewhat manageable.",
-		CARNIVALDECOR_BANNER_KIT = "There's no end to the work around here, it seems.",
-		CARNIVALDECOR_BANNER = "Oh good. Wouldn't want anyone thinking we've got taste around here, would we?",
+		CARNIVALDECOR_LAMP_KIT = "Where do I place this thing.",
+		CARNIVALDECOR_LAMP = "Small, petty decor to fill the void in my heart.",
+		CARNIVALDECOR_PLANT_KIT = "Where do I place this thing.",
+		CARNIVALDECOR_PLANT = "Small, petty decor to fill the void in my heart.",
+		CARNIVALDECOR_BANNER_KIT = "Where do I place this thing.",
+		CARNIVALDECOR_BANNER = "Small, petty decor to fill the void in my heart.",
 
 		CARNIVALDECOR_FIGURE =
 		{
-			RARE = "What exactly is so fantastic about it?",
-			UNCOMMON = "Measly things. In my time I made proper statues...",
-			GENERIC = "One more thing to clutter the ground.",
+			RARE = "It may think it's one of a kind, but in reality, the world wouldn't care if it disappeared.",
+			UNCOMMON = "It's special, for no reason in particular.",
+			GENERIC = "Might use this as filler for a litter box.",
 		},
 		CARNIVALDECOR_FIGURE_KIT = "Curiosity always seems to get the better of meow.",
 		CARNIVALDECOR_FIGURE_KIT_SEASON2 = "Curiosity always seems to get the better of meow.",
 
-        CARNIVAL_BALL = "How novel.", --unimplemented
-		CARNIVAL_SEEDPACKET = "About as pleasant as you'd expect.",
-		CARNIVALFOOD_CORNTEA = "Surely you're not serious?",
+        CARNIVAL_BALL = "Baller.", --unimplemented
+		CARNIVAL_SEEDPACKET = "Maybe I can catch a few birds with this.",
+		CARNIVALFOOD_CORNTEA = "It's made out of what again.",
 
-        CARNIVAL_VEST_A = "Far too jaunty for my taste.",
-        CARNIVAL_VEST_B = "At least it will give moow some respite from this wretched heat.",
-        CARNIVAL_VEST_C = "It affords some protection from the sun's burning rays.",
+        CARNIVAL_VEST_A = "Not my style at all.",
+        CARNIVAL_VEST_B = "Not my style at all.",
+        CARNIVAL_VEST_C = "Not my style at all.",
 
         -- YOTB
-        YOTB_SEWINGMACHINE = "I'm more of an appreciator of fine clothes than a maker of them.",
-        YOTB_SEWINGMACHINE_ITEM = "Why must these things come unassembled?",
-        YOTB_STAGE = "Hmph. What makes him think he's qualified to pass judgement?",
-        YOTB_POST =  "Enjoy your time in the spotlight while you can.",
-        YOTB_STAGE_ITEM = "Oh good, something more to build.",
-        YOTB_POST_ITEM =  "This seems like a dreadful amount of effort.",
+        YOTB_SEWINGMACHINE = "Sewing is boring, boo.",
+        YOTB_SEWINGMACHINE_ITEM = "I'm not very reliable when it comes to assembling this stuff.",
+        YOTB_STAGE = "He just doesn't understand my fashion sense.",
+        YOTB_POST =  "I hate being the center of attention.",
+        YOTB_STAGE_ITEM = "I'm not very reliable when it comes to assembling this stuff.",
+        YOTB_POST_ITEM =  "I'm not very reliable when it comes to assembling this stuff.",
 
 
-        YOTB_PATTERN_FRAGMENT_1 = "I'll have to combine them before they'll reveal their secrets.",
-        YOTB_PATTERN_FRAGMENT_2 = "I'll have to combine them before they'll reveal their secrets.",
-        YOTB_PATTERN_FRAGMENT_3 = "I'll have to combine them before they'll reveal their secrets.",
+        YOTB_PATTERN_FRAGMENT_1 = "I'll need more of these to get the bigger picture.",
+        YOTB_PATTERN_FRAGMENT_2 = "I'll need more of these to get the bigger picture.",
+        YOTB_PATTERN_FRAGMENT_3 = "I'll need more of these to get the bigger picture.",
 
         YOTB_BEEFALO_DOLL_WAR = {
-            GENERIC = "I've no need for such things.",
-            YOTB = "This might be of interest to the judge.",
+            GENERIC = "More black, more spikes, then we'll talk.",
+            YOTB = "It's ready for judgement.",
         },
         YOTB_BEEFALO_DOLL_DOLL = {
-            GENERIC = "I've no need for such things. Perhaps one of the children might take it.",
-            YOTB = "This might be of interest to the judge.",
+            GENERIC = "More black, more spikes, then we'll talk.",
+            YOTB = "It's ready for judgement.",
         },
         YOTB_BEEFALO_DOLL_FESTIVE = {
-            GENERIC = "I've no need for such things.",
-            YOTB = "This might be of interest to the judge.",
+            GENERIC = "More black, more spikes, then we'll talk.",
+            YOTB = "It's ready for judgement.",
         },
         YOTB_BEEFALO_DOLL_NATURE = {
-            GENERIC = "I've no need for such things.",
-            YOTB = "This might be of interest to the judge.",
+            GENERIC = "More black, more spikes, then we'll talk.",
+            YOTB = "It's ready for judgement.",
         },
         YOTB_BEEFALO_DOLL_ROBOT = {
-            GENERIC = "I've no need for such things.",
-            YOTB = "This might be of interest to the judge.",
+            GENERIC = "More black, more spikes, then we'll talk.",
+            YOTB = "It's ready for judgement.",
         },
         YOTB_BEEFALO_DOLL_ICE = {
-            GENERIC = "I've no need for such things.",
-            YOTB = "This might be of interest to the judge.",
+            GENERIC = "More black, more spikes, then we'll talk.",
+            YOTB = "It's ready for judgement.",
         },
         YOTB_BEEFALO_DOLL_FORMAL = {
-            GENERIC = "I've no need for such things.",
-            YOTB = "This might be of interest to the judge.",
+            GENERIC = "More black, more spikes, then we'll talk.",
+            YOTB = "It's ready for judgement.",
         },
         YOTB_BEEFALO_DOLL_VICTORIAN = {
-            GENERIC = "I've no need for such things.",
-            YOTB = "This might be of interest to the judge.",
+            GENERIC = "More black, more spikes, then we'll talk.",
+            YOTB = "It's ready for judgement.",
         },
         YOTB_BEEFALO_DOLL_BEAST = {
-            GENERIC = "I've no need for such things.",
-            YOTB = "This might be of interest to the judge.",
+            GENERIC = "More black, more spikes, then we'll talk.",
+            YOTB = "It's ready for judgement.",
         },
 
-        WAR_BLUEPRINT = "This could be useful.",
-        DOLL_BLUEPRINT = "I can only imagine how grotesque this will look...",
-        FESTIVE_BLUEPRINT = "Positively garish.",
-        ROBOT_BLUEPRINT = "Is this the robot's doing?",
-        NATURE_BLUEPRINT = "Florals. How saccharine.",
-        FORMAL_BLUEPRINT = "These garments are absolutely wasted on such base creatures.",
-        VICTORIAN_BLUEPRINT = "Hmph. Rather outdated.",
-        ICE_BLUEPRINT = "Chilling.",
-        BEAST_BLUEPRINT = "I'd say luck is in rather short supply around here.",
+        WAR_BLUEPRINT = "Haircuts for cows.",
+        DOLL_BLUEPRINT = "Haircuts for cows.",
+        FESTIVE_BLUEPRINT = "Haircuts for cows.",
+        ROBOT_BLUEPRINT = "Haircuts for cows.",
+        NATURE_BLUEPRINT = "Haircuts for cows.",
+        FORMAL_BLUEPRINT = "Haircuts for cows.",
+        VICTORIAN_BLUEPRINT = "Haircuts for cows.",
+        ICE_BLUEPRINT = "Haircuts for cows.",
+        BEAST_BLUEPRINT = "Haircuts for cows.",
 
-        BEEF_BELL = "It appears to have some kind of hypnotic effect on beefalo.",
+        BEEF_BELL = "This isn't true friendship.",
 
 		-- YOT Catcoon
 		KITCOONDEN =
 		{
-			GENERIC = "A house for kitcoons? Can the pitiful little things not climb trees yet?",
-            BURNT = "No place to hide anymore.",
-			PLAYING_HIDEANDSEEK = "They are not here, they are out hiding.",
-			PLAYING_HIDEANDSEEK_TIME_ALMOST_UP = "We are nearly out of time to find all of the rascals.",
+			GENERIC = "Hmph, I won't fit in there, what's the point.",
+            BURNT = "That sucks.",
+			PLAYING_HIDEANDSEEK = "They're hiding, from meow.",
+			PLAYING_HIDEANDSEEK_TIME_ALMOST_UP = "Time is running low.",
 		},
 
-		KITCOONDEN_KIT = "I don't see why I need to build them a house. They need to learn to climb trees like adults.",
+		KITCOONDEN_KIT = "How about I build myeowself a house instead.",
 
 		TICOON =
 		{
-			GENERIC = "This high status catcoon has a talent for finding the kits. I respect him only marginally more.",
-			ABANDONED = "I didn't need his help anyway.",
-			SUCCESS = "Well done, great beast!",
-			LOST_TRACK = "Blasted, we weren't fast enough! Sniff faster, beast!",
-			NEARBY = "A-ha... there's a kitcoon afoot.",
-			TRACKING = "He seems onto something. I shall let him take the lead.",
-			TRACKING_NOT_MINE = "That ticoon is not working for me. Yet.",
-			NOTHING_TO_TRACK = "There's nothing left to find.",
-			TARGET_TOO_FAR_AWAY = "His nose may be good, but I doubt it's good enough to track that far.",
+			GENERIC = "Thinks he's a bigshot.",
+			ABANDONED = "You go nyuck yourself too!.",
+			SUCCESS = "Huh, good one, cupcake.",
+			LOST_TRACK = "Hey hurry up, will ya.",
+			NEARBY = "I smell one of the kits.",
+			TRACKING = "What is it, did you find something.",
+			TRACKING_NOT_MINE = "He's not on my side, nobody is.",
+			NOTHING_TO_TRACK = "Nothing but dust and meowmories left.",
+			TARGET_TOO_FAR_AWAY = "Something's telling meow that's too far for him.",
 		},
 
 		YOT_CATCOONSHRINE =
         {
-            GENERIC = "I suppose even a thief has its admirers.",
-            EMPTY = "It seems we're supposed to offer it something.",
-            BURNT = "Seems not everyone appreciates the little thieves.",
+            GENERIC = "Hah, cool.",
+            EMPTY = "What does it want from meow.",
+            BURNT = "Bad omen.",
         },
 
-		KITCOON_FOREST = "What a pathetic little creature. It's encumbered by excess fur.",
-		KITCOON_SAVANNA = "What a pathetic little creature. It's pretending to be a much more respectable beast.",
-		KITCOON_MARSH = "What a pathetic little creature. It smells of sulphur.",
-		KITCOON_DECIDUOUS = "What a pathetic little creature. It will likely grow up to pick my pockets.",
-		KITCOON_GRASS = "What a pathetic little creature. Just looking at it makes me itch.",
-		KITCOON_ROCKY = "What a pathetic little creature. It doesn't even have the grace of a catcoon.",
-		KITCOON_DESERT = "What a pathetic little creature. Those ears are ridiculous.",
-		KITCOON_MOON = "What a pathetic little creature. It requires dental work.",
-		KITCOON_YOT = "What a pathetic little creature, and in such a gaudy outfit.",
+		KITCOON_FOREST = "You're so small, so pathetic... You're worthless, nothing... NOTHING good will come out of you.",
+		KITCOON_SAVANNA = "You're so small, so pathetic... There's no future ahead of you.",
+		KITCOON_MARSH = "You're so small, so pathetic... Enjoy it everything while you still can.",
+		KITCOON_DECIDUOUS = "You're so small, so pathetic... You have a miserable life to get through.",
+		KITCOON_GRASS = "You're so small, so pathetic... And it won't get any better for you.",
+		KITCOON_ROCKY = "You're so small, so pathetic... It's all downhill from here.",
+		KITCOON_DESERT = "You're so small, so pathetic... Never show your face to anyone again.",
+		KITCOON_MOON = "You're so small, so pathetic... Stupid... stupid stupid stupid.",
+		KITCOON_YOT = "You're so small, so pathetic... I hate you...",
 
         -- Moon Storm
         ALTERGUARDIAN_PHASE1 = {
-            GENERIC = "It seems our actions have been noticed.",
-            DEAD = "Something doesn't feel right...",
+            GENERIC = "Oh hey, it's rock n' roll.",
+            DEAD = "Nothing you can't fix by beating it to death.",
         },
         ALTERGUARDIAN_PHASE2 = {
-            GENERIC = "It toys with us.",
-            DEAD = "Come on now. You're not fooling anyone.",
+            GENERIC = "I guess I'm not the only one here with more lives.",
+            DEAD = "It's not really dead, is it.",
         },
-        ALTERGUARDIAN_PHASE2SPIKE = "It's trying to ensnare us.",
-        ALTERGUARDIAN_PHASE3 = "At last you reveal your true self.",
-        ALTERGUARDIAN_PHASE3TRAP = "I'd do well to avoid those.",
-        ALTERGUARDIAN_PHASE3DEADORB = "This power, it feels like... but it couldn't be...",
-        ALTERGUARDIAN_PHASE3DEAD = "I don't know what to believe. All this time, I thought that They were...",
+        ALTERGUARDIAN_PHASE2SPIKE = "Nice spikes, cupcake.",
+        ALTERGUARDIAN_PHASE3 = "I must've pissed off the horrors beyond my comprehesion.",
+        ALTERGUARDIAN_PHASE3TRAP = "Better stay outta that.",
+        ALTERGUARDIAN_PHASE3DEADORB = "Feels trippy.",
+        ALTERGUARDIAN_PHASE3DEAD = "Hope I don't have to kill it 6 more times.",
 
-        ALTERGUARDIANHAT = "It makes meow uneasy... but I can't deny its power.",
-        ALTERGUARDIANHATSHARD = "Even shattered, it holds power.",
+        ALTERGUARDIANHAT = "Its whispers are almost enough to overpower the voices in my head.",
+        ALTERGUARDIANHATSHARD = "Shattered to bits and pieces.",
 
         MOONSTORM_GLASS = {
-            GENERIC = "It's been turned to glass.",
-            INFUSED = "Hm. This may be useful."
+            GENERIC = "Yep, that looks like glass.",
+            INFUSED = "It's charged or something."
         },
 
-        MOONSTORM_STATIC = "What is he meddling with?",
-        MOONSTORM_STATIC_ITEM = "There's power trapped inside.",
-        MOONSTORM_SPARK = "They give off a rather unsettling sensation.",
+        MOONSTORM_STATIC = "That definitely doesn't look like it'll shock me to death.",
+        MOONSTORM_STATIC_ITEM = "Huh, they just put the thing in a jar and called it a day.",
+        MOONSTORM_SPARK = "A spark of light, in an otherwise dark world.",
 
-        BIRD_MUTANT = "That creature has seen better days.",
-        BIRD_MUTANT_SPITTER = "You dare spit at me?!",
+        BIRD_MUTANT = "Alright, I'm not eating THAT.",
+        BIRD_MUTANT_SPITTER = "Nyuck, better not get any of that on meow.",
 
-        WAGSTAFF_NPC = "What is he up to now?",
+        WAGSTAFF_NPC = "He better not start complaining about the way I dress.",
 
-        WAGSTAFF_NPC_MUTATIONS = "Oh I'm sorry, were you saying something? I was too busy fighting for my life.",
-        WAGSTAFF_NPC_WAGPUNK = "The old goat should watch his step.",
+        WAGSTAFF_NPC_MUTATIONS = "What the nyuck is he talking to meow about.",
+        WAGSTAFF_NPC_WAGPUNK = "Yeah whatever, gramps...",
 
-        ALTERGUARDIAN_CONTAINED = "Ah, now I see...",
+        ALTERGUARDIAN_CONTAINED = "Get boxed, idiot.",
 
-        WAGSTAFF_TOOL_1 = "Hmph. So I'm to fetch his tools for him now?",
-        WAGSTAFF_TOOL_2 = "I suppose that must be what he's looking for.",
-        WAGSTAFF_TOOL_3 = "Finally. That must be what he's looking for.",
-        WAGSTAFF_TOOL_4 = "Is this what he wants? Why couldn't that old fool have been more descriptive?!",
-        WAGSTAFF_TOOL_5 = "Could this be what he's looking for?",
+        WAGSTAFF_TOOL_1 = "That definitely looks like something I don't care about.",
+        WAGSTAFF_TOOL_2 = "That definitely looks like something I don't care about.",
+        WAGSTAFF_TOOL_3 = "That definitely looks like something I don't care about.",
+        WAGSTAFF_TOOL_4 = "That definitely looks like something I don't care about.",
+        WAGSTAFF_TOOL_5 = "That definitely looks like something I don't care about.",
 
-        MOONSTORM_GOGGLESHAT = "There are hardly enough inventors brave enough to harness the power of potatoes.",
+        MOONSTORM_GOGGLESHAT = "A parasitic relationship with a potato.",
 
         MOON_DEVICE = {
-            GENERIC = "That old fool...",
-            CONSTRUCTION1 = "I don't see why I must be the one to do all the work.",
-            CONSTRUCTION2 = "How odd to be the one laboring on a machine for an unknown purpose...",
+            GENERIC = "Does gramps know what he's doing here.",
+            CONSTRUCTION1 = "Ughh, I don't understand any of this.",
+            CONSTRUCTION2 = "And things beyond my understanding piss meow off.",
         },
 
 		-- Wanda
         POCKETWATCH_HEAL = {
-			GENERIC = "Careful, madam. I know where this trail ultimately leads.",
-			RECHARGING = "It looks like she'll have to wait, for once.",
+			GENERIC = "How are you supposed to understand what time it is by looking at it.",
+			RECHARGING = "How are you supposed to understand what time it is by looking at it.",
 		},
 
         POCKETWATCH_REVIVE = {
-			GENERIC = "Careful, madam. I know where this trail ultimately leads.",
-			RECHARGING = "It looks like she'll have to wait, for once.",
+			GENERIC = "How are you supposed to understand what time it is by looking at it.",
+			RECHARGING = "How are you supposed to understand what time it is by looking at it.",
 		},
 
         POCKETWATCH_WARP = {
-			GENERIC = "Careful, madam. I know where this trail ultimately leads.",
-			RECHARGING = "It looks like she'll have to wait, for once.",
+			GENERIC = "How are you supposed to understand what time it is by looking at it.",
+			RECHARGING = "How are you supposed to understand what time it is by looking at it.",
 		},
 
         POCKETWATCH_RECALL = {
-			GENERIC = "Careful, madam. I know where this trail ultimately leads.",
-			RECHARGING = "It looks like she'll have to wait, for once.",
+			GENERIC = "How are you supposed to understand what time it is by looking at it.",
+			RECHARGING = "How are you supposed to understand what time it is by looking at it.",
 --fallback to speech_wilson.lua 			UNMARKED = "only_used_by_wanda",
 --fallback to speech_wilson.lua 			MARKED_SAMESHARD = "only_used_by_wanda",
 --fallback to speech_wilson.lua 			MARKED_DIFFERENTSHARD = "only_used_by_wanda",
 		},
 
         POCKETWATCH_PORTAL = {
-			GENERIC = "Careful, madam. I know where this trail ultimately leads.",
-			RECHARGING = "It looks like she'll have to wait, for once.",
+			GENERIC = "How are you supposed to understand what time it is by looking at it.",
+			RECHARGING = "How are you supposed to understand what time it is by looking at it.",
 --fallback to speech_wilson.lua 			UNMARKED = "only_used_by_wanda unmarked",
 --fallback to speech_wilson.lua 			MARKED_SAMESHARD = "only_used_by_wanda same shard",
 --fallback to speech_wilson.lua 			MARKED_DIFFERENTSHARD = "only_used_by_wanda other shard",
 		},
 
         POCKETWATCH_WEAPON = {
-			GENERIC = "That... looks like it would hurt.",
+			GENERIC = "Definitely looks like it could grind someone into fine paste.",
 --fallback to speech_wilson.lua 			DEPLETED = "only_used_by_wanda",
 		},
 
-        POCKETWATCH_PARTS = "She doesn't understand the full extent of the power she's toying with.",
-        POCKETWATCH_DISMANTLER = "Little hand tools, how quaint.",
+        POCKETWATCH_PARTS = "Insides of a clock.",
+        POCKETWATCH_DISMANTLER = "Torture tools... I think.",
 
         POCKETWATCH_PORTAL_ENTRANCE =
 		{
-			GENERIC = "At least it doesn't smell, like some other modes of transportation.",
-			DIFFERENTSHARD = "At least it doesn't smell, like some other modes of transportation.",
+			GENERIC = "How many years of my life will this shave off.",
+			DIFFERENTSHARD = "How many years of my life will this shave off.",
 		},
-        POCKETWATCH_PORTAL_EXIT = "Hmph. I think she puts it up there on purpose.",
+        POCKETWATCH_PORTAL_EXIT = "Why's it all the way up there.",
 
         -- Waterlog
-        WATERTREE_PILLAR = "When did this get here?",
-        OCEANTREE = "An aquatic tree, what next?",
-        OCEANTREENUT = "I have no interest in lugging that thing around. Back in the drink you go.",
-        WATERTREE_ROOT = "I've found the root of the problem.",
+        WATERTREE_PILLAR = "That's a mighty fine tree.",
+        OCEANTREE = "Must be one big tree under there.",
+        OCEANTREENUT = "Someone lost their nut.",
+        WATERTREE_ROOT = "The root cause of it all.",
 
-        OCEANTREE_PILLAR = "It could use a good pruning.",
+        OCEANTREE_PILLAR = "Wonder if I can bring it down.",
 
-        OCEANVINE = "It's just hanging around.",
-        FIG = "A fruit for more refined tastes.",
-        FIG_COOKED = "Quite decadent.",
+        OCEANVINE = "UGHHH, they're so slimy and gross.",
+        FIG = "How figgy.",
+        FIG_COOKED = "If this tastes any better, I give up.",
 
-        SPIDER_WATER = "Well aren't you a delight!",
-        MUTATOR_WATER = "I'm not eating that.",
-        OCEANVINE_COCOON = "It looks like someone's already made themselves comfortable here.",
-        OCEANVINE_COCOON_BURNT = "Not quite so comfortable anymore.",
+        SPIDER_WATER = "They're on water now, great.",
+        MUTATOR_WATER = "Nyuck, keep it to yourself, cupcake.",
+        OCEANVINE_COCOON = "Guessing that's occupied.",
+        OCEANVINE_COCOON_BURNT = "Well, not anymore.",
 
-        GRASSGATOR = "Quite a skittish creature.",
+        GRASSGATOR = "I can murder it, if I'm desperate enough for grass.",
 
-        TREEGROWTHSOLUTION = "Looks like you're in a bit of a jam, pal.",
+        TREEGROWTHSOLUTION = "These trees have a weird taste in jam.",
 
-        FIGATONI = "Exquisite.",
-        FIGKABAB = "Pleasantly sweet.",
-        KOALEFIG_TRUNK = "I hope it was well cleaned before we stuffed the figs inside.",
-        FROGNEWTON = "This recipe has legs.",
+        FIGATONI = "More weird looking food.",
+        FIGKABAB = "It tastes sweet, I hate it, have it taste horrible. Make meow feel miserable.",
+        KOALEFIG_TRUNK = "Because just cooking the trunk isn't enough apparently.",
+        FROGNEWTON = "Hope it doesn't run anywhere while I'm not looking.",
 
         -- The Terrorarium
         TERRARIUM = {
-            GENERIC = "My, this is some strange magic, even for me.",
-            CRIMSON = "The fuel has taken hold.",
-            ENABLED = "Just what manner of magic is this?!",
-			WAITING_FOR_DARK = "Its power is coalescing.",
-			COOLDOWN = "I'd bet it was that insufferable imp who brought it here.",
-			SPAWN_DISABLED = "Let it stay banished.",
+            GENERIC = "A tiny life is trapped inside.",
+            CRIMSON = "No one is safe from lifes corruption.",
+            ENABLED = "A light in the dark.",
+			WAITING_FOR_DARK = "It's like, bobbing up and down.",
+			COOLDOWN = "Huh, guess that's that.",
+			SPAWN_DISABLED = "I don't really care enough about this thing to be honest.",
         },
 
         -- Wolfgang
         MIGHTY_GYM =
         {
-            GENERIC = "Hmph. I suppose some people are impressed by shows of brute strength.",
-            BURNT = "The show's over.",
+            GENERIC = "It's for boys to get big... and burly and muscly and strong and mhhrrmrmh... I-I mean, yeah. ",
+            BURNT = "Nyuck.",
         },
 
-        DUMBBELL = "I have no interest in such things.",
-        DUMBBELL_GOLDEN = "It's not that impressive.",
-		DUMBBELL_MARBLE = "It's not that impressive.",
-        DUMBBELL_GEM = "It's not that impressive.",
-        POTATOSACK = "Potatoes are powerful things, not to be underestimated.",
+        DUMBBELL = "Better start lifting if you wanna impress those girls.",
+        DUMBBELL_GOLDEN = "Better start lifting if you wanna impress those girls.",
+		DUMBBELL_MARBLE = "Better start lifting if you wanna impress those girls.",
+        DUMBBELL_GEM = "Better start lifting if you wanna impress those girls.",
+        POTATOSACK = "Yeah, potatos. There's definitely no dismeowmbered limbs in that.",
 
-        DUMBBELL_HEAT = "You won't catch me lugging it around.",
-        DUMBBELL_REDGEM = "It has all the grace and subtlety I'd expect from the strongman.",
-        DUMBBELL_BLUEGEM = "It has all the grace and subtlety I'd expect from the strongman.",
+        DUMBBELL_HEAT = "Better start lifting if you wanna impress those girls.",
+        DUMBBELL_REDGEM = "Better start lifting if you wanna impress those girls.",
+        DUMBBELL_BLUEGEM = "Better start lifting if you wanna impress those girls.",
 
         TERRARIUMCHEST =
 		{
-			GENERIC = "It's just my style.",
-			BURNT = "That seemed unnecessary.",
-			SHIMMER = "How... unusual.",
+			GENERIC = "Curiosity will kill meow if I don't open that.",
+			BURNT = "They don't make anything fireproof around here.",
+			SHIMMER = "Why's it looking at meow so girly.",
 		},
 
-		EYEMASKHAT = "How deliciously macabre.",
+		EYEMASKHAT = "Puts meow in a different headspace.",
 
-        EYEOFTERROR = "Don't look at me, it's definitely not one of mine.",
-        EYEOFTERROR_MINI = "We're going to be up to our eyeballs in... eyeballs.",
-        EYEOFTERROR_MINI_GROUNDED = "I should dispose of it before it hatches.",
+        EYEOFTERROR = "An oversized eyeball, great.",
+        EYEOFTERROR_MINI = "Stop looking at meow.",
+        EYEOFTERROR_MINI_GROUNDED = "Stomp that, stomp that.",
 
-        FROZENBANANADAIQUIRI = "There are better beverages to make.",
-        BUNNYSTEW = "Good until the last hop.",
-        MILKYWHITES = "Nauseating. It must still contain some evil energy.",
+        FROZENBANANADAIQUIRI = "A drink's a drink.",
+        BUNNYSTEW = "Can't run away from meow anymore.",
+        MILKYWHITES = "Nyuck, gross.",
 
-        CRITTER_EYEOFTERROR = "Tell me, what is it you see, little one?",
+        CRITTER_EYEOFTERROR = "If I was him I would've ended myeowself at birth.",
 
-        SHIELDOFTERROR ="At least dealing with that monstrosity was good for something.",
-        TWINOFTERROR1 = "Ah. Just what we needed, a fresh pair of eyes...",
-        TWINOFTERROR2 = "Ah. Just what we needed, a fresh pair of eyes...",
+        SHIELDOFTERROR ="It's more for just beating stuff up with.",
+        TWINOFTERROR1 = "The eye is probably its weakspot.",
+        TWINOFTERROR2 = "The eye is probably its weakspot.",
 
 		-- Cult of the Lamb
-		COTL_TRINKET = "Not my size, sadly.",
-		TURF_COTL_GOLD = "A bit gaudy, but it certainly makes an impression.",
-		TURF_COTL_BRICK = "Some quality stonework.",
+		COTL_TRINKET = "That could suit meow.",
+		TURF_COTL_GOLD = "There's better ways to signal your status.",
+		TURF_COTL_BRICK = "The road's all bricked up.",
 		COTL_TABERNACLE_LEVEL1 =
 		{
-			LIT = "A homely statue. Perhaps it can be improved.",
-			GENERIC = "Let's add a little fire for dramatic effect.",
+			LIT = "Must be a religious figure.",
+			GENERIC = "Light it up.",
 		},
 		COTL_TABERNACLE_LEVEL2 =
 		{
-			LIT = "How delightfully ominous.",
-			GENERIC = "Let's add a little fire for dramatic effect.",
+			LIT = "Too bad I don't care about religion.",
+			GENERIC = "Light it up.",
 		},
 		COTL_TABERNACLE_LEVEL3 =
 		{
-			LIT = "There's something captivating about it.",
-			GENERIC = "Let's add a little fire for dramatic effect.",
+			LIT = "Unless the religion involves spiked bracelets...",
+			GENERIC = "Light it up.",
 		},
 
         -- Year of the Catcoon
-        CATTOY_MOUSE = "The classic game of catcoon and mechanical mouse.",
-        KITCOON_NAMETAG = "I've named so many creatures at this point, the novelty has worn off.",
+        CATTOY_MOUSE = "Who do you think I am.",
+        KITCOON_NAMETAG = "Who volunteers to be named \"Supershit\".",
 
 		KITCOONDECOR1 =
         {
-            GENERIC = "Those creatures are so feeble of mind they can't tell a real bird from a wooden one.",
-            BURNT = "Whatever will we do without it.",
+            GENERIC = "That's not even a real bird.",
+            BURNT = "Yeah, sucks doesn't it.",
         },
 		KITCOONDECOR2 =
         {
-            GENERIC = "At least it should keep them occupied.",
-            BURNT = "A pity.",
+            GENERIC = "Hey, as long as they're off my back.",
+            BURNT = "Yeah, sucks doesn't it.",
         },
 
-		KITCOONDECOR1_KIT = "Surely someone else can set it up.",
-		KITCOONDECOR2_KIT = "Physical labor is what underlings are for.",
+		KITCOONDECOR1_KIT = "How do I put this together, the hell...",
+		KITCOONDECOR2_KIT = "How do I put this together, the hell...",
 
         -- WX78
-        WX78MODULE_MAXHEALTH = "That robot needs to pull themselves together.",
-        WX78MODULE_MAXSANITY1 = "That robot needs to pull themselves together.",
-        WX78MODULE_MAXSANITY = "That robot needs to pull themselves together.",
-        WX78MODULE_MOVESPEED = "That robot needs to pull themselves together.",
-        WX78MODULE_MOVESPEED2 = "That robot needs to pull themselves together.",
-        WX78MODULE_HEAT = "That robot needs to pull themselves together.",
-        WX78MODULE_NIGHTVISION = "That robot needs to pull themselves together.",
-        WX78MODULE_COLD = "That robot needs to pull themselves together.",
-        WX78MODULE_TASER = "That robot needs to pull themselves together.",
-        WX78MODULE_LIGHT = "That robot needs to pull themselves together.",
-        WX78MODULE_MAXHUNGER1 = "That robot needs to pull themselves together.",
-        WX78MODULE_MAXHUNGER = "That robot needs to pull themselves together.",
-        WX78MODULE_MUSIC = "They wouldn't...",
-        WX78MODULE_BEE = "That robot needs to pull themselves together.",
-        WX78MODULE_MAXHEALTH2 = "That robot needs to pull themselves together.",
+        WX78MODULE_MAXHEALTH = "Robot insides.",
+        WX78MODULE_MAXSANITY1 = "Robot insides.",
+        WX78MODULE_MAXSANITY = "Robot insides.",
+        WX78MODULE_MOVESPEED = "Robot insides.",
+        WX78MODULE_MOVESPEED2 = "Robot insides.",
+        WX78MODULE_HEAT = "Robot insides.",
+        WX78MODULE_NIGHTVISION = "Robot insides.",
+        WX78MODULE_COLD = "Robot insides.",
+        WX78MODULE_TASER = "Robot insides.",
+        WX78MODULE_LIGHT = "Robot insides.",
+        WX78MODULE_MAXHUNGER1 = "Robot insides.",
+        WX78MODULE_MAXHUNGER = "Robot insides.",
+        WX78MODULE_MUSIC = "Robot insides.",
+        WX78MODULE_BEE = "Robot insides.",
+        WX78MODULE_MAXHEALTH2 = "Robot insides.",
 
         WX78_SCANNER =
         {
