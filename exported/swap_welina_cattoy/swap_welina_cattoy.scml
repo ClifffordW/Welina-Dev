@@ -1,8 +1,8 @@
 <spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="b5">
-  <folder id="0" name="swap_monkeyball">
-    <file id="0" name="swap_monkeyball/swap_monkeyball-0.png" width="164" height="168" pivot_x="0.21569817240645245" pivot_y="0.33824702671595985" />
-    <file id="1" name="swap_monkeyball/swap_monkeyball-1(duration'0').png" width="164" height="168" pivot_x="0.21569817240645245" pivot_y="0.33824702671595985" />
-    <file id="2" name="swap_monkeyball/swap_monkeyball-2.png" width="148" height="192" pivot_x="0.1528682450990419" pivot_y="0.39700781305631" />
+  <folder id="0" name="swap_welina_cattoy">
+    <file id="0" name="swap_welina_cattoy/swap_monkeyball-0.png" width="164" height="168" pivot_x="0.21569817240645245" pivot_y="0.33824702671595985" />
+    <file id="1" name="swap_welina_cattoy/swap_monkeyball-1(duration'0').png" width="164" height="168" pivot_x="0.21569817240645245" pivot_y="0.33824702671595985" />
+    <file id="2" name="swap_welina_cattoy/swap_monkeyball-2.png" width="148" height="192" pivot_x="0.1528682450990419" pivot_y="0.39700781305631" />
   </folder>
   <folder id="1" name="monkeyball01">
     <file id="0" name="monkeyball01/monkeyball01-0.png" width="193" height="144" pivot_x="0.5" pivot_y="0.5" />

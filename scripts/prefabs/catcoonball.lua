@@ -13,7 +13,7 @@ local function unclaim(inst)
 end
 
 local function onequip(inst, owner)
-	owner.AnimState:OverrideSymbol("swap_object", "swap_monkeyball", "swap_monkeyball")
+	owner.AnimState:OverrideSymbol("swap_object", "swap_welina_cattoy", "swap_welina_cattoy")
 	owner.AnimState:Show("ARM_carry")
 	owner.AnimState:Hide("ARM_normal")
 end
@@ -82,7 +82,7 @@ local function fn()
 	inst.entity:AddSoundEmitter()
     inst.entity:AddNetwork()
 
-	inst.AnimState:SetBank("monkeyball")
+	inst.AnimState:SetBank("cattoy")
 	inst.AnimState:SetBuild("welina_cattoy")
 	inst.AnimState:PlayAnimation("idle")
 

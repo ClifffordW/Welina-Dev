@@ -55,8 +55,8 @@ Assets = {
 
 	
 
-    Asset("ANIM", "anim/monkey_ball.zip"),
-	Asset("ANIM", "anim/swap_monkeyball.zip"),
+    Asset("ANIM", "anim/welina_cattoy.zip"),
+	Asset("ANIM", "anim/swap_welina_cattoy.zip"),
     
 }
 

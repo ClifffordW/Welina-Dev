@@ -5,7 +5,7 @@ AddPrefab("welina_catnip")
 AddPrefab("welina_catcoon")
 
 
-AddPrefab("welina_cattoy")
+AddPrefab("catcoonball")
 
 
 STRINGS.RECIPE_DESC.WELINA_CATCOONDEN = "Cozy."
