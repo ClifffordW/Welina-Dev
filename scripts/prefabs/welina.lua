@@ -434,6 +434,8 @@ local master_postinit = function(inst)
     -- Hunger rate (optional)
     inst.components.hunger.hungerrate = TUNING.WELINA_HUNGERDRAIN * TUNING.WILSON_HUNGER_RATE
 
+    inst:AddComponent("welina_playful")
+
     if inst.components.eater ~= nil then
         inst.components.eater:SetIgnoresSpoilage(true)
     end

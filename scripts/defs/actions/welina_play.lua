@@ -10,17 +10,12 @@ WELINA_PLAY.fn = function (act)
     if act.target == nil then return false end
 
     local invItem = act.target.components.inventoryitem
-    if invItem == nil then return false end
+    local welinaPlayful = act.doer.components.welina_playful
+    if invItem == nil or welinaPlayful == nil then return false end
 
-    -- Bounce!
     local x, y, z = act.target.Transform:GetWorldPosition()
     invItem:DoDropPhysics(x, y, z, true, 1)
-
-    local sanity = act.doer.components.sanity
-    if sanity ~= nil then
-        sanity:DoDelta(TUNING.WELINA_PLAY_SANITY)
-    end
-
+    welinaPlayful:TryGainSanityFrom(act.target)
     return true
 end
 
