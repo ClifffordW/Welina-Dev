@@ -21,7 +21,7 @@ local animation_data = {
 
 
 
-AddPrefabPostInit("whip", function(inst)
+AddPrefabPostInit("whip", function (inst)
     local CRACK_MUST_TAGS = { "_combat" }
     local CRACK_CANT_TAGS = { "player", "epic", "shadow", "shadowminion", "shadowchesspiece", "sinner" }
     local function supercrack(inst)
@@ -88,7 +88,7 @@ AddPrefabPostInit("whip", function(inst)
 end)
 
 
-AddPrefabPostInit("catcoon", function(inst)
+AddPrefabPostInit("catcoon", function (inst)
     inst.AnimState:SetHatOffset(5, 200)
     local function NoHoles(pt)
         return not TheWorld.Map:IsPointNearHole(pt)
@@ -178,31 +178,31 @@ AddPrefabPostInit("catcoon", function(inst)
         end
     end
 
-    local RETARGET_TAGS = {"_health"}
-local RETARGET_NO_TAGS = {"INLIMBO", "notarget", "invisible", "sinner" }
+    local RETARGET_TAGS = { "_health" }
+    local RETARGET_NO_TAGS = { "INLIMBO", "notarget", "invisible", "sinner" }
 
-local function RetargetFn(inst)
-    return FindEntity(inst, TUNING.CATCOON_TARGET_DIST,
-        function(guy)
-        	if guy:HasTag("catcoon") then
-        		return 	not (inst.components.follower and inst.components.follower:IsLeaderSame(guy))
-        				and not (inst.components.follower and guy.components.follower and inst.components.follower.leader == nil and guy.components.follower.leader == nil)
-        				and guy.components.health
-	            		and not guy.components.health:IsDead()
-	            		and inst.components.combat:CanTarget(guy)
-        	else
-            	return 	((guy:HasTag("monster") or guy:HasTag("smallcreature"))
-	            		and guy.components.health
-	            		and not guy.components.health:IsDead()
-	            		and inst.components.combat:CanTarget(guy)
-	            		and not (inst.components.follower and inst.components.follower.leader ~= nil and guy:HasTag("abigail")))
-            			and not (inst.components.follower and inst.components.follower:IsLeaderSame(guy))
-	            	or 	(guy:HasTag("cattoyairborne")
-            			and not (inst.components.follower and inst.components.follower:IsLeaderSame(guy)))
-	        end
-        end, 
-		RETARGET_TAGS, RETARGET_NO_TAGS)
-end
+    local function RetargetFn(inst)
+        return FindEntity(inst, TUNING.CATCOON_TARGET_DIST,
+            function (guy)
+                if guy:HasTag("catcoon") then
+                    return not (inst.components.follower and inst.components.follower:IsLeaderSame(guy))
+                        and not (inst.components.follower and guy.components.follower and inst.components.follower.leader == nil and guy.components.follower.leader == nil)
+                        and guy.components.health
+                        and not guy.components.health:IsDead()
+                        and inst.components.combat:CanTarget(guy)
+                else
+                    return ((guy:HasTag("monster") or guy:HasTag("smallcreature"))
+                            and guy.components.health
+                            and not guy.components.health:IsDead()
+                            and inst.components.combat:CanTarget(guy)
+                            and not (inst.components.follower and inst.components.follower.leader ~= nil and guy:HasTag("abigail")))
+                        and not (inst.components.follower and inst.components.follower:IsLeaderSame(guy))
+                        or (guy:HasTag("cattoyairborne")
+                            and not (inst.components.follower and inst.components.follower:IsLeaderSame(guy)))
+                end
+            end,
+            RETARGET_TAGS, RETARGET_NO_TAGS)
+    end
 
     if not TheWorld.ismastersim then
         return inst
@@ -212,7 +212,6 @@ end
     inst.components.trader.onaccept = OnGetItemFromPlayer
 
     inst.components.combat:SetRetargetFunction(3, RetargetFn)
-
 end)
 
 AddStategraphState(
@@ -221,7 +220,7 @@ AddStategraphState(
         name = "welina_hiss",
         tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph" },
 
-        onenter = function(inst)
+        onenter = function (inst)
             if animation_data.anims == "idle_loop" then
                 inst.AnimState:PlayAnimation("research")
             end
@@ -253,7 +252,7 @@ AddStategraphState(
         end,
         events = {
 
-            EventHandler("animqueueover", function(inst)
+            EventHandler("animqueueover", function (inst)
                 if inst.AnimState:AnimDone() then
                     inst.sg:GoToState("idle")
                 end
@@ -264,7 +263,7 @@ AddStategraphState(
 
             --TimeEvent(1 * FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hiss_pre") end),
 
-            TimeEvent(10 * FRAMES, function(inst)
+            TimeEvent(10 * FRAMES, function (inst)
                 if animation_data.anims == "idle_loop" then
                     local skin_build = inst.AnimState:GetBuild()
                     local contains_welina = string.find(skin_build, "ms_welina")
@@ -286,22 +285,22 @@ AddStategraphState(
                 inst.Transform:SetNoFaced()
             end),
 
-            TimeEvent(14 * FRAMES, function(inst)
+            TimeEvent(14 * FRAMES, function (inst)
                 if animation_data.anims == "idle_loop" then
                     --inst.SoundEmitter:PlaySound(welina_sounds.welina_hiss.event)
                     inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hiss")
                 end
             end),
 
-            TimeEvent(62 * FRAMES, function(inst)
+            TimeEvent(62 * FRAMES, function (inst)
                 inst.sg:RemoveStateTag("busy")
             end),
 
-            TimeEvent(62 * FRAMES, function(inst)
+            TimeEvent(62 * FRAMES, function (inst)
                 inst.AnimState:PushAnimation("idle_pst", false)
             end),
 
-            TimeEvent(animation_data.frames_anim * FRAMES, function(inst)
+            TimeEvent(animation_data.frames_anim * FRAMES, function (inst)
                 inst.AnimState:SetBuild(inst.skinname ~= "" and "ms_welina" .. inst.skinname or "welina")
                 inst.AnimState:SetBank("wilson")
                 inst.components.locomotor:StopMoving()
@@ -313,7 +312,7 @@ AddStategraphState(
                 inst:SetCameraDistance(animation_data.camera_distance + 8)
             end),
 
-            TimeEvent(68 * FRAMES, function(inst)
+            TimeEvent(68 * FRAMES, function (inst)
                 if animation_data.anims == "idle_loop" then
                     inst.AnimState:PlayAnimation("staff")
                     inst.AnimState:SetFrame(60)
@@ -321,16 +320,16 @@ AddStategraphState(
                 end
             end),
 
-            TimeEvent(72 * FRAMES, function(inst)
+            TimeEvent(72 * FRAMES, function (inst)
                 if animation_data.anims == "idle_loop" then
                     inst.AnimState:SetDeltaTimeMultiplier(1)
                 end
             end),
         },
 
-        onupdate = function(inst) end,
+        onupdate = function (inst) end,
 
-        onexit = function(inst)
+        onexit = function (inst)
             inst:RemoveTag("NOTARGET")
 
             if inst.skinname then
@@ -352,8 +351,8 @@ AddStategraphState(
 
 
 
-AddPrefabPostInit("welina", function(inst, data, ...)
-    local DummyFn = function() end
+AddPrefabPostInit("welina", function (inst, data, ...)
+    local DummyFn = function () end
 
     local _SaveForReroll = inst.SaveForReroll or DummyFn
     local _LoadForReroll = inst.LoadForReroll or DummyFn
@@ -391,11 +390,11 @@ AddPrefabPostInit("welina", function(inst, data, ...)
     inst.LoadForReroll = LoadForReroll
 end)
 
-AddPlayerPostInit(function(inst, data, ...)
+AddPlayerPostInit(function (inst, data, ...)
     if inst.prefab ~= "welina" then
         GLOBAL.TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
 
-        local DummyFn = function() end
+        local DummyFn = function () end
 
         local _SaveForReroll = inst.SaveForReroll or DummyFn
         local _LoadForReroll = inst.LoadForReroll or DummyFn
@@ -456,15 +455,20 @@ AddPlayerPostInit(function(inst, data, ...)
     end
 end)
 
-AddPrefabPostInitAny(function(inst)
-    if inst == nil
-        or not TheWorld.ismastersim
-        or inst.components.combat == nil
+local function TryMakeResentable(inst)
+    if inst.components.combat == nil
         or inst.components.welina_resentable ~= nil then
         return
     end
-
     inst:AddComponent("welina_resentable")
+end
+
+AddPrefabPostInitAny(function (inst)
+    if inst == nil or not TheWorld.ismastersim then
+        return
+    end
+
+    TryMakeResentable(inst)
 end)
 
 --[[ AddPrefabPostInit("wonkey", function(inst, data, ...)
@@ -607,7 +611,7 @@ if TUNING.WELINA_OSP == 1 then
         end
     end
 
-    AddComponentPostInit("health", function(self)
+    AddComponentPostInit("health", function (self)
         if not TheWorld.ismastersim then
             return
         end
@@ -638,22 +642,28 @@ local eatercomp = require("components/eater")
 
 local OldFunc = eatercomp.PrefersToEat
 
-eatercomp.PrefersToEat = function(self, food,...)
+eatercomp.PrefersToEat = function (self, food, ...)
     local ret = { OldFunc(self, food, ...) }
-    if food.prefab == "welina_catnip" and not self.inst:HasTag("emocatgirl")  then
-        
+    if food.prefab == "welina_catnip" and not self.inst:HasTag("emocatgirl") then
         --CW: catnip hack. Hope it doesnt look sussy - _-"
         return false
-
     end
     return unpack(ret)
 end
 
+-- Actions.
+local actions = {
+    WELINA_PLAY = require("defs/actions/welina_play"),
+}
 
+local function AddCharacterActionComplete(actionReq, actiontype, component)
+    AddAction(actionReq.ACTION)
+    AddStategraphActionHandler("wilson", GLOBAL.ActionHandler(actionReq.ACTION, actionReq.ActionHandler))
+    AddStategraphActionHandler("wilson_client", GLOBAL.ActionHandler(actionReq.ACTION, actionReq.ClientActionHandler or actionReq.ActionHandler))
+    AddComponentAction(actiontype, component, actionReq.ComponentAction)
+end
 
-
-
-
+AddCharacterActionComplete(actions.WELINA_PLAY, "SCENE", "inventoryitem")
 
 --[[
 AddComponentAction("SCENE", "prototyper", function(inst, doer, actions, right)
