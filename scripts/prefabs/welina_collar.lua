@@ -76,7 +76,7 @@ local function onequip(inst, owner)
 				inst.components.fueled:StartConsuming()
 			end
 		elseif name == "glass" and owner.components.combat then
-			owner.components.combat.damagemultiplier = 3
+			owner.components.combat.damagemultiplier = isplayer and owner.components.combat.damagemultiplier - 1.2 or 3
 			if inst.components.fueled ~= nil then
 				inst.components.fueled:StartConsuming()
 			end
