@@ -480,7 +480,7 @@ local function fn()
 
 	MakeCharacterPhysics(inst, 1, 0.5)
 
-	inst.AnimState:SetBank("welina_catcoon")
+	inst.AnimState:SetBank("welina_catcoon") -- summerscorcher: Back to vanilla bank for debugging. Originally "welina_catcoon".
 	inst.AnimState:SetBuild("catcoon_build")
 	inst.AnimState:PlayAnimation("idle_loop")
 
@@ -533,6 +533,7 @@ local function fn()
 	inst.components.follower:KeepLeaderOnAttacked()
 	inst.components.follower.keepdeadleader = true
 	inst.components.follower.keepleaderduringminigame = true
+	inst.components.follower.neverexpire = true
 
 	inst:AddComponent("named")
 
