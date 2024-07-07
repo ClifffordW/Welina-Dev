@@ -46,6 +46,9 @@ end
 local function onequip(inst, owner)
 	local name = inst.collarname
 
+
+	owner:AddTag(name.."_collar")
+
 	if owner:IsValid() and owner.components.health and not owner.components.health:IsDead() then
 		local isplayer = owner:HasTag("player")
 		if isplayer then
@@ -67,21 +70,21 @@ local function onequip(inst, owner)
 				end
 
 				owner:ListenForEvent("death", inst.BoomCollar)
-
 			end
-
 		elseif name == "spiked" then
 			owner:ListenForEvent("attacked", ReflectDamage)
 			if inst.components.fueled ~= nil then
 				inst.components.fueled:StartConsuming()
 			end
 		elseif name == "glass" and owner.components.combat then
-			owner.components.combat.damagemultiplier = isplayer and owner.components.combat.damagemultiplier - 1.2 or 3
+			owner.components.combat.damagemultiplier = isplayer and owner.components.combat.damagemultiplier + 0.2 or 3
+			print(owner.components.combat.damagemultiplier)
 			if inst.components.fueled ~= nil then
 				inst.components.fueled:StartConsuming()
 			end
 		elseif name == "regen" then
-			inst.currentowner_hp, inst.currentowner_maxhp = owner.components.health:GetPercent(), owner.components.health.maxhealth
+			inst.currentowner_hp, inst.currentowner_maxhp = owner.components.health:GetPercent(),
+				owner.components.health.maxhealth
 			print(inst.currentowner_hp, inst.currentowner_maxhp)
 
 			owner.components.health:SetMaxHealth(isplayer and inst.currentowner_maxhp * 2 or TUNING.CATCOON_LIFE * 2)
@@ -122,7 +125,12 @@ end
 
 -- Function to handle unequip event
 local function onunequip(inst, owner)
+
+
 	local name = inst.collarname
+
+
+	owner:RemoveTag(name.."_collar")
 	local isplayer = owner:HasTag("player")
 
 	if isplayer then
@@ -134,12 +142,10 @@ local function onunequip(inst, owner)
 	end
 
 	if name == "bomb" then
-		
 		if inst.BoomCollar ~= nil then
 			owner:RemoveEventCallback("death", inst.BoomCollar)
 			inst.BoomCollar = nil
 		end
-
 	elseif name == "spiked" then
 		owner:RemoveEventCallback("attacked", ReflectDamage)
 		if inst.components.fueled ~= nil then
@@ -157,8 +163,6 @@ local function onunequip(inst, owner)
 			and not owner.components.health:IsDead()
 			and owner.health_task
 		then
-
-
 			owner.components.health:SetMaxHealth(isplayer and inst.currentowner_maxhp or TUNING.CATCOON_LIFE)
 			owner.components.health:SetPercent(inst.currentowner_hp)
 			owner.health_task:Cancel()
@@ -235,7 +239,7 @@ local function MakeCollar(name)
 		inst.components.equippable.equipslot = EQUIPSLOTS.BODY
 		inst.components.equippable:SetOnUnequip(onunequip)
 		inst.components.equippable:SetOnEquip(onequip)
-		inst.components.equippable.restrictedtag = "welinacollar_wearer"
+		inst.components.equippable.restrictedtag = "emocatgirl"
 
 		inst:AddComponent("fueled")
 		--inst.components.fueled.fueltype = FUELTYPE.USAGE

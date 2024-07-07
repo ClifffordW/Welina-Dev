@@ -40,9 +40,9 @@ local function GetWetnessPenalty(inst, max, modifierchange)
 end
 
 local function OnAttackOther(inst, data)
-	if data.target:HasTag("raidrat") and not data.target.components.health:IsDead() then
-		data.target.components.health:Kill()
-	end
+    if data.target:HasTag("raidrat") and not data.target.components.health:IsDead() then
+        data.target.components.health:Kill()
+    end
 end
 
 local function AsocialWork(inst, data)
@@ -62,13 +62,14 @@ local function SanityScrew(inst)
     if not inst.components.debuffable:HasDebuff("catnipbuff") then
         inst.components.sanity.dapperness = sanityModifier - 1
     end
-
 end
 
 local function DamageScrew(inst, data)
     local damageModifier = GetWetnessPenalty(inst, 0.30, 0.01)
 
-    inst.components.combat.damagemultiplier = damageModifier
+    local hasglasscollar = inst:HasTag("glass_collar")
+
+    inst.components.combat.damagemultiplier = hasglasscollar and damageModifier + 0.2 or damageModifier
 end
 
 
@@ -124,10 +125,11 @@ local function StackResentfulness(inst, data)
 
     local resentment = math.floor(data.damage)
     resentable:AddResentedness(inst.userid, resentment)
-		
+
     -- Add resentfulness health penalty.
     local health = inst.components.health
-    if TUNING.WELINA_RESENTMENT_MAX_HP == 1 and health ~= nil then health:DeltaPenalty(GetResentfulnessHealthPenalty(inst, attacker, resentment)) end	
+    if TUNING.WELINA_RESENTMENT_MAX_HP == 1 and health ~= nil then health:DeltaPenalty(GetResentfulnessHealthPenalty(
+        inst, attacker, resentment)) end
 end
 
 local function OnTakeDamage(inst, data)
@@ -315,7 +317,7 @@ local NV_COLOURCUBES =
     {
         day = "images/colour_cubes/ruins_light_cc.tex",
         dusk = "images/colour_cubes/ruins_dim_cc.tex",
-        night = "images/colour_cubes/spring_dusk_cc.tex",--"images/colour_cubes/spring_night_cc.tex",
+        night = "images/colour_cubes/spring_dusk_cc.tex", --"images/colour_cubes/spring_night_cc.tex",
         full_moon = "images/colour_cubes/purple_moon_cc.tex"
     },
     summer =
@@ -328,10 +330,9 @@ local NV_COLOURCUBES =
 }
 
 local function SetNightVision(inst, enable)
-
     local season = TheWorld.state.season
 
-        
+
 
 
     if TheWorld.state.isnight or TheWorld:HasTag("cave") then
@@ -341,7 +342,7 @@ local function SetNightVision(inst, enable)
         inst.components.playervision:ForceNightVision(false)
         inst.components.playervision:SetCustomCCTable(nil)
     end
-end 
+end
 
 
 -- This initializes for both the server and client. Tags can be added here.
@@ -351,18 +352,18 @@ local common_postinit = function(inst)
     inst.MiniMapEntity:SetIcon("welina.tex")
 
     inst.net_welina_numDeaths = net_smallbyte(inst.GUID, "inst.welina_numDeaths", "welina_numDeaths_dirty")
-	
-	inst:AddTag("emocatgirl")
-	
-	--inst:AddTag("welinacollar_wearer")
+
+    inst:AddTag("emocatgirl")
+
+    --inst:AddTag("welinacollar_wearer")
 
     if TUNING.WELINA_INSOMNIA == 1 then
         inst:AddTag("insomniac")
     end
-	
-	if KnownModIndex:IsModEnabled("workshop-2039181790") then
-		inst:AddTag("ratimmune")
-	end
+
+    if KnownModIndex:IsModEnabled("workshop-2039181790") then
+        inst:AddTag("ratimmune")
+    end
 
     --inst.components.talker.font = TALKINGFONT_WELINA
 
@@ -387,18 +388,18 @@ local common_postinit = function(inst)
             end)
         )
     end
-	
-	if TUNING.WELINA_NIGHTVISION == 1 then
-    inst:WatchWorldState( "isday", SetNightVision)
-	inst:WatchWorldState( "isdusk", SetNightVision)
-	inst:WatchWorldState( "isnight", SetNightVision)
-    inst:WatchWorldState( "iscaveday", SetNightVision)
-	inst:WatchWorldState( "iscavedusk", SetNightVision)
-	inst:WatchWorldState( "iscavenight", SetNightVision)
-    inst:WatchWorldState(  "season", SetNightVision)
-    
-    SetNightVision(inst)
-	end
+
+    if TUNING.WELINA_NIGHTVISION == 1 then
+        inst:WatchWorldState("isday", SetNightVision)
+        inst:WatchWorldState("isdusk", SetNightVision)
+        inst:WatchWorldState("isnight", SetNightVision)
+        inst:WatchWorldState("iscaveday", SetNightVision)
+        inst:WatchWorldState("iscavedusk", SetNightVision)
+        inst:WatchWorldState("iscavenight", SetNightVision)
+        inst:WatchWorldState("season", SetNightVision)
+
+        SetNightVision(inst)
+    end
 
     --inst.customidleanim = "idle_wendy"
 end
@@ -414,7 +415,7 @@ local master_postinit = function(inst)
 
     -- Stats
     inst.components.health:SetMaxHealth(TUNING.WELINA_HEALTH)
-    
+
 
     inst.components.hunger:SetMax(TUNING.WELINA_HUNGER)
 
@@ -430,6 +431,7 @@ local master_postinit = function(inst)
     -- Damage multiplier (optional)
     inst.components.combat.damagemultiplier = TUNING.WELINA_DAMAGE
     inst.components.combat.bonusdamagefn = GetBonusDamage
+
 
     -- Hunger rate (optional)
     inst.components.hunger.hungerrate = TUNING.WELINA_HUNGERDRAIN * TUNING.WILSON_HUNGER_RATE
@@ -469,13 +471,14 @@ local master_postinit = function(inst)
     end
 
     inst:ListenForEvent("attacked", OnTakeDamage)
-	
-	if KnownModIndex:IsModEnabled("workshop-2039181790") then
-		inst:ListenForEvent("onattackother", OnAttackOther)
-	end
-	
-	
-	
+
+    if KnownModIndex:IsModEnabled("workshop-2039181790") then
+        inst:ListenForEvent("onattackother", OnAttackOther)
+    end
+
+
+
+
 
 
     inst:ListenForEvent("entity_death", function(_, data)

@@ -2,14 +2,14 @@
 <Atlas>
 	<Texture filename="welina_items.tex" />
 	<Elements>
-		<Element name="welina_catnip.tex" u1="0.001" u2="0.2411875" v2="0.999" v1="0.78225" variant="" />
-		<Element name="welina_cattoy.tex" u1="0.2431875" u2="0.40525" v2="0.999" v1="0.8369375" variant="" />
-		<Element name="welina_collar.tex" u1="0.001" u2="0.2411875" v2="0.78025" v1="0.5400625" variant="" />
-		<Element name="welina_collar_armor.tex" u1="0.2431875" u2="0.46384375" v2="0.8349375" v1="0.610375" variant="" />
-		<Element name="welina_collar_bomb.tex" u1="0.46584375" u2="0.7099375" v2="0.999" v1="0.72365625" variant="" />
-		<Element name="welina_collar_glass.tex" u1="0.7119375" u2="0.92478125" v2="0.999" v1="0.7744375" variant="" />
-		<Element name="welina_collar_light.tex" u1="0.7119375" u2="0.98728125" v2="0.7724375" v1="0.54396875" variant="" />
-		<Element name="welina_collar_regen.tex" u1="0.001" u2="0.21775" v2="0.5380625" v1="0.30959375" variant="" />
-		<Element name="welina_den.tex" u1="0.2431875" u2="0.46384375" v2="0.608375" v1="0.37990625" variant="" />
+		<Element name="welina_catnip.tex" u1="0.001" u2="0.23728125" v2="0.999" v1="0.78615625" variant="" />
+		<Element name="welina_cattoy.tex" u1="0.23928125" u2="0.4755625" v2="0.999" v1="0.80959375" variant="" />
+		<Element name="welina_collar.tex" u1="0.001" u2="0.23728125" v2="0.78415625" v1="0.547875" variant="" />
+		<Element name="welina_collar_armor.tex" u1="0.23928125" u2="0.4755625" v2="0.80759375" v1="0.56740625" variant="" />
+		<Element name="welina_collar_bomb.tex" u1="0.4775625" u2="0.71384375" v2="0.999" v1="0.735375" variant="" />
+		<Element name="welina_collar_glass.tex" u1="0.71584375" u2="0.952125" v2="0.999" v1="0.751" variant="" />
+		<Element name="welina_collar_light.tex" u1="0.4775625" u2="0.71384375" v2="0.733375" v1="0.5400625" variant="" />
+		<Element name="welina_collar_regen.tex" u1="0.71584375" u2="0.952125" v2="0.749" v1="0.501" variant="" />
+		<Element name="welina_den.tex" u1="0.001" u2="0.23728125" v2="0.545875" v1="0.30178125" variant="" />
 	</Elements>
 </Atlas>

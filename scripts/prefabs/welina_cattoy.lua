@@ -39,7 +39,7 @@ local function onthrown(inst, thrower, pt)
 	inst:FacePoint(pt:Get())
     --inst.components.floatable:UpdateAnimations("idle_water", "throw")
     inst.AnimState:PlayAnimation("throw", true)
-    inst.SoundEmitter:PlaySound("dontstarve_DLC002/common/coconade_throw")
+    inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/pounce")
 
     -- inst.components.inventoryitem.canbepickedup = false
 end
@@ -49,7 +49,12 @@ local function onhitground(inst)
 		inst.unclaimtask:Cancel()
 		inst.unclaimtask = nil
 	end
+
+
 	unclaim(inst)
+
+
+	inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/pickup")
 
 
 	inst.AnimState:PlayAnimation("idle")
@@ -93,7 +98,10 @@ local function fn()
 	inst:AddTag("thrown")
 	inst:AddTag("projectile")
 	inst:AddTag("catbait")
+	inst:AddTag("workrepairable")
 
+
+	inst.pickupsound = "cloth"
 
     inst.entity:SetPristine()
     if not TheWorld.ismastersim then
@@ -110,6 +118,8 @@ local function fn()
 	inst:AddComponent("inventoryitem")
     inst.components.inventoryitem:SetOnPutInInventoryFn(onputininventory)
 	inst.components.inventoryitem.bouncesound = "dontstarve_DLC002/common/monkey_ball/bounce"
+	    inst.components.inventoryitem.imagename = "welina_cattoy"
+    inst.components.inventoryitem.atlasname = "images/inventoryimages/welina_items.xml"
 
 	inst:AddComponent("equippable")
 	inst.components.equippable:SetOnEquip(onequip)
@@ -122,6 +132,8 @@ local function fn()
 	inst.components.finiteuses:SetOnFinished(onfinished)
 	inst.components.finiteuses:SetConsumption(ACTIONS.TOSS, 1)
 
+
+
 	inst:AddComponent("complexprojectile")
 	inst.components.complexprojectile:SetHorizontalSpeed(15)
 	inst.components.complexprojectile:SetGravity(-35)
@@ -129,10 +141,13 @@ local function fn()
 	inst.components.complexprojectile:SetOnLaunch(onthrown)
 	inst.components.complexprojectile:SetOnHit(onhitground)
 
+
+	--MakeRepairable(inst, "trinket_22")
+
 	inst:AddComponent("reticule")
---[[     inst.components.reticule.targetfn = function() 
+    inst.components.reticule.targetfn = function() 
         return inst.components.throwable:GetThrowPoint()
-    end ]]
+    end
     inst.components.reticule.ease = true
 
     inst.Physics:SetCollisionCallback(oncollision)

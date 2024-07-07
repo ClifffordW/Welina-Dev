@@ -4,7 +4,7 @@ modimport("articore/articore_api")
 local _G = GLOBAL
 
 
-
+AddRepairType("trinket_22", "trinket_22")
 
 
 local welina_sounds = require("defs.sound.fmod_defs")

@@ -9,6 +9,12 @@ function AddUpgradeType(upgrade, material)
 
 
   AddPrefabPostInit(material, function(inst)
+
+    if not TheWorld.ismastersim then
+      return inst
+  end
+
+
     inst:AddComponent("upgrader")
     inst.components.upgrader.upgradetype = upgrade_type[upgrade]
 
@@ -28,14 +34,21 @@ end
 function AddRepairType(repair, material)
   if repair then repair = string.upper(repair) end
  
-  local repair_type = GLOBAL.MATERIALS
-  repair_type[repair] = material
+  _G.MATERIALS[repair] = material
 
 
 
   AddPrefabPostInit(material, function(inst)
+
+    inst:AddTag("work_"..material)
+
+    if not TheWorld.ismastersim then
+      return inst
+    end
+
+
     inst:AddComponent("repairer")
-    inst.components.repairer.repairmaterial = repair_type[repair]
+    inst.components.repairer.repairmaterial = _G.MATERIALS[repair]
 
 
 
