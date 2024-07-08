@@ -52,24 +52,21 @@ local function GetRidOfTheBall(inst)
     end
 
     if math.random() < TUNING.CATCOONBALL_PASS_TO_PLAYER_CHANCE then
-        action = BufferedAction(inst, player, ACTIONS.CATPLAYGROUND, ball)
-        
-        inst:DoTaskInTime(1.5, function()
-            player.components.inventory:GiveItem(ball)
-        end)
+
+        local pos = player:GetPosition()
+        local offset, _, _ = FindWalkableOffset(inst:GetPosition(), math.random()*2*PI, math.random()*5 + 5, 8, true, false)
+        action = BufferedAction(inst, player, ACTIONS.TOSS, ball, pos + offset)      
+
 
     else
         local pos = inst:GetPosition()
         local offset, _, _ = FindWalkableOffset(inst:GetPosition(), math.random()*2*PI, math.random()*5 + 5, 8, true, false) -- try to avoid walls
 
         if offset then
-            action = BufferedAction(inst, nil, ACTIONS.CATPLAYAIR, ball, pos + offset)
+            action = BufferedAction(inst, nil, ACTIONS.TOSS, ball, pos + offset)
         else
-            action = BufferedAction(inst, player, ACTIONS.CATPLAYAIR, ball)
+            action = BufferedAction(inst, player, ACTIONS.TOSS, ball, pos + offset)
         end
-        inst.components.inventory:DropItem(ball)
-
-        -- doer, target, action, invobject, pos, recipe, distance, rotation
     end
     
     return action

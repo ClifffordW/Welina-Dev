@@ -665,6 +665,17 @@ end
 
 AddCharacterActionComplete(actions.WELINA_PLAY, "SCENE", "inventoryitem")
 
+
+
+
+
+
+
+
+
+
+
+
 --[[
 AddComponentAction("SCENE", "prototyper", function(inst, doer, actions, right)
     if not inst.prefab ~= "wcard_diary" then

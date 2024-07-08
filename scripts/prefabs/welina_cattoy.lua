@@ -37,6 +37,7 @@ local function onthrown(inst, thrower, pt)
     inst.Physics:SetFriction(.2)
 	inst.Transform:SetFourFaced()
 	inst:FacePoint(pt:Get())
+	inst:AddTag("noclick")
     --inst.components.floatable:UpdateAnimations("idle_water", "throw")
     inst.AnimState:PlayAnimation("throw", true)
     inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/pounce")
@@ -57,6 +58,7 @@ local function onhitground(inst)
 	inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/pickup")
 
 
+	inst:RemoveTag("noclick")
 	inst.AnimState:PlayAnimation("idle")
     --inst.components.floatable:UpdateAnimations("idle_water", "idle")
 end
