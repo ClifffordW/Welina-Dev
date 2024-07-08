@@ -8,6 +8,8 @@ local prefabs=
 {
 }
 
+local fmodtable = require("defs.sound.fmodtable_monkeyball").Event
+
 local function unclaim(inst)
 	inst.claimed = nil
 end
@@ -65,20 +67,20 @@ end
 
 local function oncollision(inst, other)
 	if inst.Physics:GetVelocity() ~= 0 then
-		inst.SoundEmitter:PlaySound("dontstarve_DLC002/common/monkey_ball/bounce")
+		inst.SoundEmitter:PlaySound(fmodtable.monkeyball_bounce)
 	end
 end
 
 local function pop(inst)
-	--inst.SoundEmitter:PlaySound("dontstarve_DLC002/common/monkey_ball/pop")
-	--SpawnPrefab("small_puff_light").Transform:SetPosition(inst.Transform:GetWorldPosition())
+	inst.SoundEmitter:PlaySound(fmodtable.monkeyball_break)
+	SpawnPrefab("small_puff").Transform:SetPosition(inst.Transform:GetWorldPosition())
 	--SpawnPrefab("coconut_chunks").Transform:SetPosition(inst.Transform:GetWorldPosition())
 	inst:Remove()
 end
 
 local function onfinished(inst)
-	--inst.components.floatable:SetOnHitLandFn(pop)
-	--inst.components.floatable:SetOnHitWaterFn(pop)
+	pop(inst)
+	
 end
 
 local function fn()

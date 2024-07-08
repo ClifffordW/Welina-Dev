@@ -86,6 +86,7 @@ AddAnim("swap_collar_glass")
 -------------------------------
 
 AddSound("lawnmower")
+AddSound("monkeyball")
 
 
 table.insert(Assets, Asset("SOUND", "sound/welina.fsb"))

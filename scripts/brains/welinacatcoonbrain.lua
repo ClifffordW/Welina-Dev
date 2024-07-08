@@ -7,8 +7,8 @@ require "behaviours/leash"
 local BrainCommon = require "brains/braincommon"
 
 local MIN_FOLLOW_DIST = 0
-local MAX_FOLLOW_DIST = TUNING.WELINA_CATCOON_MAX_DIST_FROM_LEADER
-local TARGET_FOLLOW_DIST = MAX_FOLLOW_DIST * 0.4
+local MAX_FOLLOW_DIST = 30
+local TARGET_FOLLOW_DIST = 12
 local MAX_WANDER_DIST = 10
 
 local LEASH_RETURN_DIST = 15
@@ -214,7 +214,7 @@ function WelinaCatcoonBrain:OnStart()
         IfNode(function() return ShouldHairball(self.inst) end, "hairball",
             DoAction(self.inst, HairballAction, "hairballact", true)),
         ChaseAndAttack(self.inst, MAX_CHASE_TIME, MAX_CHASE_DIST),
-        -- DoAction(self.inst, WhineAction, "whine", true), -- summerscorcher: Don't need to whine at all since we're permanently tamed.
+        DoAction(self.inst, WhineAction, "whine", true),
         Follow(self.inst, GetLeader, MIN_FOLLOW_DIST, TARGET_FOLLOW_DIST, MAX_FOLLOW_DIST),
         WhileNode(function() return self.inst.raining end, "GoingHome",
             DoAction(self.inst, GoHomeAction, "go home", true )),
