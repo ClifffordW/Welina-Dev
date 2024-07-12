@@ -460,6 +460,18 @@ configuration_options = {
 		default = 0,
 	},
 
+	{
+		name = "WELINA_CATNIP_MUSIC",
+		label = "Catnip Music",
+		hover = "Adds some nice music after consuming catnip!.",
+		options = {
+			{ description = "Enable", data = 1 },
+			{ description = "Disable", data = 0, hover = "Default 󰀡" },
+		},
+		default = 0,
+	},
+
+
 	Title(lookup.mod_v .. ": " .. version),
 	Title(lookup.modinfo_v .. ": " .. modinfo_ver),
 }

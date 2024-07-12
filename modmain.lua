@@ -55,14 +55,6 @@ end
 
 
 
-
-
-
-
---[[ local function PushGotHigh(inst, index)
-	inst.gethigh:push()
-end ]]
-
 AddPrefabPostInit("player_classified", function(inst)
 	
 

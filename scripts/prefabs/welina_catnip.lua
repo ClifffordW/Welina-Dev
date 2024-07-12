@@ -268,7 +268,7 @@ local function OnTick(inst, target)
         not target:HasTag("playerghost") then
         target.components.health:DoDelta(2, nil, "catnip")
 
-        if target and target.player_classified and math.random() < 0.01 then
+        if target and target.player_classified and TUNING.WELINA_CATNIP_MUSIC == 1 then
             target.player_classified.gethigh:push()
         end
 
