@@ -239,7 +239,7 @@ local function MakeCollar(name)
 		inst.components.equippable.equipslot = EQUIPSLOTS.BODY
 		inst.components.equippable:SetOnUnequip(onunequip)
 		inst.components.equippable:SetOnEquip(onequip)
-		inst.components.equippable.restrictedtag = "emocatgirl"
+		inst.components.equippable.restrictedtag = "welinacollar_wearer"
 
 		inst:AddComponent("fueled")
 		--inst.components.fueled.fueltype = FUELTYPE.USAGE
