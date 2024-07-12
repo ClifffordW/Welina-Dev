@@ -42,6 +42,7 @@ local function onthrown(inst, thrower, pt)
 	inst:AddTag("noclick")
     --inst.components.floatable:UpdateAnimations("idle_water", "throw")
     inst.AnimState:PlayAnimation("throw", true)
+	inst.AnimState:SetDeltaTimeMultiplier(1)
     inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/pounce")
 
     -- inst.components.inventoryitem.canbepickedup = false
@@ -61,7 +62,10 @@ local function onhitground(inst)
 
 
 	inst:RemoveTag("noclick")
-	inst.AnimState:PlayAnimation("idle")
+	inst.AnimState:PlayAnimation("land")
+	inst.AnimState:PushAnimation("idle", true)
+	inst.AnimState:SetDeltaTimeMultiplier(inst.deltatime)
+
     --inst.components.floatable:UpdateAnimations("idle_water", "idle")
 end
 
@@ -93,7 +97,10 @@ local function fn()
 
 	inst.AnimState:SetBank("cattoy")
 	inst.AnimState:SetBuild("welina_cattoy")
-	inst.AnimState:PlayAnimation("idle")
+	inst.AnimState:PlayAnimation("idle", true)
+
+	inst.deltatime = math.random(0.5, 1.05)
+	inst.AnimState:SetDeltaTimeMultiplier(inst.deltatime)
 
     MakeSmallBurnable(inst)
 	MakeInventoryPhysics(inst)
