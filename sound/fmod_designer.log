@@ -9,145 +9,23 @@ Warning: QPainter::setBrush: Painter not active
 Warning: QPainter::setRenderHint: Painter must be active to set rendering hints
 Warning: QPainter::setPen: Painter not active
 Warning: libpng warning: Interlace handling should be turned on when using png_read_image
-Debug: "19:42:44 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade In Time" 
-Debug: "19:42:44 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade In Time" 
-Debug: "19:42:44 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade In Time" 
-Debug: "19:42:46 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade Out Time" 
-Debug: "19:42:46 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade Out Time" 
-Debug: "19:42:46 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade Out Time" 
-Debug: "19:42:46 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade Out Time" 
-Debug: "19:42:55 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade Out Time" 
-Debug: "19:42:55 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade Out Time" 
-Debug: "19:42:56 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade In Time" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:05 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:10 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:11 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:11 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:11 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:11 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:11 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:11 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:22 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:22 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:22 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:22 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:22 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:22 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:22 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:23 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:23 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:23 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:24 ..\..\src\propertyslider.cpp:315 EV: Set Pitch Randomization" 
-Debug: "19:43:36 ..\..\src\simpleeventcontroller.cpp:1388 IL: Set Bank" 
-Debug: "19:43:36 ..\..\src\propertyeditor.cpp:1508 EM: Set Name" 
-Debug: "19:43:39 ..\..\src\propertyeditor.cpp:4234 ER: Set Compression" 
-Debug: "19:43:41 ..\..\src\propertyeditor.cpp:4234 ER: Set Bank Type" 
-Debug: "19:43:44 c:\jk\workspace\build__4.44__designer_win\fmod4\tools\fmod_designer\src\builddialog.ui.h:186 AF: Modify Build Settings" 
+Debug: "11:40:10 c:\jk\workspace\build__4.44__designer_win\fmod4\tools\fmod_designer\src\eventform.ui.h:1638 BZ: Add Event Group" 
+Debug: "11:40:14 c:\jk\workspace\build__4.44__designer_win\fmod4\tools\fmod_designer\src\eventform.ui.h:1428 BY: Add Event" 
+Debug: "11:40:22 c:\jk\workspace\build__4.44__designer_win\fmod4\tools\fmod_designer\src\newsounddialog.ui.h:178 ED: Add Sound File" 
+Debug: "11:40:23 ..\..\src\eventlayerstackwidget.cpp:1334 CV: Add Sound" 
+Debug: "11:40:36 ..\..\src\categorylistview.cpp:409 CD: Move Event to Category" 
 Debug: 
 Building project 'monkeyball'...
 Debug: Building project D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball.fev...
-Debug: Unique sound defs 1/2
+Debug: Unique sound defs 1/3
 Debug: Retrieving sound file info...
 Debug: Retrieving reverb info...
 Debug: FEV file written ok
 Debug: Unique Envelope Points: 0 of 0
-Debug: Unique Strings: 137 characters of 137
+Debug: Unique Strings: 156 characters of 156
 Debug: Building programmer report D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball.txt...
 Debug: Caching sound file details for ''...
+Debug: higher.mp3
 Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_01.ogg
 Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_02.ogg
 Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_03.ogg
@@ -168,11 +46,94 @@ Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_break_1.ogg
 Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_break_2.ogg
 Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_break_3.ogg
 Debug: Building 'monkeyball.fsb'
-Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_02.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_01.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_02.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_03.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_04.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_05.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_06.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_07.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_08.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_09.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_10.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_11.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_12.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_13.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_14.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_15.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_16.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_break_1.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_break_2.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_break_3.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\higher.mp3
+Debug: Writing FSB...
+Debug: Finished building FSB
+Debug: 
+Debug: 
+Summary of build:
+SUCCESS: D:/SteamLibrary/steamapps/common/Don't Starve Together/mods/Welina-Dev/sound/monkeyball.fev
+SUCCESS: D:/SteamLibrary/steamapps/common/Don't Starve Together/mods/Welina-Dev/sound/monkeyball.txt
+SUCCESS: monkeyball.fsb
+Debug: "11:47:38 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade In Time" 
+Debug: "11:47:38 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade In Time" 
+Debug: "11:47:39 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade In Time" 
+Debug: "11:47:39 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade In Time" 
+Debug: "11:47:42 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade In Time" 
+Debug: "11:47:42 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade In Time" 
+Debug: "11:47:42 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade In Time" 
+Debug: "11:47:42 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade In Time" 
+Debug: "11:47:45 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade In Time" 
+Debug: "11:47:45 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade In Time" 
+Debug: "11:47:45 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade In Time" 
+Debug: "11:47:46 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade In Time" 
+Debug: "11:47:50 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade Out Time" 
+Debug: "11:47:50 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade Out Time" 
+Debug: "11:47:50 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade Out Time" 
+Debug: "11:47:50 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade Out Time" 
+Debug: "11:47:51 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade Out Time" 
+Debug: "11:47:52 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade Out Time" 
+Debug: "11:47:52 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade Out Time" 
+Debug: "11:47:52 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade Out Time" 
+Debug: "11:47:53 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade Out Time" 
+Debug: "11:47:53 ..\..\src\propertyeditor.cpp:3444 EQ: Set Fade Out Time" 
+Debug: 
+Building project 'monkeyball'...
+Debug: Building project D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball.fev...
+Debug: Unique sound defs 1/3
+Debug: Retrieving sound file info...
+Debug: Retrieving reverb info...
+Debug: FEV file written ok
+Debug: Unique Envelope Points: 0 of 0
+Debug: Unique Strings: 156 characters of 156
+Debug: Building programmer report D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball.txt...
+Debug: Caching sound file details for ''...
+Debug: higher.mp3
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_01.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_02.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_03.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_04.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_05.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_06.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_07.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_08.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_09.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_10.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_11.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_12.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_13.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_14.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_15.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_16.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_break_1.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_break_2.ogg
+Debug: monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_break_3.ogg
+Debug: Building 'monkeyball.fsb'
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\higher.mp3
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_01.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_03.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_02.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_05.ogg
+Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_04.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_06.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_07.ogg
 Debug: Encoded D:\SteamLibrary\steamapps\common\Don't Starve Together\mods\Welina-Dev\sound\monkeyball\dontstarve_shipwreckedSFX-DSS_monkey_ball_bounce_08.ogg

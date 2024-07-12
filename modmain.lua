@@ -19,6 +19,75 @@ local animation_data = {
 }
 
 
+local fmodtable = require("defs.sound.fmodtable_monkeyball").Event
+
+
+
+
+local function GotHigh(inst)
+	if inst._parent ~= nil and TheFocalPoint.entity:GetParent() == inst._parent then
+
+        if TheFocalPoint.SoundEmitter:PlayingSound("high") then return end
+
+        TheSim:SetReverbPreset("cave")
+
+    
+        TheFocalPoint.SoundEmitter:PlaySound(fmodtable.high, "high", 0.25)
+
+	end
+end
+
+
+local function NoLongerHigh(inst)
+	if inst._parent ~= nil and TheFocalPoint.entity:GetParent() == inst._parent then
+
+        if not TheFocalPoint.SoundEmitter:PlayingSound("high") then return end
+
+
+        TheFocalPoint.SoundEmitter:KillSound("high")
+        TheSim:SetReverbPreset("default")
+
+
+  
+
+	end
+end
+
+
+
+
+
+
+
+--[[ local function PushGotHigh(inst, index)
+	inst.gethigh:push()
+end ]]
+
+AddPrefabPostInit("player_classified", function(inst)
+	
+
+	inst.gethigh = net_event(inst.GUID, "gethigh")
+    inst.getlow = net_event(inst.GUID, "getlow")
+
+	inst:ListenForEvent("gethigh", GotHigh)
+    inst:ListenForEvent("getlow", NoLongerHigh)
+
+end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 AddPrefabPostInit("whip", function (inst)

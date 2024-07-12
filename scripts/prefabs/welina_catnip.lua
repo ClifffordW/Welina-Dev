@@ -9,6 +9,9 @@ local prefabs =
 
 }
 
+
+
+
 require("writeables").AddLayout("welina_catnip", 
 {
     prompt = STRINGS.KITCOON_NAMING.MENU_PROMPT,
@@ -265,8 +268,9 @@ local function OnTick(inst, target)
         not target:HasTag("playerghost") then
         target.components.health:DoDelta(2, nil, "catnip")
 
-
-
+        if target and target.player_classified and math.random() < 0.01 then
+            target.player_classified.gethigh:push()
+        end
 
 
     else
@@ -279,6 +283,10 @@ local function KnockHerOut(target)
         target.components.grogginess:AddGrogginess(3, 2)
 
         target:RemoveEventCallback("sanitydelta", KnockHerOut)
+
+
+
+
     end
 end
 
@@ -294,6 +302,10 @@ local function OnAttached(inst, target)
     target.components.locomotor:SetExternalSpeedMultiplier(inst, "catnipboost", TUNING.WELINA_MOVESPEED * 1.75)
 
 
+
+
+
+
     inst:ListenForEvent("death", function()
         inst.components.debuff:Stop()
         target.components.sanity.dapperness = 0
@@ -301,6 +313,10 @@ local function OnAttached(inst, target)
 
         SetCatnipped(target)
         WatchCatnipState(target)
+        
+        if target and target.player_classified then
+            target.player_classified.getlow:push()
+        end
         
     end, target)
 
@@ -310,6 +326,10 @@ local function OnAttached(inst, target)
         target.components.locomotor:RemoveExternalSpeedMultiplier(target, "catnipboost")
         SetCatnipped(target)
         WatchCatnipState(target)
+
+        if target and target.player_classified then
+            target.player_classified.getlow:push()
+        end
 
     end, target)
 

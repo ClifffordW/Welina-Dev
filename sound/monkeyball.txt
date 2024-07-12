@@ -25,6 +25,15 @@ Max. playbacks  : 100
 DSP Effects     : none
 Category        : master/set_sfx/sfx
 
+Name            : /music/high
+Index           : /EVENTGROUP_MONKEYBALL_MUSIC/EVENT_MONKEYBALL_MUSIC_HIGH
+Id              : EVENTID_MONKEYBALL_MUSIC_HIGH = 2
+GUID            : EVENTGUID_MONKEYBALL_MUSIC_HIGH = {a920fa8a-35bd-4159-8335-35307462c585}
+Notes           : 
+Max. playbacks  : 1
+DSP Effects     : none
+Category        : master/set_music/soundtrack
+
 
 #
 # Groups
@@ -33,6 +42,11 @@ Category        : master/set_sfx/sfx
 Name            : /sfx
 Index           : /EVENTGROUP_MONKEYBALL_SFX
 Numerical Index : /0
+Notes           : 
+
+Name            : /music
+Index           : /EVENTGROUP_MONKEYBALL_MUSIC
+Numerical Index : /1
 Notes           : 
 
 
