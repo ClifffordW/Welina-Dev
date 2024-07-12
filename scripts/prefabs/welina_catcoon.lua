@@ -537,7 +537,7 @@ local function fn()
 
 	inst:AddComponent("named")
 
-	inst:DoTaskInTime(0.5, function()
+	inst:DoTaskInTime(0, function()
 		if inst.components.follower and inst.components.follower:GetLeader() then
 			inst.components.named:SetName(inst.components.follower:GetLeader().name .. "'s Catcoon")
 
@@ -548,6 +548,19 @@ local function fn()
 			then
 				inst.components.named:SetName(inst.components.follower:GetLeader().name .. "'s Lawnmower")
 			end
+		else
+			local names = 
+			{
+				"Sinner",
+				"Finger",
+				"Kitten",
+				"Schrödinger's Cat"
+			}
+
+			local name = names[math.random(1, #names)]
+			inst.components.named:SetName(name)
+
+
 		end
 	end)
 
