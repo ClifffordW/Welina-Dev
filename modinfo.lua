@@ -125,6 +125,9 @@ modinfo_ver = lookup.modinfo_module
 
 configuration_options = {
 
+
+
+
 	Title("Stats 󰀓"),
 	{
 		name = "WELINA_HEALTH",
@@ -403,6 +406,19 @@ configuration_options = {
 		options = {
 			{ description = "Enabled", data = 1},
 			{ description = "Disabled", data = 0, hover = "Default 󰀡"  },
+		},
+		default = 0,
+	},
+
+	Title("Miscellaneous 󰀩"),
+	{
+		name = "MOVING_CATTOY_EYES",
+		label = "Moving Catcoon Toy Eyes",
+		hover = "",
+		options = {
+			{ description = "Enabled", data = 1 },
+			{ description = "Disabled", data = 0 },
+
 		},
 		default = 0,
 	},

@@ -64,7 +64,14 @@ local function onhitground(inst)
 	inst:RemoveTag("noclick")
 	inst.AnimState:PlayAnimation("land")
 	inst.AnimState:PushAnimation("idle", true)
-	inst.AnimState:SetDeltaTimeMultiplier(inst.deltatime)
+	
+
+	inst:DoTaskInTime(.350, function()
+		inst.AnimState:SetDeltaTimeMultiplier(inst.deltatime)
+		if TUNING.MOVING_CATTOY_EYES == 0 then
+			inst.AnimState:SetFrame(0)
+		end
+	end)
 
     --inst.components.floatable:UpdateAnimations("idle_water", "idle")
 end
@@ -99,7 +106,7 @@ local function fn()
 	inst.AnimState:SetBuild("welina_cattoy")
 	inst.AnimState:PlayAnimation("idle", true)
 
-	inst.deltatime = math.random(0.5, 1.05)
+	inst.deltatime = TUNING.MOVING_CATTOY_EYES == 1 and math.random(0.5, 1.05) or 0
 	inst.AnimState:SetDeltaTimeMultiplier(inst.deltatime)
 
     MakeSmallBurnable(inst)

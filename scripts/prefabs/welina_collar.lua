@@ -7,9 +7,18 @@ local prefabs = {}
 
 local function ReflectDamage(inst, data)
 	if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
-		data.attacker.components.health:DoDelta(-data.damage * TUNING.WELINA_REFLECT_AMOUNT or 5)
+		
+		
+		data.attacker.components.health:DoDelta(-data.damage * 5)
+	
+	
 	end
 end
+
+
+
+
+
 
 local function OnIgniteFn(inst)
 	--inst.SoundEmitter:PlaySound("dontstarve/common/blackpowder_fuse_LP", "hiss")
@@ -31,7 +40,7 @@ end
 local COLLAR_PREFIX = "welina_collar_"
 --local ARMOR_COLLAR_MODIFIER = "armorcollar"
 local LIGHT_COLOR = { 169 / 255, 231 / 255, 245 / 255 }
-local LIGHT_RADIUS = 2
+local LIGHT_RADIUS = 4
 local LIGHT_INTENSITY = 0.8
 local LIGHT_FALLOFF = 0.5
 
@@ -51,6 +60,10 @@ local function onequip(inst, owner)
 
 	if owner:IsValid() and owner.components.health and not owner.components.health:IsDead() then
 		local isplayer = owner:HasTag("player")
+		
+		
+		
+
 		if isplayer then
 			local skin_build = inst:GetSkinBuild()
 			if skin_build ~= nil then
@@ -72,13 +85,61 @@ local function onequip(inst, owner)
 				owner:ListenForEvent("death", inst.BoomCollar)
 			end
 		elseif name == "spiked" then
-			owner:ListenForEvent("attacked", ReflectDamage)
+			
+			if not isplayer then 
+				owner:ListenForEvent("attacked", ReflectDamage)
+			else
+
+				inst.ReflectDamagePlayer = function(inst, data)
+
+					
+					if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
+
+
+						local player = owner
+						
+						local string = string.upper(player.prefab).."_COLLAR_REFLECT_AMOUNT"
+				
+						if player and (TUNING[string] or TUNING.WELINA_REFLECT_AMOUNT) then
+							local iswelina = player.prefab == "welina"
+
+							local tunable = iswelina and TUNING.WELINA_REFLECT_AMOUNT + 1 or TUNING[string]
+
+							local reflected_damage = not iswelina and -data.damage * tunable or (-data.damage * tunable) / TUNING.WELINA_REFLECT_AMOUNT
+				
+							data.attacker.components.health:DoDelta(reflected_damage)
+
+							--print(reflected_damage)
+
+				
+						else
+
+
+							
+							data.attacker.components.health:DoDelta(-data.damage * 2)
+
+							--print(-data.damage * 2)
+				
+						end
+						
+						
+					
+						
+					end
+				end
+
+				owner:ListenForEvent("attacked", inst.ReflectDamagePlayer)
+
+
+
+			end
+			
 			if inst.components.fueled ~= nil then
 				inst.components.fueled:StartConsuming()
 			end
 		elseif name == "glass" and owner.components.combat then
 			owner.components.combat.damagemultiplier = isplayer and owner.components.combat.damagemultiplier + 0.2 or 3
-			print(owner.components.combat.damagemultiplier)
+			--print(owner.components.combat.damagemultiplier)
 			if inst.components.fueled ~= nil then
 				inst.components.fueled:StartConsuming()
 			end
@@ -87,11 +148,22 @@ local function onequip(inst, owner)
 				owner.components.health.maxhealth
 			print(inst.currentowner_hp, inst.currentowner_maxhp)
 
-			owner.components.health:SetMaxHealth(isplayer and inst.currentowner_maxhp * 2 or TUNING.CATCOON_LIFE * 2)
-			owner.components.health:SetPercent(inst.currentowner_hp)
-			owner.health_task = inst:DoPeriodicTask(5, function()
-				owner.components.health:DoDelta(50)
-			end)
+			if not isplayer then
+
+				owner.components.health:SetMaxHealth(isplayer and inst.currentowner_maxhp * 2 or TUNING.CATCOON_LIFE * 2)
+				owner.components.health:SetPercent(inst.currentowner_hp)
+				owner.health_task = inst:DoPeriodicTask(5, function()
+					owner.components.health:DoDelta(50)
+				end)
+
+			else
+
+				owner.health_task = inst:DoPeriodicTask(60, function()
+					owner.components.health:DoDelta(2)
+				end)
+			end
+			
+			
 			if inst.components.fueled ~= nil then
 				inst.components.fueled:StartConsuming()
 			end
@@ -109,7 +181,11 @@ local function onequip(inst, owner)
 			if inst._light == nil then
 				inst._light = SpawnPrefab("alterguardianhatlight")
 				inst._light.entity:SetParent(owner.entity)
-				inst._light.Light:SetRadius(LIGHT_RADIUS)
+				
+				inst._light.Light:SetRadius(isplayer and LIGHT_RADIUS - 2 or LIGHT_RADIUS)
+
+				
+				
 				inst._light.Light:SetIntensity(LIGHT_INTENSITY)
 				inst._light.Light:SetFalloff(LIGHT_FALLOFF)
 				inst._light.Light:SetColour(unpack(LIGHT_COLOR))
@@ -147,7 +223,19 @@ local function onunequip(inst, owner)
 			inst.BoomCollar = nil
 		end
 	elseif name == "spiked" then
-		owner:RemoveEventCallback("attacked", ReflectDamage)
+		
+		if not isplayer then
+			owner:RemoveEventCallback("attacked", ReflectDamage)
+		else
+
+			if inst.ReflectDamagePlayer ~= nil then
+				owner:RemoveEventCallback("attacked", inst.ReflectDamagePlayer)
+				inst.ReflectDamagePlayer = nil
+			end
+
+
+		end
+
 		if inst.components.fueled ~= nil then
 			inst.components.fueled:StopConsuming()
 		end
@@ -163,8 +251,12 @@ local function onunequip(inst, owner)
 			and not owner.components.health:IsDead()
 			and owner.health_task
 		then
-			owner.components.health:SetMaxHealth(isplayer and inst.currentowner_maxhp or TUNING.CATCOON_LIFE)
-			owner.components.health:SetPercent(inst.currentowner_hp)
+
+			if not isplayer then
+				owner.components.health:SetMaxHealth(isplayer and inst.currentowner_maxhp or TUNING.CATCOON_LIFE)
+				owner.components.health:SetPercent(inst.currentowner_hp)
+			end
+			
 			owner.health_task:Cancel()
 			owner.health_task = nil
 			if inst.components.fueled ~= nil then
@@ -239,7 +331,7 @@ local function MakeCollar(name)
 		inst.components.equippable.equipslot = EQUIPSLOTS.BODY
 		inst.components.equippable:SetOnUnequip(onunequip)
 		inst.components.equippable:SetOnEquip(onequip)
-		inst.components.equippable.restrictedtag = "welinacollar_wearer"
+		inst.components.equippable.restrictedtag =  "player" --"welinacollar_wearer"
 
 		inst:AddComponent("fueled")
 		--inst.components.fueled.fueltype = FUELTYPE.USAGE

@@ -82,8 +82,8 @@ local function Hiss(inst, data)
             data.attacker.components.health:DoDelta(-data.damage * TUNING.WELINA_REFLECT_AMOUNT or 5)
         end
 
-        --[[ 		print(data.damage * TUNING.WELINA_REFLECT_AMOUNT)
-		print(data.damage) ]]
+        --[[		print(data.damage * TUNING.WELINA_REFLECT_AMOUNT)
+		 print(data.damage) ]]
     end
 end
 

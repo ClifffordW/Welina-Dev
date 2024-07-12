@@ -27,6 +27,10 @@ TUNING.WELINA_LASTLIFE_MUSIC = GetModConfigData("WELINA_LASTLIFE_MUSIC")
 TUNING.WELINA_CATCOON_LAWNMOWER = GetModConfigData("WELINA_CATCOON_LAWNMOWER")
 TUNING.WELINA_CATCOON_MAX_DIST_FROM_LEADER = 18
 
+
+TUNING.MOVING_CATTOY_EYES = GetModConfigData("MOVING_CATTOY_EYES")
+
+
 TUNING.WELINA_PLAY_SANITY = {
     DEFAULT = 1,
     ["trinket_22"] = 15, -- summerscorcher: Add prefab-to-sanity entries for playing like so. Left side is prefab, right side is sanity points.
