@@ -148,6 +148,9 @@ local function GetBonusDamage(inst, victim, damage, weapon)
 end
 
 local function HealthWarning(inst)
+
+    if not inst.replica.health then return end
+
     local health = inst.replica.health:GetPercent()
     local is_wonkey = inst:HasTag("wonkey")
     local filterValue = math.max(1, math.floor((1 - health) * 7200 + 1))
