@@ -10,13 +10,13 @@ local lang_lookups = {
 			desc = "Adds Welina, the low-spirited cat girl.",
 			changes = [[
 			
-󰀈 New Welina skin - The Over-Bored
+󰀈 New Welina skin - The Rebel
 
-󰀈 Resentfulness stacks now also come with health trauma
+󰀈 Welina can now wear her collars
 
-󰀈 Welina now becomes weaker the wetter she gets
+󰀈 New Craftable - Catcoon Toy
 
-󰀈 Added new quotes and configs
+󰀈 Added new quotes
 		
 			]],
 		},
@@ -81,7 +81,7 @@ local lookupconf = lang_lookups.modinfo_config[locale] or lang_lookups.modinfo_c
 versiontype = ""
 name = lookup.name
 author = "mentos"
-version = "1.0.4"
+version = "1.0.5"
 config = false
 Language = "en"
 contributors = "Cliffford W., Fairy"
@@ -409,7 +409,7 @@ configuration_options = {
 		},
 		default = 0,
 	},
-
+--[[
 	Title("Miscellaneous 󰀩"),
 	{
 		name = "MOVING_CATTOY_EYES",
@@ -422,7 +422,7 @@ configuration_options = {
 		},
 		default = 0,
 	},
-
+--]]
 	Title("Cliffford's Shenanigans 󰀩"),
 	--[[	
 	{

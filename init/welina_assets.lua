@@ -21,6 +21,9 @@ Assets = {
 	
 	Asset( "IMAGE", "bigportraits/ms_welina_doorman.tex" ),
     Asset( "ATLAS", "bigportraits/ms_welina_doorman.xml" ),
+	
+	Asset( "IMAGE", "bigportraits/ms_welina_homestuck.tex" ),
+    Asset( "ATLAS", "bigportraits/ms_welina_homestuck.xml" ),
 
 	
 	Asset( "IMAGE", "images/map_icons/welina.tex" ),
@@ -67,6 +70,7 @@ Assets = {
 AddAnim("welina_hiss_anim")
 AddAnim("welina_hiss_anim_gown")
 AddAnim("welina_hiss_anim_doorman")
+AddAnim("welina_hiss_anim_homestuck")
 
 
 --AddAnim("catcoon_basic")

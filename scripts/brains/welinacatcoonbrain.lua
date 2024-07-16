@@ -214,7 +214,7 @@ function WelinaCatcoonBrain:OnStart()
         IfNode(function() return ShouldHairball(self.inst) end, "hairball",
             DoAction(self.inst, HairballAction, "hairballact", true)),
         ChaseAndAttack(self.inst, MAX_CHASE_TIME, MAX_CHASE_DIST),
-        DoAction(self.inst, WhineAction, "whine", true),
+       -- DoAction(self.inst, WhineAction, "whine", true),
         Follow(self.inst, GetLeader, MIN_FOLLOW_DIST, TARGET_FOLLOW_DIST, MAX_FOLLOW_DIST),
         WhileNode(function() return self.inst.raining end, "GoingHome",
             DoAction(self.inst, GoHomeAction, "go home", true )),

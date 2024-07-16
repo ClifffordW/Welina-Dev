@@ -126,7 +126,7 @@ local NV_COLOURCUBES =
         full_moon = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
     },
 }
-
+--[[
 local function SetCatnipped(inst, enable)
 
     local season = TheWorld.state.season
@@ -178,7 +178,7 @@ local function WatchCatnipState(inst)
     end
 
 end
-
+--]]
 local function CatnipEaten(inst, eater)
     
     if eater.prefab == "welina" then
@@ -188,14 +188,14 @@ local function CatnipEaten(inst, eater)
         eater:AddDebuff("catnipbuff", "catnipbuff")
 
 
+		
 
-
-        
-        eater.components.health:DeltaPenalty(-0.2)
+        eater.components.talker:Say("Oh- this ain't good.")
+        eater.components.health:DeltaPenalty(-0.5)
         eater.components.grogginess:AddGrogginess(2, 7)
 
     else
-        eater.components.talker:Say("It tastes like cat piss. ewww")
+        eater.components.talker:Say("Blegh")
     end
 
 end
@@ -295,11 +295,11 @@ local function OnAttached(inst, target)
     inst.Transform:SetPosition(0, 0, 0) --in case of loading
     inst.task = inst:DoPeriodicTask(5, OnTick, nil, target)
 
-    SetCatnipped(target)
-    WatchCatnipState(target)
+    --SetCatnipped(target)
+    --WatchCatnipState(target)
 
-    target.components.sanity.dapperness = -0.33
-    target.components.locomotor:SetExternalSpeedMultiplier(inst, "catnipboost", TUNING.WELINA_MOVESPEED * 1.75)
+    target.components.sanity.dapperness = -1.20
+    target.components.locomotor:SetExternalSpeedMultiplier(inst, "catnipboost", TUNING.WELINA_MOVESPEED * 1.1)
 
 
 
@@ -311,8 +311,8 @@ local function OnAttached(inst, target)
         target.components.sanity.dapperness = 0
         target.components.locomotor:RemoveExternalSpeedMultiplier(target, "catnipboost")
 
-        SetCatnipped(target)
-        WatchCatnipState(target)
+       -- SetCatnipped(target)
+       -- WatchCatnipState(target)
         
         if target and target.player_classified then
             target.player_classified.getlow:push()
@@ -324,8 +324,8 @@ local function OnAttached(inst, target)
         inst.components.debuff:Stop()
         target.components.sanity.dapperness = 0
         target.components.locomotor:RemoveExternalSpeedMultiplier(target, "catnipboost")
-        SetCatnipped(target)
-        WatchCatnipState(target)
+       -- SetCatnipped(target)
+       -- WatchCatnipState(target)
 
         if target and target.player_classified then
             target.player_classified.getlow:push()

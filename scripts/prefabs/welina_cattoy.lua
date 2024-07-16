@@ -43,7 +43,7 @@ local function onthrown(inst, thrower, pt)
     --inst.components.floatable:UpdateAnimations("idle_water", "throw")
     inst.AnimState:PlayAnimation("throw", true)
 	inst.AnimState:SetDeltaTimeMultiplier(1)
-    inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/pounce")
+    inst.SoundEmitter:PlaySound(fmodtable.monkeyball_bounce)
 
     -- inst.components.inventoryitem.canbepickedup = false
 end
@@ -58,7 +58,7 @@ local function onhitground(inst)
 	unclaim(inst)
 
 
-	inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/pickup")
+	inst.SoundEmitter:PlaySound(fmodtable.monkeyball_bounce)
 
 
 	inst:RemoveTag("noclick")
@@ -83,7 +83,8 @@ local function oncollision(inst, other)
 end
 
 local function pop(inst)
-	inst.SoundEmitter:PlaySound(fmodtable.monkeyball_break)
+	inst.SoundEmitter:PlaySound("dontstarve/common/balloon_pop")
+	--SpawnPrefab("fx_dock_pop").Transform:SetPosition(inst.Transform:GetWorldPosition())
 	SpawnPrefab("small_puff").Transform:SetPosition(inst.Transform:GetWorldPosition())
 	--SpawnPrefab("coconut_chunks").Transform:SetPosition(inst.Transform:GetWorldPosition())
 	inst:Remove()
@@ -135,7 +136,7 @@ local function fn()
 
 	inst:AddComponent("inventoryitem")
     inst.components.inventoryitem:SetOnPutInInventoryFn(onputininventory)
-	inst.components.inventoryitem.bouncesound = "dontstarve_DLC002/common/monkey_ball/bounce"
+	inst.components.inventoryitem.bouncesound = fmodtable.monkeyball_bounce
 	    inst.components.inventoryitem.imagename = "welina_cattoy"
     inst.components.inventoryitem.atlasname = "images/inventoryimages/welina_items.xml"
 

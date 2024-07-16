@@ -32,14 +32,14 @@ if TUNING.WELINA_CRAFTABLE_DENS == 1 then
 end
 
 
-STRINGS.RECIPE_DESC.WELINA_CATTOY = "Bouncy!"
+STRINGS.RECIPE_DESC.WELINA_CATTOY = "To ball or not to ball."
 
 
 AddCharacterRecipe("welina_cattoy", -- name
     {                             -- ingredients
         Ingredient("silk", 4),
         Ingredient("coontail", 1),
-        Ingredient("wetgoop", 2),
+        Ingredient("gunpowder", 1),
     },
     GLOBAL.TECH.NONE, -- tech
     {                 -- config
@@ -199,7 +199,7 @@ AddCharacterRecipe("welina_collar_bomb", -- name
 
 AddCharacterRecipe("welina_catnip", -- name
     {                               -- ingredients
-        GLOBAL.Ingredient("foliage", 2),
+        GLOBAL.Ingredient("foliage", 5),
         GLOBAL.Ingredient("petals", 5),
         GLOBAL.Ingredient("ash", 5),
     },
