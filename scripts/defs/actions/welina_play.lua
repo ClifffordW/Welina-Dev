@@ -26,12 +26,26 @@ local function ActionHandler(inst, act)
     return "dolongaction"
 end
 
+local function HasAnyTag(inst, tags)
+    for _, tag in ipairs(tags) do
+        if inst:HasTag(tag) then
+            return true
+        end
+    end
+    return false
+end
+local tagsToCheck = {"heavy", "portablestorage", "bundle", "notplayable"}
+
+
+
+
+
+
+
 local function ComponentAction(inst, doer, actions, right)
     if not right
         or not doer:HasTag("emocatgirl")
-		or inst:HasTag("heavy")
-		or inst:HasTag("portablestorage")
-		or inst:HasTag("bundle")
+        or HasAnyTag(inst, tagsToCheck)
         or inst.replica.combat ~= nil then
         return
     end

@@ -728,6 +728,27 @@ AddCharacterActionComplete(actions.WELINA_PLAY, "SCENE", "inventoryitem")
 
 
 
+-- NOTES(02): This will add tag to specified prefabs preventing welina from playing with said prefabs
+local prefabstomodify = 
+{
+    "lantern",
+}
+
+
+
+
+
+for _,prefab in pairs(prefabstomodify) do 
+    AddPrefabPostInit(prefab, function(inst)
+
+        inst:AddTag("notplayable")
+
+    end)
+
+
+end
+
+
 
 
 
