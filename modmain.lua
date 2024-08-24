@@ -737,14 +737,16 @@ local prefabstomodify =
 
 
 
+if prefabstomodify then
+    for _,prefab in pairs(prefabstomodify) do 
+        AddPrefabPostInit(prefab, function(inst)
 
-for _,prefab in pairs(prefabstomodify) do 
-    AddPrefabPostInit(prefab, function(inst)
+            inst:AddTag("notplayable")
 
-        inst:AddTag("notplayable")
+        end)
 
-    end)
 
+    end
 
 end
 
