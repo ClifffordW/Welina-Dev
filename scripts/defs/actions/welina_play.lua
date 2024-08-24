@@ -29,6 +29,9 @@ end
 local function ComponentAction(inst, doer, actions, right)
     if not right
         or not doer:HasTag("emocatgirl")
+		or inst:HasTag("heavy")
+		or inst:HasTag("portablestorage")
+		or inst:HasTag("bundle")
         or inst.replica.combat ~= nil then
         return
     end

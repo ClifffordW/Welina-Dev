@@ -18,14 +18,14 @@ local general_scripts = require("play_generalscripts")
 
 STRINGS.STAGEACTOR.WELINA1 = {
     "*Cough*",
-    "One two it's in full bloom, three four I'm harvesting it all",
-	"It's fine, I already said it's fine, jeez!",
-	"A happy second helping, give me that heart-pounding excitement",
-	"On the count of three, come on, jump in!",
-	"It's an instinctive boogie-woogie, a chaotic extra-large serving",
-	"It's fine, I already said it's fine, jeez! ",
-	"It's the worst, those guys are like a mystery",
-	"On the count of three just blast off!",	
+    "I'm so happy 'cause today I found my friends",
+	"They're in my head",
+	"I'm so ugly, that's okay, 'cause so are you",
+	"Broke our mirrors",
+	"Sunday morning is everyday, for all I care",
+	"And I'm not scared",
+	"Light my candles in a daze",
+	"'Cause I've found God",	
 }
 
 
@@ -33,29 +33,15 @@ general_scripts.WELINA1 = {
    cast = { "welina" },
    lines = {
       {roles = {"welina"}, duration = 2.0, line = STRINGS.STAGEACTOR.WELINA1[1]},
-  	  {roles = {"welina"}, duration = 2.0, line = STRINGS.STAGEACTOR.WELINA1[2]},
-	  {roles = {"welina"}, duration = 0.5,  anim="emote_happycheer"},
-	  {roles = {"welina"}, duration = 0.5,  anim="emote_sad"},
-	  {roles = {"welina"}, duration = 0.5,  anim="emote_angry"},
-	  {roles = {"welina"}, duration = 0.5,  anim="emote_strikepose"},
-	  
-	  {roles = {"welina"}, duration = 3.0, line = STRINGS.STAGEACTOR.WELINA1[3]},
-	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WELINA1[4]},
+  	  {roles = {"welina"}, duration = 3.0, line = STRINGS.STAGEACTOR.WELINA1[2]},	  
+	  {roles = {"welina"}, duration = 2.0, line = STRINGS.STAGEACTOR.WELINA1[3]},
+	  {roles = {"welina"}, duration = 3.0, line = STRINGS.STAGEACTOR.WELINA1[4]},
 	 -- {roles = {"welina"}, duration = 4.5, anim = { "emote_pre_sit3", "emote_loop_sit3"}, animtype="loop"},
-	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WELINA1[5]},
-	  {roles = {"welina"}, duration = 2.0, line = STRINGS.STAGEACTOR.WELINA1[6]},
-	  {roles = {"welina"}, duration = 0.5,  anim="emote_sad"},
-	  {roles = {"welina"}, duration = 0.5,  anim="emote_happycheer"},
-	  {roles = {"welina"}, duration = 0.5,  anim="emote_sad"},
-	  {roles = {"welina"}, duration = 0.5,  anim="emote_angry"},
-	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WELINA1[7]},
-	  {roles = {"welina"}, duration = 4.0, line = STRINGS.STAGEACTOR.WELINA1[8]},
-	  {roles = {"welina"}, duration = 2.0, line = STRINGS.STAGEACTOR.WELINA1[9]},
-	  {roles = {"welina"}, duration = 0.5,  anim="emote_pre_sit2"},
-	  {roles = {"welina"}, duration = 0.5,  anim="emote_happycheer"},
-	  {roles = {"welina"}, duration = 0.5,  anim="emote_sad"},
-	  {roles = {"welina"}, duration = 0.5,  anim="emote_strikepose"},
-
+	  {roles = {"welina"}, duration = 2.0, line = STRINGS.STAGEACTOR.WELINA1[5]},
+	  {roles = {"welina"}, duration = 3.0, line = STRINGS.STAGEACTOR.WELINA1[6]},
+	  {roles = {"welina"}, duration = 2.0, line = STRINGS.STAGEACTOR.WELINA1[7]},
+	  {roles = {"welina"}, duration = 3.0, line = STRINGS.STAGEACTOR.WELINA1[8]},
+	  {roles = {"welina"}, duration = 3.0, line = STRINGS.STAGEACTOR.WELINA1[9]},
 	  --{roles = {"welina"}, duration = 4.0, anim={"emoteXL_pre_dance0","emoteXL_loop_dance0"}, animtype="loop"},
     }
 }
