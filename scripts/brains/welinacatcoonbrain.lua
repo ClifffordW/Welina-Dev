@@ -193,20 +193,7 @@ function WelinaCatcoonBrain:OnStart()
     PriorityNode(
     {
 
-        SequenceNode{
-            ConditionNode(function() return HasCatcoonBait(self.inst) end, "HasBall"),
-            ParallelNodeAny {
-                WaitNode(4+math.random()*2),
-                Panic(self.inst),
-            },
-            DoAction(self.inst, GetRidOfTheBall),
-        },
 
-
-
-
-
-        DoAction(self.inst, TakeBallAction, "takeballact", true),
 
 
         BrainCommon.PanicWhenScared(self.inst, 1),
@@ -226,6 +213,22 @@ function WelinaCatcoonBrain:OnStart()
         Leash(self.inst, GetNoLeaderHomePos, LEASH_MAX_DIST, LEASH_RETURN_DIST),
         RunAway(self.inst, "player", AVOID_DIST, AVOID_STOP, nil, nil, NO_TAGS),
         Wander(self.inst, function() return self.inst:GetPosition() end, MAX_WANDER_DIST),
+        SequenceNode{
+            ConditionNode(function() return HasCatcoonBait(self.inst) end, "HasBall"),
+            ParallelNodeAny {
+                WaitNode(4+math.random()*2),
+                Panic(self.inst),
+            },
+            DoAction(self.inst, GetRidOfTheBall),
+        },
+
+
+
+
+
+        DoAction(self.inst, TakeBallAction, "takeballact", true),
+
+
     }, .25)
     self.bt = BT(self.inst, root)
 end
