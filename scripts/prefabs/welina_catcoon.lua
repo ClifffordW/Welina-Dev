@@ -599,7 +599,7 @@ local function fn()
 	inst.components.locomotor.walkspeed = 3 * 1.2
 
 	inst:AddComponent("inventory")
-	inst.components.inventory.maxslots = 4
+	inst.components.inventory.maxslots = 8
 
 	-- boat hopping
 	inst.components.locomotor:SetAllowPlatformHopping(true)
