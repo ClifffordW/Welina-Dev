@@ -596,10 +596,10 @@ local function fn()
 	inst.components.sleeper:SetSleepTest(SleepTest)
 
 	inst:AddComponent("locomotor")
-	inst.components.locomotor.walkspeed = 3 * 1.2
+	inst.components.locomotor.walkspeed = 3 * 1.3
 
 	inst:AddComponent("inventory")
-	inst.components.inventory.maxslots = 4
+	inst.components.inventory.maxslots = 6
 
 	-- boat hopping
 	inst.components.locomotor:SetAllowPlatformHopping(true)

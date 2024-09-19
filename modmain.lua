@@ -732,6 +732,7 @@ AddCharacterActionComplete(actions.WELINA_PLAY, "SCENE", "inventoryitem")
 local prefabstomodify = 
 {
     "lantern",
+	"terrarium",
 }
 
 

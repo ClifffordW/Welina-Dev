@@ -546,7 +546,7 @@ if KnownModIndex:IsModEnabled("workshop-3021568491") then
     {
         GENERIC = "Hello, Ms.%s.",
         ATTACKER = "I guess that nyasty personyality isn't just for the show.",
-        MURDERER = "I've got a gravestone prepared with your nyame on it!",
+        MURDERER = "Hopefully she isn't out for my blood because if she is, I might as well kill myeowself.",
         REVIVER = "Her facade is almost convincing.",
         GHOST = "Ms.Magician here needs a heart.",
         FIRESTARTER = "Was burning that part of your magic act or something?",

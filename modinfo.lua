@@ -272,10 +272,10 @@ configuration_options = {
 			{ description = "50", data = 0.5 },
 			{ description = "60", data = 0.6 },
 			{ description = "70", data = 0.7 },
-			{ description = "80", data = 0.8 },
-			{ description = "90", data = 0.9, hover = "Default 󰀡" },
+			{ description = "80", data = 0.8, hover = "Default 󰀡" },
+			{ description = "90", data = 0.9 },
 		},
-		default = 0.9,
+		default = 0.8,
 	},
 
 	{
@@ -308,12 +308,12 @@ configuration_options = {
 			{ description = "x2", data = 2 },
 			{ description = "x3", data = 3 },
 			{ description = "x4", data = 4 },
-			{ description = "x5", data = 5, hover = "Default 󰀡" },
-			{ description = "x6", data = 6 },
+			{ description = "x5", data = 5 },
+			{ description = "x6", data = 6, hover = "Default 󰀡" },
 			{ description = "x7", data = 7 },
 			{ description = "x8", data = 8 },
 		},
-		default = 5,
+		default = 6,
 	},
 
 	{
@@ -323,13 +323,13 @@ configuration_options = {
 		options = {
 			{ description = "10%", data = 0.1 },
 			{ description = "20%", data = 0.2 },
-			{ description = "30%", data = 0.3, hover = "Default 󰀡" },
-			{ description = "40%", data = 0.4 },
+			{ description = "30%", data = 0.3 },
+			{ description = "40%", data = 0.4, hover = "Default 󰀡" },
 			{ description = "50%", data = 0.5 },
 			{ description = "60%", data = 0.6 },
 			{ description = "70%", data = 0.7 },
 		},
-		default = 0.3,
+		default = 0.4,
 	},
 	
 		{

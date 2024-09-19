@@ -298,7 +298,7 @@ local function OnWorldEntityDeath(inst, data)
 end
 
 
-
+-- Night vision config
 
 local NV_COLOURCUBES =
 {
@@ -347,6 +347,15 @@ local function SetNightVision(inst, enable)
     end
 end
 
+-- Can't sleep while wet
+
+local function OnWetnessDelta(inst, data)
+    if inst.components.moisture:GetMoisturePercent() >= 0.01 then -- The '0.3' is the threshold the character needs to exceed to start the boosts
+        inst:AddTag("insomniac") else
+		inst:RemoveTag("insomniac")
+	end
+end
+
 
 -- This initializes for both the server and client. Tags can be added here.
 
@@ -358,12 +367,12 @@ local common_postinit = function(inst)
 
     inst:AddTag("emocatgirl")
 
-    --inst:AddTag("welinacollar_wearer")
-
+    inst:AddTag("welinacollar_wearer")
+--[[
     if TUNING.WELINA_INSOMNIA == 1 then
         inst:AddTag("insomniac")
     end
-
+--]]
     if KnownModIndex:IsModEnabled("workshop-2039181790") then
         inst:AddTag("ratimmune")
     end
@@ -467,6 +476,7 @@ local master_postinit = function(inst)
         inst:ListenForEvent("working", AsocialWork)
         inst:ListenForEvent("sanitydelta", SanityScrew)
         inst:ListenForEvent("onattackother", DamageScrew)
+		inst:ListenForEvent("moisturedelta", OnWetnessDelta)
     end
 
     if TUNING.WELINA_9LIVES == 1 then
