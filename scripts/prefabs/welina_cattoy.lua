@@ -118,6 +118,7 @@ local function fn()
 	inst:AddTag("projectile")
 	inst:AddTag("catbait")
 	inst:AddTag("workrepairable")
+	inst:AddTag("welina_cattoy")
 
 
 	inst.pickupsound = "cloth"

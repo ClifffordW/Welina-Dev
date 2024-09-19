@@ -187,6 +187,11 @@ local function OnAttacked(inst, data)
 	if inst.components.combat and not inst.components.combat.target then
 		inst.sg:GoToState("hiss")
 	end
+
+	if inst.components.combat and inst.components.follower.leader and data.attacker == inst.components.follower.leader  then
+		inst.components.inventory:DropEverything()
+
+	end
 	if inst.components.combat then
 		inst.components.combat:SetTarget(data.attacker)
 	end
