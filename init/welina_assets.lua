@@ -73,6 +73,8 @@ AddAnim("welina_hiss_anim_doorman")
 AddAnim("welina_hiss_anim_homestuck")
 
 
+AddAnim("welina_puke")
+
 --AddAnim("catcoon_basic")
 --AddAnim("catcoon_actions")
 

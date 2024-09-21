@@ -34,6 +34,35 @@ TUNING.WELINA_CATNIP_MUSIC = GetModConfigData("WELINA_CATNIP_MUSIC")
 
 
 
+TUNING.WELINA_VOMIT_ITEMS =
+{
+
+	"spoiled_food",
+	"spoiled_fish",
+	"spoiled_fish_small"
+	
+}
+
+local vomit_prefab = 
+
+{
+
+	"spoiled_food"
+}
+
+for _,vomit_item in pairs(vomit_prefab) do
+	AddPrefabPostInit(vomit_item, function(inst)
+
+		inst:AddTag("vomit_inducer")
+
+	end)
+end
+
+
+
+
+
+
 TUNING.WELINA_PLAY_SANITY = {
     DEFAULT = 1,
     ["trinket_22"] = 15, -- summerscorcher: Add prefab-to-sanity entries for playing like so. Left side is prefab, right side is sanity points.

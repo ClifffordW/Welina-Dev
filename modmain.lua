@@ -408,6 +408,116 @@ AddStategraphState(
 
 
 
+AddStategraphState("wilson", State{
+    name = "welina_vomit",
+    tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph"},
+
+    onenter = function(inst)
+        local buffaction = inst:GetBufferedAction()
+
+      
+        local vomits = 
+        {
+            "nya_short",
+            "nya_long",
+        }
+        inst.AnimState:PushAnimation("nya_long")
+        
+    end,
+
+    timeline =
+    {
+        TimeEvent(3 * FRAMES, function(inst)
+            local buffaction = inst:GetBufferedAction()
+
+            --inst.SoundEmitter:PlaySound(songdata.SOUND or ("dontstarve_DLC001/characters/wathgrithr/"..(songdata.INSTANT and "quote" or "sing")))
+           
+        end),
+
+        TimeEvent(24 * FRAMES, function(inst)
+            inst:PerformBufferedAction()
+        end),
+        TimeEvent(34 * FRAMES, function(inst)
+            inst.sg:RemoveStateTag("busy")
+            inst.sg:RemoveStateTag("nointerrupt")
+        end),
+        --FrameEvent(42, TryResumePocketRummage),
+    },
+
+    events =
+    {
+        EventHandler("animover", function(inst)
+            if inst.AnimState:AnimDone() then
+                inst.sg:GoToState("idle")
+                if inst.components.playercontroller ~= nil then
+                    inst.components.playercontroller:Enable(true)
+                end
+                local x, y, z = inst.Transform:GetWorldPosition()
+                local items = TUNING.WELINA_VOMIT_ITEMS or {"spoiled_food"}
+                local item = SpawnPrefab(items[math.random(#items)])
+                item.Transform:SetPosition(x, y, z)
+
+                
+            end
+        end),
+    },
+
+    --onexit = CheckPocketRummageMem,
+})
+
+
+
+AddStategraphState("wilson", State{
+    name = "welina_vomit_pre",
+    tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph" },
+
+    onenter = function(inst)
+        inst.components.locomotor:Stop()
+
+        if inst.components.playercontroller ~= nil then
+            inst.components.playercontroller:Enable(false)
+        end
+
+        inst.AnimState:PlayAnimation("sing_pre", false)
+    end,
+
+    events = {
+        EventHandler("animover", function(inst)
+
+            inst.sg:GoToState("welina_vomit")
+                    
+   
+        end),
+    },
+
+    --onexit = CheckPocketRummageMem,
+})
+
+
+
+AddAction("WELINA_VOMIT", "Vomit", function(act)
+    return
+end)
+
+
+--script, time, noanim, force, nobroadcast, colour
+
+
+
+
+ACTIONS.WELINA_VOMIT.mount_valid = false
+ACTIONS.WELINA_VOMIT.priority = 2
+ACTIONS.WELINA_VOMIT.rmb = false
+
+
+
+
+
+
+AddStategraphActionHandler("wilson", _G.ActionHandler(ACTIONS.WELINA_VOMIT, "welina_vomit_pre"))
+
+
+
 
 
 

@@ -356,6 +356,21 @@ local function OnWetnessDelta(inst, data)
 	end
 end
 
+local function OnEat(inst, food)
+    if food:HasTag("vomit_inducer") then
+
+        inst:DoTaskInTime(math.random(2,5), function()
+            inst.sg:GoToState("welina_vomit_pre")
+        end)
+    
+    end
+end
+
+
+
+
+
+
 
 -- This initializes for both the server and client. Tags can be added here.
 
@@ -430,6 +445,7 @@ local master_postinit = function(inst)
 
 
     inst.components.hunger:SetMax(TUNING.WELINA_HUNGER)
+    inst.components.eater:SetOnEatFn(OnEat)
 
     inst.components.sanity:SetMax(TUNING.WELINA_SANITY)
     --inst.components.sanity.sanity_aura_immune = true
@@ -488,6 +504,8 @@ local master_postinit = function(inst)
     if KnownModIndex:IsModEnabled("workshop-2039181790") then
         inst:ListenForEvent("onattackother", OnAttackOther)
     end
+
+    
 
 
 
