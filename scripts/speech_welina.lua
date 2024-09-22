@@ -1343,7 +1343,7 @@ return{
 		YELLOWGEM = "I hate the color, it's too bright.",
 		ORANGEGEM = "The gem of the lazy.",
         OPALSTAFF = "It serves an opposite purpose now.",
-        OPALPRECIOUSGEM = "It precious, but i can't think of meouch use to it.",
+        OPALPRECIOUSGEM = "It precious, but I can't think of meouch use to it.",
         TELEBASE =
 		{
 			VALID = "All good to go here.",
@@ -1359,7 +1359,7 @@ return{
 
         ANCIENT_ALTAR = "A place of worship and ancient knowledge.",
 
-        ANCIENT_ALTAR_BROKEN = "It can be restored to its former glory.",
+        ANCIENT_ALTAR_BROKEN = "How can I fix it, if I can't even fix myeowself.",
 
         ANCIENT_STATUE = "It looks agonized.",
 
@@ -1388,7 +1388,7 @@ return{
         ARMORSNURTLESHELL = "It's full of slime and other disgusting fluids.",
         BAT = "A real nuisance.",
         BATBAT = "\"No one heals themselves by harming others\". Oh please.",
-        BATWING = "I looks kinda tasty.",
+        BATWING = "No one to bat an eye to you anyamore.",
         BATWING_COOKED = "Better and better.",
         BATCAVE = "It's where the winged rats stay the day.",
         BEDROLL_FURRY = "Warm, fuzzy, if you ignore the cruelty.",
@@ -1884,8 +1884,8 @@ return{
 			HELD = "No one can hear you caw, cupcake.",
 		},
 		CUTGRASS = "Ripped apart for later.",
-		CUTREEDS = "They have a pleasing texture, i guess.",
-		CUTSTONE = "I'm not a builder type, but i can try.",
+		CUTREEDS = "They have a pleasing texture, I guess.",
+		CUTSTONE = "There's nyothing I can build that won't crumble.",
 		DEADLYFEAST = "It smells... noxious.", --unimplemented
 		DEER =
 		{
@@ -1901,7 +1901,7 @@ return{
 		{
 			GENERIC = "Stripped of all purpose.",
 		},
-        GOGGLESHAT = "It doesn't look half bad, i guess.",
+        GOGGLESHAT = "It doesn't look half bad, I guess.",
         DESERTHAT = "My stubbornness has meow wearing hats over a hat.",
         ANTLIONHAT = "Bringing the spirit of change on the go.",
 --fallback to speech_wilson.lua 		DEVTOOL = "It smells of bacon!",

@@ -430,14 +430,34 @@ AddStategraphState("wilson", State{
         TimeEvent(3 * FRAMES, function(inst)
             local buffaction = inst:GetBufferedAction()
 
-            --inst.SoundEmitter:PlaySound(songdata.SOUND or ("dontstarve_DLC001/characters/wathgrithr/"..(songdata.INSTANT and "quote" or "sing")))
+            inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hairball_hack")
            
         end),
 
         TimeEvent(24 * FRAMES, function(inst)
             inst:PerformBufferedAction()
         end),
-        TimeEvent(34 * FRAMES, function(inst)
+		
+		TimeEvent(27 * FRAMES, function(inst)
+			inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hairball_hack")
+        end),
+		
+		TimeEvent(48 * FRAMES, function(inst)
+			inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hairball_hack")
+        end),
+		
+		
+		TimeEvent(70 * FRAMES, function(inst)
+            inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hairball_vomit")
+				local x, y, z = inst.Transform:GetWorldPosition()
+                local items = TUNING.WELINA_VOMIT_ITEMS or {"spoiled_food"}
+                local item = SpawnPrefab(items[math.random(#items)])
+                item.Transform:SetPosition(x, y, z)
+				local invItem = item.components.inventoryitem
+				invItem:DoDropPhysics(x, y, z, true, 1)
+        end),
+		
+        TimeEvent(95 * FRAMES, function(inst)
             inst.sg:RemoveStateTag("busy")
             inst.sg:RemoveStateTag("nointerrupt")
         end),
@@ -452,10 +472,6 @@ AddStategraphState("wilson", State{
                 if inst.components.playercontroller ~= nil then
                     inst.components.playercontroller:Enable(true)
                 end
-                local x, y, z = inst.Transform:GetWorldPosition()
-                local items = TUNING.WELINA_VOMIT_ITEMS or {"spoiled_food"}
-                local item = SpawnPrefab(items[math.random(#items)])
-                item.Transform:SetPosition(x, y, z)
 
                 
             end

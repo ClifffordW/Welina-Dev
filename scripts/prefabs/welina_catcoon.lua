@@ -471,6 +471,8 @@ local function OnLocomote(inst)
 	end
 end
 
+-- fuck my back hurts
+
 local function fn()
 	local inst = CreateEntity()
 
@@ -601,7 +603,7 @@ local function fn()
 	inst.components.sleeper:SetSleepTest(SleepTest)
 
 	inst:AddComponent("locomotor")
-	inst.components.locomotor.walkspeed = 3 * 1.3
+	inst.components.locomotor.walkspeed = 3 * 1.4
 
 	inst:AddComponent("inventory")
 	inst.components.inventory.maxslots = 6
