@@ -36,72 +36,111 @@ TUNING.WELINA_CATNIP_MUSIC = GetModConfigData("WELINA_CATNIP_MUSIC")
 
 TUNING.WELINA_VOMIT_ITEMS =
 {
-	"silk",
-	"spoiled_food",
-	"spoiled_fish",
-	"spoiled_fish_small",
-	"butterflywings",
-	"lightbulb",
-	"rope",
-	"twigs",
-	"goldnugget",
-	"seeds",
-	"fireflies",
-	"pigskin",
-	"beefalowool",
-	"petals",
-	"acorn",
-	"trinket_33",
-	"trinket_43",
-	"halloweencandy_5",
-	"halloweencandy_12",
-	"halloweencandy_13",
-	"cutreeds",
-	"pinecone",
-	"manrabbit_tail",
-	"steelwool",
-	"malbatross_feather",
-	"furtuft",
-	"stinger",
-	"feather_crow",
-	"feather_robin",
-	"feather_robin_winter",
-	"feather_canary",
-	"petals_evil",
-	"succulent_picked",
-	"lichen",
-	"foliage",
-	"beardhair",
-	"goose_feather",
-	"slurtle_shellpieces",
-	"moonrocknugget",
-	"thulecite_pieces",
-	"glommerwings",
-	"nitre",
-	"tentaclespots",
-	"marblebean",
-	"moon_tree_blossom",
-	"kelp",
-	"carrot_seeds",
-	"corn_seeds",
-	"dragonfruit_seeds",
-	"durian_seeds",
-	"eggplant_seeds",
-	"pomegranate_seeds",
-	"pumpkin_seeds",
-	"watermelon_seeds",
-	"asparagus_seeds",
-	"potato_seeds",
-	"tomato_seeds",
-	"pepper_seeds",
-	"onion_seeds",
-	"garlic_seeds",
-	"wormlight_lesser",
-	"wetgoop",
-	"thulecite_pieces",
-	"pondfish",
-	"tumbleweed",
+
+	default = {
+		"silk",
+		"spoiled_food",
+		"spoiled_fish",
+		"spoiled_fish_small",
+		"butterflywings",
+		"lightbulb",
+		"rope",
+		"twigs",
+		"goldnugget",
+		"seeds",
+		"fireflies",
+		"pigskin",
+		"beefalowool",
+		"petals",
+		"acorn",
+		"trinket_33",
+		"trinket_43",
+		"halloweencandy_5",
+		"halloweencandy_12",
+		"halloweencandy_13",
+		"cutreeds",
+		"pinecone",
+		"manrabbit_tail",
+		"steelwool",
+		"malbatross_feather",
+		"furtuft",
+		"stinger",
+		"feather_crow",
+		"feather_robin",
+		"feather_robin_winter",
+		"feather_canary",
+		"petals_evil",
+		"succulent_picked",
+		"cutlichen", --NOTE:(CW) She dont spit entire bush brotha
+		"foliage",
+		"beardhair",
+		"goose_feather",
+		"slurtle_shellpieces",
+		"moonrocknugget",
+		"thulecite_pieces",
+		"glommerwings",
+		"nitre",
+		"tentaclespots",
+		"marblebean",
+		"moon_tree_blossom",
+		"kelp",
+		"carrot_seeds",
+		"corn_seeds",
+		"dragonfruit_seeds",
+		"durian_seeds",
+		"eggplant_seeds",
+		"pomegranate_seeds",
+		"pumpkin_seeds",
+		"watermelon_seeds",
+		"asparagus_seeds",
+		"potato_seeds",
+		"tomato_seeds",
+		"pepper_seeds",
+		"onion_seeds",
+		"garlic_seeds",
+		"wormlight_lesser",
+		"wetgoop",
+		"thulecite_pieces",
+		"pondfish",
+		"tumbleweed", 
+	
+	},
+
+	random = {
+		phlegm = 
+		{
+			"",
+		},
+
+		spoiled_fish = 
+		{
+			"",
+		},
+
+		spoiled_fish_small = 
+		{
+			"",
+		},
+
+		wetgoop = 
+		{
+			"",
+		},
+
+		rottenegg = 
+		{
+			"",
+		},
+
+		spoiled_food = 
+		{
+			"",
+		},
+	}
+
 }
+
+TUNING.WELINA_VOMIT_BONUSITEM_CHANCE = 0.2
 
 local vomit_prefab = 
 

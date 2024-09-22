@@ -359,8 +359,10 @@ end
 local function OnEat(inst, food)
     if food:HasTag("vomit_inducer") then
 
+        inst.welina_eatenitem = food.prefab
         inst:DoTaskInTime(math.random(2,5), function()
             inst.sg:GoToState("welina_vomit_pre")
+
         end)
     
     end

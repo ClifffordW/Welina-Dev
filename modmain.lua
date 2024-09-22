@@ -414,8 +414,13 @@ AddStategraphState("wilson", State{
 
     onenter = function(inst)
         local buffaction = inst:GetBufferedAction()
+        local eatenitem = inst.welina_eatenitem or "spoiled_food"
 
-      
+
+        inst.sg.statemem.eatenitem = eatenitem
+
+        
+
         local vomits = 
         {
             "nya_short",
@@ -450,9 +455,17 @@ AddStategraphState("wilson", State{
 		TimeEvent(70 * FRAMES, function(inst)
             inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hairball_vomit")
 				local x, y, z = inst.Transform:GetWorldPosition()
-                local items = TUNING.WELINA_VOMIT_ITEMS or {"spoiled_food"}
-                local item = SpawnPrefab(items[math.random(#items)])
+                local items = TUNING.WELINA_VOMIT_ITEMS.default or {"spoiled_food"}
+                local item = SpawnPrefab(items[math.random(#items, 1)])
                 item.Transform:SetPosition(x, y, z)
+
+                if math.random() < TUNING.WELINA_VOMIT_BONUSITEM_CHANCE then
+                    print("EATEN: "..inst.sg.statemem.eatenitem)
+                    local randomchanceitem = TUNING.WELINA_VOMIT_ITEMS.random[inst.sg.statemem.eatenitem] or {"spoiled_food"}
+                    local itemrandom = SpawnPrefab(randomchanceitem[math.random(#randomchanceitem, 1)])
+                    itemrandom.Transform:SetPosition(x, y, z)
+                end
+
 				--if invItem == nil then return false end
 				local invItem = item.components.inventoryitem
 				invItem:DoDropPhysics(x, y, z, true, 1)
@@ -469,6 +482,8 @@ AddStategraphState("wilson", State{
     {
         EventHandler("animover", function(inst)
             if inst.AnimState:AnimDone() then
+                inst.sg.statemem.eatenitem = nil
+                inst.welina_eatenitem = nil
                 inst.sg:GoToState("idle")
                 if inst.components.playercontroller ~= nil then
                     inst.components.playercontroller:Enable(true)
