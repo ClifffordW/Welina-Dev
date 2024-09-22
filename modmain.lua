@@ -453,6 +453,7 @@ AddStategraphState("wilson", State{
                 local items = TUNING.WELINA_VOMIT_ITEMS or {"spoiled_food"}
                 local item = SpawnPrefab(items[math.random(#items)])
                 item.Transform:SetPosition(x, y, z)
+				--if invItem == nil then return false end
 				local invItem = item.components.inventoryitem
 				invItem:DoDropPhysics(x, y, z, true, 1)
         end),
@@ -881,18 +882,18 @@ end
 
 
 
+GLOBAL.FOODGROUP.WELINAAPPROVED = {
+    name = "WELINAAPPROVED",
+    types = {
+        GLOBAL.FOODTYPE.MEAT,
+        GLOBAL.FOODTYPE.VEGGIE,
+        GLOBAL.FOODTYPE.INSECT,
+        GLOBAL.FOODTYPE.SEEDS,
+        GLOBAL.FOODTYPE.GENERIC,
+        GLOBAL.FOODTYPE.GOODIES,
+        GLOBAL.FOODTYPE.HORRIBLE
+		
+    }
+}
 
 
-
-
-
-
---[[
-AddComponentAction("SCENE", "prototyper", function(inst, doer, actions, right)
-    if not inst.prefab ~= "wcard_diary" then
-        if not right   then
-            table.insert(actions, ACTIONS.OPEN_CRAFTING)
-        end
-    end
-end)
---]]
