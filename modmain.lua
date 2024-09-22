@@ -421,7 +421,7 @@ AddStategraphState("wilson", State{
             "nya_short",
             "nya_long",
         }
-        inst.AnimState:PushAnimation("nya_long")
+        inst.AnimState:PushAnimation("nya_long", false)
         
     end,
 
