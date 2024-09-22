@@ -456,13 +456,13 @@ AddStategraphState("wilson", State{
             inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hairball_vomit")
 				local x, y, z = inst.Transform:GetWorldPosition()
                 local items = TUNING.WELINA_VOMIT_ITEMS.default or {"spoiled_food"}
-                local item = SpawnPrefab(items[math.random(#items, 1)])
+                local item = SpawnPrefab(items[math.random(#items)])
                 item.Transform:SetPosition(x, y, z)
 
                 if math.random() < TUNING.WELINA_VOMIT_BONUSITEM_CHANCE then
                     print("EATEN: "..inst.sg.statemem.eatenitem)
                     local randomchanceitem = TUNING.WELINA_VOMIT_ITEMS.random[inst.sg.statemem.eatenitem] or {"spoiled_food"}
-                    local itemrandom = SpawnPrefab(randomchanceitem[math.random(#randomchanceitem, 1)])
+                    local itemrandom = SpawnPrefab(randomchanceitem[math.random(#randomchanceitem)])
                     itemrandom.Transform:SetPosition(x, y, z)
                 end
 
