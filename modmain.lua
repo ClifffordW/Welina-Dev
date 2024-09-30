@@ -463,12 +463,16 @@ AddStategraphState("wilson", State{
                     print("EATEN: "..inst.sg.statemem.eatenitem)
                     local randomchanceitem = TUNING.WELINA_VOMIT_ITEMS.random[inst.sg.statemem.eatenitem] or {"spoiled_food"}
                     local itemrandom = SpawnPrefab(randomchanceitem[math.random(#randomchanceitem)])
-                    itemrandom.Transform:SetPosition(x, y, z)
+                    itemrandom.components.inventoryitem:DoDropPhysics(x, y, z, true, 1)
+                    
                 end
 
 				--if invItem == nil then return false end
 				local invItem = item.components.inventoryitem
 				invItem:DoDropPhysics(x, y, z, true, 1)
+                
+
+
         end),
 		
         TimeEvent(95 * FRAMES, function(inst)
