@@ -452,7 +452,7 @@ AddStategraphState("wilson", State{
         end),
 		
 		
-		TimeEvent(70 * FRAMES, function(inst)
+		TimeEvent(80 * FRAMES, function(inst)
             inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hairball_vomit")
 				local x, y, z = inst.Transform:GetWorldPosition()
                 local items = TUNING.WELINA_VOMIT_ITEMS.default or {"spoiled_food"}

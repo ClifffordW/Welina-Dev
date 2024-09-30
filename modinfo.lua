@@ -10,25 +10,25 @@ local lang_lookups = {
 			desc = "Adds Welina, the low-spirited cat girl.",
 			changes = [[
 			
-󰀈 New Welina skin - The Rebel
+󰀈 Welina can now eat garbage
 
-󰀈 Welina can now wear her collars
+󰀈 Doing so lets her vomit random items
 
-󰀈 New Craftable - Catcoon Toy
+󰀈 Slightly buffed Welina's reflect damage
 
 󰀈 Added new quotes
 		
 			]],
 		},
 		zh = {
-			name = "通配符",
+			name = "韦利纳",
 			new = "󰀏 日志",
 			credits = "󰀭 致谢",
 			modinfo_v = "󰀩 Mod信息版本",
 			mod_v = "󰀔 Mod版本",
 			modinfo_module = "钴",
-			desc = "添加了通配符，疯狂的魔法兔子。",
-			changes = "󰀈 修复了语音配置问题",
+			desc = "郁闷的猫女维琳娜补充道。",
+			changes = "󰀈 模组发布",
 		},
 	},
 	modinfo_config = {

@@ -53,8 +53,8 @@ TUNING.WELINA_VOMIT_ITEMS =
 		"beefalowool",
 		"petals",
 		"acorn",
-		"trinket_33",
-		"trinket_43",
+		--"trinket_33",
+		--"trinket_43",
 		"halloweencandy_5",
 		"halloweencandy_12",
 		"halloweencandy_13",
@@ -78,7 +78,6 @@ TUNING.WELINA_VOMIT_ITEMS =
 		"slurtle_shellpieces",
 		"moonrocknugget",
 		"thulecite_pieces",
-		"glommerwings",
 		"nitre",
 		"tentaclespots",
 		"marblebean",
@@ -100,41 +99,163 @@ TUNING.WELINA_VOMIT_ITEMS =
 		"garlic_seeds",
 		"wormlight_lesser",
 		"wetgoop",
-		"thulecite_pieces",
 		"pondfish",
-		"tumbleweed", 
+		"turf_carpetfloor",
+		"turf_beard_rug",
+		--"halloween_ornament_5",
+		--"halloween_ornament_2",
+		"trinket_9",
+		"featherpencil",
+		"winter_food1",
 	
 	},
 
 	random = {
 		phlegm = 
 		{
-			"",
+			"steelwool",
+			"malbatross_feather",
+			"pigskin",
+			"carnival_vest_a", -- she killed the crowkids
+			"bedroll_furry",
+			"trinket_3",
+			"gunpowder",
+			"featherpencil",
+			"giftwrap",
+			"foliage",
+			"halloween_ornament_5",
+			"halloween_ornament_2",
+			"trinket_33",
+			"trinket_43",
+			"wetgoop",
+			"twigs",
+			"cutgrass",
+		},
+		
+		yotpfood2 = 
+		{
+			"pigskin",
+			"steelwool",
+			"potato_seeds",
+			"tomato_seeds",
+			"pepper_seeds",
+			
+		},
+		
+		pigskin = 
+		{
+			"malbatross_feather",
+			"pigskin",
+			"trinket_3",
+			"sewing_kit",
+			"giftwrap",
+			"moonrocknugget",
+			"foliage",
+			"gunpowder",
+			"glommerwings",
+			"halloween_ornament_5",
+			"halloween_ornament_2",
+			"trinket_33",
+			"trinket_43",
+			"wetgoop",
+			"twigs",
+			"cutgrass",
+			"potato_seeds",
+			"tomato_seeds",
+			"pepper_seeds",
+			
+		},
+		
+		slurper_pelt = 
+		{
+			"eel",
+			"manrabbit_tail",
+			"purplegem",
+			"thulecite_pieces",
+			"moonrocknugget",
+			"foliage",
+			"cutlichen",
+			"wormlight_lesser",
+			"wetgoop",
+			"twigs",
+			"cutgrass",
+			"potato_seeds",
+			"tomato_seeds",
+			"pepper_seeds",
 		},
 
 		spoiled_fish = 
 		{
-			"",
+			"wetgoop",
+			"twigs",
+			"cutgrass",
+			"potato_seeds",
+			"tomato_seeds",
+			"pepper_seeds",
 		},
 
 		spoiled_fish_small = 
 		{
-			"",
+			"wetgoop",
+			"twigs",
+			"cutgrass",
 		},
-
+		
 		wetgoop = 
 		{
-			"",
+			"wetgoop",
+			"twigs",
+			"cutgrass",
+		},
+		
+		wintersfeastfuel = 
+		{
+			"wetgoop",
+			"twigs",
+			"cutgrass",
+			"giftwrap",
 		},
 
 		rottenegg = 
 		{
-			"",
+			"wetgoop",
+			"twigs",
+			"cutgrass",
 		},
 
 		spoiled_food = 
 		{
-			"",
+			"wetgoop",
+			"twigs",
+			"cutgrass",
+		},
+		
+		fruitcake = 
+		{
+			"winter_ornament_light1",
+			"winter_ornament_light2",
+			"winter_ornament_light3",
+			"winter_ornament_light4",
+			"winter_ornament_light5",
+			"winter_ornament_light6",
+			"winter_ornament_light7",
+			"winter_ornament_light8",
+			"winter_ornament_festivalevents1",
+			"winter_ornament_festivalevents2",
+			"winter_ornament_festivalevents3",
+			"winter_ornament_boss_hermithouse",
+			"winter_ornament_boss_pearl",
+			"winter_ornament_boss_bearger",
+			"winter_ornament_boss_moose",
+			"winter_ornament_boss_deerclops",
+			"winter_ornament_plain1",
+			"winter_ornament_plain2",
+			"winter_ornament_plain3",
+			"winter_ornament_plain4",
+			"winter_ornament_plain5",
+			"winter_ornament_plain6",
+			"winter_ornament_plain7",
+			"winter_ornament_plain8",
 		},
 	}
 
@@ -151,6 +272,12 @@ local vomit_prefab =
 	"wetgoop",
 	"rottenegg",
 	"spoiled_food",
+	"slurper_pelt",
+	"yotpfood2",
+	"wintersfeastfuel",
+	"pigskin",
+	"manrabbit_tail",
+	"winter_food4",
 }
 
 for _,vomit_item in pairs(vomit_prefab) do
@@ -169,6 +296,7 @@ end
 TUNING.WELINA_PLAY_SANITY = {
     DEFAULT = 1,
     ["trinket_22"] = 15, -- summerscorcher: Add prefab-to-sanity entries for playing like so. Left side is prefab, right side is sanity points.
+	["welina_cattoy"] = 15,
 	["balloons_empty"] = 10,
 	["trinket_24"] = 10,
 	["trinket_1"] = 10,

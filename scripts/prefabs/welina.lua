@@ -449,6 +449,10 @@ local master_postinit = function(inst)
 
     inst.components.hunger:SetMax(TUNING.WELINA_HUNGER)
     inst.components.eater:SetOnEatFn(OnEat)
+	if inst.components.eater ~= nil then       
+		--inst.components.eater:SetPrefersEatingTag("vomit_inducer")
+        inst.components.eater:SetDiet({ FOODGROUP.OMNI, FOODGROUP.WELINAAPPROVED })
+    end
 
     inst.components.sanity:SetMax(TUNING.WELINA_SANITY)
     --inst.components.sanity.sanity_aura_immune = true
