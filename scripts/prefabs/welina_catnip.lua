@@ -321,16 +321,7 @@ local function OnAttached(inst, target)
     end, target)
 
 
-    --Gyat damn it
-    inst:ListenForEvent("despawn", function()
 
-
-        
-        if target and target.player_classified then
-            target.player_classified.getlow:push()
-        end
-        
-    end, target)
     
 
     inst:ListenForEvent("knockedout", function()

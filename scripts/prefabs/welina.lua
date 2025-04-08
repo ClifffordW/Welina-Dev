@@ -69,7 +69,7 @@ local function DamageScrew(inst, data)
 
     local hasglasscollar = inst:HasTag("glass_collar")
 
-    inst.components.combat.damagemultiplier = hasglasscollar and damageModifier + 0.2 or damageModifier
+    inst.components.combat.damagemultiplier = damageModifier
 end
 
 

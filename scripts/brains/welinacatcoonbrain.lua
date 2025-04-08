@@ -137,6 +137,8 @@ local function HasMonkeyBait(inst)
     if ball then
         -- print("I have the ball!")
         return true
+    else
+        return false
     end
 end
 

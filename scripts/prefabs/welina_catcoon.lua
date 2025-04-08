@@ -293,13 +293,15 @@ local function ShouldAcceptItem(inst, item)
 	if item.prefab == "winter_food4" then
 		return
 	end
+	local hasneckslot = KnownModIndex:IsModEnabled("workshop-375850593")  and EQUIPSLOTS.NECK or EQUIPSLOTS.BODY
+
 
 	if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
 		return true
 	elseif
 		item.components.equippable ~= nil
-		and item.components.equippable.equipslot == EQUIPSLOTS.BODY
-		and string.find(item.prefab, "welina_collar")
+		and item.components.equippable.equipslot == hasneckslot
+ 		and string.find(item.prefab, "welina_collar")
 	then
 		return true
 	elseif item:HasTag("cattoy") or item:HasTag("catfood") or item:HasTag("cattoyairborne") then
@@ -343,8 +345,11 @@ local function OnGetItemFromPlayer(inst, giver, item)
 		inst.AnimState:Show("hat")
 	end
 
-	if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.BODY then
-		local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.BODY)
+	local hasneckslot = KnownModIndex:IsModEnabled("workshop-375850593")  and EQUIPSLOTS.NECK or EQUIPSLOTS.BODY
+
+
+	if item.components.equippable ~= nil and item.components.equippable.equipslot == hasneckslot then
+		local current = inst.components.inventory:GetEquippedItem(hasneckslot)
 		if current ~= nil then
 			inst.components.inventory:DropItem(current)
 		end
@@ -512,6 +517,7 @@ local function fn()
 	inst.waterfx.AnimState:SetScale(0.75,0.75)
 	inst.waterfx:Hide()
 --]]
+
 	inst.entity:SetPristine()
 
 	if not TheWorld.ismastersim then
