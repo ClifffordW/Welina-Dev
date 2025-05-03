@@ -10,7 +10,7 @@ AddCharacterSkin("welina", "ms_welina_gown", "The Restless", "It's sometimes tem
 AddCharacterSkin("welina", "ms_welina_doorman", "The Over-Bored", "Short cut for short-tempered cat.", "That's a pretty... metal.. origin story...", true, true, false)
 AddCharacterSkin("welina", "ms_welina_homestuck", "The Rebel", "You don't want to cross paths with her.", "This ain't what you want.", true, true, false)
 
-AddCharFont("welina")
+--AddCharFont("welina")
 
 
 
