@@ -1,7 +1,19 @@
 modimport("articore/articore_api")
 
 
-local _G = GLOBAL
+do
+    local GLOBAL = GLOBAL
+    local modEnv = GLOBAL.getfenv(1)
+    local rawget, setmetatable = GLOBAL.rawget, GLOBAL.setmetatable
+    setmetatable(modEnv, {
+        __index = function(self, index)
+            return rawget(GLOBAL, index)
+        end,
+        -- lack of __newindex means it defaults to modEnv, so we don't mess up globals.
+    })
+
+    _G = GLOBAL
+end
 
 
 AddRepairType("trinket_22", "trinket_22")
