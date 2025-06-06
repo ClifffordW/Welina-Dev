@@ -568,7 +568,7 @@ AddStategraphActionHandler("wilson", _G.ActionHandler(ACTIONS.WELINA_VOMIT, "wel
 
 
 
-
+--NOTES(CW) I hate this, I hate it. 
 
 AddPrefabPostInit("welina", function (inst, data, ...)
     local DummyFn = function () end
