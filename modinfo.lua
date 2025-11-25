@@ -10,13 +10,11 @@ local lang_lookups = {
 			desc = "Adds Welina, the low-spirited cat girl.",
 			changes = [[
 			
-󰀈 Welina can now eat garbage
+• Fixed Issue with collar crashing with Uncomp Mode
+• Updated collar functionality
+• Fixed issue with riding a beefalo and vomiting
 
-󰀈 Doing so lets her vomit random items
 
-󰀈 Slightly buffed Welina's reflect damage
-
-󰀈 Added new quotes
 		
 			]],
 		},
@@ -81,7 +79,7 @@ local lookupconf = lang_lookups.modinfo_config[locale] or lang_lookups.modinfo_c
 versiontype = ""
 name = lookup.name
 author = "mentos"
-version = "1.0.5"
+version = "1.0.8"
 config = false
 Language = "en"
 contributors = "Cliffford W., Fairy"
