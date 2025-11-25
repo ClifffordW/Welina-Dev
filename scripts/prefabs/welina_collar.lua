@@ -24,7 +24,9 @@ local function OnIgniteFn(inst)
 end
 
 local function OnExtinguishFn(inst)
-	inst.SoundEmitter:KillSound("hiss")
+	if inst.SoundEmitter then
+		inst.SoundEmitter:KillSound("hiss")
+	end
 	DefaultExtinguishFn(inst)
 end
 

@@ -37,45 +37,35 @@ local fmodtable = require("defs.sound.fmodtable_monkeyball").Event
 
 
 local function GotHigh(inst)
-	if inst._parent ~= nil and TheFocalPoint.entity:GetParent() == inst._parent then
-
+    if inst._parent ~= nil and TheFocalPoint.entity:GetParent() == inst._parent then
         if TheFocalPoint.SoundEmitter:PlayingSound("high") then return end
 
         TheSim:SetReverbPreset("cave")
 
-    
-        TheFocalPoint.SoundEmitter:PlaySound(fmodtable.high, "high", 0.25)
 
-	end
+        TheFocalPoint.SoundEmitter:PlaySound(fmodtable.high, "high", 0.25)
+    end
 end
 
 
 local function NoLongerHigh(inst)
-	if inst._parent ~= nil and TheFocalPoint.entity:GetParent() == inst._parent then
-
+    if inst._parent ~= nil and TheFocalPoint.entity:GetParent() == inst._parent then
         if not TheFocalPoint.SoundEmitter:PlayingSound("high") then return end
 
 
         TheFocalPoint.SoundEmitter:KillSound("high")
         TheSim:SetReverbPreset("default")
-
-
-  
-
-	end
+    end
 end
 
 
 
 AddPrefabPostInit("player_classified", function(inst)
-	
-
-	inst.gethigh = net_event(inst.GUID, "gethigh")
+    inst.gethigh = net_event(inst.GUID, "gethigh")
     inst.getlow = net_event(inst.GUID, "getlow")
 
-	inst:ListenForEvent("gethigh", GotHigh)
+    inst:ListenForEvent("gethigh", GotHigh)
     inst:ListenForEvent("getlow", NoLongerHigh)
-
 end)
 
 
@@ -94,7 +84,7 @@ end)
 
 
 
-AddPrefabPostInit("whip", function (inst)
+AddPrefabPostInit("whip", function(inst)
     local CRACK_MUST_TAGS = { "_combat" }
     local CRACK_CANT_TAGS = { "player", "epic", "shadow", "shadowminion", "shadowchesspiece", "sinner" }
     local function supercrack(inst)
@@ -161,7 +151,7 @@ AddPrefabPostInit("whip", function (inst)
 end)
 
 
-AddPrefabPostInit("catcoon", function (inst)
+AddPrefabPostInit("catcoon", function(inst)
     inst.AnimState:SetHatOffset(5, 200)
     local function NoHoles(pt)
         return not TheWorld.Map:IsPointNearHole(pt)
@@ -256,10 +246,11 @@ AddPrefabPostInit("catcoon", function (inst)
 
     local function RetargetFn(inst)
         return FindEntity(inst, TUNING.CATCOON_TARGET_DIST,
-            function (guy)
+            function(guy)
                 if guy:HasTag("catcoon") then
                     return not (inst.components.follower and inst.components.follower:IsLeaderSame(guy))
-                        and not (inst.components.follower and guy.components.follower and inst.components.follower.leader == nil and guy.components.follower.leader == nil)
+                        and
+                        not (inst.components.follower and guy.components.follower and inst.components.follower.leader == nil and guy.components.follower.leader == nil)
                         and guy.components.health
                         and not guy.components.health:IsDead()
                         and inst.components.combat:CanTarget(guy)
@@ -293,7 +284,7 @@ AddStategraphState(
         name = "welina_hiss",
         tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph" },
 
-        onenter = function (inst)
+        onenter = function(inst)
             if animation_data.anims == "idle_loop" then
                 inst.AnimState:PlayAnimation("research")
             end
@@ -325,7 +316,7 @@ AddStategraphState(
         end,
         events = {
 
-            EventHandler("animqueueover", function (inst)
+            EventHandler("animqueueover", function(inst)
                 if inst.AnimState:AnimDone() then
                     inst.sg:GoToState("idle")
                 end
@@ -336,7 +327,7 @@ AddStategraphState(
 
             --TimeEvent(1 * FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hiss_pre") end),
 
-            TimeEvent(10 * FRAMES, function (inst)
+            TimeEvent(10 * FRAMES, function(inst)
                 if animation_data.anims == "idle_loop" then
                     local skin_build = inst.AnimState:GetBuild()
                     local contains_welina = string.find(skin_build, "ms_welina")
@@ -358,22 +349,22 @@ AddStategraphState(
                 inst.Transform:SetNoFaced()
             end),
 
-            TimeEvent(14 * FRAMES, function (inst)
+            TimeEvent(14 * FRAMES, function(inst)
                 if animation_data.anims == "idle_loop" then
                     --inst.SoundEmitter:PlaySound(welina_sounds.welina_hiss.event)
                     inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hiss")
                 end
             end),
 
-            TimeEvent(62 * FRAMES, function (inst)
+            TimeEvent(62 * FRAMES, function(inst)
                 inst.sg:RemoveStateTag("busy")
             end),
 
-            TimeEvent(62 * FRAMES, function (inst)
+            TimeEvent(62 * FRAMES, function(inst)
                 inst.AnimState:PushAnimation("idle_pst", false)
             end),
 
-            TimeEvent(animation_data.frames_anim * FRAMES, function (inst)
+            TimeEvent(animation_data.frames_anim * FRAMES, function(inst)
                 inst.AnimState:SetBuild(inst.skinname ~= "" and "ms_welina" .. inst.skinname or "welina")
                 inst.AnimState:SetBank("wilson")
                 inst.components.locomotor:StopMoving()
@@ -385,7 +376,7 @@ AddStategraphState(
                 inst:SetCameraDistance(animation_data.camera_distance + 8)
             end),
 
-            TimeEvent(68 * FRAMES, function (inst)
+            TimeEvent(68 * FRAMES, function(inst)
                 if animation_data.anims == "idle_loop" then
                     inst.AnimState:PlayAnimation("staff")
                     inst.AnimState:SetFrame(60)
@@ -393,16 +384,16 @@ AddStategraphState(
                 end
             end),
 
-            TimeEvent(72 * FRAMES, function (inst)
+            TimeEvent(72 * FRAMES, function(inst)
                 if animation_data.anims == "idle_loop" then
                     inst.AnimState:SetDeltaTimeMultiplier(1)
                 end
             end),
         },
 
-        onupdate = function (inst) end,
+        onupdate = function(inst) end,
 
-        onexit = function (inst)
+        onexit = function(inst)
             inst:RemoveTag("NOTARGET")
 
             if inst.skinname then
@@ -420,9 +411,9 @@ AddStategraphState(
 
 
 
-AddStategraphState("wilson", State{
+AddStategraphState("wilson", State {
     name = "welina_vomit",
-    tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph"},
+    tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph" },
 
     onenter = function(inst)
         local buffaction = inst:GetBufferedAction()
@@ -431,15 +422,14 @@ AddStategraphState("wilson", State{
 
         inst.sg.statemem.eatenitem = eatenitem
 
-        
 
-        local vomits = 
+
+        local vomits =
         {
             "nya_short",
             "nya_long",
         }
         inst.AnimState:PushAnimation("nya_long", false)
-        
     end,
 
     timeline =
@@ -448,45 +438,40 @@ AddStategraphState("wilson", State{
             local buffaction = inst:GetBufferedAction()
 
             inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hairball_hack")
-           
         end),
 
         TimeEvent(24 * FRAMES, function(inst)
             inst:PerformBufferedAction()
         end),
-		
-		TimeEvent(27 * FRAMES, function(inst)
-			inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hairball_hack")
+
+        TimeEvent(27 * FRAMES, function(inst)
+            inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hairball_hack")
         end),
-		
-		TimeEvent(48 * FRAMES, function(inst)
-			inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hairball_hack")
+
+        TimeEvent(48 * FRAMES, function(inst)
+            inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hairball_hack")
         end),
-		
-		
-		TimeEvent(80 * FRAMES, function(inst)
+
+
+        TimeEvent(80 * FRAMES, function(inst)
             inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hairball_vomit")
-				local x, y, z = inst.Transform:GetWorldPosition()
-                local items = TUNING.WELINA_VOMIT_ITEMS.default or {"spoiled_food"}
-                local item = SpawnPrefab(items[math.random(#items)])
-                item.Transform:SetPosition(x, y, z)
+            local x, y, z = inst.Transform:GetWorldPosition()
+            local items = TUNING.WELINA_VOMIT_ITEMS.default or { "spoiled_food" }
+            local item = SpawnPrefab(items[math.random(#items)])
+            item.Transform:SetPosition(x, y, z)
 
-                if math.random() < TUNING.WELINA_VOMIT_BONUSITEM_CHANCE then
-                    print("EATEN: "..inst.sg.statemem.eatenitem)
-                    local randomchanceitem = TUNING.WELINA_VOMIT_ITEMS.random[inst.sg.statemem.eatenitem] or {"spoiled_food"}
-                    local itemrandom = SpawnPrefab(randomchanceitem[math.random(#randomchanceitem)])
-                    itemrandom.components.inventoryitem:DoDropPhysics(x, y, z, true, 1)
-                    
-                end
+            if math.random() < TUNING.WELINA_VOMIT_BONUSITEM_CHANCE then
+                print("EATEN: " .. inst.sg.statemem.eatenitem)
+                local randomchanceitem = TUNING.WELINA_VOMIT_ITEMS.random[inst.sg.statemem.eatenitem] or { "spoiled_food" }
+                local itemrandom = SpawnPrefab(randomchanceitem[math.random(#randomchanceitem)])
+                itemrandom.components.inventoryitem:DoDropPhysics(x, y, z, true, 1)
+            end
 
-				--if invItem == nil then return false end
-				local invItem = item.components.inventoryitem
-				invItem:DoDropPhysics(x, y, z, true, 1)
-                
-
-
+            --if invItem == nil then return false end
+            local invItem = item.components.inventoryitem
+            invItem:DoDropPhysics(x, y, z, true, 1)
         end),
-		
+
         TimeEvent(95 * FRAMES, function(inst)
             inst.sg:RemoveStateTag("busy")
             inst.sg:RemoveStateTag("nointerrupt")
@@ -504,8 +489,6 @@ AddStategraphState("wilson", State{
                 if inst.components.playercontroller ~= nil then
                     inst.components.playercontroller:Enable(true)
                 end
-
-                
             end
         end),
     },
@@ -515,7 +498,7 @@ AddStategraphState("wilson", State{
 
 
 
-AddStategraphState("wilson", State{
+AddStategraphState("wilson", State {
     name = "welina_vomit_pre",
     tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph" },
 
@@ -531,10 +514,7 @@ AddStategraphState("wilson", State{
 
     events = {
         EventHandler("animover", function(inst)
-
             inst.sg:GoToState("welina_vomit")
-                    
-   
         end),
     },
 
@@ -568,10 +548,8 @@ AddStategraphActionHandler("wilson", _G.ActionHandler(ACTIONS.WELINA_VOMIT, "wel
 
 
 
-
-
-AddPrefabPostInit("welina", function (inst, data, ...)
-    local DummyFn = function () end
+AddPrefabPostInit("welina", function(inst, data, ...)
+    local DummyFn = function() end
 
     local _SaveForReroll = inst.SaveForReroll or DummyFn
     local _LoadForReroll = inst.LoadForReroll or DummyFn
@@ -609,11 +587,11 @@ AddPrefabPostInit("welina", function (inst, data, ...)
     inst.LoadForReroll = LoadForReroll
 end)
 
-AddPlayerPostInit(function (inst, data, ...)
+AddPlayerPostInit(function(inst, data, ...)
     if inst.prefab ~= "welina" then
         GLOBAL.TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
 
-        local DummyFn = function () end
+        local DummyFn = function() end
 
         local _SaveForReroll = inst.SaveForReroll or DummyFn
         local _LoadForReroll = inst.LoadForReroll or DummyFn
@@ -682,7 +660,7 @@ local function TryMakeResentable(inst)
     inst:AddComponent("welina_resentable")
 end
 
-AddPrefabPostInitAny(function (inst)
+AddPrefabPostInitAny(function(inst)
     if inst == nil or not TheWorld.ismastersim then
         return
     end
@@ -830,7 +808,7 @@ if TUNING.WELINA_OSP == 1 then
         end
     end
 
-    AddComponentPostInit("health", function (self)
+    AddComponentPostInit("health", function(self)
         if not TheWorld.ismastersim then
             return
         end
@@ -861,7 +839,7 @@ local eatercomp = require("components/eater")
 
 local OldFunc = eatercomp.PrefersToEat
 
-eatercomp.PrefersToEat = function (self, food, ...)
+eatercomp.PrefersToEat = function(self, food, ...)
     local ret = { OldFunc(self, food, ...) }
     if food.prefab == "welina_catnip" and not self.inst:HasTag("emocatgirl") then
         --CW: catnip hack. Hope it doesnt look sussy - _-"
@@ -878,7 +856,8 @@ local actions = {
 local function AddCharacterActionComplete(actionReq, actiontype, component)
     AddAction(actionReq.ACTION)
     AddStategraphActionHandler("wilson", GLOBAL.ActionHandler(actionReq.ACTION, actionReq.ActionHandler))
-    AddStategraphActionHandler("wilson_client", GLOBAL.ActionHandler(actionReq.ACTION, actionReq.ClientActionHandler or actionReq.ActionHandler))
+    AddStategraphActionHandler("wilson_client",
+        GLOBAL.ActionHandler(actionReq.ACTION, actionReq.ClientActionHandler or actionReq.ActionHandler))
     AddComponentAction(actiontype, component, actionReq.ComponentAction)
 end
 
@@ -887,26 +866,21 @@ AddCharacterActionComplete(actions.WELINA_PLAY, "SCENE", "inventoryitem")
 
 
 -- NOTES(02): This will add tag to specified prefabs preventing welina from playing with said prefabs
-local prefabstomodify = 
+local prefabstomodify =
 {
     "lantern",
-	"terrarium",
+    "terrarium",
 }
 
 
 
 
 if prefabstomodify then
-    for _,prefab in pairs(prefabstomodify) do 
+    for _, prefab in pairs(prefabstomodify) do
         AddPrefabPostInit(prefab, function(inst)
-
             inst:AddTag("notplayable")
-
         end)
-
-
     end
-
 end
 
 
@@ -923,8 +897,6 @@ GLOBAL.FOODGROUP.WELINAAPPROVED = {
         GLOBAL.FOODTYPE.GENERIC,
         GLOBAL.FOODTYPE.GOODIES,
         GLOBAL.FOODTYPE.HORRIBLE
-		
+
     }
 }
-
-

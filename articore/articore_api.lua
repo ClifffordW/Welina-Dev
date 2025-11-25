@@ -222,9 +222,17 @@ function AddScrapbookItem(prefab, category, subcat, description, is_burnable, ba
         v.deps = v.deps or {}
         v.notes = v.notes or {}
 
+        RegisterScrapbookIconAtlas(resolvefilepath("images/inventoryimages/"..atlas..".xml"), v.tex)
+
+ 
+
         scrapbook_prefabs[k] = true
         scrapbookdata[k] = v
+
+
     end
+
+
 end
 
 --- @param music (string) song path

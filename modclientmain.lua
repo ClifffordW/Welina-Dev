@@ -1,3 +1,17 @@
+do
+    local GLOBAL = GLOBAL
+    local modEnv = GLOBAL.getfenv(1)
+    local rawget, setmetatable = GLOBAL.rawget, GLOBAL.setmetatable
+    setmetatable(modEnv, {
+        __index = function(self, index)
+            return rawget(GLOBAL, index)
+        end,
+        -- lack of __newindex means it defaults to modEnv, so we don't mess up globals.
+    })
+
+    _G = GLOBAL
+end
+
 modimport("articore/articore_api")
 PrefabFiles = {
 	"welina_skins",
@@ -66,13 +80,10 @@ AddDynamic("ms_welina_gown")
 AddDynamic("ms_welina_doorman")
 AddDynamic("ms_welina_homestuck")
 
-
+local STRINGS = GLOBAL.STRINGS
 --For menu remix compatibility
 table.insert(Assets, Asset("SOUND", "sound/welina.fsb"))
 table.insert(Assets, Asset("SOUNDPACKAGE", "sound/scotchmintz_characters.fev"))
-if TUNING.MENUREMIX_MODDEDCHAR_VOICES then
-    TUNING.MENUREMIX_MODDEDCHAR_VOICES.welina = "scotchmintz_characters/characters/welina/talk_LP"
-end
 
 if STRINGS.MENUREMIX then
     STRINGS.MENUREMIX.MODDEDCHARACTER_LINES.welina = 
@@ -87,7 +98,12 @@ if STRINGS.MENUREMIX then
 
 end
 
-local STRINGS = GLOBAL.STRINGS
+if TUNING.MENUREMIX_MODDEDCHAR_VOICES then
+    TUNING.MENUREMIX_MODDEDCHAR_VOICES.welina = "scotchmintz_characters/characters/welina/talk_LP"
+end
+
+
+
 
 --Localization for Chinese (S/T)
 local lang_lookups =

@@ -361,7 +361,7 @@ local function OnEat(inst, food)
 
         inst.welina_eatenitem = food.prefab
         inst:DoTaskInTime(math.random(2,5), function()
-            if inst.sg:HasStateTag("dead") or inst:HasTag("playerghost") then return end
+            if inst.sg:HasStateTag("dead") or inst:HasTag("playerghost") or inst.components.rider:IsRiding() then return end
             inst.sg:GoToState("welina_vomit_pre")
 
         end)
