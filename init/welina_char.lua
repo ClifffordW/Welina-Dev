@@ -9,6 +9,7 @@ CharacterAbillity("welina", "Nine Lives", "Edgy, Inside and Outside", "Resentful
 AddCharacterSkin("welina", "ms_welina_gown", "The Restless", "It's sometimes tempting to shut yourself in dreams.", "When my eyes close, I see terrible things.", true, true, false)
 AddCharacterSkin("welina", "ms_welina_doorman", "The Over-Bored", "Short cut for short-tempered cat.", "That's a pretty... metal.. origin story...", true, true, false)
 AddCharacterSkin("welina", "ms_welina_homestuck", "The Rebel", "You don't want to cross paths with her.", "This ain't what you want.", true, true, false)
+AddCharacterSkin("welina", "ms_welina_xmas", "The Festive", "She doesn't hate you as much.", "Hnghh... J-Just take your gift... or whatever.", true, true, false)
 
 --AddCharFont("welina")
 

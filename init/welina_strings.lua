@@ -51,7 +51,7 @@ STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA =
 GENERIC = "Do we see the same world, %s?",
 ATTACKER = "Harming others won't help you, %s.",
 MURDERER = "I thought you understood me, but you're just a shameless murderer...",
-REVIVER = "%s bring comfort to those around her.",
+REVIVER = "%s brings comfort to those around her.",
 GHOST = "You'll be brought back soon enough, %s.",
 FIRESTARTER = "Did you mean to set that ablaze, %s?",
 }
@@ -187,10 +187,10 @@ FIRESTARTER = "This cat's way too excited to be playing with fire.",
 
 STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA =
 {
-GENERIC = "Hmph, another freak like meow.",
+GENERIC = "I am... I'm all of meow.",
 ATTACKER = "You're not acting in my best interest, are you?",
 MURDERER = "I knew better than anyaone it'd come to this.",
-REVIVER = "She know her way around ghosts, I should know.",
+REVIVER = "She knows her way around ghosts, I would know.",
 GHOST = "You'll be outta this world if you keep that up.",
 FIRESTARTER = "It's tempting to watch the world burn, isn't it.",
 }
@@ -502,11 +502,11 @@ STRINGS.NAMES.WELINA_CATCOON = name or "Sinner"
 
 if KnownModIndex:IsModEnabled("workshop-2858309592") then
 
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYYARN = "Hm, decent bandaging."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYBUNDLE = "It's full of something alright, and it ain't cupcakes."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYYARN = "Ugh, it's covered in spider gunk."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYBUNDLE = "It's full of something alright, and it ain't pretty."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYBUNDLEWRAP = "It's spider-made wraps."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYMASK = "This is so stupid it might just work."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYRIBBON = "Ugh, too girly, next."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYRIBBON = "Nyuck, too girly, next."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYSUNHAT = "I'd wear it if it was black, but alas."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYSUNGLASSES = "These could actually fit my style, huh."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYWHIP = "It's ridiculously sticky, how does she use it."
@@ -515,8 +515,8 @@ if KnownModIndex:IsModEnabled("workshop-2858309592") then
 
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKY = 
 {
-	GENERIC = "I uh... see you have a lot of weight on your shoulders, %s.",
-	ATTACKER = "How can someone like you harm anyone.",
+	GENERIC = "Heya tits-for-brains.",
+	ATTACKER = "How can someone like you harm anyaone.",
 	MURDERER = "End of the line, cupcake. Time to deflate you.",
 	REVIVER = "Well, at least someone's here reliable.",
 	GHOST = "I'll have to make this right.",
@@ -532,19 +532,19 @@ if KnownModIndex:IsModEnabled("workshop-3021568491") then
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_WHITE = "She fits into it so seamlessly."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_RED = "She fits into it so seamlessly."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_YELLOW = "She fits into it so seamlessly."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD = "Questionable choice of design."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_BLACK = "Questionable choice of design."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_WHITE = "Questionable choice of design."
-    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_RED = "Questionable choice of design."
-	STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_YELLOW = "Questionable choice of design."
-	STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_DIARY = "I'm just a part of her freak show."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD = "She's into that kinda attention."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_BLACK = "She's into that kinda attention."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_WHITE = "She's into that kinda attention."
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_RED = "She's into that kinda attention."
+	STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_CALLINGCARD_YELLOW = "She's into that kinda attention."
+	STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_DIARY = "Just a part of her freak show...."
 	STRINGS.CHARACTERS.WELINA.DESCRIBE.RABBIT_WCARD = "Should turn it into a cat next time."
 	
 
 
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WILDCARD = 
     {
-        GENERIC = "Hello, Ms.%s.",
+        GENERIC = "Hnghh... Ma'am.",
         ATTACKER = "I guess that nyasty personyality isn't just for the show.",
         MURDERER = "Hopefully she isn't out for my blood because if she is, I might as well kill myeowself.",
         REVIVER = "Her facade is almost convincing.",

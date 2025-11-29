@@ -49,6 +49,9 @@ Assets = {
 	
 	Asset( "IMAGE", "bigportraits/ms_welina_homestuck.tex" ),
     Asset( "ATLAS", "bigportraits/ms_welina_homestuck.xml" ),
+	
+	Asset( "IMAGE", "bigportraits/ms_welina_xmas.tex" ),
+    Asset( "ATLAS", "bigportraits/ms_welina_xmas.xml" ),
 
     --Big Portraits End
 
@@ -79,6 +82,7 @@ Assets = {
 AddDynamic("ms_welina_gown")
 AddDynamic("ms_welina_doorman")
 AddDynamic("ms_welina_homestuck")
+AddDynamic("ms_welina_xmas")
 
 local STRINGS = GLOBAL.STRINGS
 --For menu remix compatibility
@@ -181,7 +185,7 @@ CharacterAbillity("welina", lookup.a1 , lookup.a2 , lookup.a3)
 AddCharacterSkin("welina", "ms_welina_gown", "The Restless", "It's sometimes tempting to shut yourself in dreams.", "When my eyes close, I see terrible things.", true, true, false)
 AddCharacterSkin("welina", "ms_welina_doorman", "The Over-Bored", "Welina tries on a shorter cut.", "That's a pretty... metal.. origin story...", true, true, false)
 AddCharacterSkin("welina", "ms_welina_homestuck", "The Rebel", "You don't want to cross paths with her.", "This ain't what you want.", true, true, false)
-
+AddCharacterSkin("welina", "ms_welina_xmas", "The Festive", "She doesn't hate you as much.", "Hnghh... J-Just take your gift... or whatever.", true, true, false)
 
 STRINGS.CHARACTER_ABOUTME.welina = lookup.aboutme
 STRINGS.CHARACTER_BIOS.welina = {
