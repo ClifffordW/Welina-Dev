@@ -507,6 +507,7 @@ local master_postinit = function(inst)
     end
 
     inst:ListenForEvent("attacked", OnTakeDamage)
+    inst:ListenForEvent("welina_stack_resentfulness", StackResentfulness)
 
     if KnownModIndex:IsModEnabled("workshop-2039181790") then
         inst:ListenForEvent("onattackother", OnAttackOther)
