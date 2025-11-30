@@ -871,6 +871,7 @@ local prefabstomodify =
 {
     "lantern",
     "terrarium",
+	"voidcloth_umbrella",
 }
 
 
