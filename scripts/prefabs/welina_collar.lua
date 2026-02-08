@@ -256,10 +256,8 @@ local function MakeCollar(name)
 		inst:AddComponent("inventoryitem")
 
 		inst.components.inventoryitem.imagename = "welina_collar_" .. name
-		if name == "spiked" then
-			inst.components.inventoryitem.imagename = "welina_collar"
-		end
-		inst.components.inventoryitem.atlasname = "images/inventoryimages/welina_items.xml"
+
+    	inst.components.inventoryitem.atlasname = resolvefilepath("images/inventoryimages/welina_items.xml")
 
 		if name == "bomb" then
 			inst:AddComponent("explosive")

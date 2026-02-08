@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Atlas>
+    <Texture filename="avatar_welina.tex"/>
+    <Elements>
+        <Element name="avatar_welina.tex" u1="0.00195313" u2="0.998047" v1="0.00195313" v2="0.998047"/>
+    </Elements>
+    <StraightAlpha>false</StraightAlpha>
+</Atlas>
+

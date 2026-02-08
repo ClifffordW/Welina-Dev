@@ -213,7 +213,7 @@ local function fn()
     inst.AnimState:SetBuild("welina_catnip")
     inst.AnimState:PlayAnimation("idle")
 
-    inst.AnimState:SetScale(.75,1)
+    --inst.AnimState:SetScale(.75,1)
 
     MakeInventoryFloatable(inst)
 
@@ -246,7 +246,7 @@ local function fn()
 
     inst:AddComponent("inventoryitem")
     inst.components.inventoryitem.imagename = "welina_catnip"
-    inst.components.inventoryitem.atlasname = "images/inventoryimages/welina_items.xml"
+    inst.components.inventoryitem.atlasname = resolvefilepath("images/inventoryimages/welina_items.xml")
 
     inst:AddComponent("tradable")
 

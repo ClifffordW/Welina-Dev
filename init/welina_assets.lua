@@ -33,6 +33,9 @@ Assets = {
 	
 	Asset( "IMAGE", "images/avatars/avatar_welina.tex" ),
     Asset( "ATLAS", "images/avatars/avatar_welina.xml" ),
+
+    Asset( "IMAGE", "images/crafting_menu_avatars/avatar_welina.tex" ),
+    Asset( "ATLAS", "images/crafting_menu_avatars/avatar_welina.xml" ),
 	
 	Asset( "IMAGE", "images/avatars/avatar_ghost_welina.tex" ),
     Asset( "ATLAS", "images/avatars/avatar_ghost_welina.xml" ),
@@ -48,7 +51,8 @@ Assets = {
 	
 	Asset( "IMAGE", "images/inventoryimages/welina_items.tex" ),
     Asset( "ATLAS", "images/inventoryimages/welina_items.xml" ),
-	
+    Asset( "ATLAS_BUILD", "images/inventoryimages/welina_items.xml", 256 ),
+
 	Asset("ANIM", "anim/welina_collar.zip"),
 	Asset("ANIM", "anim/ui_welina_collar.zip"),
 

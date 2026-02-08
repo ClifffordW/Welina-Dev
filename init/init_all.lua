@@ -16,6 +16,8 @@ local inits =
 
     "abilities",
 
+    "scrapbook",
+
 }
 
 

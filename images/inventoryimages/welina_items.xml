@@ -1,15 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Atlas>
-	<Texture filename="welina_items.tex" />
-	<Elements>
-		<Element name="welina_catnip.tex" u1="0.001" u2="0.2099375" v2="0.999" v1="0.78615625" variant="" />
-		<Element name="welina_cattoy.tex" u1="0.2119375" u2="0.44040625" v2="0.999" v1="0.78225" variant="" />
-		<Element name="welina_collar.tex" u1="0.001" u2="0.23728125" v2="0.78025" v1="0.54396875" variant="" />
-		<Element name="welina_collar_armor.tex" u1="0.23928125" u2="0.44040625" v2="0.78025" v1="0.579125" variant="" />
-		<Element name="welina_collar_bomb.tex" u1="0.44240625" u2="0.6786875" v2="0.999" v1="0.735375" variant="" />
-		<Element name="welina_collar_glass.tex" u1="0.6806875" u2="0.87790625" v2="0.999" v1="0.80178125" variant="" />
-		<Element name="welina_collar_light.tex" u1="0.44240625" u2="0.6786875" v2="0.733375" v1="0.53615625" variant="" />
-		<Element name="welina_collar_regen.tex" u1="0.6806875" u2="0.889625" v2="0.79978125" v1="0.58303125" variant="" />
-		<Element name="welina_den.tex" u1="0.001" u2="0.21775" v2="0.54196875" v1="0.30178125" variant="" />
-	</Elements>
+    <Texture filename="welina_items.tex"/>
+    <Elements>
+        <Element name="welina_catnip.tex" u1="0.00195313" u2="0.236328" v1="0.244141" v2="0.478516"/>
+        <Element name="welina_cattoy.tex" u1="0.244141" u2="0.478516" v1="0.763672" v2="0.998047"/>
+        <Element name="welina_collar_armor.tex" u1="0.486328" u2="0.720703" v1="0.763672" v2="0.998047"/>
+        <Element name="welina_collar_bomb.tex" u1="0.00195313" u2="0.236328" v1="0.736328" v2="0.998047"/>
+        <Element name="welina_collar_glass.tex" u1="0.728516" u2="0.962891" v1="0.763672" v2="0.998047"/>
+        <Element name="welina_collar_light.tex" u1="0.244141" u2="0.478516" v1="0.521484" v2="0.755859"/>
+        <Element name="welina_collar_regen.tex" u1="0.244141" u2="0.478516" v1="0.279297" v2="0.513672"/>
+        <Element name="welina_collar_spiked.tex" u1="0.244141" u2="0.478516" v1="0.0371094" v2="0.271484"/>
+        <Element name="welina_den.tex" u1="0.00195313" u2="0.236328" v1="0.486328" v2="0.728516"/>
+    </Elements>
+    <StraightAlpha>false</StraightAlpha>
 </Atlas>
+

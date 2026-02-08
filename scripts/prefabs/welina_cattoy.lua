@@ -138,8 +138,8 @@ local function fn()
 	inst:AddComponent("inventoryitem")
     inst.components.inventoryitem:SetOnPutInInventoryFn(onputininventory)
 	inst.components.inventoryitem.bouncesound = fmodtable.monkeyball_bounce
-	    inst.components.inventoryitem.imagename = "welina_cattoy"
-    inst.components.inventoryitem.atlasname = "images/inventoryimages/welina_items.xml"
+	inst.components.inventoryitem.imagename = "welina_cattoy"
+    inst.components.inventoryitem.atlasname = resolvefilepath("images/inventoryimages/welina_items.xml")
 
 	inst:AddComponent("equippable")
 	inst.components.equippable:SetOnEquip(onequip)

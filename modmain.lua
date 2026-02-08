@@ -16,6 +16,8 @@ do
 end
 
 
+
+
 AddRepairType("trinket_22", "trinket_22")
 
 
@@ -413,30 +415,24 @@ AddStategraphState(
 
 AddStategraphState("wilson", State {
     name = "welina_vomit",
-    tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph" },
+    tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph", "vomiting" },
 
     onenter = function(inst)
-        local buffaction = inst:GetBufferedAction()
-        local eatenitem = inst.welina_eatenitem or "spoiled_food"
+        local eaten_table = inst.welina_eatenitem
+        local chosen_item = "spoiled_food" -- Fallback
 
+        -- Pick a random item from the list if it's not empty
+        if eaten_table and #eaten_table > 0 then
+            chosen_item = eaten_table[math.random(#eaten_table)]
+        end
 
-        inst.sg.statemem.eatenitem = eatenitem
-
-
-
-        local vomits =
-        {
-            "nya_short",
-            "nya_long",
-        }
+        inst.sg.statemem.eatenitem = chosen_item
         inst.AnimState:PushAnimation("nya_long", false)
     end,
 
     timeline =
     {
         TimeEvent(3 * FRAMES, function(inst)
-            local buffaction = inst:GetBufferedAction()
-
             inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hairball_hack")
         end),
 
@@ -452,40 +448,63 @@ AddStategraphState("wilson", State {
             inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hairball_hack")
         end),
 
-
         TimeEvent(80 * FRAMES, function(inst)
             inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/hairball_vomit")
             local x, y, z = inst.Transform:GetWorldPosition()
+            
             local itemsFallback = { ["spoiled_food"] = 1 }
-            local items = TUNING.WELINA_VOMIT_ITEMS.default or itemsFallback
-            local item = SpawnPrefab(weighted_random_choice(items))
-            item.Transform:SetPosition(x, y, z)
+            local default_loot_table = TUNING.WELINA_VOMIT_ITEMS.default or itemsFallback
 
-            if math.random() < TUNING.WELINA_VOMIT_BONUSITEM_CHANCE then
-                print("EATEN: " .. inst.sg.statemem.eatenitem)
-                local randomchanceitem = TUNING.WELINA_VOMIT_ITEMS.random[inst.sg.statemem.eatenitem] or itemsFallback
-                local itemrandom = SpawnPrefab(weighted_random_choice(randomchanceitem))
-                itemrandom.components.inventoryitem:DoDropPhysics(x, y, z, true, 1)
+            if inst.welina_eatenitem and #inst.welina_eatenitem > 0 then
+                
+                for i, prefab_eaten in ipairs(inst.welina_eatenitem) do
+                    
+                    local base_prefab = weighted_random_choice(default_loot_table)
+                    local base_item = SpawnPrefab(base_prefab)
+                    
+                    if base_item then
+                        base_item.Transform:SetPosition(x, y, z)
+                        if base_item.components.inventoryitem then
+                            base_item.components.inventoryitem:DoDropPhysics(x, y, z, true, 1)
+                        end
+                    end
+
+                    -- 2. SPAWN BONUS ITEM (Based on the specific food prefab)
+                    if math.random() < TUNING.WELINA_VOMIT_BONUSITEM_CHANCE then
+                        local random_loot_table = TUNING.WELINA_VOMIT_ITEMS.random[prefab_eaten] or itemsFallback
+                        local bonus_item = SpawnPrefab(weighted_random_choice(random_loot_table))
+                        
+                        if bonus_item then
+                            bonus_item.Transform:SetPosition(x, y, z)
+                            if bonus_item.components.inventoryitem then
+                                bonus_item.components.inventoryitem:DoDropPhysics(x, y, z, true, 1)
+                            end
+                        end
+                    end
+                end
+            else
+
+                local backup = SpawnPrefab(weighted_random_choice(default_loot_table))
+                if backup then
+                    backup.Transform:SetPosition(x, y, z)
+                    if backup.components.inventoryitem then
+                        backup.components.inventoryitem:DoDropPhysics(x, y, z, true, 1)
+                    end
+                end
             end
-
-            --if invItem == nil then return false end
-            local invItem = item.components.inventoryitem
-            invItem:DoDropPhysics(x, y, z, true, 1)
         end),
 
         TimeEvent(95 * FRAMES, function(inst)
             inst.sg:RemoveStateTag("busy")
             inst.sg:RemoveStateTag("nointerrupt")
         end),
-        --FrameEvent(42, TryResumePocketRummage),
     },
 
     events =
     {
         EventHandler("animover", function(inst)
             if inst.AnimState:AnimDone() then
-                inst.sg.statemem.eatenitem = nil
-                inst.welina_eatenitem = nil
+                inst.welina_eatenitem = {} 
                 inst.sg:GoToState("idle")
                 if inst.components.playercontroller ~= nil then
                     inst.components.playercontroller:Enable(true)
@@ -493,15 +512,13 @@ AddStategraphState("wilson", State {
             end
         end),
     },
-
-    --onexit = CheckPocketRummageMem,
 })
 
 
 
 AddStategraphState("wilson", State {
     name = "welina_vomit_pre",
-    tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph" },
+    tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph", "vomiting" },
 
     onenter = function(inst)
         inst.components.locomotor:Stop()
@@ -725,6 +742,32 @@ end)
 end) ]]
 
 modimport("init/init_all")
+
+
+local tex_to_register = 
+
+{
+
+    "welina_catnip",
+    "welina_cattoy",
+    "welina_collar_spiked",
+    "welina_collar_armor",
+    "welina_collar_bomb",
+    "welina_collar_glass",
+    "welina_collar_light",
+    "welina_collar_regen",
+    "welina_den",
+
+}
+
+
+
+
+for _,v in pairs(tex_to_register) do 
+    RegisterInventoryItemAtlas("images/inventoryimages/welina_items.xml", v..".tex")
+end
+
+
 --[[
 AddPrefabPostInit("catcoonden", function(inst, ...)
 	local function temperaturetick(inst, sleeper)

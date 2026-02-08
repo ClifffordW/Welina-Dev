@@ -357,14 +357,23 @@ local function OnWetnessDelta(inst, data)
 end
 
 local function OnEat(inst, food)
-    if food:HasTag("vomit_inducer") then
+    if food:HasTag("vomit_inducer")   then
+        if not inst.welina_eatenitem then
+            inst.welina_eatenitem = {}
+        end
+        
+        
+        if food.prefab then
+            table.insert(inst.welina_eatenitem, food.prefab)
+        end
 
-        inst.welina_eatenitem = food.prefab
-        inst:DoTaskInTime(math.random(2,5), function()
-            if inst.sg:HasStateTag("dead") or inst:HasTag("playerghost") or inst.components.rider:IsRiding() then return end
-            inst.sg:GoToState("welina_vomit_pre")
+        if inst.welina_eatenitem and #inst.welina_eatenitem > 0 and #inst.welina_eatenitem < 4 then
+            inst:DoTaskInTime(1, function()
+                if inst.sg:HasStateTag("dead") or inst:HasTag("playerghost") or inst.components.rider:IsRiding() or inst.sg:HasStateTag("busy") or inst.sg:HasStateTag("vomiting")  then return end
+                inst.sg:GoToState("welina_vomit_pre")
+            end)
 
-        end)
+        end
     
     end
 end
