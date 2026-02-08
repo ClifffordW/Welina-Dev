@@ -24,7 +24,9 @@ Assets = {
 	
 	Asset( "IMAGE", "bigportraits/ms_welina_homestuck.tex" ),
     Asset( "ATLAS", "bigportraits/ms_welina_homestuck.xml" ),
-
+	
+	Asset( "IMAGE", "bigportraits/ms_welina_xmas.tex" ),
+    Asset( "ATLAS", "bigportraits/ms_welina_xmas.xml" ),
 	
 	Asset( "IMAGE", "images/map_icons/welina.tex" ),
 	Asset( "ATLAS", "images/map_icons/welina.xml" ),
@@ -65,7 +67,7 @@ Assets = {
 
 
 
---AddAnim("welina_run_anim")
+--AddAnim("wtestanim")
 
 AddAnim("welina_hiss_anim")
 AddAnim("welina_hiss_anim_gown")
