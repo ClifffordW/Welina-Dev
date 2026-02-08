@@ -129,8 +129,9 @@ local COLLARS = {
 				owner.components.combat.externaldamagemultipliers:SetModifier(
 					owner,
 					owner:HasTag("player")
-							and (owner:HasTag("emocatgirl") and TUNING.WELINA_DAMAGE or owner.components.combat.damagemultiplier) + (owner:HasTag("emocatgirl") and 0.2 or 0.4)
-						or 3,
+					and
+					owner.components.combat.damagemultiplier + 0.2
+					or 3,
 					"collar_damage_buff"
 				)
 
@@ -152,8 +153,10 @@ local COLLARS = {
 
 	light = {
 		equip = function(inst, owner)
-			inst._light = SpawnPrefab("alterguardianhatlight")
-			inst._light.entity:SetParent(owner.entity)
+--[[ 			inst._light = SpawnPrefab("alterguardianhatlight")
+			inst._light.entity:SetParent(owner.entity) ]]
+
+			inst._light = owner:SpawnChild("alterguardianhatlight")
 
 			inst._light.Light:SetIntensity(LIGHT_INTENSITY)
 			inst._light.Light:SetFalloff(LIGHT_FALLOFF)

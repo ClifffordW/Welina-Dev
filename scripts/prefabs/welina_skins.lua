@@ -5,6 +5,7 @@ table.insert(prefabs, CreatePrefabSkin("welina_none", {
 	assets =
 	{
 		Asset( "ANIM", "anim/welina.zip" ),
+
 		Asset( "ANIM", "anim/ghost_welina_build.zip" ),
 	},
 
