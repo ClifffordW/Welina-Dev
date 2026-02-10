@@ -2,6 +2,7 @@
 <Atlas>
     <Texture filename="welina_items.tex"/>
     <Elements>
+        <Element name="welina_catcoonden.tex" u1="0.00195313" u2="0.236328" v1="0.486328" v2="0.728516"/>
         <Element name="welina_catnip.tex" u1="0.00195313" u2="0.236328" v1="0.244141" v2="0.478516"/>
         <Element name="welina_cattoy.tex" u1="0.244141" u2="0.478516" v1="0.763672" v2="0.998047"/>
         <Element name="welina_collar_armor.tex" u1="0.486328" u2="0.720703" v1="0.763672" v2="0.998047"/>
@@ -10,7 +11,6 @@
         <Element name="welina_collar_light.tex" u1="0.244141" u2="0.478516" v1="0.521484" v2="0.755859"/>
         <Element name="welina_collar_regen.tex" u1="0.244141" u2="0.478516" v1="0.279297" v2="0.513672"/>
         <Element name="welina_collar_spiked.tex" u1="0.244141" u2="0.478516" v1="0.0371094" v2="0.271484"/>
-        <Element name="welina_den.tex" u1="0.00195313" u2="0.236328" v1="0.486328" v2="0.728516"/>
     </Elements>
     <StraightAlpha>false</StraightAlpha>
 </Atlas>

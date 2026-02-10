@@ -42,6 +42,21 @@ local function GotHigh(inst)
     if inst._parent ~= nil and TheFocalPoint.entity:GetParent() == inst._parent then
         if TheFocalPoint.SoundEmitter:PlayingSound("high") then return end
 
+        if TheMixer then
+
+            TheMixer:SetHighPassFilter("set_ambience", 250)
+            TheMixer:SetHighPassFilter("set_sfx", 300)
+            TheMixer:SetHighPassFilter("set_sfx/voice", 200) -- Keep voices clearer so player can still hear warns
+        end
+        if Ents then
+            for k,v in pairs(Ents) do 
+                if v:IsValid() and v.prefab and v.AnimState and not v:HasTag("shadow") then
+                    v.AnimState:SetMultColour(0,0,0,.8)
+                end
+            end
+        end
+
+
         TheSim:SetReverbPreset("cave")
 
 
@@ -53,6 +68,21 @@ end
 local function NoLongerHigh(inst)
     if inst._parent ~= nil and TheFocalPoint.entity:GetParent() == inst._parent then
         if not TheFocalPoint.SoundEmitter:PlayingSound("high") then return end
+
+        if TheMixer then
+
+            TheMixer:SetHighPassFilter("set_ambience", 1)
+            TheMixer:SetHighPassFilter("set_sfx", 1)
+            TheMixer:SetHighPassFilter("set_sfx/voice", 1)
+        end
+        if Ents then
+            for k,v in pairs(Ents) do 
+                if v:IsValid() and v.prefab and v.AnimState and not v:HasTag("shadow") then
+                    v.AnimState:SetMultColour(1,1,1,1)
+                end
+            end
+        end
+
 
 
         TheFocalPoint.SoundEmitter:KillSound("high")
@@ -756,7 +786,16 @@ local tex_to_register =
     "welina_collar_glass",
     "welina_collar_light",
     "welina_collar_regen",
-    "welina_den",
+    "welina_catcoonden",
+
+}
+
+local scrapbooktex_to_register = 
+
+{
+
+
+    "welina_catcoonden",
 
 }
 
@@ -766,6 +805,10 @@ local tex_to_register =
 for _,v in pairs(tex_to_register) do 
     RegisterInventoryItemAtlas("images/inventoryimages/welina_items.xml", v..".tex")
 end
+for _,v in pairs(scrapbooktex_to_register) do 
+    RegisterScrapbookIconAtlas(resolvefilepath("images/inventoryimages/welina_scrapbookitems.xml"), v..".tex")
+end
+
 
 
 --[[

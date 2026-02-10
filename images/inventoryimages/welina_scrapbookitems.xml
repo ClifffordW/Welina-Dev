@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Atlas>
+    <Texture filename="welina_scrapbookitems.tex"/>
+    <Elements>
+        <Element name="welina_catcoonden.tex" u1="0.00390625" u2="0.941406" v1="0.0273438" v2="0.996094"/>
+    </Elements>
+    <StraightAlpha>false</StraightAlpha>
+</Atlas>
+

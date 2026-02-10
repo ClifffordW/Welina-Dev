@@ -22,13 +22,13 @@ if TUNING.WELINA_CRAFTABLE_DENS == 1 then
             placer = "welina_catcoonden_placer",
             builder_tag = "emocatgirl",
             atlas = "images/inventoryimages/welina_items.xml",
-            image = "welina_den.tex",
+            image = "welina_catcoonden.tex",
 
         },
         { -- filters
             "STRUCTURES",
             "MODS",
-        })
+        })  
 end
 
 
@@ -66,7 +66,7 @@ AddCharacterRecipe("welina_collar_spiked", -- name
     {                 -- config
 
         atlas = "images/inventoryimages/welina_items.xml",
-        image = "welina_collar.tex",
+        image = "welina_collar_spiked.tex",
         builder_tag = "emocatgirl",
 
         product = "welina_collar_spiked",
@@ -74,8 +74,10 @@ AddCharacterRecipe("welina_collar_spiked", -- name
 
     },
     { -- filters
+
+        "CLOTHING",
         "MODS",
-        "TOOLS",
+        
     }
 )
 
@@ -97,8 +99,10 @@ AddCharacterRecipe("welina_collar_regen", -- name
 
     },
     { -- filters
+
+        "CLOTHING",
         "MODS",
-        "TOOLS",
+        
     }
 )
 
@@ -145,8 +149,10 @@ AddCharacterRecipe("welina_collar_light", -- name
 
     },
     { -- filters
-        "MODS",
-        "TOOLS",
+
+        "CLOTHING",
+        "MODS"
+        
     }
 )
 
@@ -168,8 +174,8 @@ AddCharacterRecipe("welina_collar_glass", -- name
 
     },
     { -- filters
-        "MODS",
-        "TOOLS",
+        "CLOTHING",
+        "MODS"
     }
 )
 
@@ -191,8 +197,8 @@ AddCharacterRecipe("welina_collar_bomb", -- name
 
     },
     { -- filters
-        "MODS",
-        "TOOLS",
+        "CLOTHING",
+        "MODS"
     }
 )
 
@@ -216,6 +222,5 @@ AddCharacterRecipe("welina_catnip", -- name
     },
     { -- filters
         "MODS",
-        "TOOLS",
     }
 )

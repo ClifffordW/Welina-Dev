@@ -99,45 +99,45 @@ local NV_COLOURCUBES =
 {
     autumn =
     {
-        day = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
-        dusk = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
-        night = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
+        day = resolvefilepath("images/colour_cubes/welina_high.tex"),
+        dusk = resolvefilepath("images/colour_cubes/welina_high.tex"),
+        night = resolvefilepath("images/colour_cubes/welina_high.tex"),
         full_moon = "images/colour_cubes/snow_cc.tex"
     },
     winter =
     {
-        day = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
-        dusk = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
-        night = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
+        day = resolvefilepath("images/colour_cubes/welina_high.tex"),
+        dusk = resolvefilepath("images/colour_cubes/welina_high.tex"),
+        night = resolvefilepath("images/colour_cubes/welina_high.tex"),
         full_moon = "images/colour_cubes/snow_cc.tex"
     },
     spring =
     {
-        day = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
-        dusk = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
-        night = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),--"images/colour_cubes/spring_night_cc.tex",
+        day = resolvefilepath("images/colour_cubes/welina_high.tex"),
+        dusk = resolvefilepath("images/colour_cubes/welina_high.tex"),
+        night = resolvefilepath("images/colour_cubes/welina_high.tex"),--"images/colour_cubes/spring_night_cc.tex",
         full_moon = "images/colour_cubes/snow_cc.tex"
     },
     summer =
     {
-        day = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
-        dusk = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
-        night = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
-        full_moon = resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex"),
+        day = resolvefilepath("images/colour_cubes/welina_high.tex"),
+        dusk = resolvefilepath("images/colour_cubes/welina_high.tex"),
+        night = resolvefilepath("images/colour_cubes/welina_high.tex"),
+        full_moon = resolvefilepath("images/colour_cubes/welina_high.tex"),
     },
 }
---[[
+
 local function SetCatnipped(inst, enable)
 
     local season = TheWorld.state.season
 
     if  inst.components.debuffable:HasDebuff("catnipbuff") then
-        inst.components.playervision:ForceNightVision(true)
+        --inst.components.playervision:ForceNightVision(true)
         inst.components.playervision:SetCustomCCTable(NV_COLOURCUBES[season])
 
 
     else
-        inst.components.playervision:ForceNightVision(false)
+        --inst.components.playervision:ForceNightVision(false)
         inst.components.playervision:SetCustomCCTable(nil)
 
 
@@ -154,7 +154,7 @@ local function SetCatnipped(inst, enable)
 
 end 
 
-
+--[[
 local function WatchCatnipState(inst)
     if  inst.components.debuffable:HasDebuff("catnipbuff") then
         inst:WatchWorldState( "isday", SetCatnipped)
@@ -186,8 +186,9 @@ local function CatnipEaten(inst, eater)
 
         
         eater:AddDebuff("catnipbuff", "catnipbuff")
-
-
+        if TUNING.WELINA_CATNIP_MUSIC == 1 then
+            SetCatnipped(eater, true)
+        end
 		
 
         eater.components.talker:Say("Oh- this ain't good.")
@@ -283,6 +284,9 @@ local function KnockHerOut(target)
         target.components.grogginess:AddGrogginess(3, 2)
 
         target:RemoveEventCallback("sanitydelta", KnockHerOut)
+        if TUNING.WELINA_CATNIP_MUSIC == 1 then
+            SetCatnipped(target, false)
+        end
 
 
 

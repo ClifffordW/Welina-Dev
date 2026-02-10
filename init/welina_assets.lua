@@ -49,6 +49,10 @@ Assets = {
 	Asset( "IMAGE", "images/names_gold_welina.tex" ),
     Asset( "ATLAS", "images/names_gold_welina.xml" ),
 	
+
+	Asset( "IMAGE", "images/inventoryimages/welina_scrapbookitems.tex" ),
+    Asset( "ATLAS", "images/inventoryimages/welina_scrapbookitems.xml" ),
+
 	Asset( "IMAGE", "images/inventoryimages/welina_items.tex" ),
     Asset( "ATLAS", "images/inventoryimages/welina_items.xml" ),
     Asset( "ATLAS_BUILD", "images/inventoryimages/welina_items.xml", 256 ),
@@ -61,6 +65,7 @@ Assets = {
 
 
     Asset("IMAGE", resolvefilepath("images/colour_cubes/welina_nightvision_cc.tex")),
+    Asset("IMAGE", resolvefilepath("images/colour_cubes/welina_high.tex")),
 
 	
 
