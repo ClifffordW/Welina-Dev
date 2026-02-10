@@ -130,7 +130,7 @@ local COLLARS = {
 					owner,
 					owner:HasTag("player")
 					and
-					owner.components.combat.damagemultiplier + 0.2
+					1.2
 					or 3,
 					"collar_damage_buff"
 				)
