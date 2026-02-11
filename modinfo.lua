@@ -383,6 +383,24 @@ configuration_options = {
 		},
 		default = 1,
 	},
+
+	{
+		name = "WELINA_MAXEDIBLEGARBAGE",
+		label = "Max Edible Garbage",
+		hover = "Set how much garbage can Welina eat before she vomits.",
+		options = {
+			{ description = "3", data = 3},
+			{ description = "4", data = 4},
+			{ description = "5", data = 5},
+			{ description = "6", data = 6},
+			{ description = "7", data = 7},
+			{ description = "8", data = 8},
+			{ description = "9", data = 9},
+			{ description = "10", data = 10},
+		},
+		default = 3,
+	},
+
 	
 	Title("Extra Abillities 󰀩"),
 	

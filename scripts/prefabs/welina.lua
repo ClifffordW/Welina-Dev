@@ -229,6 +229,7 @@ end
 
 local function OnSave(inst, data)
     data.welina_numDeaths = inst.welina_numDeaths and inst.welina_numDeaths or 0
+    data.welina_eatenitem = inst.welina_eatenitem
 end
 
 local function OnLoad(inst, data, newents)
@@ -255,6 +256,53 @@ local function OnLoad(inst, data, newents)
             inst:RemoveEventCallback("respawnfromghost", ex_fns.OnRespawnFromGhost)
         end
     end
+
+    if data.welina_eatenitem ~= nil and #data.welina_eatenitem > 0 then
+        inst.welina_eatenitem = data.welina_eatenitem or 0
+
+
+        if inst.welina_eatenitem and #inst.welina_eatenitem >= 0 then
+            if inst.vomit_timeout_task then
+                inst.vomit_timeout_task:Cancel()
+                inst.vomit_timeout_task = nil
+            end
+        end
+
+        if inst.welina_eatenitem and #inst.welina_eatenitem > 0 then
+            
+            local num_eaten = #inst.welina_eatenitem
+
+            local function do_vomit_check(inst)
+                if inst.sg:HasStateTag("dead") or inst:HasTag("playerghost") or 
+                inst.components.rider:IsRiding() or inst.sg:HasStateTag("vomiting") then 
+                    return 
+                end
+                inst.sg:GoToState("welina_vomit_pre")
+            end
+
+            if num_eaten >= TUNING.WELINA_MAXEDIBLEGARBAGE then
+                do_vomit_check(inst)
+            else
+
+                if inst.vomit_timeout_task then
+                    inst.vomit_timeout_task:Cancel()
+                    inst.vomit_timeout_task = nil
+                end
+
+                inst.vomit_timeout_task = inst:DoTaskInTime(2, function()
+                    do_vomit_check(inst)
+                    inst.vomit_timeout_task = nil 
+                end)
+            end
+        end
+
+
+
+        
+    end
+
+
+
 end
 
 
@@ -367,12 +415,37 @@ local function OnEat(inst, food)
             table.insert(inst.welina_eatenitem, food.prefab)
         end
 
-        if inst.welina_eatenitem and #inst.welina_eatenitem > 0 and #inst.welina_eatenitem < 4 then
-            inst:DoTaskInTime(1, function()
-                if inst.sg:HasStateTag("dead") or inst:HasTag("playerghost") or inst.components.rider:IsRiding() or inst.sg:HasStateTag("busy") or inst.sg:HasStateTag("vomiting")  then return end
-                inst.sg:GoToState("welina_vomit_pre")
-            end)
+        if inst.vomit_timeout_task then
+            inst.vomit_timeout_task:Cancel()
+            inst.vomit_timeout_task = nil
+        end
 
+        if inst.welina_eatenitem and #inst.welina_eatenitem > 0 then
+            
+            local num_eaten = #inst.welina_eatenitem
+
+            local function do_vomit_check(inst)
+                if inst.sg:HasStateTag("dead") or inst:HasTag("playerghost") or 
+                inst.components.rider:IsRiding() or inst.sg:HasStateTag("vomiting") then 
+                    return 
+                end
+                inst.sg:GoToState("welina_vomit_pre")
+            end
+
+            if num_eaten >= TUNING.WELINA_MAXEDIBLEGARBAGE then
+                do_vomit_check(inst)
+            else
+
+                if inst.vomit_timeout_task then
+                    inst.vomit_timeout_task:Cancel()
+                    inst.vomit_timeout_task = nil
+                end
+
+                inst.vomit_timeout_task = inst:DoTaskInTime(2, function()
+                    do_vomit_check(inst)
+                    inst.vomit_timeout_task = nil 
+                end)
+            end
         end
     
     end

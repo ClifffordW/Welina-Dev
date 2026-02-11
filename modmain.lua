@@ -445,7 +445,7 @@ AddStategraphState(
 
 AddStategraphState("wilson", State {
     name = "welina_vomit",
-    tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph", "vomiting" },
+    tags = { "doing", "busy", "nopredict", "nomorph", "vomiting" },
 
     onenter = function(inst)
         local eaten_table = inst.welina_eatenitem
@@ -541,14 +541,29 @@ AddStategraphState("wilson", State {
                 end
             end
         end),
+
+        
     },
+    onexit = function(inst)
+      
+
+        if inst.welina_eatenitem and #inst.welina_eatenitem > 0 then
+            inst.welina_eatenitem = {}
+        end
+
+        if inst.components.playercontroller ~= nil then
+            inst.components.playercontroller:Enable(true)
+        end
+    end,
+
+
 })
 
 
 
 AddStategraphState("wilson", State {
     name = "welina_vomit_pre",
-    tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph", "vomiting" },
+    tags = { "doing", "busy", "nopredict", "nomorph", "vomiting" },
 
     onenter = function(inst)
         inst.components.locomotor:Stop()
@@ -565,6 +580,19 @@ AddStategraphState("wilson", State {
             inst.sg:GoToState("welina_vomit")
         end),
     },
+
+    onexit = function(inst)
+      
+
+        if inst.welina_eatenitem and #inst.welina_eatenitem > 0 then
+            inst.welina_eatenitem = {}
+        end
+
+        if inst.components.playercontroller ~= nil then
+            inst.components.playercontroller:Enable(true)
+        end
+    end,
+
 
     --onexit = CheckPocketRummageMem,
 })
