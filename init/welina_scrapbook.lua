@@ -57,18 +57,7 @@ local SCRAPBOOK_ITEMS = {
 		animoffsety = 0,
 		depts = {"welina", "catcoon"}
 	},
-	welina_catcoonden = {
-		name = "welina_catcoonden",
-		type = "thing",
-		subcat = "structure",
-		tex = "welina_catcoonden.tex",
-		prefab = "welina_catcoonden",
-		burnable = false,
-		bank = "catcoon_den",
-		build = "welina_catcoon_den",
-		anim = "idle",
-		deps = {"catcoon"}
-	},
+
 
 
 	welina_cattoy = {
@@ -177,6 +166,31 @@ local SCRAPBOOK_ITEMS = {
 
 
 }
+
+local scrapbook_extras =
+
+{
+	welina_catcoonden = {
+			name = "welina_catcoonden",
+			type = "thing",
+			subcat = "structure",
+			tex = "welina_catcoonden.tex",
+			prefab = "welina_catcoonden",
+			burnable = false,
+			bank = "catcoon_den",
+			build = "welina_catcoon_den",
+			anim = "idle",
+			deps = {"catcoon"}
+		}
+}
+
+
+
+if TUNING.WELINA_CRAFTABLE_DENS == 1 then
+    for name, data in pairs(scrapbook_extras) do
+        SCRAPBOOK_ITEMS[name] = data
+    end
+end
 
 -- Register the entries in the Scrapbook.
 local function AddExtraScrapBookItem(sbdata, sbprefab, sbtable)

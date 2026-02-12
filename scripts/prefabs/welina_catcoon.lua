@@ -338,7 +338,7 @@ local function OnGetItemFromPlayer(inst, giver, item)
 			inst.components.inventory:DropItem(current)
 		end
 		if item.prefab == "antlionhat" and giver then
-			inst.components.named:SetName(giver and giver.name .. "'s Lawnmower" or "Lawnmower")
+			inst.components.named:SetName(giver and giver.name .. "'s Lawnmeower" or "Lawnmeower")
 		end
 
 		inst.components.inventory:Equip(item)

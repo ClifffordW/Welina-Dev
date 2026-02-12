@@ -186,9 +186,9 @@ local function CatnipEaten(inst, eater)
 
         
         eater:AddDebuff("catnipbuff", "catnipbuff")
-        if TUNING.WELINA_CATNIP_MUSIC == 1 then
+--[[         if TUNING.WELINA_CATNIP_MUSIC == 1 then
             SetCatnipped(eater, true)
-        end
+        end ]]
 		
 
         eater.components.talker:Say("Oh- this ain't good.")
@@ -284,9 +284,9 @@ local function KnockHerOut(target)
         target.components.grogginess:AddGrogginess(3, 2)
 
         target:RemoveEventCallback("sanitydelta", KnockHerOut)
-        if TUNING.WELINA_CATNIP_MUSIC == 1 then
+--[[         if TUNING.WELINA_CATNIP_MUSIC == 1 then
             SetCatnipped(target, false)
-        end
+        end ]]
 
 
 

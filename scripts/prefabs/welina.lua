@@ -255,6 +255,10 @@ local function OnLoad(inst, data, newents)
             end)
             inst:RemoveEventCallback("respawnfromghost", ex_fns.OnRespawnFromGhost)
         end
+
+
+
+
     end
 
     if data.welina_eatenitem ~= nil and #data.welina_eatenitem > 0 then
@@ -465,6 +469,9 @@ local common_postinit = function(inst)
 
     inst.net_welina_numDeaths = net_smallbyte(inst.GUID, "inst.welina_numDeaths", "welina_numDeaths_dirty")
 
+
+
+
     inst:AddTag("emocatgirl")
 
     inst:AddTag("welinacollar_wearer")
@@ -527,6 +534,14 @@ local master_postinit = function(inst)
 
     -- Stats
     inst.components.health:SetMaxHealth(TUNING.WELINA_HEALTH)
+
+    inst:DoTaskInTime(0.1, function()
+        if inst:IsValid() and inst.welina_numDeaths and inst.welina_numDeaths == 10 and not inst.components.health:IsDead() then
+            inst:DoTaskInTime(1, function()
+                inst.components.health:SetPercent(0)
+            end)
+        end
+    end)
 
 
     inst.components.hunger:SetMax(TUNING.WELINA_HUNGER)

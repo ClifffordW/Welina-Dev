@@ -48,13 +48,7 @@ local function GotHigh(inst)
             TheMixer:SetHighPassFilter("set_sfx", 300)
             TheMixer:SetHighPassFilter("set_sfx/voice", 200) -- Keep voices clearer so player can still hear warns
         end
-        if Ents then
-            for k,v in pairs(Ents) do 
-                if v:IsValid() and v.prefab and v.AnimState and not v:HasTag("shadow") then
-                    v.AnimState:SetMultColour(0,0,0,.8)
-                end
-            end
-        end
+
 
 
         TheSim:SetReverbPreset("cave")
@@ -75,13 +69,7 @@ local function NoLongerHigh(inst)
             TheMixer:SetHighPassFilter("set_sfx", 1)
             TheMixer:SetHighPassFilter("set_sfx/voice", 1)
         end
-        if Ents then
-            for k,v in pairs(Ents) do 
-                if v:IsValid() and v.prefab and v.AnimState and not v:HasTag("shadow") then
-                    v.AnimState:SetMultColour(1,1,1,1)
-                end
-            end
-        end
+
 
 
 
@@ -546,6 +534,11 @@ AddStategraphState("wilson", State {
     },
     onexit = function(inst)
       
+        if inst.components.inventory then
+            inst.components.inventory:Show()
+        end
+
+
 
         if inst.welina_eatenitem and #inst.welina_eatenitem > 0 then
             inst.welina_eatenitem = {}
@@ -563,7 +556,7 @@ AddStategraphState("wilson", State {
 
 AddStategraphState("wilson", State {
     name = "welina_vomit_pre",
-    tags = { "doing", "busy", "nopredict", "nomorph", "vomiting" },
+    tags = { "doing", "busy", "nointerrupt", "nopredict", "nomorph", "vomiting" },
 
     onenter = function(inst)
         inst.components.locomotor:Stop()
@@ -571,6 +564,10 @@ AddStategraphState("wilson", State {
         if inst.components.playercontroller ~= nil then
             inst.components.playercontroller:Enable(false)
         end
+        if inst.components.inventory then
+            inst.components.inventory:Hide()
+        end
+
 
         inst.AnimState:PlayAnimation("sing_pre", false)
     end,
@@ -584,9 +581,7 @@ AddStategraphState("wilson", State {
     onexit = function(inst)
       
 
-        if inst.welina_eatenitem and #inst.welina_eatenitem > 0 then
-            inst.welina_eatenitem = {}
-        end
+        
 
         if inst.components.playercontroller ~= nil then
             inst.components.playercontroller:Enable(true)
@@ -665,6 +660,14 @@ end)
 
 AddPlayerPostInit(function(inst, data, ...)
     if inst.prefab ~= "welina" then
+
+        TheSim:SetReverbPreset("default")
+        TheMixer:SetHighPassFilter("set_music", filterValue or 1)
+
+        TheMixer:SetHighPassFilter("set_ambience", filterValue or 1)
+        TheMixer:SetHighPassFilter("set_sfx", filterValue or 1)
+        TheMixer:SetHighPassFilter("set_sfx/voice", filterValue_voice or 1)
+
         GLOBAL.TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
 
         local DummyFn = function() end
@@ -826,6 +829,7 @@ local scrapbooktex_to_register =
     "welina_catcoonden",
 
 }
+
 
 
 
