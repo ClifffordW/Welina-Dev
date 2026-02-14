@@ -77,9 +77,11 @@ local function Hiss(inst, data)
     if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
         if inst.components.rider and inst.components.rider:IsRiding() then
             --print(inst.components.rider:IsRiding())
-            data.attacker.components.health:DoDelta(-data.damage * (TUNING.WELINA_REFLECT_AMOUNT or 5) / 2)
+            --data.attacker.components.health:DoDelta(-data.damage * (TUNING.WELINA_REFLECT_AMOUNT or 5) / 2)
+            data.attacker.components.combat:GetAttacked(inst, data.damage * TUNING.WELINA_REFLECT_AMOUNT)
         else
-            data.attacker.components.health:DoDelta(-data.damage * TUNING.WELINA_REFLECT_AMOUNT or 5)
+            --data.attacker.components.health:DoDelta(-data.damage * TUNING.WELINA_REFLECT_AMOUNT or 5)
+            data.attacker.components.combat:GetAttacked(inst, data.damage * TUNING.WELINA_REFLECT_AMOUNT)
         end
 
         --[[		print(data.damage * TUNING.WELINA_REFLECT_AMOUNT)

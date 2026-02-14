@@ -56,20 +56,45 @@ local COLLARS = {
 		equip = function(inst, owner)
 			if owner:HasTag("player") then
 				inst.ReflectDamagePlayer = function(_, data)
-					if data.damage and data.attacker and data.attacker.components.health then
-						local reflected_damage = -data.damage * (TUNING.WELINA_REFLECT_AMOUNT or 2)
-						data.attacker.components.health:DoDelta(reflected_damage)
-						if inst.components.fueled then
-							inst.components.fueled:DoDelta(-80)
-						end
+					if data.damage and owner and owner.components.health then
+                        local tuning = TUNING.WELINAS_SPIKED_COLLAR_MULTIPLIER[owner.prefab] or {}
+                        local reflect_damage = 0
+
+                        if owner.prefab == "welina" then
+                            reflect_damage = data.damage / (TUNING.WELINA_REFLECT_AMOUNT or 1)
+                        else
+                            local scale = 2
+                            if tuning.multiplier then
+                                scale = type(tuning.multiplier) == "table" and  math.random(tuning.multiplier[1], tuning.multiplier[2]) or tuning.multiplier
+                            end
+
+                            if tuning.should_divide then
+                                reflect_damage = data.damage / scale
+                            else
+                                reflect_damage = data.damage * scale
+                            end
+                        end
+
+
+                        data.attacker.components.combat:GetAttacked(owner, reflect_damage)
+                        
+                        if inst.components.fueled then
+                            local consumption = (tuning and tuning.consumption_onuse) or 80
+                            if type(consumption) == "table" then
+                                consumption = math.random(consumption[1], consumption[2])
+                            end
+                            inst.components.fueled:DoDelta(-consumption)
+                        end
 					end
 				end
 				owner:ListenForEvent("attacked", inst.ReflectDamagePlayer)
 			else
 				inst.ReflectDamage = function(_, data)
-					if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
-						data.attacker.components.health:DoDelta(-data.damage * 5)
+					if data.damage ~= nil and owner ~= nil and owner.components.health ~= nil then
+						--owner.components.health:DoDelta(-data.damage * 5)
+                        data.attacker.components.combat:GetAttacked(owner, data.damage * 5)
 						inst.components.fueled:DoDelta(-40)
+                        
 					end
 				end
 				owner:ListenForEvent("attacked", inst.ReflectDamage)
@@ -135,18 +160,25 @@ local COLLARS = {
 					"collar_damage_buff"
 				)
 
-				inst.DepleteDamageCollar = function(_, data)
-					inst.components.fueled:DoDelta(owner:HasTag("player") and -50 * 2 or -50)
+                --Scrapped
+--[[ 				inst.DepleteDamageCollar = function(_, data)
+					
+                    print(inst,owner)
 
-					dumptable(data)
+                    --(TODO) change the multiplier to something bareable. Set it to whatever you want Mr ScotchMintz
+                    --if owner is player and (data.weapon) if we have weapon use it's damage multiplied by 2 otherwise use default damage multiplied by 2, if not player just deplete a flat amount of fuel
+                    if data  then
+                        inst.components.fueled:DoDelta(owner:HasTag("player") and (data.weapon and -data.weapon.components.weapon.damage * 2 or -owner.components.combat.defaultdamage * 2) or -50)
+                    end
+
 				end
-				owner:ListenForEvent("onattackother", inst.DepleteDamageCollar)
+				owner:ListenForEvent("onattackother", inst.DepleteDamageCollar) ]]
 			end
 		end,
 		unequip = function(inst, owner)
 			if owner.components.combat then
 				owner.components.combat.externaldamagemultipliers:RemoveModifier(owner, "collar_damage_buff")
-				owner:RemoveEventCallback("onattackother", inst.DepleteDamageCollar)
+				--owner:RemoveEventCallback("onattackother", inst.DepleteDamageCollar)
 			end
 		end,
 	},
@@ -213,6 +245,7 @@ local function OnEquip(inst, owner)
 end
 
 local function OnUnequip(inst, owner)
+    owner.AnimState:ClearOverrideSymbol("swap_body")
 	local effect = COLLARS[inst.collarname]
 	if effect and effect.unequip then
 		effect.unequip(inst, owner)
@@ -248,10 +281,13 @@ local function MakeCollar(name)
 		inst.components.equippable:SetOnEquip(OnEquip)
 		inst.components.equippable:SetOnUnequip(OnUnequip)
 		inst.components.equippable.restrictedtag = "welinacollar_wearer"
-
-		inst:AddComponent("fueled")
-		inst.components.fueled:InitializeFuelLevel(2400)
-		inst.components.fueled:SetDepletedFn(inst.Remove)
+        
+        if name ~= "bomb" then
+            inst:AddComponent("fueled")
+            inst.components.fueled:InitializeFuelLevel(2400)
+            inst.components.fueled:SetDepletedFn(inst.Remove)
+        end
+		
 
 		inst:AddComponent("inventoryitem")
 
@@ -265,6 +301,9 @@ local function MakeCollar(name)
 			inst.components.explosive.explosivedamage = 1000
 			inst.components.explosive.explosiverange = 10
 		end
+
+        
+
 
 		inst.collarname = name
 		return inst

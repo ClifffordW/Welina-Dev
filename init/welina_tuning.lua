@@ -30,9 +30,49 @@ TUNING.WELINA_CATCOON_MAX_DIST_FROM_LEADER = 16
 TUNING.WELINA_MAXEDIBLEGARBAGE = GetModConfigData("WELINA_MAXEDIBLEGARBAGE")
 
 
+
 TUNING.MOVING_CATTOY_EYES = 0 --Shit was broken, fix later
 
 TUNING.WELINA_CATNIP_MUSIC = GetModConfigData("WELINA_CATNIP_MUSIC")
+
+
+--Make sure your character has the welinacollar_wearer tag to use her collars
+--multiplier (value), 
+--should_divide will divide with set multiplier
+--consumption_onuse how much will the use consume on the character max fuel on the collar is 2400 use wisely
+--(NOTE) For consumption_onuse use any value you want but i'm not responsible for anyone's mod losing reputation for setting it to the max
+
+--multiplier and consumption_onuse can be in a table ex. multiplier = {2,6}, consumption_onuse = {150,250} it will randomize then
+
+--random_mult will be prioritized if it's above multiplier
+TUNING.WELINAS_SPIKED_COLLAR_MULTIPLIER = {}
+
+
+
+--Template
+--[[ 
+TUNING.WELINAS_SPIKED_COLLAR_MULTIPLIER.wilson =  
+
+{
+    multiplier = {2,12},
+    should_divide = false,
+    consumption_onuse = {150,250},
+    
+}
+
+TUNING.WELINAS_SPIKED_COLLAR_MULTIPLIER.wilson =
+{
+    multiplier =  6,
+    should_divide = false,
+    consumption_onuse = 150,
+    
+}
+
+
+]]
+
+
+
 
 local commonChance = 100
 local uncommonChance = 70
