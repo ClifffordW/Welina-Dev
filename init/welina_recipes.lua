@@ -221,6 +221,7 @@ AddCharacterRecipe("welina_catnip", -- name
 
     },
     { -- filters
+        
         "MODS",
     }
 )

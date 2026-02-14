@@ -55,7 +55,13 @@ local SCRAPBOOK_ITEMS = {
 		specialinfo    = "WELINA_CATNIP",
 		animoffsetx = 0,
 		animoffsety = 0,
-		depts = {"welina", "catcoon"}
+		depts = {"welina", "catcoon"},
+        hungervalue = TUNING.CALORIES_TINY,
+        healthvalue = TUNING.HEALING_TINY,
+        sanityvalue = 0,
+
+        foodtype = "VEGGIE"
+
 	},
 
 
