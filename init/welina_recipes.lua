@@ -21,8 +21,7 @@ if TUNING.WELINA_CRAFTABLE_DENS == 1 then
         {             -- config
             placer = "welina_catcoonden_placer",
             builder_tag = "emocatgirl",
-            atlas = "images/inventoryimages/welina_items.xml",
-            image = "welina_catcoonden.tex",
+
 
         },
         { -- filters
@@ -44,8 +43,7 @@ AddCharacterRecipe("welina_cattoy", -- name
     GLOBAL.TECH.NONE, -- tech
     {                 -- config
         builder_tag = "emocatgirl",
-        atlas = "images/inventoryimages/welina_items.xml",
-        image = "welina_cattoy.tex",
+
 
     },
     { -- filters
@@ -65,8 +63,7 @@ AddCharacterRecipe("welina_collar_spiked", -- name
     GLOBAL.TECH.NONE, -- tech
     {                 -- config
 
-        atlas = "images/inventoryimages/welina_items.xml",
-        image = "welina_collar_spiked.tex",
+
         builder_tag = "emocatgirl",
 
         product = "welina_collar_spiked",
@@ -90,8 +87,7 @@ AddCharacterRecipe("welina_collar_regen", -- name
     GLOBAL.TECH.NONE, -- tech
     {                 -- config
 
-        atlas = "images/inventoryimages/welina_items.xml",
-        image = "welina_collar_regen.tex",
+
         builder_tag = "emocatgirl",
 
         product = "welina_collar_regen",
@@ -140,8 +136,7 @@ AddCharacterRecipe("welina_collar_light", -- name
     GLOBAL.TECH.NONE, -- tech
     {                 -- config
 
-        atlas = "images/inventoryimages/welina_items.xml",
-        image = "welina_collar_light.tex",
+
         builder_tag = "emocatgirl",
 
         product = "welina_collar_light",
@@ -165,8 +160,7 @@ AddCharacterRecipe("welina_collar_glass", -- name
     GLOBAL.TECH.NONE, -- tech
     {                 -- config
 
-        atlas = "images/inventoryimages/welina_items.xml",
-        image = "welina_collar_glass.tex",
+
         builder_tag = "emocatgirl",
 
         product = "welina_collar_glass",
@@ -188,8 +182,7 @@ AddCharacterRecipe("welina_collar_bomb", -- name
     GLOBAL.TECH.NONE, -- tech
     {                 -- config
 
-        atlas = "images/inventoryimages/welina_items.xml",
-        image = "welina_collar_bomb.tex",
+
         builder_tag = "emocatgirl",
 
         product = "welina_collar_bomb",
@@ -212,8 +205,7 @@ AddCharacterRecipe("welina_catnip", -- name
     GLOBAL.TECH.NONE, -- tech
     {                 -- config
 
-        atlas = "images/inventoryimages/welina_items.xml",
-        image = "welina_catnip.tex",
+
         builder_tag = "emocatgirl",
 
         product = "welina_catnip",

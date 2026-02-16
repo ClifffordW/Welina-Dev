@@ -10,6 +10,8 @@ Assets = {
     Asset( "DYNAMIC_ATLAS", "bigportraits/welina.xml" ),
 
     Asset( "DYNAMIC_ATLAS", "bigportraits/welina_none.xml" ),
+    Asset( "ATLAS_BUILD", "bigportraits/welina_none.xml", 192 ),
+
 	
     Asset( "DYNAMIC_ATLAS", "bigportraits/ms_welina_gown.xml" ),
 	
@@ -36,7 +38,7 @@ Assets = {
 
     Asset( "DYNAMIC_ATLAS", "images/inventoryimages/welina_scrapbookitems.xml" ),
 
-    Asset( "DYNAMIC_ATLAS", "images/inventoryimages/welina_items.xml" ),
+    Asset( "DYNAMIC_ATLAS", softresolvefilepath("images/inventoryimages/welina_items.xml") ),
     Asset( "ATLAS_BUILD", "images/inventoryimages/welina_items.xml", 256 ),
 
 	Asset("ANIM", "anim/welina_collar.zip"),

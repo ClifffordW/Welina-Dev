@@ -805,6 +805,11 @@ end) ]]
 modimport("init/init_all")
 
 
+
+
+
+
+
 local tex_to_register = 
 
 {
@@ -835,8 +840,13 @@ local scrapbooktex_to_register =
 
 
 for _,v in pairs(tex_to_register) do 
-    RegisterInventoryItemAtlas("images/inventoryimages/welina_items.xml", v..".tex")
+    RegisterInventoryItemAtlas(softresolvefilepath("images/inventoryimages/welina_items.xml"), v..".tex")
 end
+
+
+
+
+
 for _,v in pairs(scrapbooktex_to_register) do 
     RegisterScrapbookIconAtlas(resolvefilepath("images/inventoryimages/welina_scrapbookitems.xml"), v..".tex")
 end

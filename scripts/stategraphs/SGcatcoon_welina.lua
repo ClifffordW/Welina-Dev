@@ -19,8 +19,11 @@ local actionhandlers =
                     projectile = nil
                 end
             end
-            return projectile ~= nil and projectile:HasTag("keep_equip_toss") and "pounceplayaction" or
-            "pounceplayaction"
+            return projectile ~= nil and (
+                (projectile:HasTag("welina_cattoy") and "kobi") or 
+                (projectile:HasTag("keep_equip_toss") and "pounceplayaction") or 
+                "pounceplayaction"
+            )
         end),
 }
 
@@ -430,6 +433,39 @@ local states =
             EventHandler("animover", function(inst) inst.sg:GoToState("idle") end),
         },
     },
+
+    State {
+        name = "kobi",
+        tags = { "canrotate", "busy", "jumping" },
+
+        onenter = function(inst, target)
+            inst.target = target
+            inst.components.locomotor:Stop()
+            inst.components.locomotor:EnableGroundSpeedMultiplier(false)
+            inst.AnimState:PlayAnimation("jump_grab")
+        end,
+
+        onexit = function(inst)
+            inst.components.locomotor:EnableGroundSpeedMultiplier(true)
+        end,
+
+        timeline =
+        {
+            TimeEvent(1 * FRAMES, function(inst) inst.SoundEmitter:PlaySound(
+                "dontstarve_DLC001/creatures/catcoon/pounce_pre") end),
+            TimeEvent(25 * FRAMES, function(inst) inst.SoundEmitter:PlaySound(
+                "dontstarve_DLC001/creatures/catcoon/pounce") end),
+            --TimeEvent(26 * FRAMES, function(inst) inst.Physics:SetMotorVelOverride(7, 0, 0) end),
+            TimeEvent(31 * FRAMES, function(inst) inst:PerformBufferedAction() end),
+
+        },
+
+        events =
+        {
+            EventHandler("animover", function(inst) inst.sg:GoToState("idle") end),
+        },
+    },
+
 
     State {
         name = "hiss",

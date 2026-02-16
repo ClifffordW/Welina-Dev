@@ -246,8 +246,7 @@ local function fn()
 	inst.components.writeable.remove_after_write = true ]]
 
     inst:AddComponent("inventoryitem")
-    inst.components.inventoryitem.imagename = "welina_catnip"
-    inst.components.inventoryitem.atlasname = resolvefilepath("images/inventoryimages/welina_items.xml")
+
 
     inst:AddComponent("tradable")
 

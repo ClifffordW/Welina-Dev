@@ -143,82 +143,90 @@ local function HasMonkeyBait(inst)
 end
 
 local function GetRidOfTheBall(inst)
-    local ball = inst.components.inventory:FindItem(function(item) return (item:HasTag("welina_cattoy") and item:HasTag("INLIMBO")) end)
-    local action
-    local player
+    -- 1. Find the ball in the cat's own inventory
+    local ball = inst.components.inventory:FindItem(function(item) 
+        return item:HasTag("welina_cattoy") 
+    end)
+    
+    if not ball then return nil end
 
-    if not ball then return end
-
-    if inst.components.follower and inst.components.follower.leader then
-        player = inst.components.follower.leader
-    else
-        return
+    -- 2. Check for the Leader (Player)
+    local leader = inst.components.follower and inst.components.follower.leader
+    if not leader or not leader:IsValid() then 
+        -- Fallback: If no leader, just drop it so the loop doesn't break
+        return BufferedAction(inst, nil, ACTIONS.DROP, ball) 
     end
 
-    if math.random() < TUNING.CATCOONBALL_PASS_TO_PLAYER_CHANCE then
+    -- 3. Calculate the toss
+    local playerPos = leader:GetPosition()
+    local catPos = inst:GetPosition()
+    
+    -- We want to toss it TO the player, maybe slightly in front of them
+    -- (Subtracting positions and normalizing gives us the vector)
+    local dist = 1.5 -- Distance to "land" in front of player
+    local angle = leader:GetAngleToPoint(catPos.x, catPos.y, catPos.z) * DEGREES
+    local offset = Vector3(math.cos(angle) * dist, 0, -math.sin(angle) * dist)
+    local tossTarget = playerPos + offset
 
-        local pos = player:GetPosition()
-        local offset, _, _ = FindWalkableOffset(inst:GetPosition(), math.random()*2*PI, math.random()*5 + 5, 8, true, false)
-        action = BufferedAction(inst, player, ACTIONS.TOSS, ball, pos + offset)      
-
-
-    else
-        local pos = inst:GetPosition()
-        local offset, _, _ = FindWalkableOffset(inst:GetPosition(), math.random()*2*PI, math.random()*5 + 5, 8, true, false) -- try to avoid walls
-
-        if offset then
-            action = BufferedAction(inst, nil, ACTIONS.TOSS, ball, pos + offset)
-        else
-            action = BufferedAction(inst, player, ACTIONS.TOSS, ball, pos + offset)
-        end
-    end
+    -- Create the Toss action specifically targeting the leader
+    local action = BufferedAction(inst, leader, ACTIONS.TOSS, ball, tossTarget)
+    
+    -- Optional: Make the cat look at the player before tossing
+    inst:FacePoint(playerPos)
     
     return action
 end
 
 local function TakeBallAction(inst)
+    -- 1. Check if cat already has a ball to prevent looping
+    if inst.components.inventory:Has("welina_cattoy", 1) then 
+        return nil 
+    end
+
     local pt = inst:GetPosition()
-    local ents = TheSim:FindEntities(pt.x, pt.y, pt.z, 10*2, nil, {"aquatic", "falling", "FX", "NOCLICK", "DECOR", "INLIMBO"})
+    -- Use a slightly smaller radius for better performance
+    local ents = TheSim:FindEntities(pt.x, pt.y, pt.z, 15, {"welina_cattoy"}, {"aquatic", "falling", "INLIMBO", "NOCLICK"})
 
     for _, item in ipairs(ents) do
-        
-        local owner = item.components.inventoryitem and item.components.inventoryitem.owner
-        if not owner and item:HasTag("welina_cattoy")  and item:IsOnValidGround() then
-            -- print('monkey eat ball', item:HasTag('falling'), item:HasTag('aquatic'))
+        -- Check if the item is truly 'on the ground' and not being held
+        if item:IsValid() and not item.components.inventoryitem:IsHeld() and item:IsOnValidGround() then
+            -- Optional: Only target if cat can see it
             return BufferedAction(inst, item, ACTIONS.CATPLAYGROUND)
+       
         end
     end
+
+    return nil
 end
 
 function CatcoonBrain:OnStart()
     local root =
     PriorityNode(
     {
-        SequenceNode{
-            ConditionNode(function() return HasMonkeyBait(self.inst) end, "HasBall"),
-            ParallelNodeAny {
-                WaitNode(1+math.random()*1),
-                Panic(self.inst),
-            },
-            DoAction(self.inst, GetRidOfTheBall),
-        },
+
+        BrainCommon.PanicWhenScared(self.inst),
+		BrainCommon.PanicTrigger(self.inst),
+        BrainCommon.ElectricFencePanicTrigger(self.inst),
+
+        IfNode(function() return self.inst.components.inventory:Has("welina_cattoy", 1) end, "Has Ball",
+            SequenceNode({
+                WaitNode(0.5), -- Small pause to look at player
+                DoAction(self.inst, GetRidOfTheBall, "tossballact", true),
+            })
+        ),
+
+        DoAction(self.inst, TakeBallAction, "takeballact", true),
+            
+        
         
 
 
-
-        DoAction(self.inst, TakeBallAction, "takeballact", true),
-
-
-        BrainCommon.PanicWhenScared(self.inst, 1),
-		BrainCommon.PanicTrigger(self.inst),
-      
         ChaseAndAttack(self.inst, MAX_CHASE_TIME, MAX_CHASE_DIST),
-        --DoAction(self.inst, WhineAction, "whine", true),
 
 
 
 
-        Follow(self.inst, GetLeader, MIN_FOLLOW_DIST, TARGET_FOLLOW_DIST, MAX_FOLLOW_DIST),
+        Follow(self.inst, GetLeader, MIN_FOLLOW_DIST, 3, 8),
         WhileNode(function() return self.inst.raining end, "GoingHome",
             DoAction(self.inst, GoHomeAction, "go home", true )),
 			
