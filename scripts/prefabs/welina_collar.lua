@@ -3,7 +3,7 @@ local assets = {
 	Asset("ANIM", "anim/ui_welina_collar.zip"),
 }
 
-local function LightCollar(inst, owner)
+--[[ local function LightCollar(inst, owner)
 	inst:WatchWorldState("phase", function()
 		if not inst._light then
 			return
@@ -16,7 +16,7 @@ local function LightCollar(inst, owner)
 			inst.components.fueled:StopConsuming()
 		end
 	end)
-end
+end ]]
 
 local function OnIgniteFn(inst)
 	--inst.SoundEmitter:PlaySound("dontstarve/common/blackpowder_fuse_LP", "hiss")
@@ -112,14 +112,14 @@ local COLLARS = {
 	regen = {
 		equip = function(inst, owner)
 			inst.currentowner_hp = owner.components.health:GetPercent()
-			owner.health_task = inst:DoPeriodicTask(owner:HasTag("player") and 2 or 5, function()
+			owner.health_task = inst:DoPeriodicTask(2, function()
 				if owner.components.health:GetPercent() == 1 then
 					return
 				end
 				owner.components.health:DoDelta(
-					owner:HasTag("player") and owner.components.health.maxhealth / math.random(6, 8) or 50
+					owner:HasTag("player") and 10 or 50
 				)
-				inst.components.fueled:DoDelta(owner:HasTag("player") and -25 * 2 or -25)
+				inst.components.fueled:DoDelta(owner:HasTag("player") and -150 or -100)
 			end)
 
 			owner:ListenForEvent("death", RegenCollar)
@@ -196,18 +196,23 @@ local COLLARS = {
 
 			inst._light.Light:EnableClientModulation(true)
 
-			if TheWorld.state.phase == "night" then
+--[[ 			if TheWorld.state.phase == "night" then
 				inst._light.Light:Enable(true)
 				inst.components.fueled:StartConsuming()
 			else
 				inst._light.Light:Enable(false)
 				inst.components.fueled:StopConsuming()
-			end
+			end ]]
+            inst._light.Light:Enable(true)
+            inst.components.fueled:StartConsuming()
 
-			inst:WatchWorldState("phase", LightCollar)
+
+			--inst:WatchWorldState("phase", LightCollar)
 		end,
 		unequip = function(inst, owner)
-			if inst._light then
+
+            inst.components.fueled:StopConsuming()
+            if inst._light then
 				inst._light:Remove()
 				inst._light = nil
 			end
