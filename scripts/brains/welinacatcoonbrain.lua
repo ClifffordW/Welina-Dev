@@ -276,13 +276,16 @@ local function TakeBallAction(inst)
 end
 
 
+
+
+
 local function GetLeader(inst)
     return inst.components.follower and inst.components.follower:GetLeader()
 end
 
 
 local function RescueLeaderAction(inst)
-    return BufferedAction(inst, GetLeader(inst), ACTIONS.UNPIN)
+    return BufferedAction(inst, GetLeader(inst), ACTIONS.WELINA_CAT_UNPIN)
 end
 
 

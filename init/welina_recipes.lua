@@ -6,6 +6,7 @@ AddPrefab("welina_catcoon")
 
 
 AddPrefab("welina_cattoy")
+AddPrefab("welina_nametag")
 
 
 STRINGS.RECIPE_DESC.WELINA_CATCOONDEN = "Cozy."
@@ -25,8 +26,9 @@ if TUNING.WELINA_CRAFTABLE_DENS == 1 then
 
         },
         { -- filters
-            "STRUCTURES",
+            
             "MODS",
+            "STRUCTURES",
         })  
 end
 
@@ -47,8 +49,9 @@ AddCharacterRecipe("welina_cattoy", -- name
 
     },
     { -- filters
-        "TOOLS",
+        
         "MODS",
+        "TOOLS",
     })
 
 
@@ -72,8 +75,8 @@ AddCharacterRecipe("welina_collar_spiked", -- name
     },
     { -- filters
 
-        "CLOTHING",
         "MODS",
+        "CLOTHING",
         
     }
 )
@@ -96,8 +99,8 @@ AddCharacterRecipe("welina_collar_regen", -- name
     },
     { -- filters
 
-        "CLOTHING",
         "MODS",
+        "CLOTHING",
         
     }
 )
@@ -145,8 +148,8 @@ AddCharacterRecipe("welina_collar_light", -- name
     },
     { -- filters
 
+        "MODS",
         "CLOTHING",
-        "MODS"
         
     }
 )
@@ -168,8 +171,9 @@ AddCharacterRecipe("welina_collar_glass", -- name
 
     },
     { -- filters
+        
+        "MODS",
         "CLOTHING",
-        "MODS"
     }
 )
 
@@ -190,8 +194,9 @@ AddCharacterRecipe("welina_collar_bomb", -- name
 
     },
     { -- filters
+        
+        "MODS",
         "CLOTHING",
-        "MODS"
     }
 )
 
@@ -215,5 +220,21 @@ AddCharacterRecipe("welina_catnip", -- name
     { -- filters
         
         "MODS",
+    }
+)
+
+
+AddCharacterRecipe("welina_nametag", -- name
+    {                        -- ingredients
+        GLOBAL.Ingredient("rope", 1),
+        GLOBAL.Ingredient("goldnugget", 1),
+    },
+    GLOBAL.TECH.NONE, -- tech
+    {
+        builder_tag = "emocatgirl",            
+    },
+    { -- filters
+        "MODS",
+        "CLOTHING",
     }
 )

@@ -2,15 +2,16 @@
 <Atlas>
     <Texture filename="welina_items.tex"/>
     <Elements>
-        <Element name="welina_catcoonden.tex" u1="0.00195313" u2="0.236328" v1="0.486328" v2="0.728516"/>
-        <Element name="welina_catnip.tex" u1="0.00195313" u2="0.236328" v1="0.244141" v2="0.478516"/>
-        <Element name="welina_cattoy.tex" u1="0.244141" u2="0.478516" v1="0.763672" v2="0.998047"/>
-        <Element name="welina_collar_armor.tex" u1="0.486328" u2="0.720703" v1="0.763672" v2="0.998047"/>
+        <Element name="welina_catcoonden.tex" u1="0.00195313" u2="0.236328" v1="0.490234" v2="0.732422"/>
+        <Element name="welina_catnip.tex" u1="0.00195313" u2="0.236328" v1="0.00585938" v2="0.240234"/>
+        <Element name="welina_cattoy.tex" u1="0.240234" u2="0.474609" v1="0.00585938" v2="0.240234"/>
+        <Element name="welina_collar_armor.tex" u1="0.240234" u2="0.474609" v1="0.763672" v2="0.998047"/>
         <Element name="welina_collar_bomb.tex" u1="0.00195313" u2="0.236328" v1="0.736328" v2="0.998047"/>
-        <Element name="welina_collar_glass.tex" u1="0.728516" u2="0.962891" v1="0.763672" v2="0.998047"/>
-        <Element name="welina_collar_light.tex" u1="0.244141" u2="0.478516" v1="0.521484" v2="0.755859"/>
-        <Element name="welina_collar_regen.tex" u1="0.244141" u2="0.478516" v1="0.279297" v2="0.513672"/>
-        <Element name="welina_collar_spiked.tex" u1="0.244141" u2="0.478516" v1="0.0371094" v2="0.271484"/>
+        <Element name="welina_collar_glass.tex" u1="0.240234" u2="0.474609" v1="0.525391" v2="0.759766"/>
+        <Element name="welina_collar_light.tex" u1="0.248047" u2="0.482422" v1="0.287109" v2="0.521484"/>
+        <Element name="welina_collar_regen.tex" u1="0.478516" u2="0.712891" v1="0.0488281" v2="0.283203"/>
+        <Element name="welina_collar_spiked.tex" u1="0.716797" u2="0.951172" v1="0.763672" v2="0.998047"/>
+        <Element name="welina_nametag.tex" u1="0.00195313" u2="0.244141" v1="0.244141" v2="0.486328"/>
     </Elements>
     <StraightAlpha>false</StraightAlpha>
 </Atlas>

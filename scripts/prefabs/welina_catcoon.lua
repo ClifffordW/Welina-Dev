@@ -492,6 +492,76 @@ local random_names = {
 }
 
 
+local function DespawnBoat(inst)
+    local boat = inst.components.sailor:GetBoat()
+    if boat then
+        inst.components.sailor:Disembark()
+        boat:PushEvent("despawn")
+    end
+end
+
+local function SpawnBoat(inst)
+    DespawnBoat(inst)
+
+    local boat = SpawnPrefab("boat_critter")
+
+    if inst.boat_scale then
+        boat.Transform:SetScale(inst.boat_scale, inst.boat_scale, inst.boat_scale)
+    end
+    boat.Transform:SetPosition(inst.Transform:GetWorldPosition())
+
+    inst.components.sailor:Embark(boat)
+end
+
+local function CancelNoLocomoteTask(inst)
+    if inst._no_locomotor_task ~= nil then
+        inst._no_locomotor_task:Cancel()
+        inst._no_locomotor_task = nil
+    end
+    inst.components.locomotor.disable = false
+end
+
+local function StartNoLocomoteTask(inst)
+    CancelNoLocomoteTask(inst)
+    inst.components.locomotor.disable = true
+    inst.components.locomotor:StopMoving()
+    inst._no_locomotor_task = inst:DoTaskInTime(12*FRAMES, CancelNoLocomoteTask)
+end
+
+local function OnEnterWater(inst)
+    inst.hop_distance = inst.components.locomotor.hop_distance
+    inst.components.locomotor.hop_distance = 4
+    SpawnBoat(inst)
+    StartNoLocomoteTask(inst)
+end
+
+local function OnExitWater(inst)
+    if inst.hop_distance then
+        inst.components.locomotor.hop_distance = inst.hop_distance
+    end
+    DespawnBoat(inst)
+    CancelNoLocomoteTask(inst)
+end
+
+local function CLIENT_EmbarkedBoat(inst)
+    inst.AnimState:SetFloatParams(-0.2, 1, 0.5)
+end
+
+local function CLIENT_DisembarkedBoat(inst)
+    inst.AnimState:SetFloatParams(0, 0, 0)
+end
+
+
+
+
+
+
+
+
+local function PatchStategraph(sg, idleanim, sailing_config, hop_anims)
+    SailingCommonHandlerPatches.AddBoatLocomotion(sg, true, false)
+end
+
 -- fuck my back hurts
 
 local function fn()
@@ -518,6 +588,13 @@ local function fn()
 	inst:AddTag("animal")
 	inst:AddTag("catcoon")
 	inst:AddTag("sinner")
+    if KnownModIndex:IsModEnabled("workshop-1467214795") then
+        if not TheNet:IsDedicated() then
+            inst:ListenForEvent("embarkboat", CLIENT_EmbarkedBoat)
+            inst:ListenForEvent("disembarkboat", CLIENT_DisembarkedBoat)
+        end
+    end
+
 
 	--For custom characters also so they can wear them
 	inst:AddTag("welinacollar_wearer")
@@ -566,7 +643,7 @@ local function fn()
 
 	inst:AddComponent("named")
 
-    inst:DoTaskInTime(0, function()
+--[[     inst:DoTaskInTime(0, function()
         if inst.components.follower and inst.components.follower:GetLeader() then
             inst.components.named:SetName(inst.components.follower:GetLeader().name .. "'s Catcoon")
 
@@ -588,7 +665,7 @@ local function fn()
             local name = names[math.random(1, #names)]
             inst.components.named:SetName(name)
         end
-    end)
+    end) ]]
 
 	inst:AddComponent("trader")
 	inst.components.trader:SetAcceptTest(ShouldAcceptItem)
@@ -630,11 +707,12 @@ local function fn()
 	-- boat hopping
 	inst.components.locomotor:SetAllowPlatformHopping(true)
 	inst:AddComponent("embarker")
-	inst.components.embarker.embark_speed = inst.components.locomotor.runspeed
+	inst.components.embarker.embark_speed = inst.components.locomotor.walkspeed + 2
 	inst.components.embarker.antic = false
+     inst:AddComponent("drownable")
 
-	inst.components.locomotor:SetAllowPlatformHopping(true)
-	--[[
+--[[ 	inst.components.locomotor:SetAllowPlatformHopping(true)
+	
 	inst:AddComponent("amphibiouscreature")
 	inst.components.amphibiouscreature:SetBanks("welina_catcoon", "welina_catcoon")
 	inst.components.amphibiouscreature:SetEnterWaterFn(function(inst)
@@ -653,8 +731,8 @@ local function fn()
 		end
 	end)
 	
-	inst.components.locomotor.pathcaps = { allowocean = true }
---]]
+	inst.components.locomotor.pathcaps = { allowocean = true } ]]
+--
 
 	inst:WatchWorldState("israining", OnIsRaining)
 
@@ -686,6 +764,56 @@ local function fn()
 		inst.OnLocomote = OnLocomote
 		inst:ListenForEvent("locomote", inst.OnLocomote)
 	end
+
+    if KnownModIndex:IsModEnabled("workshop-1467214795") then
+        inst.components.drownable.enabled = false
+
+        inst.boat_scale = 0.75
+        inst.momentum_follow_bonus = 7
+
+        inst:AddComponent("sailor")
+        inst:AddComponent("amphibiouscreature")
+
+        inst.components.amphibiouscreature:SetBanks("welina_catcoon", "welina_catcoon")
+        inst.components.amphibiouscreature:SetEnterWaterFn(function(inst)
+            inst.landspeed = inst.components.locomotor.runspeed
+            inst.components.locomotor.runspeed = TUNING.HOUND_SWIM_SPEED
+            inst.hop_distance = inst.components.locomotor.hop_distance
+            inst.components.locomotor.hop_distance = 8
+            SpawnBoat(inst)
+
+            --StartNoLocomoteTask(inst)
+
+
+
+
+        end)
+        inst.components.amphibiouscreature:SetExitWaterFn(function(inst)
+
+            DespawnBoat(inst)
+            --CancelNoLocomoteTask(inst)
+            if inst.hop_distance then
+                inst.components.locomotor.hop_distance = inst.hop_distance
+            end
+            
+
+        end)
+
+
+
+        inst.components.locomotor.pathcaps = inst.components.locomotor.pathcaps or {}
+        inst.components.locomotor.pathcaps.allowocean = true
+
+        local sailing_config = {}
+
+        
+        sailing_config.cant_run = true
+        
+        PatchStategraph(inst.sg.sg, inst.boat_idle or "idle_loop", sailing_config)
+
+    end
+
+
 
 	return inst
 end

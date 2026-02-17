@@ -435,6 +435,29 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_CATTOY = "Such a well rounded indiviu
 
 
 
+STRINGS.NAMES.WELINA_NAMETAG = "Sinner Tag"
+STRINGS.RECIPE_DESC.WELINA_NAMETAG = "Give your feline friend a name!"
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_NAMETAG = "I'd just call it after myself."
+
+STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_NAMETAG = "These collars aren't purely for the looks, are they?"
+STRINGS.CHARACTERS.WURT.DESCRIBE.WELINA_NAMETAG = "For catcoons to feel cute."
+STRINGS.CHARACTERS.WALTER.DESCRIBE.WELINA_NAMETAG = "Ms.Welina wants her friends to have a fancy name too!"
+STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WELINA_NAMETAG = "Give our fur friend a name"
+STRINGS.CHARACTERS.WORTOX.DESCRIBE.WELINA_NAMETAG = "Maybe she really loves those cats."
+STRINGS.CHARACTERS.WARLY.DESCRIBE.WELINA_NAMETAG = "That's one stylish nametag."
+STRINGS.CHARACTERS.WINONA.DESCRIBE.WELINA_NAMETAG = "That cat girl has a weird sense for naming cats."
+STRINGS.CHARACTERS.WEBBER.DESCRIBE.WELINA_NAMETAG = "We want to give names to our friends too!"
+STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WELINA_NAMETAG = "'Tis cat shall be called Dinner."
+STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WELINA_NAMETAG = "As if they already didn't have a name."
+STRINGS.CHARACTERS.WOODIE.DESCRIBE.WELINA_NAMETAG = "Call it Lucy, Eh?."
+STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WELINA_NAMETAG = "I would rather not name a cat."
+STRINGS.CHARACTERS.WX78.DESCRIBE.WELINA_NAMETAG = "LUA SYNTAX ERROR (name is a nil value)."
+STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA_NAMETAG = "Names.. is what we all wear but some forget."
+STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WELINA_NAMETAG = "Strongie is good name no?"
+STRINGS.CHARACTERS.WILLOW.DESCRIBE.WELINA_NAMETAG = "I should call my cat Furnace."
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_NAMETAG = "Kitty sounds like a good name for a cat."
+
+
 local namerandoms = 
 
 {

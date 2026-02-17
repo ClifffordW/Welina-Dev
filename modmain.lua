@@ -607,6 +607,10 @@ AddAction("WELINA_CAT_UNEQUIPHAT", "Unequip Hat", function(act)
 end)
 
 
+AddAction("WELINA_CAT_UNPIN", "Unequip Hat", function(act)
+    return
+end)
+
 --script, time, noanim, force, nobroadcast, colour
 
 
@@ -615,6 +619,17 @@ end)
 ACTIONS.WELINA_VOMIT.mount_valid = false
 ACTIONS.WELINA_VOMIT.priority = 2
 ACTIONS.WELINA_VOMIT.rmb = false
+
+
+ACTIONS.WELINA_CAT_UNPIN.distance = 8
+ACTIONS.WELINA_CAT_UNPIN.fn = function(act)
+    if act.doer ~= act.target and act.target.components.pinnable and act.target.components.pinnable:IsStuck() then
+        act.target:PushEvent("unpinned")
+        return true
+    end
+end
+
+
 
 
 ACTIONS.WELINA_CAT_EQUIPHAT.rmb = false
@@ -858,6 +873,7 @@ local tex_to_register =
 
 {
 
+    "welina_nametag",
     "welina_catnip",
     "welina_cattoy",
     "welina_collar_spiked",

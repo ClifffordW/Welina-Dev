@@ -2,13 +2,47 @@ require("stategraphs/commonstates")
 
 --hiss_pre, vomit, swipe_pre
 
+----------------------------------------------------------------------------------------
+
+-- Floating point error yay!
+local SAILSTART_TIME = 0.83333331346512
+local SAIL_TIME = 3.5999999046326
+local SAILSTOP_TIME = 3.5666666030884
+
+----------------------------------------------------------------------------------------
+--Try to initialise all functions locally outside of the post-init so they exist in RAM only once
+----------------------------------------------------------------------------------------
+
+local function hop_pre_onenter(inst)
+    inst.components.amphibiouscreature:OnExitOcean()
+
+
+
+
+
+end
+
+
+local function hop_pre_onexit(inst)
+
+    inst.components.locomotor:EnableGroundSpeedMultiplier(false)
+    inst.Physics:SetMotorVelOverride(6, 0, 0) 
+    inst.Physics:ClearMotorVelOverride()
+
+
+
+
+
+end
+
+
 local actionhandlers =
 {
     ActionHandler(ACTIONS.GOHOME, function(inst) return inst.raining and "gohome_raining" or "gohome" end),
     ActionHandler(ACTIONS.HAIRBALL, "hairball_hack"),
     ActionHandler(ACTIONS.CATPLAYGROUND, "pawgroundaction"),
     ActionHandler(ACTIONS.CATPLAYAIR, "pounceplayaction"),
-    ActionHandler(ACTIONS.UNPIN, "pawgroundaction"),
+    ActionHandler(ACTIONS.WELINA_CAT_UNPIN, "pounceunpin"),
     ActionHandler(ACTIONS.GIVETOPLAYER, "pawgroundaction"),
     ActionHandler(ACTIONS.DROP, "pawgroundaction"),
     ActionHandler(ACTIONS.WELINA_CAT_EQUIPHAT, "pawgroundaction"),
@@ -48,7 +82,7 @@ local events =
 	CommonHandlers.OnSink(),
     CommonHandlers.OnFallInVoid(),
 
-
+    CommonHandlers.OnCorpseChomped(),
 
 
     EventHandler("doattack", function(inst, data)
@@ -92,6 +126,9 @@ local states =
             EventHandler("animover", function(inst) inst.sg:GoToState("idle") end),
         },
     },
+
+    
+
 
     State {
         name = "walk_start",
@@ -383,7 +420,7 @@ local states =
 
     State {
         name = "pawgroundaction",
-        tags = { "" },
+        tags = { "busy" },
 
         onenter = function(inst, target)
             inst.Physics:Stop()
@@ -564,6 +601,64 @@ local states =
     },
 
     State {
+        name = "pounceunpin",
+        tags = { "attack", "canrotate", "busy", "jumping" },
+
+        onenter = function(inst)
+            inst.components.locomotor:Stop()
+            inst.components.locomotor:EnableGroundSpeedMultiplier(false)
+            inst.components.combat:StartAttack()
+
+            inst.AnimState:PlayAnimation("jump_atk")
+
+
+
+
+        end,
+
+        onexit = function(inst)
+            inst.components.locomotor:Stop()
+            inst.components.locomotor:EnableGroundSpeedMultiplier(true)
+        end,
+
+        timeline =
+        {
+            TimeEvent(5 * FRAMES, function(inst) inst.SoundEmitter:PlaySound(
+                "dontstarve_DLC001/creatures/catcoon/attack") end),
+            TimeEvent(6 * FRAMES, function(inst)
+                inst.Physics:SetMotorVelOverride(18, 0, 0)
+                -- When the catcoon jumps, check if the target is a bird. If so, roll a chance for the bird to fly away
+
+            end),
+            TimeEvent(14 * FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/jump") end),
+            TimeEvent(19 * FRAMES, function(inst) inst.components.combat:DoAttack() end),
+            
+            TimeEvent(19 * FRAMES,
+                function(inst)
+                    
+                    inst.Physics:ClearMotorVelOverride()
+                    inst.components.locomotor:Stop()
+                end),
+            TimeEvent(18 * FRAMES, function(inst) inst:PerformBufferedAction() end),
+
+            
+        },
+
+        events =
+        {
+            EventHandler("animover", function(inst)
+                if inst.hiss then
+                    inst.hiss = false
+                    inst.sg:GoToState("hiss")
+                else
+                    inst.sg:GoToState("idle")
+                end
+            end),
+        },
+    },
+
+
+    State {
         name = "pounceplay",
         tags = { "canrotate", "busy", "jumping" },
 
@@ -618,26 +713,27 @@ local states =
 }
 
 CommonStates.AddCombatStates(states,
-    {
-        hittimeline = {},
+{
+	hittimeline = {},
 
-        attacktimeline =
-        {
-            --TimeEvent(0*FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/swipe_pre") end),
-            TimeEvent(5 * FRAMES,
-                function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/swipe") end),
-            TimeEvent(9 * FRAMES,
-                function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/swipe_whoosh") end),
-            TimeEvent(16 * FRAMES,
-                function(inst) if inst.components.combat then inst.components.combat:DoAttack(inst.sg.statemem.target) end end),
-        },
+	attacktimeline =
+	{
+        --TimeEvent(0*FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/swipe_pre") end),
+        TimeEvent(5*FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/swipe") end),
+        TimeEvent(9*FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/swipe_whoosh") end),
+        TimeEvent(16*FRAMES, function(inst) inst.components.combat:DoAttack(inst.sg.statemem.target) end),
+	},
 
-        deathtimeline =
-        {
-            TimeEvent(1 * FRAMES,
-                function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/death") end),
-        },
-    })
+	deathtimeline =
+	{
+        TimeEvent(1*FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/death") end),
+	},
+},
+nil,
+nil,
+{
+    has_corpse_handler = true
+})
 
 --[[
 CommonStates.AddRunStates(states,
@@ -662,45 +758,17 @@ CommonStates.AddRunStates(states,
     stoprun = "walk_pst",
 })
 
-
-
-
-CommonStates.AddAmphibiousCreatureHopStates(states,
-{ -- config
-	swimming_clear_collision_frame = 9 * FRAMES,
-},
-{ -- anims
-pre = "action",
-pst = "action",
-
-},
-{ -- timeline
-	hop_pre =
-	{
-		TimeEvent(0, function(inst)
-
-
-			if inst:HasTag("swimming") then
-				SpawnPrefab("splash_green").Transform:SetPosition(inst.Transform:GetWorldPosition())
-			end
-		end),
-	},
-	hop_pst = {
-		FrameEvent(4, function(inst)
-			if inst:HasTag("swimming") then
-                inst.waterfx:Show()
-				inst.components.locomotor:Stop()
-				SpawnPrefab("splash_green").Transform:SetPosition(inst.Transform:GetWorldPosition())
-			end
-		end),
-		FrameEvent(6, function(inst)
-			if not inst:HasTag("swimming") then
-                inst.components.locomotor:StopMoving()
-			end
-		end),
-	}
-})
 --]]
+
+
+
+
+
+
+
+
+
+
 
 CommonStates.AddSleepStates(states,
     {
@@ -735,6 +803,69 @@ CommonStates.AddHopStates(states, true, {pre = "walK_pre", loop = "jump_atk", ps
 CommonStates.AddSinkAndWashAshoreStates(states)
 CommonStates.AddVoidFallStates(states)
 CommonStates.AddSimpleActionState(states, "pickup", "pawgroundaction", 10 * FRAMES, { "busy" })
+
+if KnownModIndex:IsModEnabled("workshop-1467214795") then
+    CommonStates.AddAmphibiousCreatureHopStates(states,
+    { -- config
+        swimming_clear_collision_frame = 5*FRAMES,
+        onenters = {
+            hop_pre = hop_pre_onenter,
+        },
+
+        onexits = {
+            hop_pre = hop_pre_onexit,
+        }
+    }, 
+    {
+        pre = "jump_atk", 
+        pst = "walk_pst"
+
+    },
+    {
+
+    
+        hop_pre = 
+
+        {
+            TimeEvent(1 * FRAMES, function(inst) 
+                
+                inst.SoundEmitter:PlaySound(
+                "dontstarve_DLC001/creatures/catcoon/pounce_pre") end),
+            TimeEvent(15 * FRAMES, function(inst) inst.SoundEmitter:PlaySound(
+                "dontstarve_DLC001/creatures/catcoon/pounce") end),
+            TimeEvent(5 * FRAMES, function(inst) inst.Physics:SetMotorVelOverride(13, 0, 0) end),
+            TimeEvent(16 * FRAMES,
+                function(inst)
+                        
+
+                    
+                    inst.components.locomotor:EnableGroundSpeedMultiplier(true)
+                end),
+
+        }
+    }
+
+    )
+    if SailingCommonStates ~= nil then
+        SailingCommonStates.AddSailingStates(states,
+        nil,
+        {
+            pre = "idle_loop",
+            loop = "idle_loop",
+            pst = "idle_loop",
+        },
+        nil,
+        {
+            pre = SAILSTART_TIME,
+            loop = SAIL_TIME,
+            pst = SAILSTOP_TIME,
+        })
+
+        SailingCommonHandlers.BoostByWaveHandler()
+
+    end
+end
+
 
 
 CommonStates.AddInitState(states, "idle")

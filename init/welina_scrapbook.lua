@@ -41,6 +41,9 @@ STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_COLLAR_GLASS = "Damage enhancing collar. Gi
 STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_COLLAR_LIGHT = "Collar that enlightens your path!\nConsumes fuel only at night."
 
 
+STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_NAMETAG = "Put a name on your fur friend!"
+
+
 local SCRAPBOOK_ITEMS = {
 
 	welina_catnip = {
@@ -151,7 +154,7 @@ local SCRAPBOOK_ITEMS = {
 		specialinfo    = "WELINA_COLLAR_GLASS",
 	},
 
-		welina_collar_light = {
+    welina_collar_light = {
 		name = "welina_collar_light",
 		type = "item",
 		tex = "welina_collar_light.tex",
@@ -165,7 +168,22 @@ local SCRAPBOOK_ITEMS = {
 		specialinfo    = "WELINA_COLLAR_LIGHT",
 	},
 
-	
+
+
+    welina_nametag = {
+		name = "welina_nametag",
+		type = "item",
+		tex = "welina_nametag.tex",
+		prefab = "welina_nametag",
+		subcat = "clothing",
+		burnable = false,
+		bank = "welina_nametag",
+		build = "welina_nametag",
+		anim = "idle",
+		deps = {"welina_catcoon"},
+		specialinfo    = "WELINA_NAMETAG",
+	},
+
 
 
 
