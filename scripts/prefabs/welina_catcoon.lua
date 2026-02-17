@@ -2,8 +2,10 @@ local brain = require("brains/welinacatcoonbrain")
 
 local assets = {
 	Asset("ANIM", "anim/catcoon_build.zip"),
-	Asset("ANIM", "anim/catcoon_basic.zip"),
-	Asset("ANIM", "anim/catcoon_actions.zip"),
+
+    Asset("ANIM", "anim/welina_catcoon_basic.zip"),
+    Asset("ANIM", "anim/welina_catcoon_actions.zip"),
+
 	Asset("SOUND", "sound/catcoon.fsb"),
 }
 
@@ -476,6 +478,20 @@ local function OnLocomote(inst)
 	end
 end
 
+
+local random_names = {
+    "Sinner",
+    "I eat your Garbage",
+    "Kitten",
+    "Schrödinger's Cat",
+    "Garbage Disposal",
+    "Fluffy",
+    "Kova",
+    "",
+
+}
+
+
 -- fuck my back hurts
 
 local function fn()
@@ -509,7 +525,7 @@ local function fn()
 	--trader (from trader component) added to pristine state for optimization
 	inst:AddTag("trader")
 
-	inst.AnimState:SetHatOffset(145, 260)
+	--inst.AnimState:SetHatOffset(20, 15)
 	--[[
 	inst.waterfx = SpawnPrefab("welina_catcoon_water_ripple")
 	inst.waterfx.entity:SetParent(inst.entity)
@@ -550,32 +566,29 @@ local function fn()
 
 	inst:AddComponent("named")
 
-	inst:DoTaskInTime(0, function()
-		if inst.components.follower and inst.components.follower:GetLeader() then
-			inst.components.named:SetName(inst.components.follower:GetLeader().name .. "'s Catcoon")
+    inst:DoTaskInTime(0, function()
+        if inst.components.follower and inst.components.follower:GetLeader() then
+            inst.components.named:SetName(inst.components.follower:GetLeader().name .. "'s Catcoon")
 
-			if
-				inst.components.inventory
-				and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
-				and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD).prefab == "antlionhat"
-			then
-				inst.components.named:SetName(inst.components.follower:GetLeader().name .. "'s Lawnmower")
-			end
-		else
-			local names = 
-			{
-				"Sinner",
-				"Finger",
-				"Kitten",
-				"Schrödinger's Cat"
-			}
+            if
+                inst.components.inventory
+                and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
+                and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD).prefab == "antlionhat"
+            then
+                inst.components.named:SetName(inst.components.follower:GetLeader().name .. "'s Lawnmower")
+            end
+        else
+            local names = {
+                "Sinner",
+                "Finger",
+                "Kitten",
+                "Schrödinger's Cat",
+            }
 
-			local name = names[math.random(1, #names)]
-			inst.components.named:SetName(name)
-
-
-		end
-	end)
+            local name = names[math.random(1, #names)]
+            inst.components.named:SetName(name)
+        end
+    end)
 
 	inst:AddComponent("trader")
 	inst.components.trader:SetAcceptTest(ShouldAcceptItem)

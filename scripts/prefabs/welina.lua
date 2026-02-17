@@ -475,6 +475,8 @@ local common_postinit = function(inst)
 
 
     inst:AddTag("emocatgirl")
+    --Negates Knockback
+    inst:AddTag("heavybody")
 
     inst:AddTag("welinacollar_wearer")
 --[[
@@ -612,7 +614,28 @@ local master_postinit = function(inst)
         inst:ListenForEvent("onattackother", OnAttackOther)
     end
 
-    
+	local OldAccept = inst.components.trader.onaccept
+	inst.components.trader.onaccept = function(inst, giver, item)
+		if OldAccept and giver.prefab ~= "welina_catcoon" then
+			OldAccept(inst, giver, item)
+		else
+			if item ~= nil and item:HasTag("reviver") and inst:HasTag("playerghost") then
+				if item.skin_sound then
+					item.SoundEmitter:PlaySound(item.skin_sound)
+				end
+				local dohealthpenalty = not item:HasTag("noreviverhealthpenalty")
+
+
+				item:PushEvent("usereviver", { user = giver })
+				item:Remove()
+				inst:PushEvent("respawnfromghost", { source = item, user = giver })
+
+				if dohealthpenalty then
+					inst.components.health:DeltaPenalty(TUNING.REVIVE_HEALTH_PENALTY)
+				end
+			end
+		end
+	end
 
 
 

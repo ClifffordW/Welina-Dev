@@ -598,6 +598,14 @@ AddAction("WELINA_VOMIT", "Vomit", function(act)
     return
 end)
 
+AddAction("WELINA_CAT_EQUIPHAT", "Equip Hat", function(act)
+    return
+end)
+
+AddAction("WELINA_CAT_UNEQUIPHAT", "Unequip Hat", function(act)
+    return
+end)
+
 
 --script, time, noanim, force, nobroadcast, colour
 
@@ -609,6 +617,42 @@ ACTIONS.WELINA_VOMIT.priority = 2
 ACTIONS.WELINA_VOMIT.rmb = false
 
 
+ACTIONS.WELINA_CAT_EQUIPHAT.rmb = false
+ACTIONS.WELINA_CAT_EQUIPHAT.fn = function(act)
+    if act.doer.components.inventory ~= nil then
+        return act.doer.components.inventory:Equip(act.invobject)
+    end
+end
+
+ACTIONS.WELINA_CAT_UNEQUIPHAT.strfn = function(act)
+    return (act.invobject ~= nil and
+            act.invobject:HasTag("heavy") or
+            GetGameModeProperty("non_item_equips") or
+            act.doer.replica.inventory:GetNumSlots() <= 0)
+        and "HEAVY"
+        or nil
+end
+
+ACTIONS.WELINA_CAT_UNEQUIPHAT.fn = function(act)
+    if act.invobject ~= nil and act.doer.components.inventory ~= nil then
+        if act.invobject.components.equippable ~= nil and act.invobject.components.equippable:ShouldPreventUnequipping() then
+            return nil
+        end
+        if act.invobject.components.inventoryitem.cangoincontainer and not GetGameModeProperty("non_item_equips") then
+            act.doer.components.inventory:GiveItem(act.invobject)
+        else
+            act.doer.components.inventory:DropItem(act.invobject, true, true)
+        end
+        return true
+    end
+end
+
+ACTIONS.WELINA_CAT_EQUIPHAT.strfn = function(act)
+    return act.target ~= nil
+        and act.target:HasTag("heavy")
+        and "HEAVY"
+        or nil
+end
 
 
 
