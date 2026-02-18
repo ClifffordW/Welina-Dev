@@ -1,6 +1,7 @@
 local assets = {
 	Asset("ANIM", "anim/welina_collar.zip"),
 	Asset("ANIM", "anim/ui_welina_collar.zip"),
+
 }
 
 --[[ local function LightCollar(inst, owner)
@@ -276,7 +277,7 @@ local function MakeCollar(name)
 		inst.entity:AddAnimState()
 		inst.entity:AddNetwork()
 
-		inst.AnimState:SetBank("kitcoon_nametag")
+		inst.AnimState:SetBank("welina_collar_item")
 		inst.AnimState:SetBuild("welina_collar")
 		inst.AnimState:PlayAnimation(name)
 
@@ -334,7 +335,7 @@ local function fn_attachedcollar()
 	inst.entity:AddAnimState()
 	inst.entity:AddFollower()
 
-	inst.AnimState:SetBank("kitcoon_nametag")
+	inst.AnimState:SetBank("welina_collar_item")
 	inst.AnimState:SetBuild("welina_collar")
 
 	inst:AddComponent("highlightchild")

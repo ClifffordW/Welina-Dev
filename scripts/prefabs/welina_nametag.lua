@@ -1,6 +1,9 @@
 local assets =
 {
     Asset("ANIM", "anim/welina_nametag.zip"),
+    Asset("ANIM", "anim/ui_welina_collar.zip"),
+
+    
 }
 
 local prefabs =
@@ -11,8 +14,8 @@ local prefabs =
 require("writeables").AddLayout("welina_nametag", 
 {
     prompt = STRINGS.KITCOON_NAMING.MENU_PROMPT,
-    animbank = "ui_board_5x3",
-    animbuild = "ui_board_5x3",
+    animbank = "ui_welina_collar",
+    animbuild = "ui_welina_collar",
     menuoffset = Vector3(6, -70, 0),
 	maxcharacters = TUNING.KITCOON_NAMING_MAX_LENGTH,
 
