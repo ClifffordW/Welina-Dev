@@ -213,28 +213,23 @@ local function HasMonkeyBait(inst)
 end
 
 local function GetRidOfTheBall(inst)
-    -- 1. Find the ball in the cat's own inventory
     local ball = inst.components.inventory:FindItem(function(item) 
         return item:HasTag("welina_cattoy") 
     end)
     
     if not ball then return nil end
 
-    -- 2. Check for the Leader (Player)
     local leader = inst.components.follower and inst.components.follower.leader
     if not leader or not leader:IsValid()  then 
-        -- Fallback: If no leader, just drop it so the loop doesn't break
         return BufferedAction(inst, nil, ACTIONS.DROP, ball) 
     end
 
 
 
-    -- 3. Calculate the toss
     local playerPos = leader:GetPosition()
     local catPos = inst:GetPosition()
     
-    -- We want to toss it TO the player, maybe slightly in front of them
-    -- (Subtracting positions and normalizing gives us the vector)
+
     local dist = 1.5 -- Distance q to "land" in front of player
     local angle = leader:GetAngleToPoint(catPos.x, catPos.y, catPos.z) * DEGREES
     local offset = Vector3(math.cos(angle) * dist, 0, -math.sin(angle) * dist)
@@ -360,7 +355,7 @@ function CatcoonBrain:OnStart()
 
         IfNode(function() return self.inst.components.inventory:Has("welina_cattoy", 1) end, "Has Ball",
             SequenceNode({
-                WaitNode(0.5), -- Small pause to look at player
+                WaitNode(0.9), -- Small pause to look at player
                 DoAction(self.inst, GetRidOfTheBall, "tossballact", true),
             })
         ),

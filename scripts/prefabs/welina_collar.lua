@@ -233,15 +233,27 @@ local function OnEquip(inst, owner)
 	}
 
 	local isplayer = owner:HasTag("player")
-
+    local skin_build = inst:GetSkinBuild()
 	if isplayer then
-		local skin_build = inst:GetSkinBuild()
+		
 		if skin_build ~= nil then
 			owner:PushEvent("equipskinneditem", inst:GetSkinName())
 			owner.AnimState:OverrideItemSkinSymbol("swap_body", skin_build, "swap_body", inst.GUID, "torso_amulets")
 		else
 			owner.AnimState:OverrideSymbol("swap_body", "swap_collar_" .. inst.collarname, "swap_body")
 		end
+
+    else
+
+		if skin_build ~= nil then
+			owner:PushEvent("equipskinneditem", inst:GetSkinName())
+			owner.AnimState:OverrideItemSkinSymbol("swap_welinacollar", skin_build, "swap_body", inst.GUID, "torso_amulets")
+		else
+			owner.AnimState:OverrideSymbol("swap_welinacollar", "swap_collar_" .. inst.collarname, "swap_body")
+		end
+
+        
+
 	end
 
 	if inst.components.fueled ~= nil and not dontconsumehere[inst.collarname] then

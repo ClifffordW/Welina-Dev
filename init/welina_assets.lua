@@ -74,8 +74,7 @@ AddAnim("welina_puke")
 --AddAnim("catcoon_actions")
 
 AddAnim("welina_catcoon_den")
-AddAnim("welina_catcoon_basic")
-AddAnim("welina_catcoon_actions")
+
 
 
 --Player collars

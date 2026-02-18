@@ -113,6 +113,7 @@ local states =
         onenter = function(inst)
             inst.components.locomotor:StopMoving()
             inst.AnimState:PlayAnimation("idle_loop")
+            inst.sg:SetTimeout(math.random() * 4 + 2)
         end,
 
         timeline =
@@ -124,6 +125,40 @@ local states =
         events =
         {
             EventHandler("animover", function(inst) inst.sg:GoToState("idle") end),
+        },
+        ontimeout = function(inst)
+            inst.sg:GoToState("funnyidle")
+        end,
+    },
+
+
+State{
+        name = "funnyidle",
+        tags = { "idle", "canrotate" },
+
+        onenter = function(inst)
+          
+
+              
+                 
+            inst.AnimState:PlayAnimation("idle_funny")
+		
+                
+           
+        end,
+
+        timeline = 
+        {
+            TimeEvent(2*FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/swipe_whoosh") end),
+        },
+
+        events =
+        {
+            EventHandler("animqueueover", function(inst)
+                if inst.AnimState:AnimDone() then
+                    inst.sg:GoToState("idle")
+                end
+            end),
         },
     },
 

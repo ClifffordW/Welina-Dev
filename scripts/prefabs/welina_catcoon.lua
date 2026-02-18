@@ -3,8 +3,11 @@ local brain = require("brains/welinacatcoonbrain")
 local assets = {
 	Asset("ANIM", "anim/catcoon_build.zip"),
 
-    Asset("ANIM", "anim/welina_catcoon_basic.zip"),
-    Asset("ANIM", "anim/welina_catcoon_actions.zip"),
+    --Asset("ANIM", "anim/welina_catcoon_basic.zip"),
+    --Asset("ANIM", "anim/welina_catcoon_actions.zip"),
+    Asset("ANIM", "anim/welina_catcoon_new.zip"),
+
+
 
 	Asset("SOUND", "sound/catcoon.fsb"),
 }
@@ -578,7 +581,7 @@ local function fn()
 
 	MakeCharacterPhysics(inst, 1, 0.5)
 
-	inst.AnimState:SetBank("welina_catcoon") -- summerscorcher: Back to vanilla bank for debugging. Originally "welina_catcoon".
+	inst.AnimState:SetBank("welina_catcoon_new") -- summerscorcher: Back to vanilla bank for debugging. Originally "welina_catcoon".
 	inst.AnimState:SetBuild("catcoon_build")
 	inst.AnimState:PlayAnimation("idle_loop")
 
