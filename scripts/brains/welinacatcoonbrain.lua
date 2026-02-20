@@ -308,56 +308,67 @@ local function RescueLeaderAction(inst)
 end
 
 
+
+local function IsSafeToRevive(inst)
+    local leader = GetLeader(inst)
+    if not leader then return true end -- No leader, so no "danger" of wasting a heart
+
+    -- 1. Check for Touch Stones / Effigies
+    -- Instead of looping ALL Ents, we check if the leader is already attuned.
+
+    for k,v in pairs(Ents) do 
+        if v.prefab == "resurrectionstatue" and v.components.attunable:IsAttuned(leader) then
+
+            return false
+
+        end
+    end
+
+
+
+    -- 2. Check for Amulets on the ground
+    -- Added 'invpos' check because FindEntity can sometimes see items inside chests
+    local amulet = FindEntity(inst, 15, function(item) 
+        return item.prefab == "amulet" and not item:HasTag("INLIMBO") 
+    end)
+    
+    if amulet then 
+        return false -- Items ARE around
+    end
+
+    return true -- No items around, safe to use heart
+end
+
+
 local function RevivePlayerAction(inst)
-    local reviver = inst.components.inventory:FindItem(function(item) 
+    local ghost = GetLeader(inst)
+    if not (ghost and ghost:HasTag("playerghost")) then return nil end
+
+    local heart = inst.components.inventory:FindItem(function(item) 
         return item.prefab == "reviver" 
     end)
 
+    if heart and not IsSafeToRevive(inst) then
+        return BufferedAction(inst, heart, ACTIONS.DROP)
+    end
 
+    
+    if heart then
+        return BufferedAction(inst, ghost, ACTIONS.GIVETOPLAYER, heart)
+    end
 
+    heart = FindEntity(inst, 15, function(item)
+        return item.prefab == "reviver" and item:IsOnPassablePoint(true, false)
+    end)
 
-
-
-
-    local ghost = GetLeader(inst)
-    if ghost ~= nil then
-
-        
-
-        if reviver then
-            return BufferedAction(inst, GetLeader(inst), ACTIONS.GIVETOPLAYER, reviver)
-        end
-
-        local ground_reviver = FindEntity(inst, 15, function(item)
-            return item.prefab == "reviver" and item:IsOnPassablePoint(true, false)
-        end)
-
-        
-        if ground_reviver and inst.components.inventory:IsFull() then
-            local items = {}
-            for k, v in pairs(inst.components.inventory.itemslots) do
-                if v ~= nil then
-                    table.insert(items, v)
-                end
-            end
-
-
-            if #items > 0 then
-                local item_to_drop = items[math.random(#items)]
-                
-                
-                return BufferedAction(inst, item_to_drop, ACTIONS.DROP, item_to_drop, inst:GetPosition())
+    if heart and IsSafeToRevive(inst) then
+        if inst.components.inventory:IsFull() then
+            local item_to_drop = inst.components.inventory:FindItem(function() return true end)
+            if item_to_drop then
+                return BufferedAction(inst, item_to_drop, ACTIONS.DROP)
             end
         end
-
-
-
-
-
-
-        if ground_reviver and ghost:IsOnPassablePoint(false) then
-            return BufferedAction(inst, ground_reviver, ACTIONS.CATPLAYGROUND)
-        end
+        return BufferedAction(inst, heart, ACTIONS.CATPLAYGROUND, heart)
     end
 
     return nil
@@ -377,8 +388,12 @@ function CatcoonBrain:OnStart()
         WhileNode( function() return GetLeader(self.inst) and GetLeader(self.inst).components.pinnable and GetLeader(self.inst).components.pinnable:IsStuck() end, "Leader Phlegmed",
             DoAction(self.inst, RescueLeaderAction, "Rescue Leader", true) ),
 
-        WhileNode( function() return GetLeader(self.inst) and GetLeader(self.inst).components.health and GetLeader(self.inst):HasTag("playerghost") end, "Leader Dead",
-            DoAction(self.inst, RevivePlayerAction, "medic_act", true) ),
+        
+        WhileNode(function() 
+            local leader = GetLeader(self.inst)
+            return leader and leader:HasTag("playerghost") end, "Leader Dead",
+            DoAction(self.inst, RevivePlayerAction, "medic_act", true)
+        ),
 
         
 

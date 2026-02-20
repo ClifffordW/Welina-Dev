@@ -425,9 +425,17 @@ State{
 
     State {
         name = "pawground",
-        tags = { "" },
+        tags = { "busy" },
 
         onenter = function(inst)
+            local bufferedaction = inst:GetBufferedAction()
+            if bufferedaction == nil then
+                inst.sg:GoToState("idle", true)
+                return
+            end
+
+
+
             inst.Physics:Stop()
             inst.AnimState:PlayAnimation("action")
             inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/pickup")
