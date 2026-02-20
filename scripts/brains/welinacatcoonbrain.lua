@@ -32,58 +32,61 @@ local function restore_toy_tag(targ, tag)
 end
 
 local function PlayAction(inst)
-        if inst.sg:HasStateTag("busy") or (inst.hairball_friend_interval and inst.hairball_friend_interval <= 5) then 
-            return
-        end
+	if inst.sg:HasStateTag("busy") or (inst.hairball_friend_interval and inst.hairball_friend_interval <= 5) then
+		return
+	end
 
-        local target = FindEntity(inst, 10, function(item) return item:IsOnPassablePoint() end, nil, NO_TAGS, PLAY_TAGS)
+	local target = FindEntity(inst, 10, function(item)
+		return item:IsOnPassablePoint()
+	end, nil, NO_TAGS, PLAY_TAGS)
 
-        local pt = inst:GetPosition()
-        local ents = TheSim:FindEntities(pt.x, pt.y, pt.z, 15, {"welina_cattoy"}, {"aquatic", "falling", "INLIMBO", "NOCLICK"})
+	local pt = inst:GetPosition()
+	local ents = TheSim:FindEntities(
+		pt.x,
+		pt.y,
+		pt.z,
+		15,
+		{ "welina_cattoy" },
+		{ "aquatic", "falling", "INLIMBO", "NOCLICK" }
+	)
 
-        
-        
+	if target ~= nil then
+		local target_pt = target:GetPosition()
+		local player_too_close = FindClosestPlayerInRange(target_pt.x, target_pt.y, target_pt.z, 5, true)
 
+		-- CHANGE: If a player IS close, return nil to cancel the action.
+		if player_too_close ~= nil then
+			return nil
+		end
 
+		local action = nil
+		local cattoyairborne = target:HasTag("cattoyairborne")
 
+		-- Determine the correct tag to track cooldowns
+		local tag = cattoyairborne and "cattoyairborne" or target:HasTag("cattoy") and "cattoy" or "catfood"
 
-        if target ~= nil then
-        local target_pt = target:GetPosition() 
-        local player_too_close = FindClosestPlayerInRange(target_pt.x, target_pt.y, target_pt.z, 3, true)
+		-- Logic for jumping at air toys vs ground toys
+		if
+			cattoyairborne and not (target.sg and (target.sg:HasStateTag("landing") or target.sg:HasStateTag("landed")))
+		then
+			-- Cooldown check so the cat doesn't spam air jumps
+			if inst.last_play_air_time and (GetTime() - inst.last_play_air_time) < 15 then
+				return nil -- Explicitly return nil
+			end
+			action = BufferedAction(inst, target, ACTIONS.CATPLAYAIR)
+		else
+			action = BufferedAction(inst, target, ACTIONS.CATPLAYGROUND)
+		end
 
-        -- CHANGE: If a player IS close, return nil to cancel the action.
-        if player_too_close ~= nil then
-            return nil
-        end
+		-- IMPORTANT: Only remove tags if we actually successfully created an action
+		if action then
+			target:RemoveTag(tag)
+			target:DoTaskInTime(30, restore_toy_tag, tag)
+			return action
+		end
+	end
 
-        local action = nil
-        local cattoyairborne = target:HasTag("cattoyairborne")
-        
-        -- Determine the correct tag to track cooldowns
-        local tag = cattoyairborne and "cattoyairborne" 
-                    or target:HasTag("cattoy") and "cattoy" 
-                    or "catfood"
-
-        -- Logic for jumping at air toys vs ground toys
-        if cattoyairborne and not (target.sg and (target.sg:HasStateTag("landing") or target.sg:HasStateTag("landed"))) then
-            -- Cooldown check so the cat doesn't spam air jumps
-            if inst.last_play_air_time and (GetTime() - inst.last_play_air_time) < 15 then
-                return nil -- Explicitly return nil
-            end
-            action = BufferedAction(inst, target, ACTIONS.CATPLAYAIR)
-        else
-            action = BufferedAction(inst, target, ACTIONS.CATPLAYGROUND)
-        end
-
-        -- IMPORTANT: Only remove tags if we actually successfully created an action
-        if action then
-            target:RemoveTag(tag)
-            target:DoTaskInTime(30, restore_toy_tag, tag)
-            return action
-        end
-    end
-
-    return nil
+	return nil
 end
 
 local function HasValidHome(inst)
@@ -242,56 +245,43 @@ local function GetRidOfTheBall(inst)
     return action
 end
 
-local function TakeBallAction(inst)
-    local ghost = FindEntity(inst, 20, function(guy) return guy:HasTag("playerghost") end)
-    if ghost ~= nil then
-        return nil
-    end
-
-    if inst.components.inventory:Has("welina_cattoy", 1) then 
+local function  TakeBallAction(inst)
+    if inst.components.inventory:Has("welina_cattoy", 1) or 
+       FindEntity(inst, 20, function(guy) return guy:HasTag("playerghost") end) then 
         return nil 
     end
 
-    local pt = inst:GetPosition()
-    local ents = TheSim:FindEntities(pt.x, pt.y, pt.z, 15, {"welina_cattoy"}, {"aquatic", "falling", "INLIMBO", "NOCLICK"})
+	local ball = FindEntity(inst, 15, function(item)
+		if not (item:HasTag("welina_cattoy") and not item.components.inventoryitem:IsHeld()) then
+			return false
+		end
+
+		local x, y, z = item.Transform:GetWorldPosition()
+		if not item:IsOnPassablePoint(inst.components.amphibiouscreature ~= nil, false) then
+			return false
+		end
 
 
+		local too_close = FindClosestPlayerInRange(x, y, z, 5, true) or FindClosestPlayerInRange(x, y, z, 5, false)
 
+		return not too_close
+	end, { "welina_cattoy" }, { "aquatic", "falling", "INLIMBO", "NOCLICK" })
 
-    for _, item in ipairs(ents) do
-        if item:IsValid() and not item.components.inventoryitem:IsHeld() and item:IsOnPassablePoint(inst.components.amphibiouscreature and true or false, false) then
-            local pt_item = item:GetPosition()
+    if not ball then return nil end
 
-                if item and inst.components.inventory:IsFull() then
-                    local items = {}
-                    for k, v in pairs(inst.components.inventory.itemslots) do
-                        if v ~= nil then
-                            table.insert(items, v)
-                        end
-                    end
-
-
-                    if #items > 0 then
-                        local item_to_drop = items[math.random(#items)]
-                        
-                        
-                        return BufferedAction(inst, item_to_drop, ACTIONS.DROP, item_to_drop, inst:GetPosition())
-                    end
-                end
-
-
-
-
-            
-            local player_too_close = FindClosestPlayerInRange(pt_item.x, pt_item.y, pt_item.z, 5, true) or FindClosestPlayerInRange(pt_item.x, pt_item.y, pt_item.z, 5, false)
-            
-            if player_too_close == nil then
-                return BufferedAction(inst, item, ACTIONS.CATPLAYGROUND)
-            end
+    -- 3. Inventory management (Simplified)
+    if inst.components.inventory:IsFull() then
+        -- Instead of building a table every time, just find the first non-toy item
+        local item_to_drop = inst.components.inventory:FindItem(function(item) 
+            return item.prefab ~= "welina_cattoy" and item.prefab ~= "reviver" 
+        end)
+        
+        if item_to_drop then
+            return BufferedAction(inst, ball, ACTIONS.DROP, item_to_drop)
         end
     end
 
-    return nil
+    return BufferedAction(inst, ball, ACTIONS.CATPLAYGROUND)
 end
 
 
@@ -340,35 +330,64 @@ local function IsSafeToRevive(inst)
 end
 
 
+local function GetRidOfReviver(inst)
+    local player = GetLeader(inst)
+    local heart = inst.components.inventory:FindItem(function(item) 
+        return item.prefab == "reviver" 
+    end)
+
+    if player and not player:HasTag("playerghost") and heart then
+        return BufferedAction(inst, nil, ACTIONS.DROP, heart)
+    end
+
+end
+
 local function RevivePlayerAction(inst)
     local ghost = GetLeader(inst)
+    
+
+
     if not (ghost and ghost:HasTag("playerghost")) then return nil end
+
 
     local heart = inst.components.inventory:FindItem(function(item) 
         return item.prefab == "reviver" 
     end)
 
-    if heart and not IsSafeToRevive(inst) then
-        return BufferedAction(inst, heart, ACTIONS.DROP)
+
+
+    if not IsSafeToRevive(inst) and heart then 
+        
+        return BufferedAction(inst, heart, ACTIONS.CATPLAYGROUND)
     end
 
     
     if heart then
-        return BufferedAction(inst, ghost, ACTIONS.GIVETOPLAYER, heart)
+        
+        if IsSafeToRevive(inst) then
+            return BufferedAction(inst, ghost, ACTIONS.GIVETOPLAYER, heart)
+        end
     end
 
     heart = FindEntity(inst, 15, function(item)
         return item.prefab == "reviver" and item:IsOnPassablePoint(true, false)
     end)
 
-    if heart and IsSafeToRevive(inst) then
+
+
+
+    if heart  then
         if inst.components.inventory:IsFull() then
             local item_to_drop = inst.components.inventory:FindItem(function() return true end)
             if item_to_drop then
-                return BufferedAction(inst, item_to_drop, ACTIONS.DROP)
+                return BufferedAction(inst, item_to_drop, ACTIONS.CATPLAYGROUND)
             end
         end
-        return BufferedAction(inst, heart, ACTIONS.CATPLAYGROUND, heart)
+        if IsSafeToRevive(inst) then
+
+            return BufferedAction(inst, heart, ACTIONS.CATPLAYGROUND, heart)
+
+        end
     end
 
     return nil
@@ -391,7 +410,7 @@ function CatcoonBrain:OnStart()
         
         WhileNode(function() 
             local leader = GetLeader(self.inst)
-            return leader and leader:HasTag("playerghost") end, "Leader Dead",
+            return leader and leader:HasTag("playerghost")  end, "Leader Dead",
             DoAction(self.inst, RevivePlayerAction, "medic_act", true)
         ),
 
@@ -404,9 +423,12 @@ function CatcoonBrain:OnStart()
             })
         ),
 
-        DoAction(self.inst, TakeBallAction, "takeballact", true),
-            
+        IfNode(function() return not self.inst.components.inventory:Has("welina_cattoy", 1) end, "Needs Toy",
+            DoAction(self.inst, TakeBallAction, "takeballact", true)
+        ),     
         
+        IfNode(function() return self.inst.components.inventory:Has("reviver", 1) end, "Cleanup Heart",
+            DoAction(self.inst, GetRidOfReviver, "getridofreviver", true)),
         
 
 
