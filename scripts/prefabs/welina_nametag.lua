@@ -13,7 +13,7 @@ local prefabs =
 
 require("writeables").AddLayout("welina_nametag", 
 {
-    prompt = STRINGS.KITCOON_NAMING.MENU_PROMPT,
+    prompt = "Give your sinner a name!",
     animbank = "ui_welina_collar",
     animbuild = "ui_welina_collar",
     menuoffset = Vector3(6, -70, 0),
@@ -64,7 +64,8 @@ end
 
 local function OnNamedByWriteable(inst, new_name, writer)
     if new_name ~= nil and inst.naming_target ~= nil and inst.naming_target:IsValid() and inst.naming_target.components.named ~= nil then
-        inst.naming_target.components.named:SetName((writer ~= nil and writer.name ~= nil) and writer.name.."'s "..new_name or new_name, writer ~= nil and writer.userid or nil)
+        local name_actual = (writer ~= nil and writer.name ~= nil) and writer.name.."'s "..new_name or new_name, writer ~= nil and writer.userid or nil
+        inst.naming_target.components.named:SetName(ApplyLocalWordFilter(name_actual, TEXT_FILTER_CTX_NAME))
     end
 end
 

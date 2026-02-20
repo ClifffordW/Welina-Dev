@@ -255,11 +255,35 @@ local function TakeBallAction(inst)
     local pt = inst:GetPosition()
     local ents = TheSim:FindEntities(pt.x, pt.y, pt.z, 15, {"welina_cattoy"}, {"aquatic", "falling", "INLIMBO", "NOCLICK"})
 
+
+
+
     for _, item in ipairs(ents) do
-        if item:IsValid() and not item.components.inventoryitem:IsHeld() and item:IsOnPassablePoint(false, false) then
+        if item:IsValid() and not item.components.inventoryitem:IsHeld() and item:IsOnPassablePoint(inst.components.amphibiouscreature and true or false, false) then
             local pt_item = item:GetPosition()
+
+                if item and inst.components.inventory:IsFull() then
+                    local items = {}
+                    for k, v in pairs(inst.components.inventory.itemslots) do
+                        if v ~= nil then
+                            table.insert(items, v)
+                        end
+                    end
+
+
+                    if #items > 0 then
+                        local item_to_drop = items[math.random(#items)]
+                        
+                        
+                        return BufferedAction(inst, item_to_drop, ACTIONS.DROP, item_to_drop, inst:GetPosition())
+                    end
+                end
+
+
+
+
             
-            local player_too_close = FindClosestPlayerInRange(pt_item.x, pt_item.y, pt_item.z, 3, true)
+            local player_too_close = FindClosestPlayerInRange(pt_item.x, pt_item.y, pt_item.z, 5, true) or FindClosestPlayerInRange(pt_item.x, pt_item.y, pt_item.z, 5, false)
             
             if player_too_close == nil then
                 return BufferedAction(inst, item, ACTIONS.CATPLAYGROUND)
@@ -297,13 +321,18 @@ local function RevivePlayerAction(inst)
 
     local ghost = GetLeader(inst)
     if ghost ~= nil then
+
+        
+
         if reviver then
             return BufferedAction(inst, GetLeader(inst), ACTIONS.GIVETOPLAYER, reviver)
         end
 
         local ground_reviver = FindEntity(inst, 15, function(item)
-            return item.prefab == "reviver" and item:IsOnValidGround()
+            return item.prefab == "reviver" and item:IsOnPassablePoint(true, false)
         end)
+
+        
         if ground_reviver and inst.components.inventory:IsFull() then
             local items = {}
             for k, v in pairs(inst.components.inventory.itemslots) do
@@ -326,8 +355,8 @@ local function RevivePlayerAction(inst)
 
 
 
-        if ground_reviver then
-            return BufferedAction(inst, ground_reviver, ACTIONS.CATPLAYGROUND, ground_reviver)
+        if ground_reviver and ghost:IsOnPassablePoint(false) then
+            return BufferedAction(inst, ground_reviver, ACTIONS.CATPLAYGROUND)
         end
     end
 

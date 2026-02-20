@@ -343,7 +343,9 @@ local function OnGetItemFromPlayer(inst, giver, item)
 			inst.components.inventory:DropItem(current)
 		end
 		if item.prefab == "antlionhat" and giver then
-			inst.components.named:SetName(giver and giver.name .. "'s Lawnmeower" or "Lawnmeower")
+			inst.components.named:SetName((inst.name or giver.name).. "'s Lawnmeower" or "Lawnmeower")
+        else
+            inst.components.named:SetName(inst.name:gsub("'s Lawnmeower", ""))
 		end
 
 		inst.components.inventory:Equip(item)
@@ -777,7 +779,7 @@ local function fn()
         inst:AddComponent("sailor")
         inst:AddComponent("amphibiouscreature")
 
-        inst.components.amphibiouscreature:SetBanks("welina_catcoon", "welina_catcoon")
+        inst.components.amphibiouscreature:SetBanks("welina_catcoon_new", "welina_catcoon_new")
         inst.components.amphibiouscreature:SetEnterWaterFn(function(inst)
             inst.landspeed = inst.components.locomotor.runspeed
             inst.components.locomotor.runspeed = TUNING.HOUND_SWIM_SPEED

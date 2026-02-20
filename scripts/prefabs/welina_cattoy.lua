@@ -123,6 +123,11 @@ local function fn()
 
 	inst.pickupsound = "cloth"
 
+    if KnownModIndex:IsModEnabled("workshop-1467214795") then
+        inst:AddTag("complexprojectile_showoceanaction")
+        inst:AddTag("allow_action_on_impassable")
+    end
+
     inst.entity:SetPristine()
     if not TheWorld.ismastersim then
         return inst
