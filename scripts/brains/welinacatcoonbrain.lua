@@ -205,6 +205,8 @@ local function WhineAction(inst)
 end
 
 
+
+
 local function HasMonkeyBait(inst)
     local ball = inst.components.inventory:FindItem(function(item) return item:HasTag("welina_cattoy") end)
     if ball then
@@ -393,6 +395,16 @@ local function RevivePlayerAction(inst)
     return nil
 end
 
+local function IsLeaderSleeping(inst)
+    local leader = GetLeader(inst)
+    if not leader then return false end
+
+    -- Check if the leader is currently in a bedroll/tent state
+    return leader:HasTag("sleeping") or 
+           leader:HasTag("tent") or 
+           leader.sg:HasStateTag("sleeping")
+end
+
 
 function CatcoonBrain:OnStart()
     local root =
@@ -403,6 +415,33 @@ function CatcoonBrain:OnStart()
 		BrainCommon.PanicTrigger(self.inst),
         BrainCommon.ElectricFencePanicTrigger(self.inst),
         ChaseAndAttack(self.inst, MAX_CHASE_TIME, MAX_CHASE_DIST),
+
+
+        -- Add this to your Brain (PriorityNode)
+        WhileNode(function() return IsLeaderSleeping(self.inst) end, "Leader Sleeping",
+            SequenceNode({
+                Leash(self.inst, function() self.inst.Physics:ClearCollidesWith(COLLISION.CHARACTERS) return GetLeader(self.inst):GetPosition()  end, 2, 1),
+                
+               
+                ActionNode(function() 
+                    if not self.inst.sg:HasStateTag("sleeping") then
+                        self.inst:PushEvent("gotosleep") 
+                    end
+                end),
+                
+                -- 3. Just wait here while the condition (WhileNode) remains true
+                WaitNode(1),
+            })
+        ),
+
+        IfNode(function() 
+            return self.inst.sg:HasStateTag("sleeping") and not IsLeaderSleeping(self.inst) 
+        end, "Wake Up",
+            ActionNode(function() 
+                self.inst:PushEvent("onwakeup") 
+                self.inst.Physics:CollidesWith(COLLISION.CHARACTERS)
+            end)
+        ),
 
         WhileNode( function() return GetLeader(self.inst) and GetLeader(self.inst).components.pinnable and GetLeader(self.inst).components.pinnable:IsStuck() end, "Leader Phlegmed",
             DoAction(self.inst, RescueLeaderAction, "Rescue Leader", true) ),
