@@ -113,7 +113,16 @@ local states =
         onenter = function(inst)
             inst.components.locomotor:StopMoving()
             inst.AnimState:PlayAnimation("idle_loop")
-            inst.sg:SetTimeout(math.random() * 4 + 2)
+            local last_funny_time = inst.last_funny_time or 0
+            local time_since_last = GetTime() - last_funny_time
+
+            if time_since_last > 20 and math.random() < 0.15 then
+                inst.sg:GoToState("funnyidle")
+            else
+                inst.sg:SetTimeout(5)
+            end
+
+
         end,
 
         timeline =
@@ -133,34 +142,40 @@ local states =
 
 
 State{
-        name = "funnyidle",
-        tags = { "idle", "canrotate" },
+    name = "funnyidle",
+    tags = { "idle", "canrotate" },
 
-        onenter = function(inst)
-          
+    onenter = function(inst, loop_count)
 
-              
-                 
-            inst.AnimState:PlayAnimation("idle_funny")
-		
-                
-           
-        end,
+	    inst.sg.statemem.loops = loop_count or 1
 
-        timeline = 
-        {
-            TimeEvent(2*FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/swipe_whoosh") end),
-        },
+	    inst.AnimState:PlayAnimation("idle_funny")
+        inst.last_funny_time = GetTime()
+        inst.sg.statemem.loops = loop_count or 1
 
-        events =
-        {
-            EventHandler("animqueueover", function(inst)
-                if inst.AnimState:AnimDone() then
+    end,
+
+    timeline = 
+    {
+        -- This will now fire on the 13th frame of EVERY loop
+        TimeEvent(13*FRAMES, function(inst) 
+	        inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/pickup")
+        end),
+    },
+
+    events =
+    {
+        EventHandler("animqueueover", function(inst)
+            if inst.AnimState:AnimDone() then
+                if inst.sg.statemem.loops < 6 then
+                    inst.sg:GoToState("funnyidle", inst.sg.statemem.loops + 1)
+                else
                     inst.sg:GoToState("idle")
                 end
-            end),
-        },
+            end
+        end),
     },
+},
 
     
 
