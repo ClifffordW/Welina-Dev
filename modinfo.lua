@@ -455,6 +455,19 @@ configuration_options = {
 --]]
 
 	{
+		name = "WELINA_CATCOON_FUNNYIDLE",
+		label = "Catcoon Funny Idle",
+		hover = "Catcoon will sometimes perform a funny idle animation.",
+		options = {
+			{ description = "Enabled", data = 1},
+			{ description = "Disabled", data = 0, hover = "Default 󰀡"  },
+		},
+		default = 0,
+	},
+
+
+
+	{
 		name = "WELINA_LASTLIFE_MUSIC",
 		label = "Last Life Music",
 		hover = "Welinas final life sfx.",

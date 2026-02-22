@@ -113,14 +113,19 @@ local states =
         onenter = function(inst)
             inst.components.locomotor:StopMoving()
             inst.AnimState:PlayAnimation("idle_loop")
-            local last_funny_time = inst.last_funny_time or 0
-            local time_since_last = GetTime() - last_funny_time
 
-            if time_since_last > 20 and math.random() < 0.15 then
-                inst.sg:GoToState("funnyidle")
-            else
-                inst.sg:SetTimeout(10)
+
+            if TUNING.WELINA_CATCOON_FUNNYIDLE == 1 then
+                local last_funny_time = inst.last_funny_time or 0
+                local time_since_last = GetTime() - last_funny_time
+
+                if time_since_last > 20 and math.random() < 0.15 then
+                    inst.sg:GoToState("funnyidle")
+                else
+                    inst.sg:SetTimeout(10)
+                end
             end
+
 
 
         end,
@@ -136,7 +141,10 @@ local states =
             EventHandler("animover", function(inst) inst.sg:GoToState("idle") end),
         },
         ontimeout = function(inst)
-            inst.sg:GoToState("funnyidle")
+            if TUNING.WELINA_CATCOON_FUNNYIDLE == 1 then
+            
+                inst.sg:GoToState("funnyidle")
+            end
         end,
     },
 

@@ -475,7 +475,7 @@ function CatcoonBrain:OnStart()
         
 
 
-        Follow(self.inst, GetLeader, MIN_FOLLOW_DIST, 6, 12),
+        Follow(self.inst, GetLeader, MIN_FOLLOW_DIST, TARGET_FOLLOW_DIST, MAX_FOLLOW_DIST),
 
 			
 
