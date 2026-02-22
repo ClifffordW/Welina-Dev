@@ -38,6 +38,7 @@ local fmodtable = require("defs.sound.fmodtable_monkeyball").Event
 
 
 
+
 local function GotHigh(inst)
     if inst._parent ~= nil and TheFocalPoint.entity:GetParent() == inst._parent then
         if TheFocalPoint.SoundEmitter:PlayingSound("high") then return end
@@ -192,9 +193,7 @@ AddPrefabPostInit("catcoon", function(inst)
                     return
                 end
 
-
-
-
+				giver:PushEvent("makefriend")
 
                 inst:Hide()
                 local theta = math.random() * 2 * PI
@@ -260,6 +259,8 @@ AddPrefabPostInit("catcoon", function(inst)
             -- 	inst.sg:GoToState("hiss")
         end
     end
+
+    
 
     local RETARGET_TAGS = { "_health" }
     local RETARGET_NO_TAGS = { "INLIMBO", "notarget", "invisible", "sinner" }
@@ -445,7 +446,11 @@ AddStategraphState("wilson", State {
         end
 
         inst.sg.statemem.eatenitem = chosen_item
-        inst.AnimState:PushAnimation("nya_long", false)
+        if inst.components.rider:IsRiding() then
+		    inst.AnimState:PushAnimation("nya_long_beef", false)
+        else
+		    inst.AnimState:PushAnimation("nya_long", false)
+        end
     end,
 
     timeline =
@@ -616,21 +621,20 @@ end)
 
 
 
-ACTIONS.WELINA_VOMIT.mount_valid = false
+ACTIONS.WELINA_VOMIT.mount_valid = true
 ACTIONS.WELINA_VOMIT.priority = 2
 ACTIONS.WELINA_VOMIT.rmb = false
 
 
+
+
 ACTIONS.WELINA_CAT_UNPIN.distance = 8
 ACTIONS.WELINA_CAT_UNPIN.fn = function(act)
-    if act.doer ~= act.target and act.target.components.pinnable and act.target.components.pinnable:IsStuck() then
-        act.target:PushEvent("unpinned")
-        return true
-    end
+	if act.doer ~= act.target and act.target.components.pinnable and act.target.components.pinnable:IsStuck() then
+		act.target:PushEvent("unpinned")
+		return true
+	end
 end
-
-
-
 
 ACTIONS.WELINA_CAT_EQUIPHAT.rmb = false
 ACTIONS.WELINA_CAT_EQUIPHAT.fn = function(act)
@@ -638,6 +642,8 @@ ACTIONS.WELINA_CAT_EQUIPHAT.fn = function(act)
         return act.doer.components.inventory:Equip(act.invobject)
     end
 end
+
+
 
 ACTIONS.WELINA_CAT_UNEQUIPHAT.strfn = function(act)
     return (act.invobject ~= nil and
@@ -647,6 +653,7 @@ ACTIONS.WELINA_CAT_UNEQUIPHAT.strfn = function(act)
         and "HEAVY"
         or nil
 end
+
 
 ACTIONS.WELINA_CAT_UNEQUIPHAT.fn = function(act)
     if act.invobject ~= nil and act.doer.components.inventory ~= nil then
@@ -662,12 +669,48 @@ ACTIONS.WELINA_CAT_UNEQUIPHAT.fn = function(act)
     end
 end
 
+
+
 ACTIONS.WELINA_CAT_EQUIPHAT.strfn = function(act)
     return act.target ~= nil
         and act.target:HasTag("heavy")
         and "HEAVY"
         or nil
 end
+
+
+--[[ STRINGS.ACTIONS.PETWELINACAT = "Erase him from existence"
+ACTIONS.PETWELINACAT = Action()
+ACTIONS.PETWELINACAT.id = "PETWELINACAT"
+ACTIONS.PETWELINACAT.rmb = true
+ACTIONS.PETWELINACAT.priority = 2
+ACTIONS.PETWELINACAT.str = "PETWELINACAT"
+ACTIONS.PETWELINACAT.fn = function(act)
+	if act.target ~= nil and act.target:HasTag("sinner") then
+
+		act.target:PushEvent("on_petted", { doer = act.doer })
+
+		return true
+	end
+end
+
+AddComponentAction("SCENE", "follower", function(inst, doer, actions, right)
+
+    if  right then
+        if doer and  not (inst.sg:HasStateTag("catjamming") or inst.sg:HasStateTag("busy") )then
+            if inst:HasTag("sinner") then
+                table.insert(actions, ACTIONS.PETWELINACAT)
+            end
+        end 
+    end
+	
+end)
+AddStategraphActionHandler("wilson", _G.ActionHandler(ACTIONS.PETWELINACAT, "dolongaction"))
+
+ ]]
+
+
+
 
 
 
@@ -1043,11 +1086,14 @@ local actions = {
 }
 
 local function AddCharacterActionComplete(actionReq, actiontype, component)
-    AddAction(actionReq.ACTION)
-    AddStategraphActionHandler("wilson", GLOBAL.ActionHandler(actionReq.ACTION, actionReq.ActionHandler))
-    AddStategraphActionHandler("wilson_client",
-        GLOBAL.ActionHandler(actionReq.ACTION, actionReq.ClientActionHandler or actionReq.ActionHandler))
-    AddComponentAction(actiontype, component, actionReq.ComponentAction)
+	AddAction(actionReq.ACTION)
+	AddStategraphActionHandler("wilson", GLOBAL.ActionHandler(actionReq.ACTION, actionReq.ActionHandler))
+	AddStategraphActionHandler(
+		"wilson_client",
+		GLOBAL.ActionHandler(actionReq.ACTION, actionReq.ClientActionHandler or actionReq.ActionHandler)
+	)
+
+	AddComponentAction(actiontype, component, actionReq.ComponentAction)
 end
 
 AddCharacterActionComplete(actions.WELINA_PLAY, "SCENE", "inventoryitem")

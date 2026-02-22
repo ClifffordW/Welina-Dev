@@ -280,7 +280,7 @@ local function OnLoad(inst, data, newents)
 
             local function do_vomit_check(inst)
                 if inst.sg:HasStateTag("dead") or inst:HasTag("playerghost") or 
-                inst.components.rider:IsRiding() or inst.sg:HasStateTag("vomiting") then 
+                inst.sg:HasStateTag("vomiting") then 
                     return 
                 end
                 inst.sg:GoToState("welina_vomit_pre")
@@ -432,7 +432,7 @@ local function OnEat(inst, food)
 
             local function do_vomit_check(inst)
                 if inst.sg:HasStateTag("dead") or inst:HasTag("playerghost") or 
-                inst.components.rider:IsRiding() or inst.sg:HasStateTag("vomiting") then 
+                inst.sg:HasStateTag("vomiting") then 
                     return 
                 end
                 inst.sg:GoToState("welina_vomit_pre")

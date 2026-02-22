@@ -119,7 +119,7 @@ local states =
             if time_since_last > 20 and math.random() < 0.15 then
                 inst.sg:GoToState("funnyidle")
             else
-                inst.sg:SetTimeout(5)
+                inst.sg:SetTimeout(10)
             end
 
 
@@ -143,7 +143,7 @@ local states =
 
 State{
     name = "funnyidle",
-    tags = { "idle", "canrotate" },
+    tags = { "idle", "canrotate", "catjamming" },
 
     onenter = function(inst, loop_count)
 

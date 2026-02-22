@@ -556,8 +556,16 @@ local function CLIENT_DisembarkedBoat(inst)
     inst.AnimState:SetFloatParams(0, 0, 0)
 end
 
+--[[ local function OnPetted(inst, data)
+	local doer = data ~= nil and data.doer
+	if doer and doer.components.leader ~= nil then
+		inst.components.sleeper:WakeUp()
 
-
+		inst.SoundEmitter:PlaySound("dontstarve_DLC001/creatures/catcoon/pickup")
+		inst:FacePoint(doer.Transform:GetWorldPosition())
+		inst.sg:GoToState("idle")
+	end
+end ]]
 
 
 
@@ -770,6 +778,7 @@ local function fn()
 		inst:ListenForEvent("locomote", inst.OnLocomote)
 	end
 
+	--inst:ListenForEvent("on_petted", OnPetted)
     if KnownModIndex:IsModEnabled("workshop-1467214795") then
         inst.components.drownable.enabled = false
 

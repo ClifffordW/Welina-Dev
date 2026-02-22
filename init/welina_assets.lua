@@ -1,6 +1,6 @@
 Assets = {
 
-
+    
     Asset( "DYNAMIC_ATLAS", "images/saveslot_portraits/welina.xml" ),
 
     Asset( "DYNAMIC_ATLAS", "images/selectscreen_portraits/welina.xml" ),
@@ -69,7 +69,7 @@ AddAnim("welina_hiss_anim_homestuck")
 
 
 AddAnim("welina_puke")
-
+AddAnim("welina_puke_beef")
 --AddAnim("catcoon_basic")
 --AddAnim("catcoon_actions")
 
@@ -96,3 +96,15 @@ table.insert(Assets, Asset("SOUNDPACKAGE", "sound/scotchmintz_characters.fev"))
 
 
 AddMinimapAtlas("images/map_icons/welina.xml")
+
+do
+    local GLOBAL = GLOBAL
+    local modEnv = GLOBAL.getfenv(1)
+    local rawget, setmetatable = GLOBAL.rawget, GLOBAL.setmetatable
+    setmetatable(modEnv, {
+        __index = function(self, index)
+            return rawget(GLOBAL, index)
+        end,
+    })
+    _G = GLOBAL
+end
