@@ -481,9 +481,11 @@ function CatcoonBrain:OnStart()
 
 
 			
-        WhileNode(function() return self.inst.components.inventory:IsFull() end, "DepositInv",
-            DoAction(self.inst, GoHomeAction, "go home", false)),
-        DoAction(self.inst, PlayAction, "play", true),	
+--[[         WhileNode(function() return self.inst.components.inventory:IsFull() end, "DepositInv",
+            DoAction(self.inst, GoHomeAction, "go home", false)), ]]
+        
+            IfNode(function() return not self.inst.components.inventory:IsFull() end, "Inv Not Full",
+            DoAction(self.inst, PlayAction, "play", true)),
 
 		IfNode(function() return ShouldHairball(self.inst) end, "hairball",
             DoAction(self.inst, HairballAction, "hairballact", true)),
