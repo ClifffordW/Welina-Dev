@@ -348,6 +348,10 @@ local function OnGetItemFromPlayer(inst, giver, item)
             inst.components.named:SetName(inst.name:gsub("'s Lawnmeower", ""))
 		end
 
+
+
+
+
 		inst.components.inventory:Equip(item)
 		inst.AnimState:Show("hat")
 	end
@@ -568,12 +572,107 @@ end
 end ]]
 
 
+local function SyncEquipToContainer(inst)
+	local inv = inst.components.inventory
+	local container = inst.components.container
+	if not inv or not container then
+		return
+	end
+
+	local hat = inv:GetEquippedItem(EQUIPSLOTS.HEAD)
+	local collar = inv:GetEquippedItem(EQUIPSLOTS.BODY)
+
+	if hat then
+		container:GiveItem(hat, 1)
+	end
+	if collar then
+		container:GiveItem(collar, 2)
+	end
+end
+
 
 
 
 local function PatchStategraph(sg, idleanim, sailing_config, hop_anims)
     SailingCommonHandlerPatches.AddBoatLocomotion(sg, true, false)
 end
+
+local function OnContainerItemGet(inst, data)
+	if not data or not data.item then
+		return
+	end
+	local inv = inst.components.inventory
+	if not inv then
+		return
+	end
+
+	if data.slot == 1 then
+		inv:Unequip(EQUIPSLOTS.HEAD)
+		inv:Equip(data.item)
+	elseif data.slot == 2 then
+		inv:Unequip(EQUIPSLOTS.BODY)
+		inv:Equip(data.item)
+	end
+end
+
+
+
+local function OnContainerItemLose(inst, data)
+	if not data then
+		return
+	end
+	local inv = inst.components.inventory
+	if not inv then
+		return
+	end
+
+	if data.slot == 1 then
+		inv:Unequip(EQUIPSLOTS.HEAD)
+	elseif data.slot == 2 then
+		inv:Unequip(EQUIPSLOTS.BODY)
+	end
+end
+
+local function OnItemEquippedFromContainer(inst, item)
+	inst:DoTaskInTime(0, function()
+		if not item then
+			return
+		end
+		local inv = inst.components.inventory
+
+		local hat = inv:GetEquippedItem(EQUIPSLOTS.HEAD)
+		local collar = inv:GetEquippedItem(EQUIPSLOTS.BODY)
+
+		if not hat then
+			inst.components.container:RemoveItemBySlot(1)
+		end
+		if not collar then
+			inst.components.container:RemoveItemBySlot(2)
+		end
+	end)
+end
+
+local function SetupCatcoonContainer(inst)
+	inst:AddComponent("container")
+	inst.components.container:WidgetSetup("welina_catcoon")
+	inst.components.container.restrictedtag = "emocatgirl"
+	inst:ListenForEvent("itemget", OnContainerItemGet)
+	inst:ListenForEvent("itemlose", OnContainerItemLose)
+	inst:ListenForEvent("unequip", OnItemEquippedFromContainer)
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -- fuck my back hurts
 
@@ -606,7 +705,9 @@ local function fn()
             inst:ListenForEvent("embarkboat", CLIENT_EmbarkedBoat)
             inst:ListenForEvent("disembarkboat", CLIENT_DisembarkedBoat)
         end
+
     end
+
 
 
 	--For custom characters also so they can wear them
@@ -627,8 +728,12 @@ local function fn()
 	inst.entity:SetPristine()
 
 	if not TheWorld.ismastersim then
+		
 		return inst
 	end
+
+
+
 
 	inst:AddComponent("inspectable")
 
@@ -645,6 +750,10 @@ local function fn()
 	inst:ListenForEvent("attacked", OnAttacked)
 	inst.components.combat.battlecryinterval = 20
 
+	SetupCatcoonContainer(inst)
+
+
+
 	inst:AddComponent("lootdropper")
 	inst.components.lootdropper:SetChanceLootTable("welina_catcoon")
 
@@ -655,6 +764,10 @@ local function fn()
 	inst.components.follower.neverexpire = true
 
 	inst:AddComponent("named")
+
+
+
+
 
 --[[     inst:DoTaskInTime(0, function()
         if inst.components.follower and inst.components.follower:GetLeader() then

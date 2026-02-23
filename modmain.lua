@@ -299,6 +299,14 @@ AddPrefabPostInit("catcoon", function(inst)
     inst.components.combat:SetRetargetFunction(3, RetargetFn)
 end)
 
+
+
+
+
+
+
+
+
 AddStategraphState(
     "wilson",
     State({
@@ -446,11 +454,9 @@ AddStategraphState("wilson", State {
         end
 
         inst.sg.statemem.eatenitem = chosen_item
-        if inst.components.rider:IsRiding() then
-		    inst.AnimState:PushAnimation("nya_long_beef", false)
-        else
-		    inst.AnimState:PushAnimation("nya_long", false)
-        end
+ 
+        inst.AnimState:PushAnimation("nya_long", false)
+      
     end,
 
     timeline =
@@ -678,37 +684,91 @@ ACTIONS.WELINA_CAT_EQUIPHAT.strfn = function(act)
         or nil
 end
 
+--[[ STRINGS.ACTIONS.WELINA_STEALFROM_CAT = 
+{
+    HAT = "Take Hat",
+    COLLAR = "Take Collar"
+}
 
---[[ STRINGS.ACTIONS.PETWELINACAT = "Erase him from existence"
-ACTIONS.PETWELINACAT = Action()
-ACTIONS.PETWELINACAT.id = "PETWELINACAT"
-ACTIONS.PETWELINACAT.rmb = true
-ACTIONS.PETWELINACAT.priority = 2
-ACTIONS.PETWELINACAT.str = "PETWELINACAT"
-ACTIONS.PETWELINACAT.fn = function(act)
-	if act.target ~= nil and act.target:HasTag("sinner") then
 
-		act.target:PushEvent("on_petted", { doer = act.doer })
+ACTIONS.WELINA_STEALFROM_CAT = Action()
+ACTIONS.WELINA_STEALFROM_CAT.id = "WELINA_STEALFROM_CAT"
+ACTIONS.WELINA_STEALFROM_CAT.rmb = true
+ACTIONS.WELINA_STEALFROM_CAT.priority = 2
+ACTIONS.WELINA_STEALFROM_CAT.str = "Take All From Cat"
+
+ACTIONS.WELINA_STEALFROM_CAT.strfn = function(act)
+	if act.target then
+		local inv = act.target.components.inventory
+		if inv then
+			local hat = inv:GetEquippedItem(EQUIPSLOTS.HEAD)
+			local collar = inv:GetEquippedItem(EQUIPSLOTS.BODY)
+			if TheInput:IsKeyDown(CONTROL_INSPECT) then
+				return hat and "HAT" or (collar and "COLLAR" or "COLLAR")
+			else
+				return collar and "COLLAR" or (hat and "HAT" or "COLLAR")
+			end
+		end
+	end
+	return "COLLAR"
+end
+
+ACTIONS.WELINA_STEALFROM_CAT.fn = function(act)
+	if act.target ~= nil and act.target.prefab == "welina_catcoon" then
+		local inv = act.target.components.inventory
+		local current_item
+
+		if TheInput:IsKeyDown(CONTROL_INSPECT) then
+			current_item = inv:GetEquippedItem(EQUIPSLOTS.HEAD) or inv:GetEquippedItem(EQUIPSLOTS.BODY)
+		else
+			current_item = inv:GetEquippedItem(EQUIPSLOTS.BODY) or inv:GetEquippedItem(EQUIPSLOTS.HEAD)
+		end
+
+		if current_item then
+			return (act.doer.components.inventory and act.doer.components.inventory:IsFull())
+					and act.target.components.inventory:DropItem(current_item)
+				or act.doer.components.inventory:GiveItem(current_item)
+		end
 
 		return true
 	end
 end
 
+
+
 AddComponentAction("SCENE", "follower", function(inst, doer, actions, right)
 
-    if  right then
-        if doer and  not (inst.sg:HasStateTag("catjamming") or inst.sg:HasStateTag("busy") )then
-            if inst:HasTag("sinner") then
-                table.insert(actions, ACTIONS.PETWELINACAT)
-            end
-        end 
+    if inst.prefab == "welina_catcoon" then
+        local current_item = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
+        or inst.components.inventory:GetEquippedItem(EQUIPSLOTS.BODY)
+
+        if  right then
+            if doer and  not (inst.sg:HasStateTag("catjamming") or inst.sg:HasStateTag("busy") )then
+                if inst.prefab == "welina_catcoon" and current_item then
+                    table.insert(actions, ACTIONS.WELINA_STEALFROM_CAT)
+                end
+            end 
+        end
     end
 	
 end)
-AddStategraphActionHandler("wilson", _G.ActionHandler(ACTIONS.PETWELINACAT, "dolongaction"))
+
+
+
+
+
+AddStategraphActionHandler("wilson", _G.ActionHandler(ACTIONS.WELINA_STEALFROM_CAT, function(inst)
+
+          
+    
+    return inst.components.inventory:IsFull() and "dolongaction" or "give"
+      
+
+end))
 
  ]]
 
+-- Catcoon Container Widget
 
 
 
@@ -903,6 +963,273 @@ end)
     inst.SaveForReroll = SaveForReroll
     inst.LoadForReroll = LoadForReroll
 end) ]]
+
+local params = {}
+
+params.welina_catcoon = {
+	widget = {
+		slotpos = 
+        {
+            Vector3(-(64 + 12)/2, 0, 0),
+            Vector3( (64 + 12)/2, 0, 0),
+        },
+		slotbg = 
+        {
+            {
+                atlas = "images/hud.xml",
+                image = "equip_slot_head.tex",
+            },
+            {
+                atlas = "images/hud.xml",
+                image = "equip_slot_body.tex",
+            }
+
+
+
+        },
+		animbank = "ui_welina_cat_2x1",
+		animbuild = "ui_welina_cat_2x1",
+        animloop = true,
+		pos = Vector3(0, 200, 0),
+		side_align_tip = 160,
+	},
+    usespecificslotsforitems = true,
+
+	type = "chest",
+}
+
+function params.welina_catcoon.itemtestfn(container, item, slot)
+	if slot == 1 then
+		return item:HasTag("hat")
+	elseif slot == 2 then
+		return item:HasTag("welinacatcoon_collar")
+	elseif slot == nil then
+		return item:HasAnyTag("hat", "welinacatcoon_collar")
+
+	end
+	return false
+end
+
+
+
+
+local containers = GLOBAL.require("containers")
+
+local old_widgetsetup = containers.widgetsetup
+function containers.widgetsetup(container, prefab, data)
+	local pref = prefab or container.inst.prefab
+	if pref == "welina_catcoon" then
+		local t = params[pref]
+		if t ~= nil then
+			for k, v in pairs(t) do
+				container[k] = v
+			end
+			container:SetNumSlots(#container.widget.slotpos)
+		end
+	else
+		return old_widgetsetup(container, prefab)
+	end
+end
+
+
+STRINGS.ACTIONS.RUMMAGE.WELINACAT_CUSTOMIZE = "Fashion Up"
+
+local old_rummage_strfn = GLOBAL.ACTIONS.RUMMAGE.strfn
+
+GLOBAL.ACTIONS.RUMMAGE.strfn = function(act)
+	if act.target and act.target.prefab == "welina_catcoon" then
+		return "WELINACAT_CUSTOMIZE"
+	end
+	return old_rummage_strfn and old_rummage_strfn(act) or "RUMMAGE"
+end
+
+
+
+
+local old_rummage_strfn = GLOBAL.ACTIONS.RUMMAGE.strfn
+
+GLOBAL.ACTIONS.RUMMAGE.strfn = function(act)
+	if act.target and act.target.prefab == "welina_catcoon" then
+		return "WELINACAT_CUSTOMIZE"
+	end
+	return old_rummage_strfn and old_rummage_strfn(act) or "RUMMAGE"
+end
+
+
+
+
+AddClassPostConstruct("widgets/containerwidget", function(self, ...)
+
+    local OldFunc = self.Refresh
+    self.Refresh = function(self,container,doer, ...)
+        local ret = { OldFunc(self,container,doer, ...) }
+
+            if self.container and self.container.prefab == "welina_catcoon" then
+                local items = self.container.replica.container:GetItems()
+                local hat, collar = items[1], items[2]
+                if self.bganim then
+
+                    if hat then
+                        self.bganim.inst.AnimState:OverrideSkinSymbol("swap_hat", hat.AnimState:GetBuild(), "swap_hat")
+                    end
+                    if collar then
+                        self.bganim.inst.AnimState:OverrideSkinSymbol("swap_welinacollar", "swap_collar_"..collar.prefab:gsub("welina_collar_", ""), "swap_body")
+                    end
+
+
+
+                end
+            end
+
+    
+        return unpack(ret)
+    end
+
+	local OldFunc = self.OnItemGet
+	self.OnItemGet = function(self, data, ...)
+		local ret = { OldFunc(self, data, ...) }
+        if self and self.container and self.container.prefab == "welina_catcoon" then 
+            local items = self.container.replica.container:GetItems()
+            local hat, collar = items[1], items[2]
+            if self.bganim then
+
+                if hat then
+                    self.bganim.inst.AnimState:OverrideSkinSymbol("swap_hat", hat.AnimState:GetBuild(), "swap_hat")
+                end
+				if collar then
+					self.bganim.inst.AnimState:OverrideSkinSymbol(
+					"swap_welinacollar", "swap_collar_"..collar.prefab:gsub("welina_collar_", ""),
+						"swap_body"
+					)
+
+				end
+            end
+        end
+
+		return unpack(ret)
+	end
+
+	local OldFunc = self.OnItemLose
+	self.OnItemLose = function(self, data, ...)
+		local ret = { OldFunc(self, data, ...) }
+		if self and self.container and self.container.prefab == "welina_catcoon"  then
+			
+			if self.bganim and data.slot then
+				local tileslot = self.inv[data.slot]
+
+                
+
+				if data.slot == 1 then
+					self.bganim.inst.AnimState:ClearOverrideSymbol("swap_hat")
+				end
+				if data.slot == 2 then
+					self.bganim.inst.AnimState:ClearOverrideSymbol("swap_welinacollar")
+	
+				end
+			end
+		end
+
+		return unpack(ret)
+	end
+
+
+    
+
+
+
+end)
+
+local function RefreshImageState(self)
+	if self:IsSelected() then
+		self:OnSelect()
+	elseif self:IsDisabledState() then
+		self:OnDisable()
+	elseif self:IsFocusedState() then
+		self:OnGainFocus()
+	else
+		self:OnLoseFocus()
+	end
+end
+
+AddClassPostConstruct("widgets/writeablewidget", function(self, ...)
+    self.inst:DoTaskInTime(0, function()
+		--self.edit_text:SetEditing(false)
+        if self.writeable and self.writeable.prefab and self.writeable.prefab == "welina_nametag" then
+            self.edit_text:SetPosition(-25, 15, 0)
+            self.edit_text:SetSize(60)
+            
+            
+            self.edit_text:SetFont(BODYTEXTFONT)
+			self.edit_text:SetHAlign(ANCHOR_MIDDLE)
+			self.edit_text:SetColour(1, 1, 1, 1)
+			self.edit_text.idle_text_color = { 1, 1, 1, 1 }
+			self.edit_text.edit_text_color = { 1, 1, 1, 1 } --{1,1,1,1}
+
+
+            if self.menu then
+                self.menu:SetScale(.75)
+
+                self.menu:SetHAnchor(ANCHOR_MIDDLE)
+				self.menu:SetVAnchor(ANCHOR_MIDDLE)
+
+                for k,v in pairs(self.menu.items) do
+					v.atlas = "images/global_redux.xml"
+					v.image_normal =    "button_carny_long_normal.tex"
+					v.image_focus = "button_carny_long_hover.tex"
+					v.image_disabled = "button_carny_long_disabled.tex"        
+					v.image_down =	"button_carny_long_down.tex"
+                    RefreshImageState(v)
+                    v:SetFont(BODYTEXTFONT)
+                    v:SetTextColour(1,1,1,1)
+					v:SetScale(0.3 + 0.2 / 1 * k)
+                    v:SetPosition(0,80*k)
+                    
+                    v.text:SetSize(60)
+
+             
+                   
+
+					v:SetFont(BODYTEXTFONT)
+					v:SetTextColour(UICOLOURS.WHITE)
+					v:SetTextFocusColour(UICOLOURS.GREY)
+					
+
+
+                end
+
+
+            end
+    
+
+        end
+
+        
+    end)
+--[[ 
+	function self:OnControl(control, down)
+		if self._base.OnControl(self, control, down) then
+			return true
+		end
+
+	end ]]
+
+
+
+
+end)
+
+local old_equip_canfn = GLOBAL.ACTIONS.EQUIP.canfn
+GLOBAL.ACTIONS.EQUIP.canfn = function(act)
+	if act.invobject and act.invobject.components.inventoryitem then
+		local owner = act.invobject.components.inventoryitem.owner
+		if owner and owner.prefab == "welina_catcoon" then
+			return false, "CANT_EQUIP"
+		end
+	end
+	return old_equip_canfn and old_equip_canfn(act) or true
+end
+
+
 
 modimport("init/init_all")
 

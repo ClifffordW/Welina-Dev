@@ -73,6 +73,8 @@ AddAnim("welina_puke_beef")
 --AddAnim("catcoon_basic")
 --AddAnim("catcoon_actions")
 
+AddAnim("ui_welina_cat_2x1")
+
 AddAnim("welina_catcoon_den")
 
 

@@ -16,8 +16,8 @@ require("writeables").AddLayout("welina_nametag",
     prompt = "Give your sinner a name!",
     animbank = "ui_welina_collar",
     animbuild = "ui_welina_collar",
-    menuoffset = Vector3(6, -70, 0),
-	maxcharacters = TUNING.KITCOON_NAMING_MAX_LENGTH,
+    menuoffset = Vector3(90, -80, 0),
+	maxcharacters = 12,
 
     cancelbtn = {
         text = STRINGS.KITCOON_NAMING.MENU_CANCEL,
