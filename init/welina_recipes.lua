@@ -59,7 +59,7 @@ AddCharacterRecipe("welina_cattoy", -- name
 
 AddCharacterRecipe("welina_collar_spiked", -- name
     {                                      -- ingredients
-        GLOBAL.Ingredient("coontail", 2),
+        GLOBAL.Ingredient("coontail", 1),
         GLOBAL.Ingredient("nightmarefuel", 2),
         GLOBAL.Ingredient("flint", 5),
     },
@@ -83,7 +83,7 @@ AddCharacterRecipe("welina_collar_spiked", -- name
 
 AddCharacterRecipe("welina_collar_regen", -- name
     {                                     -- ingredients
-        GLOBAL.Ingredient("coontail", 2),
+        GLOBAL.Ingredient("coontail", 1),
         GLOBAL.Ingredient("bandage", 1),
         GLOBAL.Ingredient("goldnugget", 5),
     },
@@ -132,7 +132,7 @@ AddCharacterRecipe("welina_collar_armor", -- name
 
 AddCharacterRecipe("welina_collar_light", -- name
     {                                     -- ingredients
-        GLOBAL.Ingredient("coontail", 2),
+        GLOBAL.Ingredient("coontail", 1),
         GLOBAL.Ingredient("lightbulb", 1),
         GLOBAL.Ingredient("goldnugget", 3),
     },
@@ -156,7 +156,7 @@ AddCharacterRecipe("welina_collar_light", -- name
 
 AddCharacterRecipe("welina_collar_glass", -- name
     {                                     -- ingredients
-        GLOBAL.Ingredient("coontail", 2),
+        GLOBAL.Ingredient("coontail", 1),
         GLOBAL.Ingredient("moonrocknugget", 1),
         GLOBAL.Ingredient("moonglass", 5),
     },
@@ -179,7 +179,7 @@ AddCharacterRecipe("welina_collar_glass", -- name
 
 AddCharacterRecipe("welina_collar_bomb", -- name
     {                                    -- ingredients
-        GLOBAL.Ingredient("coontail", 2),
+        GLOBAL.Ingredient("coontail", 1),
         GLOBAL.Ingredient("gunpowder", 2),
         GLOBAL.Ingredient("nitre", 3),
     },
@@ -203,9 +203,9 @@ AddCharacterRecipe("welina_collar_bomb", -- name
 
 AddCharacterRecipe("welina_catnip", -- name
     {                               -- ingredients
-        GLOBAL.Ingredient("foliage", 5),
-        GLOBAL.Ingredient("petals", 5),
-        GLOBAL.Ingredient("ash", 5),
+        GLOBAL.Ingredient("foliage", 2),
+        GLOBAL.Ingredient("petals", 2),
+        GLOBAL.Ingredient("ash", 2),
     },
     GLOBAL.TECH.NONE, -- tech
     {                 -- config

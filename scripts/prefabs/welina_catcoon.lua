@@ -72,9 +72,9 @@ local prefabs = {
 	"redpouch_yot_catcoon",
 }
 
-SetSharedLootTable("catcoon", {
+SetSharedLootTable("welina_catcoon", {
 	{ "meat", 1.00 },
-	{ "coontail", 0.33 },
+	{ "coontail", 1.00 },
 })
 
 local neutralGiftPrefabs = {
@@ -633,10 +633,10 @@ local function fn()
 	inst:AddComponent("inspectable")
 
 	inst:AddComponent("health")
-	inst.components.health:SetMaxHealth(TUNING.CATCOON_LIFE)
+	inst.components.health:SetMaxHealth(300)
 
 	inst:AddComponent("combat")
-	inst.components.combat:SetDefaultDamage(TUNING.CATCOON_DAMAGE)
+	inst.components.combat:SetDefaultDamage(50)
 	inst.components.combat:SetRange(TUNING.CATCOON_ATTACK_RANGE)
 	inst.components.combat:SetAttackPeriod(TUNING.CATCOON_ATTACK_PERIOD)
 	inst.components.combat:SetKeepTargetFunction(KeepTargetFn)
@@ -646,7 +646,7 @@ local function fn()
 	inst.components.combat.battlecryinterval = 20
 
 	inst:AddComponent("lootdropper")
-	inst.components.lootdropper:SetChanceLootTable("catcoon")
+	inst.components.lootdropper:SetChanceLootTable("welina_catcoon")
 
 	inst:AddComponent("follower")
 	inst.components.follower:KeepLeaderOnAttacked()
@@ -712,10 +712,10 @@ local function fn()
 	inst.components.sleeper:SetSleepTest(SleepTest)
 
 	inst:AddComponent("locomotor")
-	inst.components.locomotor.walkspeed = 3 * 1.4
+	inst.components.locomotor.walkspeed = 3 * 1.5
 
 	inst:AddComponent("inventory")
-	inst.components.inventory.maxslots = 6
+	inst.components.inventory.maxslots = 12
 
 	-- boat hopping
 	inst.components.locomotor:SetAllowPlatformHopping(true)

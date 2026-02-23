@@ -284,6 +284,13 @@ TUNING.WELINA_VOMIT_ITEMS =
 			["cutgrass"] = 1,
 		},
 		
+		shroom_skin = 
+		{
+			["spore_tall"] = 1,
+			["spore_medium"] = 1,
+			["green_mushroom"] = 1,
+		},
+		
 		fruitcake = 
 		{
 			["winter_ornament_light1"] = 1,
@@ -315,11 +322,12 @@ TUNING.WELINA_VOMIT_ITEMS =
 
 }
 
-TUNING.WELINA_VOMIT_BONUSITEM_CHANCE = 0.2
+TUNING.WELINA_VOMIT_BONUSITEM_CHANCE = 0.4
 
 local vomit_prefab = 
 
 {	
+	"shroom_skin",
 	"phlegm",
 	"spoiled_fish",
 	"spoiled_fish_small",
@@ -410,4 +418,4 @@ TUNING.WELINA_PLAY_SANITY = {
 
 --Catcoonball
 TUNING.CATCOONBALL_USES = 100
-TUNING.CATCOONBALL_PASS_TO_PLAYER_CHANCE = 0.1
+TUNING.CATCOONBALL_PASS_TO_PLAYER_CHANCE = 1

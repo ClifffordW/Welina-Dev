@@ -313,7 +313,7 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_COLLAR_REGEN = "Claim your own catcoo
 
 
 STRINGS.NAMES.WELINA_COLLAR_BOMB = "Explosive Collar"
-STRINGS.RECIPE_DESC.WELINA_COLLAR_BOMB = "I'm taking you with me."
+STRINGS.RECIPE_DESC.WELINA_COLLAR_BOMB = "Utterly inhumane, thankfully you are only part human."
 STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_COLLAR_BOMB = "Oh, to take all my enyamies to meow grave."
 
 STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_COLLAR_BOMB = "These collars aren't purely for the looks, are they?"
@@ -435,27 +435,27 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_CATTOY = "Such a well rounded indiviu
 
 
 
-STRINGS.NAMES.WELINA_NAMETAG = "Sinner Tag"
-STRINGS.RECIPE_DESC.WELINA_NAMETAG = "Give your feline friend a name!"
-STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_NAMETAG = "I'd just call it after myself."
+STRINGS.NAMES.WELINA_NAMETAG = "Cat Tag"
+STRINGS.RECIPE_DESC.WELINA_NAMETAG = "The difference between any other catcoon and yours."
+STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_NAMETAG = "Gotta recognize the corpse somehow."
 
-STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_NAMETAG = "These collars aren't purely for the looks, are they?"
-STRINGS.CHARACTERS.WURT.DESCRIBE.WELINA_NAMETAG = "For catcoons to feel cute."
-STRINGS.CHARACTERS.WALTER.DESCRIBE.WELINA_NAMETAG = "Ms.Welina wants her friends to have a fancy name too!"
-STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WELINA_NAMETAG = "Give our fur friend a name"
-STRINGS.CHARACTERS.WORTOX.DESCRIBE.WELINA_NAMETAG = "Maybe she really loves those cats."
-STRINGS.CHARACTERS.WARLY.DESCRIBE.WELINA_NAMETAG = "That's one stylish nametag."
-STRINGS.CHARACTERS.WINONA.DESCRIBE.WELINA_NAMETAG = "That cat girl has a weird sense for naming cats."
-STRINGS.CHARACTERS.WEBBER.DESCRIBE.WELINA_NAMETAG = "We want to give names to our friends too!"
-STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WELINA_NAMETAG = "'Tis cat shall be called Dinner."
-STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WELINA_NAMETAG = "As if they already didn't have a name."
-STRINGS.CHARACTERS.WOODIE.DESCRIBE.WELINA_NAMETAG = "Call it Lucy, Eh?."
-STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WELINA_NAMETAG = "I would rather not name a cat."
+STRINGS.CHARACTERS.WANDA.DESCRIBE.WELINA_NAMETAG = "A tag of some sort."
+STRINGS.CHARACTERS.WURT.DESCRIBE.WELINA_NAMETAG = "For catcoon naming."
+STRINGS.CHARACTERS.WALTER.DESCRIBE.WELINA_NAMETAG = "It's sweet how much Ms.Welina cares about her catcoons!"
+STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WELINA_NAMETAG = "Give furry friend name"
+STRINGS.CHARACTERS.WORTOX.DESCRIBE.WELINA_NAMETAG = "I'm no dog!"
+STRINGS.CHARACTERS.WARLY.DESCRIBE.WELINA_NAMETAG = "Mon dieu, I hope this is just for naming them."
+STRINGS.CHARACTERS.WINONA.DESCRIBE.WELINA_NAMETAG = "I won't judge girl, do your thing."
+STRINGS.CHARACTERS.WEBBER.DESCRIBE.WELINA_NAMETAG = "Our spider friends also have names! We just don't know them."
+STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WELINA_NAMETAG = "To recognize those fallen in battle."
+STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WELINA_NAMETAG = "That cat woman might be insane."
+STRINGS.CHARACTERS.WOODIE.DESCRIBE.WELINA_NAMETAG = "Those pests really don't need a name."
+STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WELINA_NAMETAG = "An identification tag, for catcoons. I can't help but worry..."
 STRINGS.CHARACTERS.WX78.DESCRIBE.WELINA_NAMETAG = "LUA SYNTAX ERROR (name is a nil value)."
-STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA_NAMETAG = "Names.. is what we all wear but some forget."
-STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WELINA_NAMETAG = "Strongie is good name no?"
-STRINGS.CHARACTERS.WILLOW.DESCRIBE.WELINA_NAMETAG = "I should call my cat Furnace."
-STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_NAMETAG = "Kitty sounds like a good name for a cat."
+STRINGS.CHARACTERS.WENDY.DESCRIBE.WELINA_NAMETAG = "Our names may not always be remembered."
+STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WELINA_NAMETAG = "Wolfgang had this back at home."
+STRINGS.CHARACTERS.WILLOW.DESCRIBE.WELINA_NAMETAG = "Gosh, Welina has SUCH a cool fashion sense."
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_NAMETAG = "I don't think catcoons understand the concept of names.."
 
 
 local namerandoms = 
@@ -523,8 +523,6 @@ STRINGS.NAMES.WELINA_CATCOON = name or "Sinner"
 
 -------------------------------------- Whisky Stuff -----------------------------------------------------------------
 
-if KnownModIndex:IsModEnabled("workshop-2858309592") then
-
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYYARN = "Ugh, it's covered in spider gunk."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYBUNDLE = "It's full of something alright, and it ain't pretty."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKYBUNDLEWRAP = "It's spider-made wraps."
@@ -539,16 +537,14 @@ if KnownModIndex:IsModEnabled("workshop-2858309592") then
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WHISKY = 
 {
 	GENERIC = "Heya tits-for-brains.",
-	ATTACKER = "How can someone like you harm anyaone.",
+	ATTACKER = "How can someowne like you harm anyaone.",
 	MURDERER = "End of the line, cupcake. Time to deflate you.",
-	REVIVER = "Well, at least someone's here reliable.",
+	REVIVER = "Well, at least someowne's here reliable.",
 	GHOST = "I'll have to make this right.",
 	FIRESTARTER = "Burning stuff doesn't really fit you, cupcake.",
 }
 
-end
-
-if KnownModIndex:IsModEnabled("workshop-3021568491") then
+-------------------------------------- Wildcard Stuff -----------------------------------------------------------------
 
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT = "She fits into it so seamlessly."
     STRINGS.CHARACTERS.WELINA.DESCRIBE.WCARD_TOPHAT_BLACK = "She fits into it so seamlessly."
@@ -575,4 +571,15 @@ if KnownModIndex:IsModEnabled("workshop-3021568491") then
         FIRESTARTER = "Was burning that part of your magic act or something?",
     }
 
-end
+
+-------------------------------------- Weetie Stuff -----------------------------------------------------------------
+
+    STRINGS.CHARACTERS.WELINA.DESCRIBE.WEETIE = 
+    {
+        GENERIC = "'Sup, babygirl %s.",
+        ATTACKER = "%s's got a little sting.",
+        MURDERER = "Weetie would never meowrder anyaone, what did you do to him.",
+        REVIVER = "It's rare to find genuine kindness... I kinda like that in you.",
+        GHOST = "Ah %s, you little dummy...",
+        FIRESTARTER = "If my tail catches on fire I'm burning your bee hives, %s.",
+    }

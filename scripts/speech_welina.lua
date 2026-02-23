@@ -55,7 +55,7 @@ return{
 		},
 		CASTAOE =
 		{
-			NO_MAX_SANITY = "My mind's going blank!",
+			NO_MAX_SANITY = "My mind's going blank...",
 		},
 		CHANGEIN =
 		{
@@ -139,7 +139,7 @@ return{
 			TERRARIUM_REFUSE = "It nyeeds somethin' REALLY specific.",
 			WRONGGEM = "I'd rather keep the gems for, like, myeowself.",
 			WRONGSHADOWFORM = "It's okay, sometimes we're just destined to be failures.",
-			NOGENERATORSKILL = "",
+			NOGENERATORSKILL = "I can't work that.",
 		},
 		GIVE_TACKLESKETCH =
 		{
@@ -275,14 +275,14 @@ return{
 		SHAVE =
 		{
 			AWAKEBEEFALO = "I won't do it.",
-			GENERIC = "There's nothing to shave on myeowself.",
+			GENERIC = "There's nyothing to shave on myeowself.",
 			NOBITS = "It'll notice if i start cutting into its skin",
 			SOMEONEELSESBEEFALO = "This one's nyone of my business.",
 			REFUSE = "",
 		},
 		SLAUGHTER =
 		{
-			TOOFAR = "Come back, let meow slaughter you!",
+			TOOFAR = "Come back, let meow slaughter you.",
 		},
 		START_CARRAT_RACE =
 		{
@@ -356,31 +356,31 @@ return{
 	ANNOUNCE_ADVENTUREFAIL = "I'm alive again? Lame.",
 	ANNOUNCE_ANTLION_SINKHOLE =
 	{
-		"Clean up before she comes.",
+		"I better keep a move on.",
 		"What the hell.",
-		"There's somethin' under meow feet!",
+		"You've gotta be kidding meow.",
 	},
 	ANNOUNCE_ANTLION_TRIBUTE =
 	{
-		"Here's your cupcake, uhh... cupcake",
-		"At least you seem happy nyow.",
-		"Alright we're all friends now.",
+		"There, cupcake. Now lay off meow.",
+		"Nyow don't even think about causing meow trouble.",
+		"Alright we're all friends nyow.",
 	},
 	ANNOUNCE_ARCHIVE_NEW_KNOWLEDGE = "This world has so manya useless secrets ugh.",
 	ANNOUNCE_ARCHIVE_NO_POWER = "It needs powering up.",
-	ANNOUNCE_ARCHIVE_OLD_KNOWLEDGE = "This is old myews.",
+	ANNOUNCE_ARCHIVE_OLD_KNOWLEDGE = "This is old nyews.",
 	ANNOUNCE_ATRIUM_DESTABILIZING =
 	{
-		"Should I stay or should I go.",
+		"Should I go down with the ship.",
 		"That probably means things are, like, real bad.",
 		"This place is going to hell.",
 	},
-	ANNOUNCE_ATTACH_BUFF_ATTACK = "I feel kinda stronger?",
+	ANNOUNCE_ATTACH_BUFF_ATTACK = "I feel kinda stronger.",
 	ANNOUNCE_ATTACH_BUFF_ELECTRICATTACK = "I feel stupid, and contagious.",
 	ANNOUNCE_ATTACH_BUFF_MOISTUREIMMUNITY = "I won't get soggy anyamore? Nice.",
 	ANNOUNCE_ATTACH_BUFF_PLAYERABSORPTION = "I feel like i could go out in public, okay maybe not.",
 	ANNOUNCE_ATTACH_BUFF_SLEEPRESISTANCE = "I can't close myeow eyes, the hell.",
-	ANNOUNCE_ATTACH_BUFF_WORKEFFECTIVENESS = "Myeow focus has gotten better!",
+	ANNOUNCE_ATTACH_BUFF_WORKEFFECTIVENESS = "Myeow focus has gotten better.",
 	ANNOUNCE_BECOMEGHOST = "oOooooOO!!",
 	ANNOUNCE_BEES = "I'll kill you all if I have to.",
 	ANNOUNCE_BOAT_LEAK = "Beware the water.",
@@ -408,8 +408,8 @@ return{
 		"Go the other way dyamn it.",
 	},
 	ANNOUNCE_CARRAT_START_RACE = "GOOO NYAA-!",
-	ANNOUNCE_CAVEIN = "There's something nyaup there!",
-	ANNOUNCE_CHAIR_ON_FIRE = "Ohh, I'll burn to death!",
+	ANNOUNCE_CAVEIN = "There's something nyaup there.",
+	ANNOUNCE_CHAIR_ON_FIRE = "Always wanted to be burnt on a stake.",
 	ANNOUNCE_CHARLIE = "What's that, has my time finally come?",
 	ANNOUNCE_CHARLIE_ATTACK = "NyaAOUCH-",
 	ANNOUNCE_COACH =
@@ -436,7 +436,7 @@ return{
 	ANNOUNCE_DETACH_BUFF_MOISTUREIMMUNITY = "Nooo, my water resistance!",
 	ANNOUNCE_DETACH_BUFF_PLAYERABSORPTION = "I almost felt like going out, almost.",
 	ANNOUNCE_DETACH_BUFF_SLEEPRESISTANCE = "I'm drowsy as usual nyow...",
-	ANNOUNCE_DETACH_BUFF_WORKEFFECTIVENESS = "I can't focus like a moment ago anyamore!",
+	ANNOUNCE_DETACH_BUFF_WORKEFFECTIVENESS = "I can't focus like a moment ago anyamore.",
 	ANNOUNCE_DIG_DISEASE_WARNING = "That takes care of that.",
 	ANNOUNCE_DUSK = "The darkness is enroaching.",
 	ANNOUNCE_EAT =
@@ -455,7 +455,7 @@ return{
 		"Shove it... shove it.... SHOVE IT...",
 		"I... deserve... this...",
 		"I'll break... my bones...",
-		"\"Are you... fine...?\" Do i look... FINE...!?",
+		"\"Are you... fine...?\" Do I look... FINE...!?",
 		"Something's... just... about to break....",
 		"...Need... a break...",
 		"...Torture...",
@@ -476,7 +476,7 @@ return{
 	ANNOUNCE_FIRENETTLE_TOXIN =
 	{
 		"I feel like I'll explode.",
-		"I'm burning up, jeez!",
+		"N-Nyahh, I'm burning up from inside.",
 	},
 	ANNOUNCE_FIRENETTLE_TOXIN_DONE = "Phew... I feel better nyow.",
 	ANNOUNCE_FLARE_SEEN = "Am I supposed to run up to it or what.",
@@ -617,18 +617,18 @@ return{
 	ANNOUNCE_TOADESCAPING = "Dumb frog, death isn't an \"if\", it's a \"when\".",
 	ANNOUNCE_TOOL_SLIP = "Myack-.",
 	ANNOUNCE_TOOL_TOOWEAK = "This dyamn tool is too weak for this.",
-	ANNOUNCE_TORCH_OUT = "Nyaouu my burning stick is out.",
+	ANNOUNCE_TORCH_OUT = "Nyothing ever lasts in this forsaken life.",
 	ANNOUNCE_TOWNPORTALTELEPORT = "It's about time.",
 	ANNOUNCE_TRAP_WENT_OFF = "GYAh-ah~",
 	ANNOUNCE_UNIMPLEMENTED = "This one's not done yet.",
 	ANNOUNCE_WASHED_ASHORE = "Cough-blegh... The waves suck you in then you drown...",
 	ANNOUNCE_WEAK_RAT = "This rat's weak, i might as well eat it.",
 	ANNOUNCE_WEIGHT = "Weight: {weight}",
-	ANNOUNCE_WEIGHT_HEAVY = "Weight: {weight}\nEr... I'll eat it on the spot!",
+	ANNOUNCE_WEIGHT_HEAVY = "Weight: {weight}\nEr... I'll eat it on the spot.",
 	ANNOUNCE_WET = "I'm wetter than I have anya business being.",
 	ANNOUNCE_WETTER = "I feel so meowserable.",
-	ANNOUNCE_WINCH_CLAW_MISS = "Rigged, rigged, it's rigged!",
-	ANNOUNCE_WINCH_CLAW_NO_ITEM = "There's nothing here!",
+	ANNOUNCE_WINCH_CLAW_MISS = "Rigged, rigged, we all know it's rigged.",
+	ANNOUNCE_WINCH_CLAW_NO_ITEM = "There's nyothing here.",
 	ANNOUNCE_WINTERS_FEAST_BUFF = "This really hits the spot.",
 	ANNOUNCE_WINTERS_FEAST_BUFF_OVER = "I'm back to feeling dreadful.",
 	ANNOUNCE_WOLFGANG_BEGIN_COACHING = "only_used_by_wolfgang",
@@ -838,7 +838,7 @@ return{
 		BACONEGGS = "You're telling meow this was baken on eggs?",
 		BALLOON = "I feel like popping every one of them.",
 		BALLOONHAT = "It doesn't fit my style at all.",
-		BALLOONPARTY = "There's nothing to party about in this life.",
+		BALLOONPARTY = "There's nyothing to party about in this life.",
 		BALLOONS_EMPTY = "They remind meow of happiness, hate that.",
 		BALLOONSPEED =
 		{
@@ -890,7 +890,7 @@ return{
 		BEE =
 		{
 			GENERIC = "All work and no play will make you a dull bee.",
-			HELD = "How the turntables.",
+			HELD = "You're nyothing like him.",
 		},
 		BEEBOX =
 		{
@@ -919,11 +919,11 @@ return{
 			MYPARTNER = "Don't mind meow, I'll just be using you for a bit, cupcake.",
 			NAKED = "Point and laugh at it.",
 			ORNERY = "A violent hairy beast.",
-			PUDGY = "A good-for-nothing tool.",
+			PUDGY = "A good-for-nyothing tool.",
 			RIDER = "This cupcake sure gets around fast.",
 			SLEEPING = "It needs rest for whatever reason.",
-			DEAD = "",
-			DEAD_MYPARTNER = "",
+			DEAD = "Gone, dead and rotting.",
+			DEAD_MYPARTNER = "We all die, we all rot. Doesn't matter if it was important to meow or not.",
 		},
 		BEEFALO_GROOMER =
 		{
@@ -948,7 +948,7 @@ return{
 			GROWING = "These bees just don't give up.",
 		},
 		BEEQUEENHIVEGROWN = "That's the mother of all hives.",
-		BEESWAX = "Hmph, beeswax.",
+		BEESWAX = "Hmph, it's smeowth, like him...",
 		BEETLETAUR = "Back to the dungeons with you!",
 		BELL = "The bell...",
 		BERNIE_ACTIVE = "A LIVE teddy bear?",
@@ -1102,7 +1102,7 @@ return{
 		BULLKELP_PLANT =
 		{
 			GENERIC = "Slimy, wet. Green.",
-			PICKED = "There's nothing to take off it.",
+			PICKED = "There's nyothing to take off it.",
 		},
 		BULLKELP_ROOT = "A bit weird to use.",
 		BUNDLE = "What's trapped in there is a meowstery.",
@@ -1275,10 +1275,10 @@ return{
 			BURNT = "No use out of this anyamore.",
 			GENERIC = "Drawing is calming.",
 		},
-		CATCOON = "They remind meow of myeowself, I hate myeowself.",
+		CATCOON = "A reflection of myeowself, I hate myeowself.",
 		CATCOONDEN =
 		{
-			EMPTY = "Nothing lasts in this cursed world.",
+			EMPTY = "Nothing lasts in this acursed world.",
 			GENERIC = "Cat shaped box.",
 		},
 		CATCOONHAT = "What I hate about myeowself is that I'm unbothered by this.",
@@ -2029,14 +2029,14 @@ return{
 		KILLERBEE =
 		{
 			GENERIC = "That's no love buzz.",
-			HELD = "Threat secured.",
+			HELD = "I'm good at handling nyaughty bees, you don't even know.",
 		},
 		KITCOON_DECIDUOUS = "You're so small, so pathetic... You have a miserable life to get through.",
 		KITCOON_DESERT = "You're so small, so pathetic... Never show your face to anyaone again.",
-		KITCOON_FOREST = "You're so small, so pathetic... You're worthless, nothing... NOTHING good will come out of you.",
+		KITCOON_FOREST = "You're so small, so pathetic... Nyothing good will come out of you.",
 		KITCOON_GRASS = "You're so small, so pathetic... And it won't get anya better for you.",
-		KITCOON_MARSH = "You're so small, so pathetic... Enjoy it everything while you still can.",
-		KITCOON_MOON = "You're so small, so pathetic... Stupid... stupid stupid stupid.",
+		KITCOON_MARSH = "You're so small, so pathetic... Enjoy it while you still can.",
+		KITCOON_MOON = "You're so small, so pathetic... Stupid...",
 		KITCOON_NAMETAG = "Who volunteers to be named \"Supershit\".",
 		KITCOON_ROCKY = "You're so small, so pathetic... It's all downhill from here.",
 		KITCOON_SAVANNA = "You're so small, so pathetic... There's no future ahead of you.",
@@ -2061,7 +2061,7 @@ return{
 			PLAYING_HIDEANDSEEK_TIME_ALMOST_UP = "Time is running low.",
 		},
 		KITCOONDEN_KIT = "How about I build myeowself a house instead.",
-		KLAUS = "Those chains... so cool.",
+		KLAUS = "Time to square up, curiosity.",
 		KLAUS_SACK = "I admit, I'm curious. I'm also a cat, so like...",
 		KLAUSSACKKEY = "The secrets shall be laid bare.",
 		KNIGHT = "A mental metal animal.",
@@ -2084,31 +2084,31 @@ return{
 		LAVAARENA_ARMORMEDIUM = "It offers a serviceable amount of protection.",
 		LAVAARENA_ARMORMEDIUMDAMAGER = "This was intended for someone physically-inclined.",
 		LAVAARENA_ARMORMEDIUMRECHARGER = "Decent protection that will enhance my power.",
-		LAVAARENA_BATTLESTANDARD = "We must destroy that Battle Standard.",
-		LAVAARENA_BERNIE = "That thing's still shambling about, I see.",
-		LAVAARENA_BOARLORD = "You seem severely deluded, good sir.",
-		LAVAARENA_CROWNDAMAGERHAT = "You'd need a thick neck to wear such a thing.",
-		LAVAARENA_ELEMENTAL = "You shall serve us.",
-		LAVAARENA_EYECIRCLETHAT = "I must have it.",
-		LAVAARENA_FEATHERCROWNHAT = "Horsefeathers.",
-		LAVAARENA_FIREBOMB = "Not really my style.",
-		LAVAARENA_HEALINGFLOWERHAT = "I could use the invigoration.",
-		LAVAARENA_HEALINGGARLANDHAT = "Self sufficiency in wreath form.",
-		LAVAARENA_HEAVYBLADE = "Too brutish for my tastes.",
-		LAVAARENA_KEYHOLE = "A key is key.",
-		LAVAARENA_KEYHOLE_FULL = "Right as rain.",
-		LAVAARENA_LIGHTDAMAGERHAT = "That is not suited to meow.",
-		LAVAARENA_LUCY = "I have no desire to use that.",
+		LAVAARENA_BATTLESTANDARD = "Down with that.",
+		LAVAARENA_BERNIE = "I don't hate it, only cause Willow likes it.",
+		LAVAARENA_BOARLORD = "It's important to know who's in charge, so I know who not to listen to.",
+		LAVAARENA_CROWNDAMAGERHAT = "Hit harder, not smarter.",
+		LAVAARENA_ELEMENTAL = "If you're gonna help meow then shut up and do it.",
+		LAVAARENA_EYECIRCLETHAT = "Looks cursed, but what's one more curse to meow.",
+		LAVAARENA_FEATHERCROWNHAT = "Makes meow feel light on my feet.",
+		LAVAARENA_FIREBOMB = "Perfect for revolutions.",
+		LAVAARENA_HEALINGFLOWERHAT = "Hmph, tasteless, pointless.",
+		LAVAARENA_HEALINGGARLANDHAT = "Can we stop with the flower hats, I swear.",
+		LAVAARENA_HEAVYBLADE = "But I want it to hurt.",
+		LAVAARENA_KEYHOLE = "Looks like a key hole.",
+		LAVAARENA_KEYHOLE_FULL = "There we go.",
+		LAVAARENA_LIGHTDAMAGERHAT = "Pointy, good.",
+		LAVAARENA_LUCY = "Woodie, she doesn't love you, chuck her into lava.",
 		LAVAARENA_PORTAL =
 		{
-			GENERIC = "Meddling with it will only cause further trouble.",
-			ON = "Let us end this chapter of our journey.",
+			GENERIC = "I really don't wanna be here.",
+			ON = "I'm leaving, nyuck this place.",
 		},
-		LAVAARENA_RECHARGERHAT = "It will quickly restore my powers.",
-		LAVAARENA_SPAWNER = "It's a one-way portal.",
-		LAVAARENA_STRONGDAMAGERHAT = "I'd never wear such an undapper thing.",
-		LAVAARENA_TIARAFLOWERPETALSHAT = "A decent wreath, should I feel like healing.",
-		LAVAE = "It's just been born, and the first thing it wants is to kill meow.",
+		LAVAARENA_RECHARGERHAT = "Restores power, or whatever.",
+		LAVAARENA_SPAWNER = "Their highway to hell.",
+		LAVAARENA_STRONGDAMAGERHAT = "The horns... I can work with this.",
+		LAVAARENA_TIARAFLOWERPETALSHAT = "This cutesy stuff will make meow vomit.",
+		LAVAE = "It's was just born, and the first thing it wants is to kill meow.",
 		LAVAE_COCOON = "Serves you right.",
 		LAVAE_EGG =
 		{
@@ -2156,7 +2156,7 @@ return{
 		},
 		LIGHTNINGGOATHORN = "Need to figure out where i can shove this.",
 		LITTLE_WALRUS = "Shouldn't you pick on someone your size, cupcake.",
-		LIVINGLOG = "It's sad because there's nothing to be happy about.",
+		LIVINGLOG = "It's sad because there's nyothing to be happy about.",
 		LIVINGTREE = "I'd give you a reason to smile, but there isn't one.",
 		LIVINGTREE_ROOT = "I'll grow a terrible nobody.",
 		LIVINGTREE_SAPLING = "It has taken roots.",
@@ -2633,7 +2633,7 @@ return{
 		ORANGEMOONEYE = "Can notice that shine from anyawhere.",
 		ORANGESTAFF = "There'd be no end to my troubles if i got used to meowving like this.",
 		PALMCONE_SAPLING = "So small and helpless.",
-		PALMCONE_SCALE = "Smooth as nya.",
+		PALMCONE_SCALE = "Smeowth as nya.",
 		PALMCONE_SEED = "Ugh, more tree babies.",
 		PALMCONETREE = "Eh, nice haircut, I guess.",
 		PANDORASCHEST = "Fancy chest, what could go wrong.",
@@ -2806,7 +2806,7 @@ return{
 		POTATOSOUFFLE = "A real soft dish.",
 		POTATOTORNADO = "What in the nya has he done to these potatos.",
 		POTTEDFERN = "Decoration, it's supposed to bring happiness or something.",
-		POWCAKE = "A dreadful creation.",
+		POWCAKE = "Tastes like ass, how does Weetie eat this.",
 		POWDER_MONKEY = "Common laborer.",
 		PREMIUMWATERINGCAN =
 		{
@@ -2825,7 +2825,7 @@ return{
 		PUMPKIN_LANTERN = "It's whispering to meow, telling meow to kill everynyan.",
 		PUMPKIN_OVERSIZED = "It's pumped full of kin.",
 		PUMPKIN_SEEDS = "These seeds are thicker than usual.",
-		PUMPKINCOOKIE = "Better than nothing, I guess.",
+		PUMPKINCOOKIE = "Better than nyothing, I guess.",
 		PUMPKINPIE = "Nobody will notice if I take a slice.",
 		PUNCHINGBAG = "I can ease my inner turmoil, by beating the ever-loving nyuck out of it.",
 		PUREBRILLIANCE = "How about I make it impure.",
@@ -3020,7 +3020,7 @@ return{
 			BURNT = "That's... eh whatever.",
 			GENERIC = "Yes, yes, tell meow more.",
 		},
-		RATATOUILLE = "Better than nothing, I guess.",
+		RATATOUILLE = "Eh, better than nyothing...",
 		RAZOR = "This brings back bad meowmories.",
 		RECORD = "If it's not Nyarvana, I don't care.",
 		RECORD_CREEPYFOREST = "If it's not Nyarvana, I don't care.",
@@ -3185,7 +3185,7 @@ return{
 		{
 			BLOCK = "Piece by piece...",
 			BURNT = "No fun allowed.",
-			EMPTY = "Can't sculpt out of nothing, just nyot how it works.",
+			EMPTY = "Can't sculpt out of nyothing, just nyot how it works.",
 			SCULPTURE = "Eh, good enough.",
 		},
 		SCULPTURE_BISHOPBODY =
@@ -3222,7 +3222,7 @@ return{
 		SECURITY_PULSE_CAGE = "As empty as meow.",
 		SECURITY_PULSE_CAGE_FULL = "Well unfill yourself then.",
 		SEEDPOUCH = "Seeeed seeed sseeeedddd. Pouch.",
-		SEEDS = "Eh, i'm not a bird.",
+		SEEDS = "Eh, I'm not a bird.",
 		SEEDS_COOKED = "Cooked bird food",
 		SENTRYWARD = "Some kind of magic what-now.",
 		SEWING_KIT = "Patch up for clothes and such.",
@@ -3253,7 +3253,7 @@ return{
 			BURNT = "I don't think it'll do much now.",
 			GENERIC = "I could go for a dirt nap.",
 		},
-		SILK = "Silky smooth, hmph, nyaice.",
+		SILK = "Silky smeowth, hmph, nyaice.",
 		SINGINGSHELL_OCTAVE3 =
 		{
 			GENERIC = "Ughh, there's enough noises as is.",
@@ -3324,7 +3324,7 @@ return{
 		SPEAR_GUNGNIR = "I would never stoop to such things.",
 		SPEAR_LANCE = "How churlish.",
 		SPEAR_WATHGRITHR = "It's a finer crafted spear.",
-		SPICE_CHILI = "Nyickes, this one's hot.",
+		SPICE_CHILI = "Nyikes, this one's hot.",
 		SPICE_GARLIC = "The smell keeps others from getting close to meow. Good.",
 		SPICE_SALT = "A little salt goes a long way.",
 		SPICE_SUGAR = "Iced honey.",
@@ -3432,7 +3432,7 @@ return{
 			GENERIC = "I feel like it'll unleash a curse on meow or something.",
 			LOCKED = "Locked inside of itself, like my soul.",
 		},
-		SUPERTACKLECONTAINER = "There's nothing super about it.",
+		SUPERTACKLECONTAINER = "There's nyothing super about it.",
 		SUPPORT_PILLAR = "The weight can crush anyaaone.",
 		SUPPORT_PILLAR_BROKEN = "We all crack at some point.",
 		SUPPORT_PILLAR_COMPLETE = "Temporary safety bubble.",
@@ -3466,7 +3466,7 @@ return{
 			GENERIC = "What the- it's hatching.",
 			HOT = "Alright alright, let it cook now.",
 			LONG = "It'll be a while before anyathing comes outta that.",
-			SHORT = "Come out, cupcake. Ain't nothing bad gonna happen to you.",
+			SHORT = "Come out, cupcake. Ain't nyothing bad gonna happen to you.",
 		},
 		TALLBIRDNEST =
 		{
@@ -3588,7 +3588,7 @@ return{
 		{
 			BURNT = "Eh, my garbage burnt along with it.",
 			GENERIC = "A place to dump my garbage.",
-			UPGRADED_STACKSIZE = "",
+			UPGRADED_STACKSIZE = "A pit of bottomless dissatisfaction.",
 		},
 		TREASURECHEST_TRAP = "It's as if it wants meow to open it, curious.",
 		TREECLUMP = "I can't get through there.",
@@ -3598,7 +3598,7 @@ return{
 		TRINKET_10 = "Sucky human teeth.",
 		TRINKET_11 = "Mrhmm, yes yes, I agree.",
 		TRINKET_12 = "Nyuck, that's some gross stuff.",
-		TRINKET_13 = "ughhh, it wants to kill meow, I just know it..",
+		TRINKET_13 = "Ughhh, it wants to kill meow, I just know it..",
 		TRINKET_14 = "It's not gonna work if it's cracked like that.",
 		TRINKET_15 = "It's that black and white game or something.",
 		TRINKET_16 = "It's that black and white game or something.",
@@ -3744,7 +3744,7 @@ return{
 		WAGPUNKBITS_KIT = "Sometimes you need to fix garbage with garbage.",
 		WAGPUNKHAT = "What the hell, all this stuff makes meow dizzy.",
 		WAGSTAFF_MACHINERY = "What a whole lotta trash.",
-		WAGSTAFF_MUTATIONS_NOTE = "Notes, nothing noteworthy.",
+		WAGSTAFF_MUTATIONS_NOTE = "Notes, nyothing noteworthy.",
 		WAGSTAFF_NPC = "He better not start complaining about the way I dress.",
 		WAGSTAFF_NPC_MUTATIONS = "What the nyuck is he talking to meow about.",
 		WAGSTAFF_NPC_WAGPUNK = "Yeah whatever, gramps...",
@@ -3946,7 +3946,7 @@ return{
 		},
 		WINCH =
 		{
-			GENERIC = "It's meant for getting this I was never meant to get.",
+			GENERIC = "It's meant for getting that which I was never meant to get.",
 			HOLDING_ITEM = "Hm, whatever that is.",
 			RETRIEVING_ITEM = "I guess it got something.",
 		},
@@ -4010,7 +4010,7 @@ return{
 		{
 			BURNING = "Dyamn, nice light show.",
 			BURNT = "What a shyame.",
-			CANDECORATE = "NO, NO IT DOES NOT BRING MEOW ANYA JOY, NYUCK OFF.",
+			CANDECORATE = "No. No it does not bring meow joy.",
 			YOUNG = "You still have time to grow, cupcake.",
 		},
 		WINTER_TREESTAND =
@@ -4024,7 +4024,7 @@ return{
 			BURNT = "Ugh, whatever.",
 			GENERIC = "I seem less useless when I stand beside it.",
 		},
-		WINTERSFEASTFUEL = "There's nothing to be cheery about.",
+		WINTERSFEASTFUEL = "There's nyothing to be cheery about.",
 		WINTERSFEASTOVEN =
 		{
 			ALMOST_DONE_COOKING = "Waste of time...",
@@ -4310,7 +4310,7 @@ return{
 		YOTC_SEEDPACKET = "I will reap what I sow.",
 		YOTC_SEEDPACKET_RARE = "This should yield a higher quality crop.",
 		YOTP_FOOD1 = "Eh, I'll try it.",
-		YOTP_FOOD2 = "Better than nothing.",
+		YOTP_FOOD2 = "Better than nyothing.",
 		YOTP_FOOD3 = "Why not, I guess.",
 		YOTR_DECOR_1 =
 		{
@@ -4351,8 +4351,8 @@ return{
 		},
 		ANCIENTTREE_NIGHTVISION =
 		{
-			GENERIC = "",
-			STUMP = "",
+			GENERIC = "It looks like meow. Meowserable.",
+			STUMP = "Stumped as to how I keep going.",
 		},
 		ANCIENTTREE_SAPLING =
 		{
@@ -4426,7 +4426,7 @@ return{
 		{
 			GENERIC = "This is a fashion disaster.",
 		},
-		JUNK_PILE = "A whole lotta nothing.",
+		JUNK_PILE = "A whole lotta nyothing.",
 		JUNK_PILE_BIG = "A whole lotta something.",
 		MAST_YOTD = "It's got that dragon texture nyailed down.",
 		MAST_YOTD_ITEM = "No point in keeping it like this.",
@@ -4510,7 +4510,7 @@ return{
 		},
 		VOIDCLOTH_BOOMERANG = "This must hurt... Good.",
 		WALKINGPLANK_ANCIENT = "WAIT WAITWAITIWAIT NO-",
-		WALKINGPLANK_YOTD = "NO PLEASE I- ANYTHING BUT THAT!!!",
+		WALKINGPLANK_YOTD = "NO PLEASE I- ANYATHING BUT THAT!!!",
 		WALL_SCRAP = "This doesn't inspire meow with myuch confidence.",
 		WALL_SCRAP_ITEM = "Compact junk.",
 		WATHGRITHR_IMPROVEDHAT = "It looks so uncomfortable to wear.",
@@ -4564,7 +4564,7 @@ return{
 	DESCRIBE_PLANTHAPPY = "Why does IT get to be happy.",
 	DESCRIBE_PLANTSTRESSED = "Stressed. Heh, yeah.",
 	DESCRIBE_PLANTSTRESSORFAMILY = "It hates the companya of these other plants.",
-	DESCRIBE_PLANTSTRESSORHAPPINESS = "Unhappy. Too bad there's nothing to be happy about.",
+	DESCRIBE_PLANTSTRESSORHAPPINESS = "Unhappy. Too bad there's nyothing to be happy about.",
 	DESCRIBE_PLANTSTRESSORKILLJOYS = "This garden is a place of meowsery.",
 	DESCRIBE_PLANTSTRESSORMOISTURE = "Why'd you want water, water's evil, it'll kill you.",
 	DESCRIBE_PLANTSTRESSORNUTRIENTS = "It wants greener pastures.",
@@ -4589,7 +4589,7 @@ return{
 	ANNOUNCE_OTTERBOAT_OUTOFSHALLOWS = "This is a horrible idea, I wanna get back on land.",
 	ANNOUNCE_PREFALLINVOID = "Hope I land on the head.",
 	ANNOUNCE_RABBITKING_AGGRESSIVE = "Alright, now you're starting to get on my nerves.",
-	ANNOUNCE_RABBITKING_LUCKY = "What the nyuck, who are you.",
+	ANNOUNCE_RABBITKING_LUCKY = "Hell nyah, I really don't feel like messing with rabbits.",
 	ANNOUNCE_RABBITKING_LUCKYCAUGHT = "Gotcha, cupcake.",
 	ANNOUNCE_RABBITKING_PASSIVE = "This rabbit seems to be a bigshot in here.",
 	ANNOUNCE_RABBITKINGHORN_BADSPAWNPOINT = "Don't think it's going to work in here.",

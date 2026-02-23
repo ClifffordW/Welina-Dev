@@ -31,14 +31,14 @@ local ScrapbookScreen = require("screens/redux/scrapbookscreen")
 ]]
 --
 
-STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_CATNIP = "Feed yourself to go on a nice trip gives you a speed boost but you fall asleep when you run out of sanity!\nGive it to catcoon to befriend it.. forever!"
-STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_CATTOY = "Very special item to keep the kitty busy."
+STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_CATNIP = "Highly addictive for catcoons.\nWelina can consume it too, at a cost..."
+STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_CATTOY = "Coonip'd Catcoons will proritize the ball over anything else."
 
-STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_COLLAR_SPIKED = "Very spiky collar. Makes the wearer reflect damage back to the attacker however does not mitigate damage.\nConsumes fuel only when reflecting damage."
-STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_COLLAR_REGEN = "Rejuvenating Collar makes the wearer recover HP.\nConsumes fuel only when recovering HP."
-STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_COLLAR_BOMB = "Collar go Boom!"
-STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_COLLAR_GLASS = "Damage enhancing collar. Gives the wearer bigger damage multiplier if worn by Welina's Catcoon it gives even more.\nConsumes fuel only when attacking."
-STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_COLLAR_LIGHT = "Collar that enlightens your path!\nConsumes fuel only at night."
+STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_COLLAR_SPIKED = "When worn by Coonip'd Catcoons will reflect x5 damage they suffer back to attacker, player wearers reflect x1.\nConsumes fuel when reflecting damage."
+STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_COLLAR_REGEN = "Rejuvenating Collar makes the wearer recover HP.\nConsumes fuel when recovering HP."
+STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_COLLAR_BOMB = "Explodes when the wearer dies. Make them regret what they did to you."
+STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_COLLAR_GLASS = "Boosts damage for Coonip'd Catcoons by x3, x1.2 for players.\nConsumes fuel when attacking."
+STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_COLLAR_LIGHT = "Emits light when worn.\nConsumes fuel only at night."
 
 
 STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_NAMETAG = "Put a name on your fur friend!"
