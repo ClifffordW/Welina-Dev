@@ -1032,7 +1032,11 @@ function containers.widgetsetup(container, prefab, data)
 end
 
 
+
+
 STRINGS.ACTIONS.RUMMAGE.WELINACAT_CUSTOMIZE = "Fashion Up"
+STRINGS.ACTIONS.STORE.WELINACAT_GIVE = "Give Catcoon"
+
 
 local old_rummage_strfn = GLOBAL.ACTIONS.RUMMAGE.strfn
 
@@ -1046,13 +1050,13 @@ end
 
 
 
-local old_rummage_strfn = GLOBAL.ACTIONS.RUMMAGE.strfn
+local old_store_strfn = GLOBAL.ACTIONS.STORE.strfn
 
-GLOBAL.ACTIONS.RUMMAGE.strfn = function(act)
-	if act.target and act.target.prefab == "welina_catcoon" then
-		return "WELINACAT_CUSTOMIZE"
+GLOBAL.ACTIONS.STORE.strfn = function(act)
+	if act.target ~= nil then
+        return act.target:HasTag("sinner") and "WELINACAT_GIVE"
 	end
-	return old_rummage_strfn and old_rummage_strfn(act) or "RUMMAGE"
+	return old_store_strfn and old_store_strfn(act) or "RUMMAGE"
 end
 
 
@@ -1139,17 +1143,7 @@ AddClassPostConstruct("widgets/containerwidget", function(self, ...)
 
 end)
 
-local function RefreshImageState(self)
-	if self:IsSelected() then
-		self:OnSelect()
-	elseif self:IsDisabledState() then
-		self:OnDisable()
-	elseif self:IsFocusedState() then
-		self:OnGainFocus()
-	else
-		self:OnLoseFocus()
-	end
-end
+
 
 AddClassPostConstruct("widgets/writeablewidget", function(self, ...)
     self.inst:DoTaskInTime(0, function()
@@ -1166,39 +1160,7 @@ AddClassPostConstruct("widgets/writeablewidget", function(self, ...)
 			self.edit_text.edit_text_color = { 1, 1, 1, 1 } --{1,1,1,1}
 
 
-            if self.menu then
-                self.menu:SetScale(.75)
-
-                self.menu:SetHAnchor(ANCHOR_MIDDLE)
-				self.menu:SetVAnchor(ANCHOR_MIDDLE)
-
-                for k,v in pairs(self.menu.items) do
-					v.atlas = "images/global_redux.xml"
-					v.image_normal =    "button_carny_long_normal.tex"
-					v.image_focus = "button_carny_long_hover.tex"
-					v.image_disabled = "button_carny_long_disabled.tex"        
-					v.image_down =	"button_carny_long_down.tex"
-                    RefreshImageState(v)
-                    v:SetFont(BODYTEXTFONT)
-                    v:SetTextColour(1,1,1,1)
-					v:SetScale(0.3 + 0.2 / 1 * k)
-                    v:SetPosition(0,80*k)
-                    
-                    v.text:SetSize(60)
-
-             
-                   
-
-					v:SetFont(BODYTEXTFONT)
-					v:SetTextColour(UICOLOURS.WHITE)
-					v:SetTextFocusColour(UICOLOURS.GREY)
-					
-
-
-                end
-
-
-            end
+           
     
 
         end
@@ -1218,16 +1180,98 @@ AddClassPostConstruct("widgets/writeablewidget", function(self, ...)
 
 end)
 
-local old_equip_canfn = GLOBAL.ACTIONS.EQUIP.canfn
-GLOBAL.ACTIONS.EQUIP.canfn = function(act)
-	if act.invobject and act.invobject.components.inventoryitem then
-		local owner = act.invobject.components.inventoryitem.owner
-		if owner and owner.prefab == "welina_catcoon" then
-			return false, "CANT_EQUIP"
+
+
+AddComponentAction("INVENTORY", "equippable", function(inst, doer, actions)
+
+    local equippable = inst.replica.equippable
+    if equippable:IsEquipped() then
+        if not inst.replica.inventoryitem:IsGrandOwner(doer) then
+            table.insert(actions, ACTIONS.DROP)
+        end
+    end
+    
+end)
+
+
+
+ --[[        equippable = function(inst, doer, actions)
+			local equippable = inst.replica.equippable
+			if equippable:IsEquipped() then
+				if not equippable:ShouldPreventUnequipping() then
+                    table.insert(actions, ACTIONS.UNEQUIP)
+                end
+			elseif not equippable:IsRestricted(doer) then
+				local inventory = doer.replica.inventory
+				local old = inventory and inventory:GetEquippedItem(equippable:EquipSlot())
+				local old_equippable = old and old.replica.equippable
+				if not (old_equippable and old_equippable:ShouldPreventUnequipping()) then
+					table.insert(actions, ACTIONS.EQUIP)
+				end
+            end
+        end, ]]
+
+
+local old_equip_canfn = GLOBAL.ACTIONS.TOSS.fn
+GLOBAL.ACTIONS.TOSS.fn = function(act)
+
+	if not act.doer then
+		return nil
+	end
+
+	local doer_inventory = act.doer.components.inventory
+	if not doer_inventory then
+		return nil
+	end
+
+	local projectile = act.invobject
+	if not projectile then
+		--for Special action TOSS, we can also use equipped item.
+		projectile = doer_inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
+		if projectile ~= nil and not projectile:HasTag("special_action_toss") then
+			projectile = nil
 		end
 	end
+	if not projectile then
+		return nil
+	end
+
+	local equippable = projectile.components.equippable
+	if
+		not projectile.components.complexprojectile
+		or (equippable ~= nil and (equippable:IsRestricted(act.doer) or equippable:ShouldPreventUnequipping()))
+	then
+		return nil
+	end
+
+	if projectile.components.itemmimic then
+		return false, "ITEMMIMIC"
+	end
+
+	if projectile.components.itemmimic then
+		return false, "ITEMMIMIC"
+	end
+
+	projectile = doer_inventory:DropItem(projectile, false)
+	if projectile and projectile.prefab == "welina_cattoy" then
+		local pos
+		
+	
+        pos = act:GetActionPoint()
+		
+		projectile.components.complexprojectile:Launch(pos, act.doer)
+
+		return true
+	end
+
+
+
 	return old_equip_canfn and old_equip_canfn(act) or true
 end
+
+
+
+
 
 
 

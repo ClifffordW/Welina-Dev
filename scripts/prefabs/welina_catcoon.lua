@@ -351,7 +351,7 @@ local function OnGetItemFromPlayer(inst, giver, item)
 
 
 
-
+		
 		inst.components.inventory:Equip(item)
 		inst.AnimState:Show("hat")
 	end

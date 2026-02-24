@@ -115,7 +115,6 @@ local function fn()
 	MakeInventoryFloatable(inst)
 
 	inst:AddTag("thrown")
-	inst:AddTag("projectile")
 	inst:AddTag("catbait")
 	inst:AddTag("workrepairable")
 	inst:AddTag("welina_cattoy")
