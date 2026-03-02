@@ -92,6 +92,8 @@ AddSound("lawnmower")
 AddSound("monkeyball")
 
 
+AddAnim("welina_catdye")
+
 table.insert(Assets, Asset("SOUND", "sound/welina.fsb"))
 table.insert(Assets, Asset("SOUNDPACKAGE", "sound/scotchmintz_characters.fev"))
 

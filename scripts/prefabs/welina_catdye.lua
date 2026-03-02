@@ -14,12 +14,23 @@ local prefabs =
 STRINGS.NAMES.WELINA_CATDYE_BLACK = "Dye"
 
 
+local colours = 
+
+{
+
+    black = {0,0,0,1}
+}
+
+
 local function OnEquip(inst, owner)
     if owner then
 
-        print(inst.colour)
-        owner.AnimState:SetBuild("welina_catcoon_"..inst.colour)
-
+        local fx = owner:SpawnChild("welina_catdye_smoke")
+        fx.AnimState:SetMultColour(unpack(colours[inst.colour]))
+        fx.AnimState:SetScale(1,1.9)
+        owner:DoTaskInTime(0.2, function()
+            owner.AnimState:SetBuild("welina_catcoon_"..inst.colour)
+        end)
 
     end
 end
@@ -49,12 +60,12 @@ local function commonfn(type)
 	--[[ ANIMSTATE ]]
 	--
 	-- This is the name visible on the top of hierarchy in Spriter.
-	inst.AnimState:SetBank("cattoy")
+	inst.AnimState:SetBank("welina_catdye")
 	-- This is the name of your compiled*.zip file.
-	inst.AnimState:SetBuild("welina_cattoy")
+	inst.AnimState:SetBuild("welina_catdye")
 	-- This is the animation name while item is on the ground.
 
-	inst.AnimState:PlayAnimation("idle")
+	inst.AnimState:PlayAnimation("idle_"..type)
 
     
 	inst:AddTag("welinacatcoon_dye")
@@ -86,8 +97,6 @@ local function commonfn(type)
 
     inst:AddComponent("inspectable")
     inst:AddComponent("inventoryitem")
-	inst.components.inventoryitem.imagename = "welina_cattoy"
-	inst.components.inventoryitem.atlasname = resolvefilepath("images/inventoryimages/welina_items.xml")
 
 
 
@@ -109,6 +118,7 @@ local function black()
 
 
 
+
 	if not TheWorld.ismastersim then
 		return inst
 	end
@@ -123,4 +133,43 @@ local function black()
 
 	return inst
 end
-return Prefab("welina_catdye_black", black, assets)
+
+
+
+
+
+local function smoke()
+	local inst = CreateEntity()
+    inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddNetwork()
+
+
+    inst.AnimState:SetBuild("max_fx")
+    inst.AnimState:SetBank("max_fx")
+    inst.AnimState:PlayAnimation("anim")
+
+    inst.entity:SetPristine()
+	if not TheWorld.ismastersim then
+		return inst
+	end
+
+
+
+
+
+
+
+
+
+	return inst
+end
+
+
+
+
+return Prefab("welina_catdye_smoke", smoke, assets),
+ 
+Prefab("welina_catdye_black", black, assets)
+
+

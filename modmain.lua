@@ -1261,6 +1261,7 @@ local tex_to_register =
     "welina_collar_light",
     "welina_collar_regen",
     "welina_catcoonden",
+    "welina_catdye_black",
 
 }
 
