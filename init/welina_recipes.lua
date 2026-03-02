@@ -227,7 +227,7 @@ AddCharacterRecipe("welina_catnip", -- name
 AddCharacterRecipe("welina_nametag", -- name
     {                        -- ingredients
         GLOBAL.Ingredient("rope", 1),
-        GLOBAL.Ingredient("goldnugget", 1),
+        GLOBAL.Ingredient("flint", 1),
     },
     GLOBAL.TECH.NONE, -- tech
     {
