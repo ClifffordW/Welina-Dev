@@ -7,6 +7,8 @@ local assets = {
     --Asset("ANIM", "anim/welina_catcoon_actions.zip"),
     Asset("ANIM", "anim/welina_catcoon_new.zip"),
 
+	Asset("ANIM", "anim/welina_catcoon_black.zip"),
+
 
 
 	Asset("SOUND", "sound/catcoon.fsb"),
@@ -306,9 +308,18 @@ local function ShouldAcceptItem(inst, item)
 	elseif
 		item.components.equippable ~= nil
 		and item.components.equippable.equipslot == hasneckslot
- 		and string.find(item.prefab, "welina_collar")
+ 		and item:HasTag("welinacatcoon_collar")
+
+
+
 	then
 		return true
+
+	elseif item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.WELINA_DYE   then
+			
+		return true
+	
+
 	elseif item:HasTag("cattoy") or item:HasTag("catfood") or item:HasTag("cattoyairborne") then
 		return true
 	else
@@ -366,7 +377,19 @@ local function OnGetItemFromPlayer(inst, giver, item)
 		end
 
 		inst.components.inventory:Equip(item)
+		inst.AnimState:Show("swap_welinacollar")
 	end
+
+	if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.WELINA_DYE then
+		local current = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.WELINA_DYE)
+		if current ~= nil then
+			inst.components.inventory:DropItem(current)
+		end
+
+		inst.components.inventory:Equip(item)
+		
+	end
+
 end
 
 local function OnRefuseItem(inst, item)
@@ -581,6 +604,7 @@ local function SyncEquipToContainer(inst)
 
 	local hat = inv:GetEquippedItem(EQUIPSLOTS.HEAD)
 	local collar = inv:GetEquippedItem(EQUIPSLOTS.BODY)
+	local dye = inv:GetEquippedItem(EQUIPSLOTS.WELINA_DYE)
 
 	if hat then
 		container:GiveItem(hat, 1)
@@ -588,6 +612,10 @@ local function SyncEquipToContainer(inst)
 	if collar then
 		container:GiveItem(collar, 2)
 	end
+	if dye then
+		container:GiveItem(dye, 3)
+	end
+
 end
 
 
@@ -612,6 +640,10 @@ local function OnContainerItemGet(inst, data)
 	elseif data.slot == 2 then
 		inv:Unequip(EQUIPSLOTS.BODY)
 		inv:Equip(data.item)
+	elseif data.slot == 3 then
+		inv:Unequip(EQUIPSLOTS.WELINA_DYE)
+		inv:Equip(data.item)
+
 	end
 end
 
@@ -630,6 +662,9 @@ local function OnContainerItemLose(inst, data)
 		inv:Unequip(EQUIPSLOTS.HEAD)
 	elseif data.slot == 2 then
 		inv:Unequip(EQUIPSLOTS.BODY)
+	elseif data.slot == 3 then
+		inv:Unequip(EQUIPSLOTS.WELINA_DYE)
+
 	end
 end
 
@@ -642,6 +677,7 @@ local function OnItemEquippedFromContainer(inst, item)
 
 		local hat = inv:GetEquippedItem(EQUIPSLOTS.HEAD)
 		local collar = inv:GetEquippedItem(EQUIPSLOTS.BODY)
+		local dye = inv:GetEquippedItem(EQUIPSLOTS.WELINA_DYE)
 
 		if not hat then
 			inst.components.container:RemoveItemBySlot(1)
@@ -649,6 +685,10 @@ local function OnItemEquippedFromContainer(inst, item)
 		if not collar then
 			inst.components.container:RemoveItemBySlot(2)
 		end
+		if not dye then
+			inst.components.container:RemoveItemBySlot(3)
+		end
+
 	end)
 end
 

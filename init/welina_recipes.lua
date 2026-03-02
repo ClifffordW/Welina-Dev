@@ -7,6 +7,7 @@ AddPrefab("welina_catcoon")
 
 AddPrefab("welina_cattoy")
 AddPrefab("welina_nametag")
+AddPrefab("welina_catdye")
 
 
 STRINGS.RECIPE_DESC.WELINA_CATCOONDEN = "Cozy."

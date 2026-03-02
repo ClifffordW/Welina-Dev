@@ -67,6 +67,7 @@ AddAnim("welina_hiss_anim_gown")
 AddAnim("welina_hiss_anim_doorman")
 AddAnim("welina_hiss_anim_homestuck")
 
+AddTex("welina_hud")
 
 AddAnim("welina_puke")
 AddAnim("welina_puke_beef")

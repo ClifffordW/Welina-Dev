@@ -17,6 +17,10 @@ end
 
 
 
+EQUIPSLOTS.WELINA_DYE = "dyeslot"
+
+
+
 
 AddRepairType("trinket_22", "trinket_22")
 
@@ -972,6 +976,8 @@ params.welina_catcoon = {
         {
             Vector3(-(64 + 12)/2, 0, 0),
             Vector3( (64 + 12)/2, 0, 0),
+            Vector3( 38+76, 0, 0),
+
         },
 		slotbg = 
         {
@@ -980,11 +986,14 @@ params.welina_catcoon = {
                 image = "equip_slot_head.tex",
             },
             {
-                atlas = "images/hud.xml",
-                image = "equip_slot_body.tex",
+                atlas = "images/welina_hud.xml",
+                image = "collar.tex",
+            },
+
+            {
+                atlas = "images/welina_hud.xml",
+                image = "dye.tex",
             }
-
-
 
         },
 		animbank = "ui_welina_cat_2x1",
@@ -1003,8 +1012,12 @@ function params.welina_catcoon.itemtestfn(container, item, slot)
 		return item:HasTag("hat")
 	elseif slot == 2 then
 		return item:HasTag("welinacatcoon_collar")
+
+	elseif slot == 3 then
+		return item:HasTag("welinacatcoon_dye")
+
 	elseif slot == nil then
-		return item:HasAnyTag("hat", "welinacatcoon_collar")
+		return item:HasAnyTag("hat", "welinacatcoon_collar", "welinacatcoon_dye")
 
 	end
 	return false
@@ -1070,14 +1083,20 @@ AddClassPostConstruct("widgets/containerwidget", function(self, ...)
 
             if self.container and self.container.prefab == "welina_catcoon" then
                 local items = self.container.replica.container:GetItems()
-                local hat, collar = items[1], items[2]
+                local hat, collar,dye = items[1], items[2], items[3]
                 if self.bganim then
+
+                    self.bganim:SetPosition(50,0)
 
                     if hat then
                         self.bganim.inst.AnimState:OverrideSkinSymbol("swap_hat", hat.AnimState:GetBuild(), "swap_hat")
                     end
                     if collar then
                         self.bganim.inst.AnimState:OverrideSkinSymbol("swap_welinacollar", "swap_collar_"..collar.prefab:gsub("welina_collar_", ""), "swap_body")
+                    end
+                    if dye then 
+                        self.bganim.inst.AnimState:SetBuild("welina_catcoon_"..dye.colour)
+
                     end
 
 
@@ -1094,7 +1113,7 @@ AddClassPostConstruct("widgets/containerwidget", function(self, ...)
 		local ret = { OldFunc(self, data, ...) }
         if self and self.container and self.container.prefab == "welina_catcoon" then 
             local items = self.container.replica.container:GetItems()
-            local hat, collar = items[1], items[2]
+            local hat, collar, dye = items[1], items[2], items[3]
             if self.bganim then
 
                 if hat then
@@ -1107,6 +1126,13 @@ AddClassPostConstruct("widgets/containerwidget", function(self, ...)
 					)
 
 				end
+
+
+                if dye then 
+                    self.bganim.inst.AnimState:SetBuild("welina_catcoon_"..dye.colour)
+
+                end
+
             end
         end
 
@@ -1117,7 +1143,9 @@ AddClassPostConstruct("widgets/containerwidget", function(self, ...)
 	self.OnItemLose = function(self, data, ...)
 		local ret = { OldFunc(self, data, ...) }
 		if self and self.container and self.container.prefab == "welina_catcoon"  then
-			
+            local items = self.container.replica.container:GetItems()
+
+
 			if self.bganim and data.slot then
 				local tileslot = self.inv[data.slot]
 
@@ -1130,6 +1158,11 @@ AddClassPostConstruct("widgets/containerwidget", function(self, ...)
 					self.bganim.inst.AnimState:ClearOverrideSymbol("swap_welinacollar")
 	
 				end
+
+                if data.slot == 3 then
+                    self.bganim.inst.AnimState:SetBuild("catcoon_build")
+                end
+
 			end
 		end
 
@@ -1195,79 +1228,10 @@ end)
 
 
 
- --[[        equippable = function(inst, doer, actions)
-			local equippable = inst.replica.equippable
-			if equippable:IsEquipped() then
-				if not equippable:ShouldPreventUnequipping() then
-                    table.insert(actions, ACTIONS.UNEQUIP)
-                end
-			elseif not equippable:IsRestricted(doer) then
-				local inventory = doer.replica.inventory
-				local old = inventory and inventory:GetEquippedItem(equippable:EquipSlot())
-				local old_equippable = old and old.replica.equippable
-				if not (old_equippable and old_equippable:ShouldPreventUnequipping()) then
-					table.insert(actions, ACTIONS.EQUIP)
-				end
-            end
-        end, ]]
-
-
-local old_equip_canfn = GLOBAL.ACTIONS.TOSS.fn
-GLOBAL.ACTIONS.TOSS.fn = function(act)
-
-	if not act.doer then
-		return nil
-	end
-
-	local doer_inventory = act.doer.components.inventory
-	if not doer_inventory then
-		return nil
-	end
-
-	local projectile = act.invobject
-	if not projectile then
-		--for Special action TOSS, we can also use equipped item.
-		projectile = doer_inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
-		if projectile ~= nil and not projectile:HasTag("special_action_toss") then
-			projectile = nil
-		end
-	end
-	if not projectile then
-		return nil
-	end
-
-	local equippable = projectile.components.equippable
-	if
-		not projectile.components.complexprojectile
-		or (equippable ~= nil and (equippable:IsRestricted(act.doer) or equippable:ShouldPreventUnequipping()))
-	then
-		return nil
-	end
-
-	if projectile.components.itemmimic then
-		return false, "ITEMMIMIC"
-	end
-
-	if projectile.components.itemmimic then
-		return false, "ITEMMIMIC"
-	end
-
-	projectile = doer_inventory:DropItem(projectile, false)
-	if projectile and projectile.prefab == "welina_cattoy" then
-		local pos
-		
-	
-        pos = act:GetActionPoint()
-		
-		projectile.components.complexprojectile:Launch(pos, act.doer)
-
-		return true
-	end
 
 
 
-	return old_equip_canfn and old_equip_canfn(act) or true
-end
+
 
 
 

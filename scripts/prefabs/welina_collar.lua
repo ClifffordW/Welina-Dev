@@ -264,6 +264,8 @@ end
 
 local function OnUnequip(inst, owner)
     owner.AnimState:ClearOverrideSymbol("swap_body")
+	owner.AnimState:ClearOverrideSymbol("swap_welinacollar")
+
 	local effect = COLLARS[inst.collarname]
 	if effect and effect.unequip then
 		effect.unequip(inst, owner)
