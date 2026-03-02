@@ -8,6 +8,7 @@ local assets = {
 }
 
 
+local fmodtable = require("defs.sound.fmodtable_scotchmintz_characters").Track
 
 
 
@@ -52,6 +53,20 @@ local function OnEquip(inst, owner)
     local target_build = "welina_catcoon_"..inst.colour
     
     -- Only spawn FX if the build is DIFFERENT and the player isn't already smoking
+    
+    if not owner then return end
+
+
+
+    if owner.components.container then
+        if owner.components.container:IsOpen() then
+            owner.components.container:Close()
+            
+        end
+        owner.components.container:CanOpen(false)
+    end
+    
+    
     if current_build ~= target_build and not (owner.welina_dye_fx and owner.welina_dye_fx:IsValid()) then
         local fx = SpawnPrefab("welina_catdye_smoke")
         if fx then
@@ -66,10 +81,16 @@ local function OnEquip(inst, owner)
             end)
         end
     end
+    
 
     if inst.pending_skin_task then inst.pending_skin_task:Cancel() end
-    inst.pending_skin_task = owner:DoTaskInTime(0.2, function(doer)
+    inst.pending_skin_task = owner:DoTaskInTime(0.575, function(doer)
         if doer:IsValid() and inst:IsValid() and inst.components.equippable:IsEquipped() then
+
+            if owner.components.container then
+     
+                owner.components.container:CanOpen(true)
+            end
 
 			if inst.colour == "inverted" then
 
@@ -89,37 +110,57 @@ local function OnEquip(inst, owner)
 end
 
 local function OnUnequip(inst, owner)
+
+    if not owner then return end
+
     if inst.pending_skin_task then
         inst.pending_skin_task:Cancel()
         inst.pending_skin_task = nil
     end
 
-    if owner:IsValid() and not (owner.welina_dye_fx and owner.welina_dye_fx:IsValid()) then
-        local fx = SpawnPrefab("welina_catdye_smoke")
-        if fx then
-            fx.entity:SetParent(owner.entity)
-            fx.AnimState:SetMultColour(unpack(COLOURS.default or {1,1,1,1}))
-            fx.AnimState:SetScale(1.2, 1.2)
+    if owner.components.container then
+        if owner.components.container:IsOpen() then
+            owner.components.container:Close()
             
-            owner.welina_dye_fx = fx
-            fx:ListenForEvent("onremove", function() 
-                if owner:IsValid() then owner.welina_dye_fx = nil end 
-            end)
         end
+        owner.components.container:CanOpen(false)
     end
 
-    if owner:IsValid() then
-		
-
-		owner.AnimState:SetSymbolMultColour("swap_hat", 1,1,1,1)
-		owner.AnimState:SetSymbolAddColour("swap_hat", 0,0,0,0)
-
-		owner.AnimState:SetSymbolMultColour("swap_welinacollar", 1,1,1,1)
-		owner.AnimState:SetSymbolAddColour("swap_welinacollar", 0,0,0,0)
 
 
-        owner.AnimState:SetBuild("catcoon_build")
-    end
+        if owner:IsValid() and not (owner.welina_dye_fx and owner.welina_dye_fx:IsValid()) then
+            local fx = SpawnPrefab("welina_catdye_smoke")
+            if fx then
+                fx.entity:SetParent(owner.entity)
+                fx.AnimState:SetMultColour(unpack(COLOURS.default or {1,1,1,1}))
+                fx.AnimState:SetScale(1.2, 1.2)
+                
+                owner.welina_dye_fx = fx
+                fx:ListenForEvent("onremove", function() 
+                    if owner:IsValid() then owner.welina_dye_fx = nil end 
+                end)
+            end
+        end
+    owner:DoTaskInTime(0.575, function(doer)
+        if owner:IsValid() then
+
+            if owner.components.container then
+     
+                owner.components.container:CanOpen(true)
+            end
+
+            
+
+            owner.AnimState:SetSymbolMultColour("swap_hat", 1,1,1,1)
+            owner.AnimState:SetSymbolAddColour("swap_hat", 0,0,0,0)
+
+            owner.AnimState:SetSymbolMultColour("swap_welinacollar", 1,1,1,1)
+            owner.AnimState:SetSymbolAddColour("swap_welinacollar", 0,0,0,0)
+
+
+            owner.AnimState:SetBuild("catcoon_build")
+        end
+    end)
 end
 
 --------------------------------------------------------------------------
@@ -148,6 +189,8 @@ local function commonfn(colour_name)
     
     -- Dedicated slot tag (if you have a custom slot)
     -- inst:AddTag("nopunch") 
+
+    inst.pickupsound = "welina_paintcan"
 
     MakeInventoryFloatable(inst, "small", 0.1, 1.12)
 
@@ -214,8 +257,19 @@ local function smokefn()
     inst.AnimState:PlayAnimation("transition")
 	inst.AnimState:HideSymbol("mask")
 	inst.AnimState:HideSymbol("streaks")
-	inst.SoundEmitter:PlaySound("hallowednights2024/thrall_parasite/possess_monster","soundfx")
-	inst.AnimState:SetDeltaTimeMultiplier(1.2)
+	
+	inst.AnimState:SetDeltaTimeMultiplier(0)
+    inst:Hide()
+
+    inst:DoTaskInTime(0.575, function()
+
+
+        inst:Show()
+        inst.AnimState:SetDeltaTimeMultiplier(1.2)
+    end)
+
+    inst.SoundEmitter:PlaySound(fmodtable.sfx.spray,"soundfx")
+
 
 
 

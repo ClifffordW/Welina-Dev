@@ -63,8 +63,7 @@ AddAnim("ui_welina_cat_2x1")
 
 
 
-AddSound("lawnmower")
-AddSound("monkeyball")
+
 
 
 
@@ -72,7 +71,11 @@ AddSound("monkeyball")
 AddAnim("welina_catdye")
 
 AddSoundPackage("scotchmintz_characters")
+AddSoundBank("9lives")
+AddSoundBank("cattoy")
+AddSoundBank("cliff_shenanigans")
 AddSoundBank("welina")
+AddSoundBank("pickups")
 
 
 AddMinimapAtlas("images/map_icons/welina.xml")

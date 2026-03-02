@@ -8,7 +8,7 @@ local prefabs=
 {
 }
 
-local fmodtable = require("defs.sound.fmodtable_monkeyball").Event
+local fmodtable = require("defs.sound.fmodtable_scotchmintz_characters").Track
 
 local function unclaim(inst)
 	inst.claimed = nil
@@ -43,7 +43,7 @@ local function onthrown(inst, thrower, pt)
     --inst.components.floatable:UpdateAnimations("idle_water", "throw")
     inst.AnimState:PlayAnimation("throw", true)
 	inst.AnimState:SetDeltaTimeMultiplier(1)
-    inst.SoundEmitter:PlaySound(fmodtable.monkeyball_bounce)
+    inst.SoundEmitter:PlaySound(fmodtable.sfx.monkeyball.bounce)
 
     -- inst.components.inventoryitem.canbepickedup = false
 end
@@ -58,7 +58,7 @@ local function onhitground(inst)
 	unclaim(inst)
 
 
-	inst.SoundEmitter:PlaySound(fmodtable.monkeyball_bounce)
+    inst.SoundEmitter:PlaySound(fmodtable.sfx.monkeyball.bounce)
 
 
 	inst:RemoveTag("noclick")
@@ -78,7 +78,7 @@ end
 
 local function oncollision(inst, other)
 	if inst.Physics:GetVelocity() ~= 0 then
-		inst.SoundEmitter:PlaySound(fmodtable.monkeyball_bounce)
+    	inst.SoundEmitter:PlaySound(fmodtable.sfx.monkeyball.bounce)
 	end
 end
 
@@ -141,7 +141,8 @@ local function fn()
 
 	inst:AddComponent("inventoryitem")
     inst.components.inventoryitem:SetOnPutInInventoryFn(onputininventory)
-	inst.components.inventoryitem.bouncesound = fmodtable.monkeyball_bounce
+	inst.components.inventoryitem.bouncesound = fmodtable.sfx.monkeyball.bounce
+
 
 
 	inst:AddComponent("equippable")

@@ -37,10 +37,13 @@ local animation_data = {
 }
 
 
-local fmodtable = require("defs.sound.fmodtable_monkeyball").Event
+local fmodtable = require("defs.sound.fmodtable_scotchmintz_characters").Track
 
 
-
+PICKUPSOUNDS["welina_paintcan"] = fmodtable.sfx.item_pickup.paintcan
+PICKUPSOUNDS["welina_catnip"] = fmodtable.sfx.item_pickup.catnip
+PICKUPSOUNDS["welina_dogtags"] = fmodtable.sfx.item_pickup.dogtags
+PICKUPSOUNDS["welina_collar"] = fmodtable.sfx.item_pickup.collar
 
 
 local function GotHigh(inst)
@@ -59,7 +62,7 @@ local function GotHigh(inst)
         TheSim:SetReverbPreset("cave")
 
 
-        TheFocalPoint.SoundEmitter:PlaySound(fmodtable.high, "high", 0.25)
+        TheFocalPoint.SoundEmitter:PlaySound(fmodtable.music.gethigh, "high", 0.5)
     end
 end
 

@@ -50,6 +50,14 @@ local function PlayAction(inst)
 		{ "aquatic", "falling", "INLIMBO", "NOCLICK" }
 	)
 
+    for _, ent in ipairs(ents) do
+        if ent:IsOnPassablePoint() then
+            target = ent
+            break
+        end
+    end
+
+
 	if target ~= nil then
 		local target_pt = target:GetPosition()
 		local player_too_close = FindClosestPlayerInRange(target_pt.x, target_pt.y, target_pt.z, 5, true)

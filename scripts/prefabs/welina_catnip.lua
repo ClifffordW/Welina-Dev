@@ -216,6 +216,8 @@ local function fn()
 
     --inst.AnimState:SetScale(.75,1)
 
+    inst.pickupsound = "welina_catnip"
+
     MakeInventoryFloatable(inst)
 
     inst:AddTag("catnip")

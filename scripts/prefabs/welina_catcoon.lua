@@ -15,7 +15,7 @@ local assets = {
 	Asset("SOUND", "sound/catcoon.fsb"),
 }
 
-local fmodtable = require("defs.sound.fmodtable_lawnmower").Event
+local fmodtable = require("defs.sound.fmodtable_scotchmintz_characters").Track
 
 local prefabs = {
 	"mole",
@@ -197,7 +197,7 @@ local function OnAttacked(inst, data)
 	end
 
 	if inst.components.combat and inst.components.follower.leader and data.attacker == inst.components.follower.leader  then
-		inst.components.inventory:DropEverything()
+		inst.components.inventory:DropEverything(nil ,true)
 
 	end
 	if inst.components.combat then
@@ -494,7 +494,7 @@ local function OnLocomote(inst)
 			and inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD).prefab == "antlionhat"
 		then
 			if not inst.SoundEmitter:PlayingSound("lawnmower") then
-				inst.SoundEmitter:PlaySound(fmodtable.mower_loop, "lawnmower", 0.75)
+				inst.SoundEmitter:PlaySound(fmodtable.sfx.lawnmower.mower_loop, "lawnmower", 0.75)
 			end
 		end
 	else
@@ -505,7 +505,7 @@ local function OnLocomote(inst)
 		then
 			if inst.SoundEmitter:PlayingSound("lawnmower") then
 				inst.SoundEmitter:KillSound("lawnmower")
-				inst.SoundEmitter:PlaySound(fmodtable.mower_stop, 0.75)
+				inst.SoundEmitter:PlaySound(fmodtable.sfx.lawnmower.mower_stop, 0.75)
 			end
 		end
 	end

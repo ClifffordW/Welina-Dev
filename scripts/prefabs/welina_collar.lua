@@ -295,7 +295,12 @@ local function MakeCollar(name)
 		MakeInventoryPhysics(inst)
 		MakeInventoryFloatable(inst)
 
+		inst.pickupsound = "welina_collar"
+
 		inst:AddTag("welinacatcoon_collar")
+
+
+		inst.entity:SetPristine()
 
 		if not TheWorld.ismastersim then
 			return inst

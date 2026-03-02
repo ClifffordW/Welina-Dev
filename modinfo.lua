@@ -472,10 +472,10 @@ configuration_options = {
 		label = "Last Life Music",
 		hover = "Welinas final life sfx.",
 		options = {
-			{ description = "Default", data = "scotchmintz_characters/sfx/welina_bell", hover = "Default 󰀡" },
-			{ description = "Fork In The Road", data = "scotchmintz_characters/sfx/welina_bell_forkintheroad" },
+			{ description = "Default", data = "scotchmintz_characters/sfx/9lives/welina_bell", hover = "Default 󰀡" },
+			{ description = "Fork In The Road", data = "scotchmintz_characters/sfx/9lives/welina_bell_forkintheroad" },
 		},
-		default = "scotchmintz_characters/sfx/welina_bell",
+		default = "scotchmintz_characters/sfx/9lives/welina_bell",
 	},
 
 	{

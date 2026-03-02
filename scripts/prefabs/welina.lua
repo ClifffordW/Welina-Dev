@@ -2,7 +2,7 @@ local MakePlayerCharacter = require("prefabs/player_common")
 local ex_fns = require("prefabs/player_common_extensions")
 
 --local welina_sounds = require("defs.sound.fmod_defs")
-local fmodtable = require("defs.sound.fmodtable_scotchmintz_characters").Event
+local fmodtable = require("defs.sound.fmodtable_scotchmintz_characters").Track
 
 local assets = {
     Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
@@ -155,48 +155,56 @@ local function GetBonusDamage(inst, victim, damage, weapon)
 end
 
 local function HealthWarning(inst)
+    local health_cmp = inst.replica.health
+    if not health_cmp then return end
 
-    if not inst.replica.health then return end
+    local health = health_cmp:GetPercent()
+    local deaths = inst._welina_numDeaths or 0
+    local is_last_life = (deaths >= 9)
+    local is_final_death = (deaths >= 10)
 
-    local health = inst.replica.health:GetPercent()
-    local is_wonkey = inst:HasTag("wonkey")
-    local filterValue = math.max(1, math.floor((1 - health) * 7200 + 1))
-    local filterValue_voice = math.max(1, math.floor((1 - health) * 1050 + 1))
+    ----------------------------------------------------------------------
+    -- 1. AUDIO FILTERS (High Pass & Reverb)
+    ----------------------------------------------------------------------
+    if TheMixer and is_last_life and TUNING.WELINA_LASTLIFE_MUSIC == "scotchmintz_characters/sfx/9lives/welina_bell_forkintheroad" then
+        -- Calculations
+        local filterValue = math.max(1, math.floor((1 - health) * 7200 + 1))
+        local filterValue_voice = math.max(1, math.floor((1 - health) * 1050 + 1))
 
-    if
-        TheMixer
-        and inst._welina_numDeaths
-        and inst._welina_numDeaths > 8
-        and TUNING.WELINA_LASTLIFE_MUSIC
-        and TUNING.WELINA_LASTLIFE_MUSIC == "scotchmintz_characters/sfx/welina_bell_forkintheroad"
-    then
-        --print(filterValue)
-        if filterValue >= 5041 then
-            TheSim:SetReverbPreset("cave")
-        else
-            TheSim:SetReverbPreset("default")
-        end
+        -- Reverb logic: Only call if it actually needs to change to save CPU
+        local current_reverb = (filterValue >= 5041) and "cave" or "default"
+        TheSim:SetReverbPreset(current_reverb)
 
-        TheMixer:SetHighPassFilter("set_music", filterValue or 1)
-
-        TheMixer:SetHighPassFilter("set_ambience", filterValue or 1)
-        TheMixer:SetHighPassFilter("set_sfx", filterValue or 1)
-        TheMixer:SetHighPassFilter("set_sfx/voice", filterValue_voice or 1)
-    end
-    if not TheFocalPoint.SoundEmitter:PlayingSound("deathbell") then
-        TheFocalPoint.SoundEmitter:PlaySound(TUNING.WELINA_LASTLIFE_MUSIC or fmodtable.welina_bell, "deathbell")
+        -- Apply Filters
+        TheMixer:SetHighPassFilter("set_music", filterValue)
+        TheMixer:SetHighPassFilter("set_ambience", filterValue)
+        TheMixer:SetHighPassFilter("set_sfx", filterValue)
+        TheMixer:SetHighPassFilter("set_sfx/voice", filterValue_voice)
     end
 
-    inst:DoTaskInTime(0.01, function()
-        if inst._welina_numDeaths and inst._welina_numDeaths == 10 and not inst:HasTag("playerghost") then
-            TheFocalPoint.SoundEmitter:PlaySound(fmodtable.welina_finalbell, "finalbell")
-        end
-    end)
+    ----------------------------------------------------------------------
+    -- 2. DEATH BELL LOGIC
+    ----------------------------------------------------------------------
+    local emitter = TheFocalPoint.SoundEmitter
 
-    if inst._welina_numDeaths and inst._welina_numDeaths > 8 then
-        TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", health)
-    else
-        TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
+    -- Final Death State
+    if is_final_death and not inst:HasTag("playerghost") then
+        if not emitter:PlayingSound("finalbell") then
+            emitter:PlaySound(fmodtable.sfx._9lives.welina_finalbell, "finalbell")
+            emitter:KillSound("deathbell")
+        end
+    -- Normal Warning Bell State (9th life)
+    elseif is_last_life and not emitter:PlayingSound("deathbell") and not is_final_death then
+        local sound = TUNING.WELINA_LASTLIFE_MUSIC or fmodtable.sfx._9lives.welina_bell
+        emitter:PlaySound(sound, "deathbell")
+    end
+
+    ----------------------------------------------------------------------
+    -- 3. PARAMETERS (FMOD)
+    ----------------------------------------------------------------------
+    if emitter:PlayingSound("deathbell") then
+
+        emitter:SetParameter("deathbell", "health", is_last_life and health or 1)
     end
 end
 

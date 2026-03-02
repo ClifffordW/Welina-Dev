@@ -104,6 +104,8 @@ local function fn()
 
 	inst.UseableTargetedItem_ValidTarget = IsKitcoon		-- Note: Runs on client
 
+    inst.pickupsound = "welina_dogtags"
+    
     inst.entity:SetPristine()
     if not TheWorld.ismastersim then
         return inst
