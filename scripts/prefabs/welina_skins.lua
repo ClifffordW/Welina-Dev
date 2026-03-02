@@ -7,6 +7,10 @@ table.insert(prefabs, CreatePrefabSkin("welina_none", {
 		Asset( "ANIM", "anim/welina.zip" ),
 
 		Asset( "ANIM", "anim/ghost_welina_build.zip" ),
+		Asset( "ANIM", "anim/welina_hiss_anim.zip" )
+
+
+
 	},
 
 	skins = {
@@ -28,6 +32,7 @@ table.insert(prefabs, CreatePrefabSkin("ms_welina_gown", {
 	{
 		Asset( "DYNAMIC_ANIM", "anim/dynamic/ms_welina_gown.zip" ),
 		Asset( "PKGREF", "anim/dynamic/ms_welina_gown.dyn" ),
+		Asset( "ANIM", "anim/welina_hiss_anim_gown.zip" )
 	},
 
 	skins = {
@@ -49,6 +54,7 @@ table.insert(prefabs, CreatePrefabSkin("ms_welina_doorman", {
 	{
 		Asset( "DYNAMIC_ANIM", "anim/dynamic/ms_welina_doorman.zip" ),
 		Asset( "PKGREF", "anim/dynamic/ms_welina_doorman.dyn" ),
+		Asset( "ANIM", "anim/welina_hiss_anim_doorman.zip" )
 	},
 
 	skins = {
@@ -70,6 +76,7 @@ table.insert(prefabs, CreatePrefabSkin("ms_welina_homestuck", {
 	{
 		Asset( "DYNAMIC_ANIM", "anim/dynamic/ms_welina_homestuck.zip" ),
 		Asset( "PKGREF", "anim/dynamic/ms_welina_homestuck.dyn" ),
+		Asset( "ANIM", "anim/welina_hiss_anim_gown.zip" )
 	},
 
 	skins = {
@@ -91,6 +98,7 @@ table.insert(prefabs, CreatePrefabSkin("ms_welina_xmas", {
 	{
 		Asset( "DYNAMIC_ANIM", "anim/dynamic/ms_welina_xmas.zip" ),
 		Asset( "PKGREF", "anim/dynamic/ms_welina_xmas.dyn" ),
+		Asset( "ANIM", "anim/welina_hiss_anim_xmas.zip" )
 	},
 
 	skins = {

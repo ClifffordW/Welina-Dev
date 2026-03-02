@@ -6,6 +6,11 @@ local fmodtable = require("defs.sound.fmodtable_scotchmintz_characters").Event
 
 local assets = {
     Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
+    Asset("ANIM", "anim/welina_puke.zip"),
+    Asset("ANIM", "anim/welina_puke_beef.zip"),
+
+
+
     --Asset("SCRIPT", "scripts/prefabs/skilltree_welina.lua")
 }
 

@@ -10,7 +10,10 @@ AddPrefab("welina_nametag")
 AddPrefab("welina_catdye")
 
 
+
+
 STRINGS.RECIPE_DESC.WELINA_CATCOONDEN = "Cozy."
+
 
 if TUNING.WELINA_CRAFTABLE_DENS == 1 then
     AddCharacterRecipe("welina_catcoonden", -- name
@@ -23,7 +26,8 @@ if TUNING.WELINA_CRAFTABLE_DENS == 1 then
         {             -- config
             placer = "welina_catcoonden_placer",
             builder_tag = "emocatgirl",
-
+            atlas = "images/inventoryimages/welina_items.xml",
+            image = "welina_catcoonden.tex",
 
         },
         { -- filters
@@ -54,6 +58,57 @@ AddCharacterRecipe("welina_cattoy", -- name
         "MODS",
         "TOOLS",
     })
+
+
+
+--[[ AddRecipeFilter_2("welina_dyes", "welinadyes", "welina_catdye_black", "Welina's Catcoon Dyes", "inventoryimages")
+
+
+local ASSET_LUT = require("defs.atlas.invimages")
+
+local dye_ings = {
+    welina_catdye_black = {
+        Ingredient("charcoal", 2),
+        Ingredient("jetfeather", 1),
+        Ingredient("stinger", 1),
+    },
+    welina_catdye_inverted = {
+        Ingredient("nightmarefuel", 2),
+        Ingredient("glowberry", 1),
+        Ingredient("silk", 2),
+    },
+    fallback = {
+        Ingredient("charcoal", 4), -- Safety net for future colors
+    }
+}
+
+
+
+
+for dye_prefab, dye_name in pairs(ASSET_LUT["welina_dyes"]) do
+    
+    local ingredients = dye_ings[dye_prefab] or dye_ings.fallback
+    
+ 
+    AddRecipe2(
+        dye_prefab,             
+        ingredients,            
+        GLOBAL.TECH.NONE,       
+        {                        
+            builder_tag = "emocatgirl",
+            atlas = resolvefilepath("images/inventoryimages/welina_dyes.xml"),
+            image = dye_prefab..".tex",
+        }, 
+        {                        -- Filters
+            "WELINADYES",
+            "TOOLS",
+        }
+    )
+end ]]
+
+
+
+
 
 
 

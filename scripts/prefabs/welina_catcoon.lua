@@ -7,7 +7,8 @@ local assets = {
     --Asset("ANIM", "anim/welina_catcoon_actions.zip"),
     Asset("ANIM", "anim/welina_catcoon_new.zip"),
 
-	Asset("ANIM", "anim/welina_catcoon_black.zip"),
+	Asset("ANIM", "anim/catcoon_dyes/welina_catcoon_black.zip"),
+	Asset("ANIM", "anim/catcoon_dyes/welina_catcoon_inverted.zip"),
 
 
 

@@ -913,61 +913,8 @@ AddPrefabPostInitAny(function(inst)
     TryMakeResentable(inst)
 end)
 
---[[ AddPrefabPostInit("wonkey", function(inst, data, ...)
-    local DummyFn = function() end
 
-    local _SaveForReroll = inst.SaveForReroll or DummyFn
-    local _LoadForReroll = inst.LoadForReroll or DummyFn
-
-    local function SaveForReroll(inst, ...)
-        local ret = { _SaveForReroll(inst, ...) }
-
-        local data = ret[1]
-
-
-
-        if data ~= nil then
-            data.welina_numDeaths = inst.welina_numDeaths
-        end
-
-        return unpack(ret)
-    end
-
-    local function LoadForReroll(inst, data, ...)
-        local ret = { _LoadForReroll(inst, data, ...) }
-
-
-        if data ~= nil and data.welina_numDeaths ~= nil then
-            inst.welina_numDeaths = data.welina_numDeaths
-        end
-
-
-        return unpack(ret)
-    end
-
-
-    function OnSave(inst, data)
-        data.welina_numDeaths = inst.welina_numDeaths and inst.welina_numDeaths or nil
-    end
-
-    function OnLoad(inst, data)
-        if data and data.welina_numDeaths ~= nil then
-            inst.welina_numDeaths = data.welina_numDeaths
-
-
-
-        end
-    end
-
-
-
-
-    inst.OnSave = OnSave
-    inst.OnLoad = OnLoad
-    inst.SaveForReroll = SaveForReroll
-    inst.LoadForReroll = LoadForReroll
-end) ]]
-
+--Catcoon Container
 local params = {}
 
 params.welina_catcoon = {
@@ -1086,7 +1033,10 @@ AddClassPostConstruct("widgets/containerwidget", function(self, ...)
                 local hat, collar,dye = items[1], items[2], items[3]
                 if self.bganim then
 
+
                     self.bganim:SetPosition(50,0)
+
+
 
                     if hat then
                         self.bganim.inst.AnimState:OverrideSkinSymbol("swap_hat", hat.AnimState:GetBuild(), "swap_hat")
@@ -1094,8 +1044,29 @@ AddClassPostConstruct("widgets/containerwidget", function(self, ...)
                     if collar then
                         self.bganim.inst.AnimState:OverrideSkinSymbol("swap_welinacollar", "swap_collar_"..collar.prefab:gsub("welina_collar_", ""), "swap_body")
                     end
-                    if dye then 
-                        self.bganim.inst.AnimState:SetBuild("welina_catcoon_"..dye.colour)
+                    if dye  then 
+                        self.bganim.inst.AnimState:SetBuild("welina_catcoon_"..dye.prefab:gsub("welina_catdye_", ""))
+
+                        if dye.prefab:find("inverted") then
+
+
+                            self.bganim.inst.AnimState:SetSymbolMultColour("swap_hat", 0,0,0,1)
+                            self.bganim.inst.AnimState:SetSymbolAddColour("swap_hat", 1,1,1,1)
+                            
+                            self.bganim.inst.AnimState:SetSymbolMultColour("swap_welinacollar", 0,0,0,1)
+                            self.bganim.inst.AnimState:SetSymbolAddColour("swap_welinacollar", 1,1,1,1)
+                        end
+
+
+                    else
+
+
+                        self.bganim.inst.AnimState:SetSymbolMultColour("swap_hat", 1,1,1,1)
+                        self.bganim.inst.AnimState:SetSymbolAddColour("swap_hat", 0,0,0,0)
+                        
+                        self.bganim.inst.AnimState:SetSymbolMultColour("swap_welinacollar", 1,1,1,1)
+                        self.bganim.inst.AnimState:SetSymbolAddColour("swap_welinacollar", 0,0,0,0)
+
 
                     end
 
@@ -1127,9 +1098,20 @@ AddClassPostConstruct("widgets/containerwidget", function(self, ...)
 
 				end
 
+                TUNING.DYETEST = dye
+                if dye  then 
+                    self.bganim.inst.AnimState:SetBuild("welina_catcoon_"..dye.prefab:gsub("welina_catdye_", ""))
 
-                if dye then 
-                    self.bganim.inst.AnimState:SetBuild("welina_catcoon_"..dye.colour)
+                    if dye.prefab:find("inverted") then
+
+
+                        self.bganim.inst.AnimState:SetSymbolMultColour("swap_hat", 0,0,0,1)
+                        self.bganim.inst.AnimState:SetSymbolAddColour("swap_hat", 1,1,1,1)
+                        
+                        self.bganim.inst.AnimState:SetSymbolMultColour("swap_welinacollar", 0,0,0,1)
+                        self.bganim.inst.AnimState:SetSymbolAddColour("swap_welinacollar", 1,1,1,1)
+                    end
+
 
                 end
 
@@ -1145,7 +1127,7 @@ AddClassPostConstruct("widgets/containerwidget", function(self, ...)
 		if self and self.container and self.container.prefab == "welina_catcoon"  then
             local items = self.container.replica.container:GetItems()
 
-
+            
 			if self.bganim and data.slot then
 				local tileslot = self.inv[data.slot]
 
@@ -1160,6 +1142,12 @@ AddClassPostConstruct("widgets/containerwidget", function(self, ...)
 				end
 
                 if data.slot == 3 then
+                    self.bganim.inst.AnimState:SetSymbolMultColour("swap_hat", 1,1,1,1)
+                    self.bganim.inst.AnimState:SetSymbolAddColour("swap_hat", 0,0,0,0)
+                    
+                    self.bganim.inst.AnimState:SetSymbolMultColour("swap_welinacollar", 1,1,1,1)
+                    self.bganim.inst.AnimState:SetSymbolAddColour("swap_welinacollar", 0,0,0,0)
+
                     self.bganim.inst.AnimState:SetBuild("catcoon_build")
                 end
 
@@ -1200,15 +1188,6 @@ AddClassPostConstruct("widgets/writeablewidget", function(self, ...)
 
         
     end)
---[[ 
-	function self:OnControl(control, down)
-		if self._base.OnControl(self, control, down) then
-			return true
-		end
-
-	end ]]
-
-
 
 
 end)
@@ -1247,127 +1226,7 @@ modimport("init/init_all")
 
 
 
-local tex_to_register = 
 
-{
-
-    "welina_nametag",
-    "welina_catnip",
-    "welina_cattoy",
-    "welina_collar_spiked",
-    "welina_collar_armor",
-    "welina_collar_bomb",
-    "welina_collar_glass",
-    "welina_collar_light",
-    "welina_collar_regen",
-    "welina_catcoonden",
-    "welina_catdye_black",
-
-}
-
-local scrapbooktex_to_register = 
-
-{
-
-
-    "welina_catcoonden",
-
-}
-
-
-
-
-
-for _,v in pairs(tex_to_register) do 
-    RegisterInventoryItemAtlas(softresolvefilepath("images/inventoryimages/welina_items.xml"), v..".tex")
-end
-
-
-
-
-
-for _,v in pairs(scrapbooktex_to_register) do 
-    RegisterScrapbookIconAtlas(resolvefilepath("images/inventoryimages/welina_scrapbookitems.xml"), v..".tex")
-end
-
-
-
---[[
-AddPrefabPostInit("catcoonden", function(inst, ...)
-	local function temperaturetick(inst, sleeper)
-		if sleeper.components.temperature ~= nil then
-			if inst.is_cooling then
-				if sleeper.components.temperature:GetCurrent() > TUNING.SLEEP_TARGET_TEMP_TENT then
-					sleeper.components.temperature:SetTemperature(
-						sleeper.components.temperature:GetCurrent() - TUNING.SLEEP_TEMP_PER_TICK
-					)
-				end
-			elseif sleeper.components.temperature:GetCurrent() < TUNING.SLEEP_TARGET_TEMP_TENT then
-				sleeper.components.temperature:SetTemperature(
-					sleeper.components.temperature:GetCurrent() + TUNING.SLEEP_TEMP_PER_TICK
-				)
-			end
-		end
-	end
-
-	local function PlaySleepLoopSoundTask(inst, stopfn)
-		-- inst.SoundEmitter:PlaySound("dontstarve/common/tent_sleep")
-	end
-	local function stopsleepsound(inst)
-		if inst.sleep_tasks ~= nil then
-			for i, v in ipairs(inst.sleep_tasks) do
-				v:Cancel()
-			end
-			inst.sleep_tasks = nil
-		end
-	end
-
-	local function startsleepsound(inst, len)
-		stopsleepsound(inst)
-		inst.sleep_tasks = {
-			inst:DoPeriodicTask(len, PlaySleepLoopSoundTask, 33 * FRAMES),
-			inst:DoPeriodicTask(len, PlaySleepLoopSoundTask, 47 * FRAMES),
-		}
-	end
-
-	local function onwake(inst, sleeper, nostatechange)
-		inst.AnimState:PlayAnimation("idle")
-		inst.SoundEmitter:PlaySound("webber2/common/spiderden/out")
-		stopsleepsound(inst)
-	end
-
-	local function onsleep(inst, sleeper)
-		inst.AnimState:PlayAnimation("idle")
-		inst.SoundEmitter:PlaySound("webber2/common/spiderden/in")
-		startsleepsound(inst, inst.AnimState:GetCurrentAnimationLength())
-	end
-
-	local function AddSleepingBag(inst)
-		if inst.components.sleepingbag == nil then
-			inst:AddComponent("sleepingbag")
-		end
-
-		inst.components.sleepingbag.onsleep = onsleep
-		inst.components.sleepingbag.onwake = onwake
-
-		inst.components.sleepingbag.health_tick = TUNING.SLEEP_HEALTH_PER_TICK * 1.5
-		inst.components.sleepingbag.hunger_tick = TUNING.SLEEP_HUNGER_PER_TICK * 1.5
-		inst.components.sleepingbag.dryingrate = math.max(0, -TUNING.SLEEP_WETNESS_PER_TICK / TUNING.SLEEP_TICK_PERIOD)
-
-		inst.components.sleepingbag:SetTemperatureTickFn(temperaturetick)
-
-		inst:AddTag("tent")
-	end
-
-	if not TheWorld.ismastersim then
-		return inst
-	end
-
-	inst:DoTaskInTime(0, function()
-		AddSleepingBag(inst)
-	end)
-end)
---]]
 
 if TUNING.WELINA_OSP == 1 then
     local function MayKill(self, amount)

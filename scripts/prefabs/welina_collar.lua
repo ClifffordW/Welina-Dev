@@ -2,6 +2,15 @@ local assets = {
 	Asset("ANIM", "anim/welina_collar.zip"),
 	Asset("ANIM", "anim/ui_welina_collar.zip"),
 
+
+	Asset("ANIM", "anim/swap_collar_bomb.zip"),
+	Asset("ANIM", "anim/swap_collar_spiked.zip"),
+	Asset("ANIM", "anim/swap_collar_regen.zip"),
+	Asset("ANIM", "anim/swap_collar_light.zip"),
+	Asset("ANIM", "anim/swap_collar_glass.zip"),
+
+
+
 }
 
 --[[ local function LightCollar(inst, owner)

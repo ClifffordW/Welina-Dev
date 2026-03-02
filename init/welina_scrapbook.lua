@@ -42,7 +42,8 @@ STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_COLLAR_LIGHT = "Emits light when worn.\nCon
 
 
 STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_NAMETAG = "Put a name on your fur friend!"
-
+STRINGS.SCRAPBOOK.SPECIALINFO.WELINA_CATDYE = "Put a colour on your fur friend!\nIt may smolder and explode if too close to fire."
+STRINGS.SCRAPBOOK.SUBCATS.WELINA_DYES = "Catcoon Dyes"
 
 local SCRAPBOOK_ITEMS = {
 
@@ -184,7 +185,21 @@ local SCRAPBOOK_ITEMS = {
 		specialinfo    = "WELINA_NAMETAG",
 	},
 
-
+    welina_catdye_black = {
+		name = "welina_catdye_black",
+		type = "item",
+		tex = "welina_catdye_black.tex",
+		prefab = "welina_catdye_black",
+		subcat = "welina_dyes",
+		burnable = true,
+		bank = "welina_catdye",
+		build = "welina_catdye",
+		anim = "idle_black",
+		deps = {"welina_catcoon"},
+		specialinfo    = "WELINA_CATDYE",
+		animoffsetx = 0,
+		animoffsety = -50,
+	},
 
 
 

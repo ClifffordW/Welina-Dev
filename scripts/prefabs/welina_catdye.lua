@@ -1,175 +1,240 @@
-local assets =
-{
-    Asset("ANIM", "anim/welina_nametag.zip"),
-    Asset("ANIM", "anim/ui_welina_collar.zip"),
+local assets = {
 
-    
-}
-
-local prefabs =
-{
+ 
+    Asset( "DYNAMIC_ATLAS", softresolvefilepath("images/inventoryimages/welina_dyes.xml") ),
+    Asset( "ATLAS_BUILD", "images/inventoryimages/welina_dyes.xml", 256 ),
+	Asset("ANIM", "anim/catcoon_dyes/welina_catcoon_dyetransition.zip")
 
 }
 
-STRINGS.NAMES.WELINA_CATDYE_BLACK = "Dye"
 
 
-local colours = 
 
-{
 
-    black = {0,0,0,1}
+local function OnIgniteFn(inst)
+    inst.SoundEmitter:PlaySound("dontstarve/common/blackpowder_fuse_LP", "hiss")
+    DefaultBurnFn(inst)
+end
+
+local function OnExtinguishFn(inst)
+    inst.SoundEmitter:KillSound("hiss")
+    DefaultExtinguishFn(inst)
+end
+
+local function OnExplodeFn(inst)
+    inst.SoundEmitter:KillSound("hiss")
+    SpawnPrefab("explode_small").Transform:SetPosition(inst.Transform:GetWorldPosition())
+end
+
+local prefabs = {
+    "welina_catdye_smoke",
+	 "explode_small",
 }
 
+local COLOURS = {
+    black = {0, 0, 0, 1},
+    inverted = {1, 1, 1, 1},
+
+	default = RGB(137,145,153)
+}
+
+
+
+
+
+
+
+--------------------------------------------------------------------------
 
 local function OnEquip(inst, owner)
-    if owner then
-
-        local fx = owner:SpawnChild("welina_catdye_smoke")
-        fx.AnimState:SetMultColour(unpack(colours[inst.colour]))
-        fx.AnimState:SetScale(1,1.9)
-        owner:DoTaskInTime(0.2, function()
-            owner.AnimState:SetBuild("welina_catcoon_"..inst.colour)
-        end)
-
+    -- 1. Check if we actually need to change the build and if FX is already playing
+    local current_build = owner.AnimState:GetBuild()
+    local target_build = "welina_catcoon_"..inst.colour
+    
+    -- Only spawn FX if the build is DIFFERENT and the player isn't already smoking
+    if current_build ~= target_build and not (owner.welina_dye_fx and owner.welina_dye_fx:IsValid()) then
+        local fx = SpawnPrefab("welina_catdye_smoke")
+        if fx then
+            fx.entity:SetParent(owner.entity)
+            fx.AnimState:SetMultColour(unpack(COLOURS[inst.colour] or {1, 1, 1, 1}))
+            fx.AnimState:SetScale(1.2, 1.2)
+            
+            owner.welina_dye_fx = fx
+            
+            fx:ListenForEvent("onremove", function() 
+                if owner:IsValid() then owner.welina_dye_fx = nil end 
+            end)
+        end
     end
+
+    if inst.pending_skin_task then inst.pending_skin_task:Cancel() end
+    inst.pending_skin_task = owner:DoTaskInTime(0.2, function(doer)
+        if doer:IsValid() and inst:IsValid() and inst.components.equippable:IsEquipped() then
+
+			if inst.colour == "inverted" then
+
+				owner.AnimState:SetSymbolMultColour("swap_hat", 0,0,0,1)
+				owner.AnimState:SetSymbolAddColour("swap_hat", 1,1,1,1)
+				
+				owner.AnimState:SetSymbolMultColour("swap_welinacollar", 0,0,0,1)
+				owner.AnimState:SetSymbolAddColour("swap_welinacollar", 1,1,1,1)
+
+	
+			end
+
+            doer.AnimState:SetBuild(target_build)
+        end
+        inst.pending_skin_task = nil
+    end)
 end
 
 local function OnUnequip(inst, owner)
-    owner.AnimState:SetBuild("catcoon_build")
+    if inst.pending_skin_task then
+        inst.pending_skin_task:Cancel()
+        inst.pending_skin_task = nil
+    end
+
+    if owner:IsValid() and not (owner.welina_dye_fx and owner.welina_dye_fx:IsValid()) then
+        local fx = SpawnPrefab("welina_catdye_smoke")
+        if fx then
+            fx.entity:SetParent(owner.entity)
+            fx.AnimState:SetMultColour(unpack(COLOURS.default or {1,1,1,1}))
+            fx.AnimState:SetScale(1.2, 1.2)
+            
+            owner.welina_dye_fx = fx
+            fx:ListenForEvent("onremove", function() 
+                if owner:IsValid() then owner.welina_dye_fx = nil end 
+            end)
+        end
+    end
+
+    if owner:IsValid() then
+		
+
+		owner.AnimState:SetSymbolMultColour("swap_hat", 1,1,1,1)
+		owner.AnimState:SetSymbolAddColour("swap_hat", 0,0,0,0)
+
+		owner.AnimState:SetSymbolMultColour("swap_welinacollar", 1,1,1,1)
+		owner.AnimState:SetSymbolAddColour("swap_welinacollar", 0,0,0,0)
 
 
+        owner.AnimState:SetBuild("catcoon_build")
+    end
 end
 
+--------------------------------------------------------------------------
 
-local function commonfn(type)
-	-- Functions which are performed both on Client and Server start here.
-	local inst = CreateEntity()
-
-	inst.entity:AddTransform()
-	inst.entity:AddAnimState()
-	inst.entity:AddNetwork()
-	inst.entity:AddSoundEmitter()
-
-	MakeInventoryPhysics(inst)
-
-	-- Add minimap icon. Remember about its XML in modmain.lua!
-	--local minimap = inst.entity:AddMiniMapEntity()
-	--minimap:SetIcon("custom_hat.tex")
-
-	--[[ ANIMSTATE ]]
-	--
-	-- This is the name visible on the top of hierarchy in Spriter.
-	inst.AnimState:SetBank("welina_catdye")
-	-- This is the name of your compiled*.zip file.
-	inst.AnimState:SetBuild("welina_catdye")
-	-- This is the animation name while item is on the ground.
-
-	inst.AnimState:PlayAnimation("idle_"..type)
-
-    
-	inst:AddTag("welinacatcoon_dye")
-
-	MakeInventoryFloatable(inst, "small", 0.1, 1.12)
-
-	inst.entity:SetPristine()
-
-	--inst.foleysound = "dontstarve/movement/foley/bushhat"
-
-	if not TheWorld.ismastersim then
-		-- If we're not the host - stop performing further functions.
-		-- Only server functions below.
-		return inst
-	end
+local function commonfn(colour_name)
+    local inst = CreateEntity()
 
 
-    inst.colour = type
-
-
-
-	inst:AddComponent("equippable")
-	inst.components.equippable.equipslot = EQUIPSLOTS.WELINA_DYE
-	inst.components.equippable:SetOnEquip(OnEquip)
-	inst.components.equippable:SetOnUnequip(OnUnequip)
-	inst.components.equippable.restrictedtag = "sinner"
-
-
-
-    inst:AddComponent("inspectable")
-    inst:AddComponent("inventoryitem")
-
-
-
-	MakeHauntableLaunch(inst)
-
-	return inst
-end
-
-
-
-
-
-
-
-local function black()
-	local inst = commonfn("black")
-
-
-
-
-
-
-	if not TheWorld.ismastersim then
-		return inst
-	end
-
-
-
-
-
-
-
-
-
-	return inst
-end
-
-
-
-
-
-local function smoke()
-	local inst = CreateEntity()
     inst.entity:AddTransform()
     inst.entity:AddAnimState()
     inst.entity:AddNetwork()
+	inst.entity:AddSoundEmitter()
+
+	STRINGS.NAMES["WELINA_CATDYE_"..colour_name:upper()] = colour_name:sub(1,1):upper() .. colour_name:sub(2) .. " Dye"
 
 
-    inst.AnimState:SetBuild("max_fx")
-    inst.AnimState:SetBank("max_fx")
-    inst.AnimState:PlayAnimation("anim")
+
+    MakeInventoryPhysics(inst)
+
+    inst.AnimState:SetBank("welina_catdye")
+    inst.AnimState:SetBuild("welina_catdye")
+    inst.AnimState:PlayAnimation("idle_"..colour_name)
+	inst.Transform:SetPosition(0,9,0)
+
+    inst:AddTag("welinacatcoon_dye")
+    
+    -- Dedicated slot tag (if you have a custom slot)
+    -- inst:AddTag("nopunch") 
+
+    MakeInventoryFloatable(inst, "small", 0.1, 1.12)
 
     inst.entity:SetPristine()
-	if not TheWorld.ismastersim then
-		return inst
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+
+    inst.colour = colour_name
+
+    inst:AddComponent("inspectable")
+    
+    inst:AddComponent("inventoryitem")
+	
+	if not TheSim:AtlasContains(softresolvefilepath("images/inventoryimages/welina_dyes.xml"), "welina_catdye_"..colour_name..".tex") then
+		inst.components.inventoryitem.imagename = "welina_catdye_black"
+		inst.components.inventoryitem.atlasname = softresolvefilepath("images/inventoryimages/welina_dyes.xml")
 	end
 
 
 
+    MakeMediumBurnable(inst, 3 + math.random() * 3)
+    MakeSmallPropagator(inst)
+    --V2C: Remove default OnBurnt handler, as it conflicts with
+    --explosive component's OnBurnt handler for removing itself
+    inst.components.burnable:SetOnBurntFn(nil)
+    inst.components.burnable:SetOnIgniteFn(OnIgniteFn)
+    inst.components.burnable:SetOnExtinguishFn(OnExtinguishFn)
+
+    inst:AddComponent("explosive")
+    inst.components.explosive:SetOnExplodeFn(OnExplodeFn)
+    inst.components.explosive.explosivedamage = TUNING.GUNPOWDER_DAMAGE
 
 
 
 
 
 
-	return inst
+    inst:AddComponent("equippable")
+    inst.components.equippable.equipslot = EQUIPSLOTS.WELINA_DYE or EQUIPSLOTS.BODY
+    inst.components.equippable:SetOnEquip(OnEquip)
+    inst.components.equippable:SetOnUnequip(OnUnequip)
+    inst.components.equippable.restrictedtag = "sinner"
+
+    MakeHauntableLaunch(inst)
+
+    return inst
 end
 
+-- FX Prefab
+local function smokefn()
+    local inst = CreateEntity()
+    inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddNetwork()
+	inst.entity:AddSoundEmitter()
+
+    inst:AddTag("FX")
+    inst:AddTag("NOCLIP")
+
+    inst.AnimState:SetBuild("welina_catcoon_dyetransition")
+    inst.AnimState:SetBank("welina_catcoon_dyetransition")
+    inst.AnimState:PlayAnimation("transition")
+	inst.AnimState:HideSymbol("mask")
+	inst.AnimState:HideSymbol("streaks")
+	inst.SoundEmitter:PlaySound("hallowednights2024/thrall_parasite/possess_monster","soundfx")
+	inst.AnimState:SetDeltaTimeMultiplier(1.2)
 
 
 
-return Prefab("welina_catdye_smoke", smoke, assets),
- 
-Prefab("welina_catdye_black", black, assets)
+    inst.entity:SetPristine()
+    if not TheWorld.ismastersim then return inst end
 
+    inst.persists = false
+    inst:ListenForEvent("animover", inst.Remove)
 
+    return inst
+end
+
+--------------------------------------------------------------------------
+
+-- Helper to create the specific color functions
+local function MakeDye(name)
+    return Prefab("welina_catdye_"..name, function() return commonfn(name) end, assets, prefabs)
+end
+
+return MakeDye("black"),
+       MakeDye("inverted"),
+       Prefab("welina_catdye_smoke", smokefn, assets)
