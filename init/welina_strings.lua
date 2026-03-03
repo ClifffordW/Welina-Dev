@@ -519,6 +519,7 @@ local namerandoms =
 local name = namerandoms[math.random(1, #namerandoms)]
 
 STRINGS.NAMES.WELINA_CATCOON = name or "Sinner"
+STRINGS.NAMES.WELINA_CATCOON_RANDOM = namerandoms
 
 
 -------------------------------------- Whisky Stuff -----------------------------------------------------------------

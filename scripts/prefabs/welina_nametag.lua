@@ -27,7 +27,7 @@ require("writeables").AddLayout("welina_nametag",
     middlebtn = {
         text = STRINGS.KITCOON_NAMING.MENU_RANDOM,
         cb = function(inst, doer, widget)
-            widget:OverrideText( STRINGS.KITCOON_NAMING.NAMES[math.random(#STRINGS.KITCOON_NAMING.NAMES)] )
+            widget:OverrideText( STRINGS.NAMES.WELINA_CATCOON_RANDOM[math.random(#STRINGS.NAMES.WELINA_CATCOON_RANDOM)] )
         end,
         control = CONTROL_MENU_MISC_2
     },

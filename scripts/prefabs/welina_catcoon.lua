@@ -776,6 +776,31 @@ local function onload(inst, data)
 				inst.AnimState:SetSymbolAddColour("swap_welinacollar", 0, 0, 0, 0)
 			end
 
+			if inst.overridebuild == "welina_catcoon_shadow" then
+
+				inst.AnimState:SetSymbolMultColour("swap_hat", 0,0,0,1)
+				
+				inst.AnimState:SetSymbolMultColour("swap_welinacollar", 0,0,0,1)
+				inst.AnimState:SetMultColour(0,0,0,.5)
+
+			else
+
+
+			
+
+				inst.AnimState:SetSymbolMultColour("swap_hat", 1,1,1,1)
+
+				inst.AnimState:SetSymbolMultColour("swap_welinacollar", 1,1,1,1)
+				inst.AnimState:SetMultColour(1,1,1,1)
+	
+			end
+
+
+
+
+
+
+
 
 		end
 

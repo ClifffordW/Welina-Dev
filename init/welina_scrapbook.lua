@@ -198,7 +198,7 @@ local SCRAPBOOK_ITEMS = {
 		deps = {"welina_catcoon"},
 		specialinfo    = "WELINA_CATDYE",
 		animoffsetx = 0,
-		animoffsety = -50,
+		animoffsety = 0,
 	},
 
 
