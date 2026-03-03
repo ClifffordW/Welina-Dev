@@ -15,6 +15,7 @@ local assets = {
 	Asset("SOUND", "sound/catcoon.fsb"),
 }
 
+
 local fmodtable = require("defs.sound.fmodtable_scotchmintz_characters").Track
 
 local prefabs = {
@@ -74,6 +75,20 @@ local prefabs = {
 	"ice",
 	"redpouch_yot_catcoon",
 }
+
+
+--[[ local prefabs_inv =
+{
+    "welina_catcoon_hatslot",
+    "welina_catcoon_collarslot",
+    "welina_catcoon_dyeslot",
+}
+
+local start_inv = {}
+for k, v in pairs(TUNING.GAMEMODE_STARTING_ITEMS) do
+	start_inv[string.lower(k)] = v.WELINA_CATCOON
+end ]]
+
 
 SetSharedLootTable("welina_catcoon", {
 	{ "meat", 1.00 },
@@ -486,6 +501,18 @@ local function fn_water()
 end
 --]]
 
+
+
+
+
+
+
+
+
+
+
+
+
 local function OnLocomote(inst)
 	if inst.components.locomotor:WantsToMoveForward() then
 		if
@@ -626,26 +653,24 @@ local function PatchStategraph(sg, idleanim, sailing_config, hop_anims)
     SailingCommonHandlerPatches.AddBoatLocomotion(sg, true, false)
 end
 
-local function OnContainerItemGet(inst, data)
-	if not data or not data.item then
-		return
-	end
-	local inv = inst.components.inventory
-	if not inv then
-		return
-	end
+--[[ local function OnContainerItemGet(inst, data)
+    if not data or not data.item then return end
+    local inv = inst.components.inventory
+    if not inv then return end
 
-	if data.slot == 1 then
-		inv:Unequip(EQUIPSLOTS.HEAD)
-		inv:Equip(data.item)
-	elseif data.slot == 2 then
-		inv:Unequip(EQUIPSLOTS.BODY)
-		inv:Equip(data.item)
-	elseif data.slot == 3 then
-		inv:Unequip(EQUIPSLOTS.WELINA_DYE)
-		inv:Equip(data.item)
-
-	end
+    -- Double check the tag again just in case a script forced it in
+    if data.slot == 1 and data.item:HasTag("hat") then
+        inv:Equip(data.item)
+    elseif data.slot == 2 and data.item:HasTag("welinacatcoon_collar") then
+        inv:Equip(data.item)
+    elseif data.slot == 3 and data.item:HasTag("welinacatcoon_dye") then
+        inv:Equip(data.item)
+    else
+        -- If something else somehow got into slots 1-3, spit it out!
+        if data.slot and data.slot <= 3 then
+            inst.components.container:DropItemBySlot(data.slot)
+        end
+    end
 end
 
 
@@ -674,7 +699,10 @@ local function OnItemEquippedFromContainer(inst, item)
 		if not item then
 			return
 		end
+		
+
 		local inv = inst.components.inventory
+		TUNING.ITEMTEST = item
 
 		local hat = inv:GetEquippedItem(EQUIPSLOTS.HEAD)
 		local collar = inv:GetEquippedItem(EQUIPSLOTS.BODY)
@@ -700,18 +728,59 @@ local function SetupCatcoonContainer(inst)
 	inst:ListenForEvent("itemget", OnContainerItemGet)
 	inst:ListenForEvent("itemlose", OnContainerItemLose)
 	inst:ListenForEvent("unequip", OnItemEquippedFromContainer)
+end ]]
+
+
+
+
+
+
+
+--[[ local function SetupCatcoonSlots(inst)
+    if inst.components.inventory:GetEquippedItem(EQUIPSLOTS.CATCOONSLOTS) then
+        return  -- already set up, e.g. loading from save
+    end
+
+    local slots = SpawnPrefab("welina_catcoon_slots")
+    inst.components.inventory:Equip(slots)
+    -- inst.container is set automatically by onequip in welina_catcoon_slots.lua
+end ]]
+
+
+local function onsave(inst, data)
+    if inst.overridebuild then
+        data.overridebuild = inst.overridebuild
+	end
+
 end
 
+local function onload(inst, data)
+    if data ~= nil then
+		if data.overridebuild ~= nil then
+			inst.overridebuild = data.overridebuild
+			inst.AnimState:SetBuild(inst.overridebuild)
+
+			if inst.overridebuild == "welina_catcoon_inverted" then
+
+				inst.AnimState:SetSymbolMultColour("swap_hat", 0, 0, 0, 1)
+				inst.AnimState:SetSymbolAddColour("swap_hat", 1, 1, 1, 1)
+
+				inst.AnimState:SetSymbolMultColour("swap_welinacollar", 0, 0, 0, 1)
+				inst.AnimState:SetSymbolAddColour("swap_welinacollar", 1, 1, 1, 1)
+			else
+
+				inst.AnimState:SetSymbolMultColour("swap_hat", 1, 1, 1, 1)
+				inst.AnimState:SetSymbolAddColour("swap_hat", 0, 0, 0, 0)
+
+				inst.AnimState:SetSymbolMultColour("swap_welinacollar", 1, 1, 1, 1)
+				inst.AnimState:SetSymbolAddColour("swap_welinacollar", 0, 0, 0, 0)
+			end
 
 
+		end
 
-
-
-
-
-
-
-
+    end
+end
 
 
 
@@ -766,6 +835,7 @@ local function fn()
 	inst.waterfx:Hide()
 --]]
 
+
 	inst.entity:SetPristine()
 
 	if not TheWorld.ismastersim then
@@ -791,7 +861,7 @@ local function fn()
 	inst:ListenForEvent("attacked", OnAttacked)
 	inst.components.combat.battlecryinterval = 20
 
-	SetupCatcoonContainer(inst)
+	--SetupCatcoonContainer(inst)
 
 
 
@@ -871,6 +941,9 @@ local function fn()
 	inst:AddComponent("inventory")
 	inst.components.inventory.maxslots = 12
 
+
+	--SetupCatcoonSlots(inst)
+
 	-- boat hopping
 	inst.components.locomotor:SetAllowPlatformHopping(true)
 	inst:AddComponent("embarker")
@@ -918,6 +991,9 @@ local function fn()
 
 	inst.ScheduleRaining = ScheduleRaining
 	inst.OnLoadPostPass = OnLoadPostPass
+	inst.OnSave = onsave
+    inst.OnLoad = onload
+
 
 	MakeHauntablePanicAndIgnite(inst)
 

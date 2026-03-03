@@ -3,6 +3,7 @@
     <folder id="0" name="catnip">
         <file id="0" name="catnip/catnip-0.png" width="133" height="196" pivot_x="0.56391" pivot_y="0.602041"/>
         <file id="1" name="catnip/catnip-1.png" width="133" height="196" pivot_x="0.56391" pivot_y="0.602041"/>
+        <file id="2" name="catnip/catnip-2.png" width="133" height="196" pivot_x="0.56391" pivot_y="0.602041"/>
     </folder>
     <entity id="0" name="welina_catdye">
         <animation id="0" name="idle_black" length="33" interval="33">
@@ -35,6 +36,24 @@
             <timeline id="0" name="black">
                 <key id="0" curve_type="instant">
                     <object folder="0" file="1" x="0.35" y="58.35" angle="0"/>
+                </key>
+                <key id="1" time="33" curve_type="instant">
+                    <object folder="0" file="1" x="0.35" y="58.35" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="2" name="idle_catcoon" length="33" interval="33">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="33">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="black">
+                <key id="0" curve_type="instant">
+                    <object folder="0" file="2" x="0.35" y="58.35" angle="0"/>
                 </key>
                 <key id="1" time="33" curve_type="instant">
                     <object folder="0" file="1" x="0.35" y="58.35" angle="0"/>

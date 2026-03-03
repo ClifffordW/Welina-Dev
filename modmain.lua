@@ -17,7 +17,7 @@ end
 
 
 
-EQUIPSLOTS.WELINA_DYE = "dyeslot"
+EQUIPSLOTS.WELINA_DYE = "catdye"
 
 
 
@@ -25,7 +25,6 @@ EQUIPSLOTS.WELINA_DYE = "dyeslot"
 AddRepairType("trinket_22", "trinket_22")
 
 
-local welina_sounds = require("defs.sound.fmod_defs")
 
 local modnameFancy = "workshop-1637709131"
 local is_modenabled = _G.KnownModIndex:IsModEnabled(modnameFancy)

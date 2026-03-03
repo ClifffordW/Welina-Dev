@@ -3,7 +3,8 @@
     <Texture filename="welina_dyes.tex"/>
     <Elements>
         <Element name="welina_catdye_black.tex" u1="0.00195313" u2="0.271484" v1="0.480469" v2="0.996094"/>
-        <Element name="welina_catdye_inverted.tex" u1="0.279297" u2="0.548828" v1="0.480469" v2="0.996094"/>
+        <Element name="welina_catdye_catcoon.tex" u1="0.275391" u2="0.544922" v1="0.480469" v2="0.996094"/>
+        <Element name="welina_catdye_inverted.tex" u1="0.548828" u2="0.818359" v1="0.480469" v2="0.996094"/>
     </Elements>
     <StraightAlpha>false</StraightAlpha>
 </Atlas>

@@ -36,7 +36,7 @@ local COLOURS = {
     black = {0, 0, 0, 1},
     inverted = {1, 1, 1, 1},
 
-	default = RGB(137,145,153)
+	catcoon = RGB(137,145,153)
 }
 
 
@@ -48,65 +48,95 @@ local COLOURS = {
 --------------------------------------------------------------------------
 
 local function OnEquip(inst, owner)
-    -- 1. Check if we actually need to change the build and if FX is already playing
-    local current_build = owner.AnimState:GetBuild()
-    local target_build = "welina_catcoon_"..inst.colour
-    
-    -- Only spawn FX if the build is DIFFERENT and the player isn't already smoking
-    
-    if not owner then return end
-
-
-
-    if owner.components.container then
-        if owner.components.container:IsOpen() then
-            owner.components.container:Close()
+    if inst and inst:IsValid() then
+        inst:DoTaskInTime(0, function()
+            -- 1. Check if we actually need to change the build and if FX is already playing
+            local current_build = owner.AnimState:GetBuild()
+            local target_build = "welina_catcoon_"..inst.colour
             
-        end
-        owner.components.container:CanOpen(false)
-    end
-    
-    
-    if current_build ~= target_build and not (owner.welina_dye_fx and owner.welina_dye_fx:IsValid()) then
-        local fx = SpawnPrefab("welina_catdye_smoke")
-        if fx then
-            fx.entity:SetParent(owner.entity)
-            fx.AnimState:SetMultColour(unpack(COLOURS[inst.colour] or {1, 1, 1, 1}))
-            fx.AnimState:SetScale(1.2, 1.2)
+            -- Only spawn FX if the build is DIFFERENT and the player isn't already smoking
             
-            owner.welina_dye_fx = fx
-            
-            fx:ListenForEvent("onremove", function() 
-                if owner:IsValid() then owner.welina_dye_fx = nil end 
-            end)
-        end
-    end
-    
 
-    if inst.pending_skin_task then inst.pending_skin_task:Cancel() end
-    inst.pending_skin_task = owner:DoTaskInTime(0.575, function(doer)
-        if doer:IsValid() and inst:IsValid() and inst.components.equippable:IsEquipped() then
-
-            if owner.components.container then
-     
-                owner.components.container:CanOpen(true)
+            if inst.colour == "catcoon" then
+                target_build = "catcoon_build"
             end
 
-			if inst.colour == "inverted" then
+            print(inst.colour)
+            
+            if not owner then return end
 
-				owner.AnimState:SetSymbolMultColour("swap_hat", 0,0,0,1)
-				owner.AnimState:SetSymbolAddColour("swap_hat", 1,1,1,1)
-				
-				owner.AnimState:SetSymbolMultColour("swap_welinacollar", 0,0,0,1)
-				owner.AnimState:SetSymbolAddColour("swap_welinacollar", 1,1,1,1)
 
-	
-			end
+            if current_build == target_build then
+                return
+            end
+            owner.overridebuild = target_build
 
-            doer.AnimState:SetBuild(target_build)
-        end
-        inst.pending_skin_task = nil
-    end)
+            if owner.components.container then
+                if owner.components.container:IsOpen() then
+                    owner.components.container:Close()
+                    
+                end
+                owner.components.container:CanOpen(false)
+            end
+            
+            
+            if current_build ~= target_build and not (owner.welina_dye_fx and owner.welina_dye_fx:IsValid()) then
+                local fx = SpawnPrefab("welina_catdye_smoke")
+                if fx then
+                    fx.entity:SetParent(owner.entity)
+                    print(COLOURS[inst.colour])
+                    fx.AnimState:SetMultColour(unpack(COLOURS[inst.colour] or {1, 1, 1, 1}))
+                    fx.AnimState:SetScale(1.2, 1.2)
+                    
+                    owner.welina_dye_fx = fx
+        
+                end
+            end
+            
+
+            if inst.pending_skin_task then inst.pending_skin_task:Cancel() end
+            inst.pending_skin_task = owner:DoTaskInTime(0.575, function()
+                if owner:IsValid() and inst:IsValid() and inst.components.equippable:IsEquipped() then
+
+                    if owner.components.container then
+            
+                        owner.components.container:CanOpen(true)
+                    end
+
+                    if inst.colour == "inverted" then
+
+                        owner.AnimState:SetSymbolMultColour("swap_hat", 0,0,0,1)
+                        owner.AnimState:SetSymbolAddColour("swap_hat", 1,1,1,1)
+                        
+                        owner.AnimState:SetSymbolMultColour("swap_welinacollar", 0,0,0,1)
+                        owner.AnimState:SetSymbolAddColour("swap_welinacollar", 1,1,1,1)
+
+                    else
+
+
+            
+
+                    
+
+                        owner.AnimState:SetSymbolMultColour("swap_hat", 1,1,1,1)
+                        owner.AnimState:SetSymbolAddColour("swap_hat", 0,0,0,0)
+
+                        owner.AnimState:SetSymbolMultColour("swap_welinacollar", 1,1,1,1)
+                        owner.AnimState:SetSymbolAddColour("swap_welinacollar", 0,0,0,0)
+
+
+            
+
+
+            
+                    end
+
+                    owner.AnimState:SetBuild(target_build)
+                end
+                inst.pending_skin_task = nil
+            end)
+        end)
+    end
 end
 
 local function OnUnequip(inst, owner)
@@ -141,7 +171,7 @@ local function OnUnequip(inst, owner)
                 end)
             end
         end
-    owner:DoTaskInTime(0.575, function(doer)
+    owner:DoTaskInTime(0.575, function()
         if owner:IsValid() then
 
             if owner.components.container then
@@ -165,7 +195,7 @@ end
 
 --------------------------------------------------------------------------
 
-local function commonfn(colour_name)
+local function commonfn(colour_name, overrideanim)
     local inst = CreateEntity()
 
 
@@ -182,7 +212,7 @@ local function commonfn(colour_name)
 
     inst.AnimState:SetBank("welina_catdye")
     inst.AnimState:SetBuild("welina_catdye")
-    inst.AnimState:PlayAnimation("idle_"..colour_name)
+    inst.AnimState:PlayAnimation("idle_"..(overrideanim or colour_name))
 	inst.Transform:SetPosition(0,9,0)
 
     inst:AddTag("welinacatcoon_dye")
@@ -233,7 +263,7 @@ local function commonfn(colour_name)
     inst:AddComponent("equippable")
     inst.components.equippable.equipslot = EQUIPSLOTS.WELINA_DYE or EQUIPSLOTS.BODY
     inst.components.equippable:SetOnEquip(OnEquip)
-    inst.components.equippable:SetOnUnequip(OnUnequip)
+    --inst.components.equippable:SetOnUnequip(OnUnequip)
     inst.components.equippable.restrictedtag = "sinner"
 
     MakeHauntableLaunch(inst)
@@ -285,10 +315,11 @@ end
 --------------------------------------------------------------------------
 
 -- Helper to create the specific color functions
-local function MakeDye(name)
-    return Prefab("welina_catdye_"..name, function() return commonfn(name) end, assets, prefabs)
+local function MakeDye(name, overrideanim)
+    return Prefab("welina_catdye_"..name, function() return  overrideanim and commonfn(name,overrideanim) or commonfn(name) end, assets, prefabs)
 end
 
 return MakeDye("black"),
        MakeDye("inverted"),
+       MakeDye("catcoon", "black"),
        Prefab("welina_catdye_smoke", smokefn, assets)
