@@ -58,8 +58,6 @@ Assets = {
 
 
 
-AddDynamicAtlas("welina_hud")
-AddAnim("ui_welina_cat_2x1")
 
 
 

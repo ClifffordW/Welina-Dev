@@ -916,7 +916,7 @@ AddPrefabPostInitAny(function(inst)
 end)
 
 
---Catcoon Container
+--[[ --Catcoon Container
 local params = {}
 
 params.welina_catcoon = {
@@ -1164,7 +1164,7 @@ AddClassPostConstruct("widgets/containerwidget", function(self, ...)
 
 
 
-end)
+end) ]]
 
 
 
