@@ -20,6 +20,27 @@ end
 EQUIPSLOTS.WELINA_DYE = "catdye"
 
 
+--Debug do not remove
+global("print_welina")
+function _G.print_welina(val)
+
+
+    if TheNet and TheNet:GetUserID() == "KU_csyO78zI" then
+
+        
+        if type(val) ~= "table" then
+            print(val)
+        else
+            dumptable(val,1,1)
+        end
+
+    end
+
+
+
+
+end
+
 
 
 AddRepairType("trinket_22", "trinket_22")
@@ -914,6 +935,39 @@ AddPrefabPostInitAny(function(inst)
 
     TryMakeResentable(inst)
 end)
+
+
+
+
+
+STRINGS.ACTIONS.USEITEMON.WELINACAT_PAINT = "Paint Him"
+STRINGS.ACTIONS.USEITEMON.WELINACAT_NAME = "Name Him"
+
+
+local OldFunc = GLOBAL.ACTIONS.STORE.strfn
+
+
+
+
+ACTIONS.USEITEMON.strfn = function(act)
+    if act.invobject ~= nil and act.invobject.prefab:find("catdye") then
+        if act.target ~= nil and act.target:HasTag("sinner")   then
+            return  "WELINACAT_PAINT"
+        end
+        
+    end
+
+    if act.invobject ~= nil and act.invobject.prefab:find("welina_nametag") then
+        if act.target ~= nil and act.target:HasTag("sinner")   then
+            return  "WELINACAT_NAME"
+        end
+        
+    end
+
+	return OldFunc and OldFunc(act) or "GENERIC"
+end
+
+
 
 
 --[[ --Catcoon Container

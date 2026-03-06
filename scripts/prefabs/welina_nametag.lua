@@ -65,7 +65,10 @@ end
 local function OnNamedByWriteable(inst, new_name, writer)
     if new_name ~= nil and inst.naming_target ~= nil and inst.naming_target:IsValid() and inst.naming_target.components.named ~= nil then
         local name_actual = (writer ~= nil and writer.name ~= nil) and writer.name.."'s "..new_name or new_name, writer ~= nil and writer.userid or nil
-        inst.naming_target.components.named:SetName(ApplyLocalWordFilter(name_actual, TEXT_FILTER_CTX_NAME))
+        local is_inverted = inst.naming_target.AnimState:GetBuild():find("inverted")
+
+        
+        inst.naming_target.components.named:SetName(is_inverted and ApplyLocalWordFilter(name_actual, TEXT_FILTER_CTX_NAME):reverse() or ApplyLocalWordFilter(name_actual, TEXT_FILTER_CTX_NAME))
     end
 end
 

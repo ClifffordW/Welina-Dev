@@ -750,17 +750,38 @@ end ]]
 local function onsave(inst, data)
     if inst.overridebuild then
         data.overridebuild = inst.overridebuild
+		print_welina("SAVE: "..data.overridebuild)
 	end
+    if inst.is_slim_shady then
+        data.is_slim_shady = inst.is_slim_shady
+		print_welina("SAVE: "..tostring(data.is_slim_shady))
+	end
+
 
 end
 
+
+local function inverted_desc(inst, viewer)
+	if viewer then
+		return inst.AnimState:GetBuild():find("inverted") and STRINGS.CHARACTERS[viewer.prefab:upper()].DESCRIBE.WELINA_CATCOON:reverse()
+	end
+end
+
+
+
 local function onload(inst, data)
     if data ~= nil then
+		if data.is_slim_shady then
+			inst.is_slim_shady = data.is_slim_shady
+		end
+
 		if data.overridebuild ~= nil then
+			print_welina("LOAD: "..data.overridebuild)
 			inst.overridebuild = data.overridebuild
 			inst.AnimState:SetBuild(inst.overridebuild)
 
 			if inst.overridebuild == "welina_catcoon_inverted" then
+				inst.components.named:SetName(inst.name:reverse())
 
 				inst.AnimState:SetSymbolMultColour("swap_hat", 0, 0, 0, 1)
 				inst.AnimState:SetSymbolAddColour("swap_hat", 1, 1, 1, 1)
@@ -776,8 +797,8 @@ local function onload(inst, data)
 				inst.AnimState:SetSymbolAddColour("swap_welinacollar", 0, 0, 0, 0)
 			end
 
-			if inst.overridebuild == "welina_catcoon_shadow" then
-
+			if inst.is_slim_shady then
+				
 				inst.AnimState:SetSymbolMultColour("swap_hat", 0,0,0,1)
 				
 				inst.AnimState:SetSymbolMultColour("swap_welinacollar", 0,0,0,1)
@@ -872,6 +893,7 @@ local function fn()
 
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.descriptionfn = inverted_desc
 
 	inst:AddComponent("health")
 	inst.components.health:SetMaxHealth(300)
