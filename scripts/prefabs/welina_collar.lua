@@ -28,6 +28,8 @@ local assets = {
 	end)
 end ]]
 
+local fmodtable = require("defs.sound.fmodtable_scotchmintz_characters").Track
+
 local function OnIgniteFn(inst)
 	--inst.SoundEmitter:PlaySound("dontstarve/common/blackpowder_fuse_LP", "hiss")
 	DefaultBurnFn(inst)
@@ -241,6 +243,9 @@ local function OnEquip(inst, owner)
 		["spiked"] = true,
 		["light"] = true,
 	}
+
+
+	owner.SoundEmitter:PlaySound(fmodtable.sfx.equips.collar)
 
 	local isplayer = owner:HasTag("player")
     local skin_build = inst:GetSkinBuild()

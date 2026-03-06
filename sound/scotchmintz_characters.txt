@@ -208,6 +208,24 @@ Max. playbacks  : 6
 DSP Effects     : none
 Category        : master/set_sfx/HUD
 
+Name            : /sfx/item_pickup/cattoy
+Index           : /EVENTGROUP_SCOTCHMINTZ_CHARACTERS_SFX/EVENTGROUP_SFX_ITEM_PICKUP/EVENT_SCOTCHMINTZ_CHARACTERS_SFX_ITEM_PICKUP_CATTOY
+Id              : EVENTID_SCOTCHMINTZ_CHARACTERS_SFX_ITEM_PICKUP_CATTOY = 22
+GUID            : EVENTGUID_SCOTCHMINTZ_CHARACTERS_SFX_ITEM_PICKUP_CATTOY = {f988280c-7db9-4a3c-8602-2846fb186905}
+Notes           : 
+Max. playbacks  : 6
+DSP Effects     : none
+Category        : master/set_sfx/HUD
+
+Name            : /sfx/equips/collar
+Index           : /EVENTGROUP_SCOTCHMINTZ_CHARACTERS_SFX/EVENTGROUP_SFX_EQUIPS/EVENT_SCOTCHMINTZ_CHARACTERS_SFX_EQUIPS_COLLAR
+Id              : EVENTID_SCOTCHMINTZ_CHARACTERS_SFX_EQUIPS_COLLAR = 23
+GUID            : EVENTGUID_SCOTCHMINTZ_CHARACTERS_SFX_EQUIPS_COLLAR = {6d39ae02-1389-4604-bd50-5198f2c482c0}
+Notes           : 
+Max. playbacks  : 6
+DSP Effects     : none
+Category        : master/set_sfx/HUD
+
 Name            : /sfx/spray
 Index           : /EVENTGROUP_SCOTCHMINTZ_CHARACTERS_SFX/EVENT_SCOTCHMINTZ_CHARACTERS_SFX_SPRAY
 Id              : EVENTID_SCOTCHMINTZ_CHARACTERS_SFX_SPRAY = 11
@@ -260,6 +278,11 @@ Notes           :
 Name            : /sfx/item_pickup
 Index           : /EVENTGROUP_SCOTCHMINTZ_CHARACTERS_SFX/EVENTGROUP_SFX_ITEM_PICKUP
 Numerical Index : /2/3
+Notes           : 
+
+Name            : /sfx/equips
+Index           : /EVENTGROUP_SCOTCHMINTZ_CHARACTERS_SFX/EVENTGROUP_SFX_EQUIPS
+Numerical Index : /2/4
 Notes           : 
 
 

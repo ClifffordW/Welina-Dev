@@ -64,6 +64,8 @@ PICKUPSOUNDS["welina_paintcan"] = fmodtable.sfx.item_pickup.paintcan
 PICKUPSOUNDS["welina_catnip"] = fmodtable.sfx.item_pickup.catnip
 PICKUPSOUNDS["welina_dogtags"] = fmodtable.sfx.item_pickup.dogtags
 PICKUPSOUNDS["welina_collar"] = fmodtable.sfx.item_pickup.collar
+PICKUPSOUNDS["welina_cattoy"] = fmodtable.sfx.item_pickup.cattoy
+
 
 
 local function GotHigh(inst)
@@ -1262,6 +1264,28 @@ AddComponentAction("INVENTORY", "equippable", function(inst, doer, actions)
 end)
 
 
+--[[ 
+AddComponentAction("EQUIPPED", "complexprojectile", function(inst, doer, target, actions, right)
+
+
+
+    print("FART")
+
+
+
+    if inst and inst.prefab == "welina_cattoy" then
+        if right and not target:HasTag("_combat") then
+  
+            
+            
+            table.insert(actions, ACTIONS.TOSS)
+            
+        end
+    end
+
+
+    
+end) ]]
 
 
 
@@ -1275,7 +1299,6 @@ end)
 
 
 modimport("init/init_all")
-
 
 
 

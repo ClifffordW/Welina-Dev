@@ -69,11 +69,11 @@ Assets = {
 AddAnim("welina_catdye")
 
 AddSoundPackage("scotchmintz_characters")
-AddSoundBank("9lives")
-AddSoundBank("cattoy")
-AddSoundBank("cliff_shenanigans")
 AddSoundBank("welina")
-AddSoundBank("pickups")
+AddSoundBank("welina_music")
+AddSoundBank("welina_sfx")
+AddSoundBank("welina_pickup_sfx")
+
 
 
 AddMinimapAtlas("images/map_icons/welina.xml")

@@ -120,7 +120,7 @@ local function fn()
 	inst:AddTag("welina_cattoy")
 
 
-	inst.pickupsound = "cloth"
+	inst.pickupsound = "welina_cattoy"
 
     if KnownModIndex:IsModEnabled("workshop-1467214795") then
         inst:AddTag("complexprojectile_showoceanaction")

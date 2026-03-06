@@ -25,8 +25,12 @@ local fmodtable = {
                 welina_bell_forkintheroad = "scotchmintz_characters/sfx/9lives/welina_bell_forkintheroad",
                 welina_finalbell = "scotchmintz_characters/sfx/9lives/welina_finalbell",
             },
+            equips = {
+                collar = "scotchmintz_characters/sfx/equips/collar",
+            },
             item_pickup = {
                 catnip = "scotchmintz_characters/sfx/item_pickup/catnip",
+                cattoy = "scotchmintz_characters/sfx/item_pickup/cattoy",
                 collar = "scotchmintz_characters/sfx/item_pickup/collar",
                 dogtags = "scotchmintz_characters/sfx/item_pickup/dogtags",
                 paintcan = "scotchmintz_characters/sfx/item_pickup/paintcan",
