@@ -118,6 +118,7 @@ local function fn()
 	inst:AddTag("catbait")
 	inst:AddTag("workrepairable")
 	inst:AddTag("welina_cattoy")
+	inst:AddTag("keep_equip_toss")
 
 
 	inst.pickupsound = "welina_cattoy"
@@ -144,6 +145,8 @@ local function fn()
 	inst.components.inventoryitem.bouncesound = fmodtable.sfx.monkeyball.bounce
 
 
+	
+
 
 	inst:AddComponent("equippable")
 	inst.components.equippable:SetOnEquip(onequip)
@@ -164,6 +167,7 @@ local function fn()
 	inst.components.complexprojectile:SetLaunchOffset(Vector3(.25, 1, 0))
 	inst.components.complexprojectile:SetOnLaunch(onthrown)
 	inst.components.complexprojectile:SetOnHit(onhitground)
+	inst.components.complexprojectile.ismeleeweapon = true
 
 
 	--MakeRepairable(inst, "trinket_22")
