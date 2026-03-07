@@ -316,26 +316,16 @@ local function ShouldAcceptItem(inst, item)
 	if item.prefab == "winter_food4" then
 		return
 	end
-	local hasneckslot = KnownModIndex:IsModEnabled("workshop-375850593")  and EQUIPSLOTS.NECK or EQUIPSLOTS.BODY
-
+	local hasneckslot = KnownModIndex:IsModEnabled("workshop-375850593") and EQUIPSLOTS.NECK or EQUIPSLOTS.BODY
 
 	if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
 		return true
 	elseif
 		item.components.equippable ~= nil
 		and item.components.equippable.equipslot == hasneckslot
- 		and item:HasTag("welinacatcoon_collar")
-
-
-
+		and item:HasTag("welinacatcoon_collar")
 	then
 		return true
-
-	elseif item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.WELINA_DYE   then
-			
-		return true
-	
-
 	elseif item:HasTag("cattoy") or item:HasTag("catfood") or item:HasTag("cattoyairborne") then
 		return true
 	else
@@ -752,6 +742,8 @@ local function onsave(inst, data)
         data.overridebuild = inst.overridebuild
 		print_welina("SAVE: "..data.overridebuild)
 	end
+
+	--NOTES(C4W) Shadow Check
     if inst.is_slim_shady then
         data.is_slim_shady = inst.is_slim_shady
 		print_welina("SAVE: "..tostring(data.is_slim_shady))

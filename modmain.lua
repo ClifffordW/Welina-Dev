@@ -946,27 +946,34 @@ STRINGS.ACTIONS.USEITEMON.WELINACAT_PAINT = "Paint Him"
 STRINGS.ACTIONS.USEITEMON.WELINACAT_NAME = "Name Him"
 
 
-local OldFunc = GLOBAL.ACTIONS.STORE.strfn
+local OldFunc = GLOBAL.ACTIONS.USEITEMON.strfn
 
 
 
 
 ACTIONS.USEITEMON.strfn = function(act)
-    if act.invobject ~= nil and act.invobject.prefab:find("catdye") then
-        if act.target ~= nil and act.target:HasTag("sinner")   then
-            return  "WELINACAT_PAINT"
+
+    if act.invobject ~= nil then
+        if act.invobject.prefab:find("welina_nametag") then
+            if act.target ~= nil and act.target:HasTag("sinner")   then
+                print("LOL")
+                return  "WELINACAT_NAME"
+            end
+        elseif act.invobject.prefab:find("welina_catdye") then
+                
+            if act.target ~= nil and act.target:HasTag("sinner")   then
+                return  "WELINACAT_PAINT"
+            end
+
+        else
+            return OldFunc and OldFunc(act) or "GENERIC"
+            
+
+            
         end
-        
     end
 
-    if act.invobject ~= nil and act.invobject.prefab:find("welina_nametag") then
-        if act.target ~= nil and act.target:HasTag("sinner")   then
-            return  "WELINACAT_NAME"
-        end
-        
-    end
-
-	return OldFunc and OldFunc(act) or "GENERIC"
+	
 end
 
 
@@ -1224,10 +1231,14 @@ end) ]]
 
 
 
-AddClassPostConstruct("widgets/writeablewidget", function(self, ...)
+AddClassPostConstruct("widgets/writeablewidget", function(self, owner, writeable, config, ...)
     self.inst:DoTaskInTime(0, function()
 		--self.edit_text:SetEditing(false)
+
+
         if self.writeable and self.writeable.prefab and self.writeable.prefab == "welina_nametag" then
+
+            
             self.edit_text:SetPosition(-25, 15, 0)
             self.edit_text:SetSize(60)
             
@@ -1239,7 +1250,7 @@ AddClassPostConstruct("widgets/writeablewidget", function(self, ...)
 			self.edit_text.edit_text_color = { 1, 1, 1, 1 } --{1,1,1,1}
 
 
-           
+
     
 
         end
@@ -1249,6 +1260,7 @@ AddClassPostConstruct("widgets/writeablewidget", function(self, ...)
 
 
 end)
+
 
 
 

@@ -29,7 +29,7 @@ end
 
 local prefabs = {
     "welina_catdye_smoke",
-	 "explode_small",
+	"explode_small",
 }
 
 local COLOURS = {
@@ -171,6 +171,8 @@ local function commonfn(colour_name, overrideanim)
     -- Dedicated slot tag (if you have a custom slot)
     -- inst:AddTag("nopunch") 
 
+    inst.UseableTargetedItem_ValidTarget = IsKitcoon
+
     inst.pickupsound = "welina_paintcan"
 
     MakeInventoryFloatable(inst, "small", 0.1, 1.12)
@@ -206,7 +208,6 @@ local function commonfn(colour_name, overrideanim)
     inst.components.explosive:SetOnExplodeFn(OnExplodeFn)
     inst.components.explosive.explosivedamage = TUNING.GUNPOWDER_DAMAGE
 
-    inst.UseableTargetedItem_ValidTarget = IsKitcoon
 
     inst:AddComponent("useabletargeteditem")
     inst.components.useabletargeteditem:SetOnUseFn(OnUseOnKitcoon)

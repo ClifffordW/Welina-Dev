@@ -41,9 +41,19 @@ require("writeables").AddLayout("welina_nametag",
 local function OnUseOnKitcoon(inst, target, doer)
 	inst.naming_target = target
 
+
 	if inst.components.writeable ~= nil then
 	    inst.components.writeable:BeginWriting(doer)
 	end
+
+    scheduler:ExecuteInTime(0.5, function()
+        if inst.components.writeable ~= nil and inst.components.writeable.screen then
+            
+            TUNING.LOL = inst.components.writeable.screen 
+        else
+            print("SCREEN DOES NOT EXIST")
+        end
+    end)
 
     if target.components.locomotor ~= nil then
         target.components.locomotor:StopMoving()
