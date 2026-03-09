@@ -774,6 +774,7 @@ local function onload(inst, data)
 
 			if inst.overridebuild == "welina_catcoon_inverted" then
 				inst.components.named:SetName(inst.name:reverse())
+				
 
 				inst.AnimState:SetSymbolMultColour("swap_hat", 0, 0, 0, 1)
 				inst.AnimState:SetSymbolAddColour("swap_hat", 1, 1, 1, 1)

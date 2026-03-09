@@ -81,12 +81,20 @@ local function OnUseOnKitcoon(inst, target, doer)
     local current_build = target.AnimState:GetBuild()
     local target_build = (colour == "catcoon" or is_shadow) and "catcoon_build" or "welina_catcoon_"..colour
 
-    if target.AnimState:GetBuild() == target_build then
-        return false, is_shadow and "WELINACAT_PAINT_FAIL_SHADOW" or  "WELINACAT_PAINT_FAIL" 
+    local is_already_painted = (target.AnimState:GetBuild() == target_build)
+    local is_already_shadow = (target.is_slim_shady) 
+
+    if is_already_painted and (is_shadow == is_already_shadow) then
+        return false, is_shadow and "WELINACAT_PAINT_FAIL_SHADOW" or "WELINACAT_PAINT_FAIL"
     end
 
     if is_shadow then
         target.is_slim_shady = true
+
+
+        
+
+
     else
         target.is_slim_shady = false
     end
