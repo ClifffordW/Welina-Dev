@@ -9,7 +9,6 @@ local assets = {
 
 	Asset("ANIM", "anim/catcoon_dyes/welina_catcoon_black.zip"),
 	Asset("ANIM", "anim/catcoon_dyes/welina_catcoon_inverted.zip"),
-	Asset("ANIM", "anim/catcoon_dyes/welina_catcoon_normal.zip"), --Normal Map Cat
 
 
 

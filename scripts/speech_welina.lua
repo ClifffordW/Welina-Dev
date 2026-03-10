@@ -313,9 +313,7 @@ return{
 			BEEF_BELL_HAS_BEEF_ALREADY = "One's already too myuch for meow.",
 			BEEF_BELL_INVALID_TARGET = "Nyah, not gonna work.",
 
-			--Paint Can
-			WELINACAT_PAINT_FAIL = "He already has that coat.",
-			WELINACAT_PAINT_FAIL_SHADOW = "He's already shady enough.",
+
 
 
 		},
