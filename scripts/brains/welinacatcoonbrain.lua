@@ -32,69 +32,31 @@ local function restore_toy_tag(targ, tag)
 end
 
 local function PlayAction(inst)
-	if inst.sg:HasStateTag("busy") or (inst.hairball_friend_interval and inst.hairball_friend_interval <= 5) then
+    if inst.sg:HasStateTag("busy") or (inst.hairball_friend_interval and inst.hairball_friend_interval <= 5) then 
 		return
 	end
 
-	local target = FindEntity(inst, 10, function(item)
-		return item:IsOnPassablePoint()
-	end, nil, NO_TAGS, PLAY_TAGS)
-
-	local pt = inst:GetPosition()
-	local ents = TheSim:FindEntities(
-		pt.x,
-		pt.y,
-		pt.z,
-		15,
-		{ "welina_cattoy" },
-		{ "aquatic", "falling", "INLIMBO", "NOCLICK" }
-	)
-
-    for _, ent in ipairs(ents) do
-        if ent:IsOnPassablePoint() then
-            target = ent
-            break
-        end
-    end
-
-
+    local target = FindEntity(inst, TUNING.CATCOON_TARGET_DIST, function(item) return item:IsOnPassablePoint() end, nil, NO_TAGS, PLAY_TAGS)
 	if target ~= nil then
-		local target_pt = target:GetPosition()
-		local player_too_close = FindClosestPlayerInRange(target_pt.x, target_pt.y, target_pt.z, 5, true)
-
-		-- CHANGE: If a player IS close, return nil to cancel the action.
-		if player_too_close ~= nil then
-			return nil
-		end
-
 		local action = nil
 		local cattoyairborne = target:HasTag("cattoyairborne")
+		local tag = cattoyairborne and "cattoyairborne" 
+					or target:HasTag("cattoy") and "cattoy" 
+					or "catfood"
 
-		-- Determine the correct tag to track cooldowns
-		local tag = cattoyairborne and "cattoyairborne" or target:HasTag("cattoy") and "cattoy" or "catfood"
-
-		-- Logic for jumping at air toys vs ground toys
-		if
-			cattoyairborne and not (target.sg and (target.sg:HasStateTag("landing") or target.sg:HasStateTag("landed")))
-		then
-			-- Cooldown check so the cat doesn't spam air jumps
+		if cattoyairborne and not (target.sg and (target.sg:HasStateTag("landing") or target.sg:HasStateTag("landed"))) then
 			if inst.last_play_air_time and (GetTime() - inst.last_play_air_time) < 15 then
-				return nil -- Explicitly return nil
+				return 
 			end
 			action = BufferedAction(inst, target, ACTIONS.CATPLAYAIR)
 		else
 			action = BufferedAction(inst, target, ACTIONS.CATPLAYGROUND)
 		end
 
-		-- IMPORTANT: Only remove tags if we actually successfully created an action
-		if action then
-			target:RemoveTag(tag)
-			target:DoTaskInTime(30, restore_toy_tag, tag)
-			return action
-		end
+		target:RemoveTag(tag)
+		target:DoTaskInTime(30, restore_toy_tag, tag)
+		return action
 	end
-
-	return nil
 end
 
 local function HasValidHome(inst)
@@ -291,7 +253,7 @@ local function  TakeBallAction(inst)
         end
     end
 
-    return BufferedAction(inst, ball, ACTIONS.CATPLAYGROUND)
+    return BufferedAction(inst, ball, ACTIONS.CATPLAYGROUND, ball)
 end
 
 
@@ -470,7 +432,7 @@ function CatcoonBrain:OnStart()
             })
         ),
 
-        IfNode(function() return not self.inst.components.inventory:Has("welina_cattoy", 1) end, "Needs Toy",
+        IfNode(function() local leader = GetLeader(self.inst) return (leader and not self.inst.components.inventory:Has("welina_cattoy", 1)) end, "Needs Toy",
             DoAction(self.inst, TakeBallAction, "takeballact", true)
         ),     
         
@@ -492,7 +454,7 @@ function CatcoonBrain:OnStart()
 --[[         WhileNode(function() return self.inst.components.inventory:IsFull() end, "DepositInv",
             DoAction(self.inst, GoHomeAction, "go home", false)), ]]
         
-            IfNode(function() return not self.inst.components.inventory:IsFull() end, "Inv Not Full",
+        IfNode(function() return not self.inst.components.inventory:IsFull() end, "Inv Not Full",
             DoAction(self.inst, PlayAction, "play", true)),
 
 		IfNode(function() return ShouldHairball(self.inst) end, "hairball",
