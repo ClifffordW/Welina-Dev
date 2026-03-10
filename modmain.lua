@@ -944,6 +944,18 @@ end)
 
 STRINGS.ACTIONS.USEITEMON.WELINACAT_PAINT = "Paint Him"
 STRINGS.ACTIONS.USEITEMON.WELINACAT_NAME = "Name Him"
+STRINGS.CHARACTERS.GENERIC.ACTIONFAIL.USEITEMON.WELINACAT_NAME = 
+{
+
+
+}
+
+
+STRINGS.CHARACTERS.GENERIC.ACTIONFAIL.USEITEMON.WELINACAT_NAME_NOTMINE =  "Not my chore to name the cat."
+STRINGS.CHARACTERS.GENERIC.ACTIONFAIL.USEITEMON.WELINACAT_SPRAY_NOTMINE =  "Not my chore to paint the cat."
+
+
+
 
 
 local OldFunc = GLOBAL.ACTIONS.USEITEMON.strfn
@@ -956,7 +968,6 @@ ACTIONS.USEITEMON.strfn = function(act)
     if act.invobject ~= nil then
         if act.invobject.prefab:find("welina_nametag") then
             if act.target ~= nil and act.target:HasTag("sinner")   then
-                print("LOL")
                 return  "WELINACAT_NAME"
             end
         elseif act.invobject.prefab:find("welina_catdye") then

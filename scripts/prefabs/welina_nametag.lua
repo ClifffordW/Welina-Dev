@@ -41,6 +41,11 @@ require("writeables").AddLayout("welina_nametag",
 local function OnUseOnKitcoon(inst, target, doer)
 	inst.naming_target = target
 
+    local leader = target.components.follower:GetLeader()
+    if doer ~= leader then
+        return false, "WELINACAT_NAME_NOTMINE"
+    end
+
 
 	if inst.components.writeable ~= nil then
 	    inst.components.writeable:BeginWriting(doer)
@@ -73,6 +78,11 @@ local function OnUseOnKitcoon(inst, target, doer)
 end
 
 local function OnNamedByWriteable(inst, new_name, writer)
+
+    if writer.prefab ~= "welina" then 
+        return
+    end
+
     if new_name ~= nil and inst.naming_target ~= nil and inst.naming_target:IsValid() and inst.naming_target.components.named ~= nil then
         local name_actual = (writer ~= nil and writer.name ~= nil) and writer.name.."'s "..new_name or new_name, writer ~= nil and writer.userid or nil
         local is_inverted = inst.naming_target.AnimState:GetBuild():find("inverted")

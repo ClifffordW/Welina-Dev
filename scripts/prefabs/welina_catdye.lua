@@ -75,6 +75,12 @@ end
 local function OnUseOnKitcoon(inst, target, doer)
     if not (inst:IsValid() and target:IsValid()) then return false end
 
+    local leader = target.components.follower:GetLeader()
+    if doer ~= leader then
+        return false, "WELINACAT_SPRAY_NOTMINE"
+    end
+
+
     local colour = inst.colour or "catcoon"
     local is_shadow = colour == "shadow"
     
@@ -285,5 +291,6 @@ return MakeDye("black"),
        MakeDye("inverted"),
        MakeDye("catcoon"),
        MakeDye("shadow", "black"),
+       MakeDye("normal", "black"),
 
        Prefab("welina_catdye_smoke", smokefn, assets)
