@@ -311,12 +311,18 @@ local function PickRandomGift(inst, tier)
 	return GetRandomItem(table[tier])
 end
 
-local function ShouldAcceptItem(inst, item)
+local function ShouldAcceptItem(inst, item, giver)
 	--NOTES(CW): No escaping the eternal fruitcake
 	if item.prefab == "winter_food4" then
 		return
 	end
 	local hasneckslot = KnownModIndex:IsModEnabled("workshop-375850593") and EQUIPSLOTS.NECK or EQUIPSLOTS.BODY
+	if giver then
+		local leader = inst.components.follower:GetLeader()
+		if giver ~= leader then
+			return false, "WELINACAT_GIVE_NOTMINE"
+		end
+	end
 
 	if item.components.equippable ~= nil and item.components.equippable.equipslot == EQUIPSLOTS.HEAD then
 		return true
@@ -335,6 +341,9 @@ local function ShouldAcceptItem(inst, item)
 end
 
 local function OnGetItemFromPlayer(inst, giver, item)
+
+
+
 	if not item.components.equippable then
 		if inst.components.sleeper:IsAsleep() then
 			inst.components.sleeper:WakeUp()
@@ -945,7 +954,7 @@ local function fn()
     end) ]]
 
 	inst:AddComponent("trader")
-	inst.components.trader:SetAcceptTest(ShouldAcceptItem)
+	inst.components.trader:SetAbleToAcceptTest(ShouldAcceptItem)
 	inst.components.trader.onaccept = OnGetItemFromPlayer
 	inst.components.trader.onrefuse = OnRefuseItem
 	inst.components.trader.deleteitemonaccept = false

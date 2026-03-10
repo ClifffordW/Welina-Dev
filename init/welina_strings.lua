@@ -1,6 +1,23 @@
+
+
+
+--Action fail for Spray and Name tag
+STRINGS.ACTIONS.USEITEMON.WELINACAT_PAINT = "Paint Him"
+STRINGS.ACTIONS.USEITEMON.WELINACAT_NAME = "Name Him"
+
+
+--Action fail if the user is not leader of the cat
+STRINGS.CHARACTERS.GENERIC.ACTIONFAIL.GIVE.WELINACAT_GIVE_NOTMINE = "The cat will only accept stuff from their owner."
+STRINGS.CHARACTERS.GENERIC.ACTIONFAIL.USEITEMON.WELINACAT_NAME_NOTMINE =  "If i named it. I'd be pun-ished."
+STRINGS.CHARACTERS.GENERIC.ACTIONFAIL.USEITEMON.WELINACAT_SPRAY_NOTMINE =  "I will get arrested for painting car that ain't mine."
+
+--Action fail if the user is welina and not leader of the cat
+STRINGS.CHARACTERS.WELINA.ACTIONFAIL.GIVE.WELINACAT_GIVE_NOTMINE = "Not meow cat."
+STRINGS.CHARACTERS.WELINA.ACTIONFAIL.USEITEMON.WELINACAT_PAINT_FAIL = "He already has that coat."
+STRINGS.CHARACTERS.WELINA.ACTIONFAIL.USEITEMON.WELINACAT_PAINT_FAIL_SHADOW = "He's already shady enough."
+
+
 --Describe Welina
-
-
 STRINGS.CHARACTERS.WEBBER.DESCRIBE.WELINA =
 {
     GENERIC = "I hope you don't hate us like the other cats, Ms.%s!",
