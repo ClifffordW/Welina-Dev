@@ -2,21 +2,21 @@
 
 
 --Action fail for Spray and Name tag
-STRINGS.ACTIONS.USEITEMON.WELINACAT_PAINT = "Paint Him"
-STRINGS.ACTIONS.USEITEMON.WELINACAT_NAME = "Name Him"
+STRINGS.ACTIONS.USEITEMON.WELINACAT_PAINT = "Paint"
+STRINGS.ACTIONS.USEITEMON.WELINACAT_NAME = "Name"
 
 
 --Action fail if the user is not leader of the cat
-STRINGS.CHARACTERS.GENERIC.ACTIONFAIL.GIVE.WELINACAT_GIVE_NOTMINE = "The cat will only accept stuff from their owner."
-STRINGS.CHARACTERS.GENERIC.ACTIONFAIL.USEITEMON.WELINACAT_NAME_NOTMINE =  "If i named it. I'd be pun-ished."
-STRINGS.CHARACTERS.GENERIC.ACTIONFAIL.USEITEMON.WELINACAT_SPRAY_NOTMINE =  "I will get arrested for painting car that ain't mine."
+STRINGS.CHARACTERS.GENERIC.ACTIONFAIL.GIVE.WELINACAT_GIVE_NOTMINE = "They will only accept stuff from their owner."
+STRINGS.CHARACTERS.GENERIC.ACTIONFAIL.USEITEMON.WELINACAT_NAME_NOTMINE =  "It's not mine."
+STRINGS.CHARACTERS.GENERIC.ACTIONFAIL.USEITEMON.WELINACAT_SPRAY_NOTMINE =  "It's not mine."
 
 --Action fail if the user is welina and not leader of the cat
-STRINGS.CHARACTERS.WELINA.ACTIONFAIL.GIVE.WELINACAT_GIVE_NOTMINE = "Not meow cat."
+STRINGS.CHARACTERS.WELINA.ACTIONFAIL.GIVE.WELINACAT_GIVE_NOTMINE = "That catcoon is not my problem."
 
 --Action fail with specific conditions
-STRINGS.CHARACTERS.WELINA.ACTIONFAIL.USEITEMON.WELINACAT_PAINT_FAIL = "He already has that coat."
-STRINGS.CHARACTERS.WELINA.ACTIONFAIL.USEITEMON.WELINACAT_PAINT_FAIL_SHADOW = "He's already shady enough."
+STRINGS.CHARACTERS.WELINA.ACTIONFAIL.USEITEMON.WELINACAT_PAINT_FAIL = "It already has that coat."
+STRINGS.CHARACTERS.WELINA.ACTIONFAIL.USEITEMON.WELINACAT_PAINT_FAIL_SHADOW = "It's already shady enough."
 
 
 --Describe Welina
@@ -207,11 +207,11 @@ FIRESTARTER = "This cat's way too excited to be playing with fire.",
 STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA =
 {
 GENERIC = "I am... I'm all of meow.",
-ATTACKER = "You're not acting in my best interest, are you?",
+ATTACKER = "You're not acting in my best interest, %s.",
 MURDERER = "I knew better than anyaone it'd come to this.",
-REVIVER = "She knows her way around ghosts, I would know.",
-GHOST = "You'll be outta this world if you keep that up.",
-FIRESTARTER = "It's tempting to watch the world burn, isn't it.",
+REVIVER = "%s knows her way around ghosts, I would know.",
+GHOST = "You'll be outta this world if you keep that up, %s.",
+FIRESTARTER = "It's tempting to watch the world burn, isn't it %s.",
 }
 
 STRINGS.CHARACTERS.WELINA.DESCRIBE.WELINA_CATCOON = "Smells like cat spirit."
@@ -480,59 +480,18 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.WELINA_NAMETAG = "I don't think catcoons und
 local namerandoms = 
 
 {
-    "Catcoon",
-    "Sinner",
-    "Mentos",
-	"Lux",
-	"Diego",
-	"Jackz",
-	"John Uncompromising",
-	"Creatura",
-	"Douglas",
-	"Cliff Ford",
-	"Juicer",
-	"The Amazing Maxwell",
-	"Beagle",
-	"Sewer",
-	"Lavender",
-	"Dallas",
-	"Chains",
-	"Hoxton",
-	"Wolf",
-	"Dog",
-	"Cringus",
-	"Big Boobs",
-	"Kanye",
-	"Froggert",
-	"Warrior",
-	"Pumkin",
-	"Vez",
-	"Coach",
-	"Nick",
-	"Ellis",
-	"Rochelle",
-	"Man",
-	"Cuteof",
-	"Noop",
-	"Kicker",
-	"Muncher",
-	"Sleeper",
-	"Bishop",
-	"Miku",
-	"Driller",
-	"God",
-	"Destroyer Of Worlds",
-	"Wright",
-	"Clicker",
-	"Limbusser",
-	"Soggy Cat",
-	"Suguri",
-	"Gunner",
-	"Bosco",
-	"Engineer",
-	"Scout",
-	"Teto",
-	"Figgy",
+    "Catcoon", "Sinner", "Mentos", "Lux", "Diego", "Jackz", "John Uncompromising",	
+	"Creatura",	"Douglas",	"Cliff Ford", "Juicer",	"The Amazing Maxwell", "Beagle",
+	"Sewer", "Lavender", "Dallas", "Chains", "Hoxton", "Wolf", "Dog", "Cringus",
+	"Big Boobs", "Kanye", "Froggert", "Warrior", "Pumkin", "Vez", "Coach", "Nick",
+	"Ellis", "Rochelle", "Man",	"Cuteof", "Noop", "Kicker", "Muncher", "Sleeper",
+	"Bishop", "Miku", "Driller", "God", "Destroyer Of Worlds", "Wright", "Clicker",
+	"Limbusser", "Soggy Cat", "Suguri", "Gunner", "Bosco", "Engineer", "Scout",
+	"Teto",	"Figgy", "Solus", "Puffy", "Rapi", "Mipzorp", "Glorpzorp", "Wei Lina",
+	"Whisky", "Elegg", "Meowskulls", "Cologne", "Filium", "Shithead", "u th1nk ur s4f3",
+	"Reisen", "Peko", "Ringlet", "Dar Cape", "Neru", "Shifty", "Hair Apparent", "Lloyd",
+	"Quency", "Nobody Chan", "Bouncer", "MLG GOD", "Noir", "Shawty", "Catzer", "Ricky Sama",
+	"Jacket", "Capoo", "Kronii", "Kiana", "Source", "Newell", "Meegu", "Yerma", "Cancun",
 }
 
 local name = namerandoms[math.random(1, #namerandoms)]
@@ -600,6 +559,6 @@ STRINGS.NAMES.WELINA_CATCOON_RANDOM = namerandoms
         ATTACKER = "%s's got a little sting.",
         MURDERER = "Weetie would never meowrder anyaone, what did you do to him.",
         REVIVER = "It's rare to find genuine kindness... I kinda like that in you.",
-        GHOST = "Ah %s, you little dummy...",
+        GHOST = "Ah %s, you little dumbass...",
         FIRESTARTER = "If my tail catches on fire I'm burning your bee hives, %s.",
     }

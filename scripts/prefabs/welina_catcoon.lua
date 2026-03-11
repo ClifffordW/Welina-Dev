@@ -898,10 +898,10 @@ local function fn()
 	inst.components.inspectable.descriptionfn = inverted_desc
 
 	inst:AddComponent("health")
-	inst.components.health:SetMaxHealth(300)
+	inst.components.health:SetMaxHealth(200)
 
 	inst:AddComponent("combat")
-	inst.components.combat:SetDefaultDamage(50)
+	inst.components.combat:SetDefaultDamage(30)
 	inst.components.combat:SetRange(TUNING.CATCOON_ATTACK_RANGE)
 	inst.components.combat:SetAttackPeriod(TUNING.CATCOON_ATTACK_PERIOD)
 	inst.components.combat:SetKeepTargetFunction(KeepTargetFn)
@@ -985,7 +985,7 @@ local function fn()
 	inst.components.sleeper:SetSleepTest(SleepTest)
 
 	inst:AddComponent("locomotor")
-	inst.components.locomotor.walkspeed = 3 * 1.5
+	inst.components.locomotor.walkspeed = 3 * 1.2
 
 	inst:AddComponent("inventory")
 	inst.components.inventory.maxslots = 12

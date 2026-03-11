@@ -291,6 +291,6 @@ return MakeDye("black"),
        MakeDye("inverted"),
        MakeDye("catcoon"),
        MakeDye("shadow", "black"),
-       MakeDye("normal", "black"),
+       MakeDye("blue", "blue"),
 
        Prefab("welina_catdye_smoke", smokefn, assets)

@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Atlas>
-    <Texture filename="welina_dyes.tex"/>
-    <Elements>
-        <Element name="welina_catdye_black.tex" u1="0.00195313" u2="0.271484" v1="0.740234" v2="0.998047"/>
-        <Element name="welina_catdye_catcoon.tex" u1="0.279297" u2="0.548828" v1="0.740234" v2="0.998047"/>
-        <Element name="welina_catdye_inverted.tex" u1="0.556641" u2="0.826172" v1="0.740234" v2="0.998047"/>
-        <Element name="welina_catdye_shadow.tex" u1="0.00195313" u2="0.271484" v1="0.474609" v2="0.732422"/>
-    </Elements>
-    <StraightAlpha>false</StraightAlpha>
+	<Texture filename="welina_dyes.tex" />
+	<Elements>
+		<Element name="welina_catdye_black.tex" u1="0.001" u2="0.2724375" v2="0.999" v1="0.73928125" variant="" />
+		<Element name="welina_catdye_blue.tex" u1="0.2744375" u2="0.545875" v2="0.999" v1="0.73928125" variant="" />
+		<Element name="welina_catdye_catcoon.tex" u1="0.547875" u2="0.8193125" v2="0.999" v1="0.73928125" variant="" />
+		<Element name="welina_catdye_gold.tex" u1="0.001" u2="0.2724375" v2="0.73728125" v1="0.4775625" variant="" />
+		<Element name="welina_catdye_inverted.tex" u1="0.2744375" u2="0.545875" v2="0.73728125" v1="0.4775625" variant="" />
+		<Element name="welina_catdye_shadow.tex" u1="0.547875" u2="0.8193125" v2="0.73728125" v1="0.4775625" variant="" />
+	</Elements>
 </Atlas>
-
