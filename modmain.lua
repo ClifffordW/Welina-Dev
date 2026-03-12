@@ -20,7 +20,7 @@ end
 EQUIPSLOTS.WELINA_DYE = "catdye"
 
 
---Debug do not remove
+--WARNING Debug do not remove
 global("print_welina")
 function _G.print_welina(val)
 
@@ -149,8 +149,7 @@ AddPrefabPostInit("whip", function(inst)
                     and not v.sg:HasStateTag("transform")
                     and not v.sg:HasStateTag("nointerrupt")
                     and not v.sg:HasStateTag("frozen")
-                --and not v.sg:HasStateTag("attack")
-                --and not v.sg:HasStateTag("busy")
+
                 then
                     if v.components.sleeper ~= nil then
                         v.components.sleeper:WakeUp()
@@ -713,91 +712,7 @@ ACTIONS.WELINA_CAT_EQUIPHAT.strfn = function(act)
         or nil
 end
 
---[[ STRINGS.ACTIONS.WELINA_STEALFROM_CAT = 
-{
-    HAT = "Take Hat",
-    COLLAR = "Take Collar"
-}
 
-
-ACTIONS.WELINA_STEALFROM_CAT = Action()
-ACTIONS.WELINA_STEALFROM_CAT.id = "WELINA_STEALFROM_CAT"
-ACTIONS.WELINA_STEALFROM_CAT.rmb = true
-ACTIONS.WELINA_STEALFROM_CAT.priority = 2
-ACTIONS.WELINA_STEALFROM_CAT.str = "Take All From Cat"
-
-ACTIONS.WELINA_STEALFROM_CAT.strfn = function(act)
-	if act.target then
-		local inv = act.target.components.inventory
-		if inv then
-			local hat = inv:GetEquippedItem(EQUIPSLOTS.HEAD)
-			local collar = inv:GetEquippedItem(EQUIPSLOTS.BODY)
-			if TheInput:IsKeyDown(CONTROL_INSPECT) then
-				return hat and "HAT" or (collar and "COLLAR" or "COLLAR")
-			else
-				return collar and "COLLAR" or (hat and "HAT" or "COLLAR")
-			end
-		end
-	end
-	return "COLLAR"
-end
-
-ACTIONS.WELINA_STEALFROM_CAT.fn = function(act)
-	if act.target ~= nil and act.target.prefab == "welina_catcoon" then
-		local inv = act.target.components.inventory
-		local current_item
-
-		if TheInput:IsKeyDown(CONTROL_INSPECT) then
-			current_item = inv:GetEquippedItem(EQUIPSLOTS.HEAD) or inv:GetEquippedItem(EQUIPSLOTS.BODY)
-		else
-			current_item = inv:GetEquippedItem(EQUIPSLOTS.BODY) or inv:GetEquippedItem(EQUIPSLOTS.HEAD)
-		end
-
-		if current_item then
-			return (act.doer.components.inventory and act.doer.components.inventory:IsFull())
-					and act.target.components.inventory:DropItem(current_item)
-				or act.doer.components.inventory:GiveItem(current_item)
-		end
-
-		return true
-	end
-end
-
-
-
-AddComponentAction("SCENE", "follower", function(inst, doer, actions, right)
-
-    if inst.prefab == "welina_catcoon" then
-        local current_item = inst.components.inventory:GetEquippedItem(EQUIPSLOTS.HEAD)
-        or inst.components.inventory:GetEquippedItem(EQUIPSLOTS.BODY)
-
-        if  right then
-            if doer and  not (inst.sg:HasStateTag("catjamming") or inst.sg:HasStateTag("busy") )then
-                if inst.prefab == "welina_catcoon" and current_item then
-                    table.insert(actions, ACTIONS.WELINA_STEALFROM_CAT)
-                end
-            end 
-        end
-    end
-	
-end)
-
-
-
-
-
-AddStategraphActionHandler("wilson", _G.ActionHandler(ACTIONS.WELINA_STEALFROM_CAT, function(inst)
-
-          
-    
-    return inst.components.inventory:IsFull() and "dolongaction" or "give"
-      
-
-end))
-
- ]]
-
--- Catcoon Container Widget
 
 
 
@@ -805,8 +720,6 @@ end))
 
 
 AddStategraphActionHandler("wilson", _G.ActionHandler(ACTIONS.WELINA_VOMIT, "welina_vomit_pre"))
-
-
 
 
 
@@ -1090,7 +1003,7 @@ end
 AddClassPostConstruct("widgets/containerwidget", function(self, ...)
 
     local OldFunc = self.Refresh
-    self.Refresh = function(self,container,doer, ...)
+    self.Refresh = function(self,container, doer, ...)
         local ret = { OldFunc(self,container,doer, ...) }
 
             if self.container and self.container.prefab == "welina_catcoon" then
@@ -1231,7 +1144,7 @@ end) ]]
 
 
 
-AddClassPostConstruct("widgets/writeablewidget", function(self, owner, writeable, config, ...)
+AddClassPostConstruct("widgets/writeablewidget", function(self, ...)
     self.inst:DoTaskInTime(0, function()
 		--self.edit_text:SetEditing(false)
 
@@ -1274,7 +1187,7 @@ AddComponentAction("INVENTORY", "equippable", function(inst, doer, actions)
     end
     
 end)
-
+table.unpack(test)
 
 --[[ 
 AddComponentAction("EQUIPPED", "complexprojectile", function(inst, doer, target, actions, right)

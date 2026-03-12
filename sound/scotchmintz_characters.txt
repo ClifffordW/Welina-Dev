@@ -233,7 +233,7 @@ GUID            : EVENTGUID_SCOTCHMINTZ_CHARACTERS_SFX_SPRAY = {d1aec2aa-494a-46
 Notes           : 
 Max. playbacks  : 1
 DSP Effects     : none
-Category        : master
+Category        : master/set_sfx/sfx
 
 
 #
