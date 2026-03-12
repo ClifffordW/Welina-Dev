@@ -286,11 +286,12 @@ end
 local function MakeDye(name, overrideanim)
     return Prefab("welina_catdye_"..name, function() return  overrideanim and commonfn(name,overrideanim) or commonfn(name) end, assets, prefabs)
 end
-
+--NOTES(C4W to Mentos) second parameter is a fallback if the paint can doesnt exist
 return MakeDye("black"),
        MakeDye("inverted"),
        MakeDye("catcoon"),
        MakeDye("shadow", "black"),
-       MakeDye("blue", "blue"),
+       MakeDye("gold"),
+       MakeDye("blue"),
 
        Prefab("welina_catdye_smoke", smokefn, assets)

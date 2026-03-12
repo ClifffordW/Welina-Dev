@@ -3,7 +3,9 @@
 local asset_lut = {
     ["welina_dyes"] = {
         welina_catdye_black = "welina_catdye_black",
+        welina_catdye_blue = "welina_catdye_blue",
         welina_catdye_catcoon = "welina_catdye_catcoon",
+        welina_catdye_gold = "welina_catdye_gold",
         welina_catdye_inverted = "welina_catdye_inverted",
         welina_catdye_shadow = "welina_catdye_shadow",
     },
