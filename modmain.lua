@@ -1187,7 +1187,7 @@ AddComponentAction("INVENTORY", "equippable", function(inst, doer, actions)
     end
     
 end)
-table.unpack(test)
+
 
 --[[ 
 AddComponentAction("EQUIPPED", "complexprojectile", function(inst, doer, target, actions, right)
