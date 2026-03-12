@@ -30,12 +30,29 @@ local prefabs = {
     "explode_small",
 }
 
+local function HexToRGB(hex, alpha)
+    hex = hex:gsub("#","")
+    local r = tonumber(hex:sub(1,2), 16) / 255
+    local g = tonumber(hex:sub(3,4), 16) / 255
+    local b = tonumber(hex:sub(5,6), 16) / 255
+    
+
+    return {r, g, b, (alpha or 1)}
+end
+
+
+--NOTES(C4W) Swappin to HEX colours. second parameter is alpha/transparency
 local COLOURS = {
-    black = { 0, 0, 0, 1 },
-    inverted = { 1, 1, 1, 1 },
-    shadow = { 0, 0, 0, 0.8 },
-    catcoon = RGB(137, 145, 153)
+    black = HexToRGB("#00000000"),
+    inverted = HexToRGB("#ffffff"),
+    shadow = HexToRGB("#00000000", 0.8),
+
+    catcoon = HexToRGB("#5a5e66"),
+
+    gold = HexToRGB("#DCE861"),
+    blue = HexToRGB("#6995C4")
 }
+
 
 
 --------------------------------------------------------------------------
@@ -65,6 +82,12 @@ local function ApplyDyeEffects(target, colour, target_build)
     end
 
     target.AnimState:SetBuild(target_build)
+
+    if target.AnimState:GetBuild() == "FROMNUM" then
+        target.AnimState:SetBuild("catcoon_build")
+        target.overridebuild = "catcoon_build"
+    end
+
 end
 
 local function OnUseOnKitcoon(inst, target, doer)
