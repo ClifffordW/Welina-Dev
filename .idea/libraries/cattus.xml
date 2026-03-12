@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="cattus">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/anim/.spine_files/welina_catcoon_new/cattus.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

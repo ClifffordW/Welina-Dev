@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="catcoon_dyes">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/anim/catcoon_dyes/welina_catcoon_black.zip!/" />
+      <root url="jar://$PROJECT_DIR$/anim/catcoon_dyes/welina_catcoon_blue.zip!/" />
+      <root url="jar://$PROJECT_DIR$/anim/catcoon_dyes/welina_catcoon_inverted.zip!/" />
+      <root url="jar://$PROJECT_DIR$/anim/catcoon_dyes/welina_catcoon_dyetransition.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

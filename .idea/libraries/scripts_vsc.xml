@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="scripts_vsc" type="Lua">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../data/databundles/scripts_vsc" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

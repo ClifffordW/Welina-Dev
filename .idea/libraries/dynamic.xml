@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="dynamic">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/anim/dynamic/ms_welina_xmas.zip!/" />
+      <root url="jar://$PROJECT_DIR$/anim/dynamic/ms_welina_gown.zip!/" />
+      <root url="jar://$PROJECT_DIR$/anim/dynamic/ms_welina_homestuck.zip!/" />
+      <root url="jar://$PROJECT_DIR$/anim/dynamic/ms_welina_doorman.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
