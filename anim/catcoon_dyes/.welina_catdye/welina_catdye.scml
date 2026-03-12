@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
     <folder id="0" name="catnip">
-        <file id="0" name="catnip/catnip-0.png" width="133" height="196" pivot_x="0.56391" pivot_y="0.602041"/>
-        <file id="1" name="catnip/catnip-1.png" width="133" height="196" pivot_x="0.56391" pivot_y="0.602041"/>
-        <file id="2" name="catnip/catnip-2.png" width="133" height="196" pivot_x="0.56391" pivot_y="0.602041"/>
+        <file id="0" name="catnip/catnip-0.png" width="133" height="196" pivot_x="0.526316" pivot_y="0.045918"/>
+        <file id="1" name="catnip/catnip-1.png" width="133" height="196" pivot_x="0.526316" pivot_y="0.045918"/>
+        <file id="2" name="catnip/catnip-2.png" width="133" height="196" pivot_x="0.526316" pivot_y="0.045918"/>
     </folder>
     <entity id="0" name="welina_catdye">
         <animation id="0" name="idle_black" length="33" interval="33">
@@ -17,10 +17,10 @@
             </mainline>
             <timeline id="0" name="black">
                 <key id="0" curve_type="instant">
-                    <object folder="0" file="0" x="0.35" y="58.35" angle="0"/>
+                    <object folder="0" file="0" x="-4.65003" angle="0"/>
                 </key>
                 <key id="1" time="33" curve_type="instant">
-                    <object folder="0" file="0" x="0.35" y="58.35" angle="0"/>
+                    <object folder="0" file="0" x="-4.65003" angle="0"/>
                 </key>
             </timeline>
         </animation>
@@ -35,10 +35,10 @@
             </mainline>
             <timeline id="0" name="black">
                 <key id="0" curve_type="instant">
-                    <object folder="0" file="1" x="0.35" y="58.35" angle="0"/>
+                    <object folder="0" file="1" x="-4.65003" angle="0"/>
                 </key>
                 <key id="1" time="33" curve_type="instant">
-                    <object folder="0" file="1" x="0.35" y="58.35" angle="0"/>
+                    <object folder="0" file="1" x="-4.65003" angle="0"/>
                 </key>
             </timeline>
         </animation>
@@ -53,10 +53,10 @@
             </mainline>
             <timeline id="0" name="black">
                 <key id="0" curve_type="instant">
-                    <object folder="0" file="2" x="0.35" y="58.35" angle="0"/>
+                    <object folder="0" file="2" x="-4.65003" angle="0"/>
                 </key>
                 <key id="1" time="33" curve_type="instant">
-                    <object folder="0" file="1" x="0.35" y="58.35" angle="0"/>
+                    <object folder="0" file="2" x="-4.65003" angle="0"/>
                 </key>
             </timeline>
         </animation>

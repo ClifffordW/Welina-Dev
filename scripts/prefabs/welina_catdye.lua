@@ -3,7 +3,8 @@ local assets = {
 
     Asset("DYNAMIC_ATLAS", softresolvefilepath("images/inventoryimages/welina_dyes.xml")),
     Asset("ATLAS_BUILD", "images/inventoryimages/welina_dyes.xml", 256),
-    Asset("ANIM", "anim/catcoon_dyes/welina_catcoon_dyetransition.zip")
+    Asset("ANIM", "anim/catcoon_dyes/welina_catcoon_dyetransition.zip"),
+    Asset("ANIM", "anim/welina_catdye.zip")
 
 }
 
@@ -35,11 +36,6 @@ local COLOURS = {
     shadow = { 0, 0, 0, 0.8 },
     catcoon = RGB(137, 145, 153)
 }
-
-
-
-
-
 
 
 --------------------------------------------------------------------------
@@ -168,6 +164,10 @@ local function commonfn(colour_name, overrideanim)
     end
 
     inst:AddTag("welinacatcoon_dye")
+    if colour_name == "shadow" then
+        inst:AddTag("shadowvfx")
+
+    end
 
     -- Dedicated slot tag (if you have a custom slot)
     -- inst:AddTag("nopunch") 
@@ -209,6 +209,8 @@ local function commonfn(colour_name, overrideanim)
 
     inst:AddComponent("useabletargeteditem")
     inst.components.useabletargeteditem:SetOnUseFn(OnUseOnKitcoon)
+
+
 
 
     --[[     inst:AddComponent("equippable")

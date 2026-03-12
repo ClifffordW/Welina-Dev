@@ -66,7 +66,7 @@ Assets = {
 
 
 
-AddAnim("welina_catdye")
+
 
 AddSoundPackage("scotchmintz_characters")
 AddSoundBank("welina")
