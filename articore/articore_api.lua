@@ -10,7 +10,7 @@
 ------------------------------------------------------------------------
 
 
-modimport("articore/articore_defines")
+--modimport("articore/articore_defines")
 
 local _scrapbook_prefabs   = nil
 local _scrapbookdata       = nil
