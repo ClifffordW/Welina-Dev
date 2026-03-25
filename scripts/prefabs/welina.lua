@@ -497,9 +497,7 @@ local common_postinit = function(inst)
         inst:AddTag("insomniac")
     end
 --]]
-    if KnownModIndex:IsModEnabled("workshop-2039181790") then
         inst:AddTag("ratimmune")
-    end
 
     --inst.components.talker.font = TALKINGFONT_WELINA
 
