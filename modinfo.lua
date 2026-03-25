@@ -320,6 +320,23 @@ configuration_options = {
 		},
 		default = 1,
 	},
+{
+		name = "WELINA_MAXEDIBLEGARBAGE",
+		label = "Max Edible Garbage",
+		hover = "Set how much garbage can Welina eat before she vomits.",
+		options = {
+			{ description = "3", data = 3},
+			{ description = "4", data = 4},
+			{ description = "5", data = 5},
+			{ description = "6", data = 6},
+			{ description = "7", data = 7},
+			{ description = "8", data = 8},
+			{ description = "9", data = 9},
+			{ description = "10", data = 10},
+		},
+		default = 3,
+	},
+
 	
 	Title("Extra Abillities 󰀩"),
 	
@@ -378,10 +395,21 @@ configuration_options = {
 		label = "Last Life Music",
 		hover = "Welinas final life sfx.",
 		options = {
-			{ description = "Default", data = "scotchmintz_characters/sfx/welina_bell", hover = "Default 󰀡" },
-			{ description = "Fork In The Road", data = "scotchmintz_characters/sfx/welina_bell_forkintheroad" },
+			{ description = "Default", data = "scotchmintz_characters/sfx/9lives/welina_bell", hover = "Default 󰀡" },
+			{ description = "Fork In The Road", data = "scotchmintz_characters/sfx/9lives/welina_bell_forkintheroad" },
 		},
-		default = "scotchmintz_characters/sfx/welina_bell",
+		default = "scotchmintz_characters/sfx/9lives/welina_bell",
+	},
+
+{
+		name = "WELINA_CATCOON_FUNNYIDLE",
+		label = "Catcoon Funny Idle",
+		hover = "Catcoon will sometimes perform a funny idle animation.",
+		options = {
+			{ description = "Enabled", data = 1},
+			{ description = "Disabled", data = 0, hover = "Default 󰀡"  },
+		},
+		default = 0,
 	},
 
 	{
