@@ -47,13 +47,11 @@ AddRepairType("trinket_22", "trinket_22")
 
 
 
-local modnameFancy = "workshop-1637709131"
-local is_modenabled = _G.KnownModIndex:IsModEnabled(modnameFancy)
 
 local animation_data = {
-    frames_anim = is_modenabled and 220 or 64,
-    camera_distance = is_modenabled and 7 or 13,
-    anims = is_modenabled and "defaultdance" or "idle_loop",
+    frames_anim = 64,
+    camera_distance = 13,
+    anims = "idle_loop",
 }
 
 
