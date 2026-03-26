@@ -115,6 +115,7 @@ local function OnUseOnKitcoon(inst, target, doer)
 
     if is_shadow then
         target.is_slim_shady = true
+        target.AnimState:UsePointFiltering(true) 
     else
         target.is_slim_shady = false
     end

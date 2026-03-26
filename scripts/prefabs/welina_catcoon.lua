@@ -800,6 +800,7 @@ local function onload(inst, data)
 			end
 
 			if inst.is_slim_shady then
+				inst.AnimState:UsePointFiltering(true) 
 				
 				inst.AnimState:SetSymbolMultColour("swap_hat", 0,0,0,1)
 				
