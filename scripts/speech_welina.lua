@@ -552,12 +552,12 @@ return{
 	ANNOUNCE_NODAYSLEEP = "I could go for a nap right meow, just not in that.",
 	ANNOUNCE_NODAYSLEEP_CAVE = "Don't feel like it.",
 	ANNOUNCE_NOHUNGERSIESTA = "I'm hungry, too hungry.",
-	ANNOUNCE_NOHUNGERSLEEP = "I'm going to starve to death if i try to sleep now.",
+	ANNOUNCE_NOHUNGERSLEEP = "I'm going to starve to death if I try to sleep now.",
 	ANNOUNCE_NOMOUNTEDGIFT = "No way I can open it on this thing.",
 	ANNOUNCE_NONIGHTSIESTA = "This place isn't very good for sleeping.",
 	ANNOUNCE_NONIGHTSIESTA_CAVE = "Kinda too creeped out here for a nap.",
 	ANNOUNCE_NOSLEEPHASPERMANENTLIGHT = "Hey, lights off lights off!",
-	ANNOUNCE_NOSLEEPONFIRE = "Burnt alive...? Tempting but i'll go with no.",
+	ANNOUNCE_NOSLEEPONFIRE = "Burnt alive...? Tempting but I'll go with no.",
 	ANNOUNCE_NOWARDROBEONFIRE = "Ah- A bit late for that...",
 	ANNOUNCE_OCEAN_SILHOUETTE_INCOMING = "Oh, oh this ain't good.",
 	ANNOUNCE_OCEANFISHING_BADCAST = "I'm just testing the waters.",
@@ -566,8 +566,8 @@ return{
 	{
 		"I hate waiting ughhhhh.",
 		"Boooringggggggg.",
-		"Maybe i should just jump in there and c-... ah forget it.",
-		"Time, time is my greatest enemy.",
+		"The bad thoughts are about to get the best of meow.",
+		"Time, time is my greatest enyamy.",
 	},
 	ANNOUNCE_OCEANFISHING_LINESNAP = "I'm worse at what I do best.",
 	ANNOUNCE_OCEANFISHING_LINETOOLOOSE = "It's too damn loose.",
@@ -591,8 +591,8 @@ return{
 	ANNOUNCE_RUINS_RESET = "Great, all my time and effort trashing this place was undone.",
 	ANNOUNCE_SACREDCHEST_NO = "Oh.. Of course...",
 	ANNOUNCE_SACREDCHEST_YES = "I'm worthy?! For real?",
-	ANNOUNCE_SCRAPBOOK_FULL = "I already know all i need to know.",
-	ANNOUNCE_SHADOW_RIFT_MAX = "I hear something i don't like in the distance...",
+	ANNOUNCE_SCRAPBOOK_FULL = "I already know all I need to know.",
+	ANNOUNCE_SHADOW_RIFT_MAX = "I hear something I don't like in the distance...",
 	ANNOUNCE_SHADOWLEVEL_ITEM = "he",
 	ANNOUNCE_SHELTER = "This tree'll help meow a bit.",
 	ANNOUNCE_SNARED = "In chains, entombed.",
@@ -626,7 +626,7 @@ return{
 	ANNOUNCE_TRAP_WENT_OFF = "GYAh-ah~",
 	ANNOUNCE_UNIMPLEMENTED = "This one's not done yet.",
 	ANNOUNCE_WASHED_ASHORE = "Cough-blegh... The waves suck you in then you drown...",
-	ANNOUNCE_WEAK_RAT = "This rat's weak, i might as well eat it.",
+	ANNOUNCE_WEAK_RAT = "This rat's weak, I might as well eat it.",
 	ANNOUNCE_WEIGHT = "Weight: {weight}",
 	ANNOUNCE_WEIGHT_HEAVY = "Weight: {weight}\nEr... I'll eat it on the spot.",
 	ANNOUNCE_WET = "I'm wetter than I have anya business being.",
@@ -778,7 +778,7 @@ return{
 		ARMORDREADSTONE = "That's metal as all hell.",
 		ARMORGRASS = "It's useless at best.",
 		ARMORMARBLE = "Weighs meow down together with all my sins.",
-		ARMORRUINS = "I feel more impenetrable than i should.",
+		ARMORRUINS = "I feel more impenetrable than I should.",
 		ARMORSKELETON = "I don't know how to feel about using dangerous meowgic like this.",
 		ARMORSLURPER = "It's uncomfortably tight... and wet.",
 		ARMORSNURTLESHELL = "It's full of slime and other disgusting fluids.",
@@ -788,7 +788,7 @@ return{
 		{
 			BURNT = "It tells a story, of destruction.",
 			GENERIC = "\"Thataway\"... guh.",
-			UNWRITTEN = "Should i write my feelings on it.",
+			UNWRITTEN = "Should I write my feelings on it.",
 		},
 		ARROWSIGN_POST =
 		{
@@ -1000,7 +1000,7 @@ return{
 			GENERIC = "That's just life.",
 			HUNGRY = "Cry about it more why don't you.",
 			OCCUPIED = "They're trying to keep it safe from meow.",
-			SKELETON = "Well i can't eat it now, happy?",
+			SKELETON = "Well I can't eat it now, happy?",
 			SLEEPING = "Does it dream of escape.",
 			STARVING = "You should be glad YOU'RE not food.",
 		},
@@ -1019,12 +1019,12 @@ return{
 		BLUE_CAP_COOKED = "Mad cap no longer.",
 		BLUE_MUSHROOM =
 		{
-			GENERIC = "I think i was warned not to eat random meowshrooms.",
+			GENERIC = "I think I was warned not to eat random meowshrooms.",
 			INGROUND = "It's hiding from meow.",
 			PICKED = "No new inhabitants yet?",
 		},
 		BLUEAMULET = "It's got one eye, and a cold glare.",
-		BLUEGEM = "Feels like i'm holding a piece of ice.",
+		BLUEGEM = "Feels like I'm holding a piece of ice.",
 		BLUEMOONEYE = "Can notice that shine from anyawhere.",
 		BLUEPRINT =
 		{
@@ -1083,15 +1083,15 @@ return{
 		BOOK_FOSSIL = "I could stop a fiend in its tracks with this.",
 		BOOK_GARDENING = "I'm scared of books.",
 		BOOK_HORTICULTURE = "I just don't like books.",
-		BOOK_HORTICULTURE_UPGRADED = "This means i have to spend less time in a garden, right?",
+		BOOK_HORTICULTURE_UPGRADED = "This means I have to spend less time in a garden, right?",
 		BOOK_LIGHT = "It's unironically light..",
 		BOOK_LIGHT_UPGRADED = "This one's even lighter.",
 		BOOK_MOON = "How does a book summon a full meoown, that's dumb.",
 		BOOK_RAIN = "Weather changes moods.",
 		BOOK_RESEARCH_STATION = "This much knowledge would make my brain explode.",
-		BOOK_SILVICULTURE = "Not that i can't read them.",
+		BOOK_SILVICULTURE = "Not that I can't read them.",
 		BOOK_SLEEP = "Woah, that's one boring book.",
-		BOOK_TEMPERATURE = "Helps stay cool, too bad i'm already always cool.",
+		BOOK_TEMPERATURE = "Helps stay cool, too bad I'm already always cool.",
 		BOOK_TENTACLES = "Now that's creepy.",
 		BOOK_WEB = "It doesn't make anyathing explode or combust, lame!",
 		BOOKSTATION =
@@ -1132,7 +1132,7 @@ return{
 		},
 		CACTUS_FLOWER = "A delicate flower, unfortunately in my hands.",
 		CACTUS_MEAT = "This would pain meow all the way down.",
-		CACTUS_MEAT_COOKED = "Should be edible now, i guess.",
+		CACTUS_MEAT_COOKED = "Should be edible now, I guess.",
 		CALIFORNIAROLL = "Mrmhm, smells good.",
 		CAMPFIRE =
 		{
@@ -1319,7 +1319,7 @@ return{
 		CHARLIE_NPC = "She's literally meow.",
 		CHARLIE_STAGE_POST = "Here we are now, entertain us.",
 		CHESSJUNK1 = "Some unfinished rubble.",
-		CHESSJUNK2 = "Who am i to judge art.",
+		CHESSJUNK2 = "Who am I to judge art.",
 		CHESSJUNK3 = "How does it exist with no sight or hearing.",
 		CHESSPIECE_ANCHOR = "An anchor that serves no anchor purposes.",
 		CHESSPIECE_ANTLION = "I was almost impaled on a spike for this.",
@@ -1342,7 +1342,7 @@ return{
 		CHESSPIECE_DEERCLOPS = "This brute has been locked away in stone.",
 		CHESSPIECE_DEERCLOPS_MUTATED = "A continuation of an old story.",
 		CHESSPIECE_DRAGONFLY = "It won't meowlt you in its presence like this.",
-		CHESSPIECE_EYEOFTERROR = "I'm of the opinion that i have enough eyeballs already.",
+		CHESSPIECE_EYEOFTERROR = "I'm of the opinion that I have enough eyeballs already.",
 		CHESSPIECE_FORMAL = "Sure wonder who that one is.",
 		CHESSPIECE_GUARDIANPHASE3 = "It's got all the finer details captured in it.",
 		CHESSPIECE_HORNUCOPIA = "A representation of mortal hubris.",
@@ -1396,7 +1396,7 @@ return{
 			GENERIC = "Stare into the light.",
 			HIGH = "It emits a monstrous roar.",
 			LOW = "It won't keep up at this rate.",
-			NORMAL = "It emits what i can only describe as a warm coldness.",
+			NORMAL = "It emits what I can only describe as a warm coldness.",
 			OUT = "Yet another one falls.",
 		},
 		COLDFIREPIT =
@@ -1411,7 +1411,7 @@ return{
 		COMPASS =
 		{
 			E = "East.",
-			GENERIC = "I admit, i'm lost.",
+			GENERIC = "I admit, I'm lost.",
 			N = "North.",
 			NE = "Northeast.",
 			NW = "Northwest.",
@@ -1446,9 +1446,9 @@ return{
 		COOKPOT =
 		{
 			BURNT = "That's a little overcooked.",
-			COOKING_LONG = "Unfortunately i'm not a patient cat.",
+			COOKING_LONG = "Unfortunately I'm not a patient cat.",
 			COOKING_SHORT = "Patience is always rewarded.",
-			DONE = "Do i really deserve treating meowself to such food.",
+			DONE = "Do I really deserve treating meowself to such food.",
 			EMPTY = "For combining ingredients to make a dish.",
 		},
 		COONTAIL = "A tale that has gone cold.",
@@ -2320,7 +2320,7 @@ return{
 		MIGHTY_GYM =
 		{
 			BURNT = "Nyuck.",
-			GENERIC = "It's for boys to get big... and burly and muscly and strong and mhhrrmrmh... I-I mean, yeah. ",
+			GENERIC = "Mhrmmmh.... toned men....",
 		},
 		MILKYWHITES = "Nyuck, gross.",
 		MINERHAT = "I feel so dirty, using fireflies like this.",
@@ -2503,26 +2503,26 @@ return{
 		{
 			BLOOM = "DON'T, do that next to meow.",
 			GENERIC = "It's the meowtaphorical middle of the pack",
-			ACIDCOVERED = "",
+			ACIDCOVERED = "Getting doused in acid is only slightly worse than getting wet.",
 		},
 		MUSHTREE_MOON = "Moons definitely had a hand in the making of that.",
 		MUSHTREE_SMALL =
 		{
 			BLOOM = "Can't you do that in private?",
 			GENERIC = "It's taller than meow.",
-			ACIDCOVERED = "",
+			ACIDCOVERED = "Getting doused in acid is only slightly worse than getting wet.",
 		},
 		MUSHTREE_TALL =
 		{
 			BLOOM = "How gross.",
 			GENERIC = "These things make meow dread a keen sense of smell.",
-			ACIDCOVERED = "",
+			ACIDCOVERED = "Getting doused in acid is only slightly worse than getting wet.",
 		},
 		MUSHTREE_TALL_WEBBED = "The white spiders claimed it.",
 		MUTATED_PENGUIN =
 		{
 			DEAD = "It's dead. Good.",
-			GENERIC = "O.M.G this is, like, the ugliest little bird i've seen in my life.",
+			GENERIC = "O.M.G this is, like, the ugliest little bird I've seen in my life.",
 			SLEEPING = "It'd be better off dead.",
 		},
 		MUTATEDBEARGER = "Sorry, for what I'm about to do.",
@@ -2721,7 +2721,7 @@ return{
 			GENERIC = "Some plant or whatever.",
 			GROWING = "It looks eager to grow...",
 			READY = "Looks like it's ripe.",
-			WITHERED = "The heat is our common enemyeow.",
+			WITHERED = "The heat is our common enyamy.",
 		},
 		PLANTMEAT = "It doesn't taste like myeat at all.",
 		PLANTMEAT_COOKED = "It tastes myeatier now but it's still off.",
@@ -3970,7 +3970,7 @@ return{
 			GENERIC = "Doesn't seem like the smartest use of gems.",
 			LOWPOWER = "It's low on motivation.",
 			OFF = "It can come back from the dead, unlike some of us.",
-			OVERLOADED = "",
+			OVERLOADED = "It's working overtime.",
 		},
 		WINONA_BATTERY_LOW =
 		{
@@ -3986,7 +3986,7 @@ return{
 			BURNT = "Like, who cares.",
 			GENERIC = "It flings rocks and stones.",
 			OFF = "Nothing runs without motivation.",
-			SLEEP = "",
+			SLEEP = "It's asleep, for lack of a better term.",
 		},
 		WINONA_SPOTLIGHT =
 		{
@@ -3994,7 +3994,7 @@ return{
 			BURNT = "Like, who cares.",
 			GENERIC = "I don't like being the center of attention.",
 			OFF = "With the lights out, it's less dangerous.",
-			SLEEP = "",
+			SLEEP = "It's asleep, for lack of a better term.",
 		},
 		WINTER_FOOD1 = "So cheery.....",
 		WINTER_FOOD2 = "So cheery.....",

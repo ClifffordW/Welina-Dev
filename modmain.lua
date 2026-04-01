@@ -1226,7 +1226,7 @@ end) ]]
 
 
 modimport("init/init_all")
---modimport('scripts/speech_welina_uncomp.lua')
+modimport('scripts/speech_welina_uncomp.lua')
 
 
 

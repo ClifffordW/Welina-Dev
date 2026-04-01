@@ -6,15 +6,15 @@ description = [[
 Adds Welina, the low-spirited cat girl.
 󰀭 Credits: Fairy, Cliffford W.
 
-󰀈 New Skin - The Festive
+󰀈 Coonip'd Catcoons now display their worn collars
 
-󰀈 Fixed Welina not being able to interact with Umbralla
+󰀈 New items - Catcoon Dyes and Name Tag
 		
-󰀈 Fixed issue with riding a beefalo and vomiting
+󰀈 Added full quotes for Uncompromising Mode
 		
 ]]
 author = "mentos"
-version = "1.1.0" -- This is the version of the template. Change it to your own number.
+version = "1.2.0" -- This is the version of the template. Change it to your own number.
 
 -- This is the URL name of the mod's thread on the forum; the part after the ? and before the first & in the url
 --forumthread = "/files/file/950-extended-sample-character/"

@@ -2,9 +2,11 @@
 -- The strings here are also used when other characters are missing a line.
 -- If you've added an object to the mod, this is where to add placeholder strings.
 -- Keep things organized.
+
 ANNOUNCE = GLOBAL.STRINGS.CHARACTERS.WELINA
 DESCRIBE = GLOBAL.STRINGS.CHARACTERS.WELINA.DESCRIBE
 ACTIONFAIL = GLOBAL.STRINGS.CHARACTERS.WELINA.ACTIONFAIL
+
 
 -- [ Welinas Descriptions ]--
 
@@ -188,7 +190,7 @@ DESCRIBE.UM_MOONFLY_LANTERN = "What's anyother light to walk into."
 DESCRIBE.WICKER_TENTACLE = "Summeowning tentacles isn't exactly an interesting passtime. Unless you're into that."
 DESCRIBE.HONEY_LOG = "I'll shove it in Weeties meowth and he'll enjoy it."
 
-DESCRIBE.RAT_TAIL = "Oh cupcake, you were such an idiot."
+DESCRIBE.RAT_TAIL = "At least you made a good myeal."
 DESCRIBE.PLAGUEMASK = "Am I gonna choke on the spores."
 DESCRIBE.SALTPACK = "Can't I get Weetie to do this."
 DESCRIBE.SPOREPACK = "Smells horrible, not that I care too much."
@@ -495,6 +497,7 @@ DESCRIBE.LUSH_ENTRANCE =
 DESCRIBE.CRITTER_FIGGY =
 "I have to fight my inner demeowns just to not swallow it whole."
 DESCRIBE.GIANT_TREE_BIRDNEST = "Hmph, mine now."
+if ACTIONFAIL.UPGRADE == nil then ACTIONFAIL.UPGRADE = {} end
 ACTIONFAIL.UPGRADE.NOT_HARVESTED = "Ugh, how about I clean it up first."
 
 DESCRIBE.SLUDGE = "The smell is like a gut punch."

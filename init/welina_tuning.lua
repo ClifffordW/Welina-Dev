@@ -143,6 +143,8 @@ TUNING.WELINA_VOMIT_ITEMS =
 		["winter_food1"] = legendaryChance,
 		["turf_carpetfloor"] = legendaryChance,
 		["turf_beard_rug"] = legendaryChance,
+		["welina_catdye_catcoon"] = 3,
+		["welina_catdye_black"] = 3,
 	-- Unsorted
 		["carrot_seeds"] = 3,
 		["corn_seeds"] = 3,
@@ -200,15 +202,16 @@ TUNING.WELINA_VOMIT_ITEMS =
 		pigskin = 
 		{
 			["malbatross_feather"] = rareChance,
-			["trinket_3"] = superrareChance,
 			["sewing_kit"] = rareChance,
 			["giftwrap"] = rareChance,
 			["moonrocknugget"] = rareChance,
 			["foliage"] = rareChance,
+			["welina_catdye_shadow"] = rareChance,
 			["gunpowder"] = rareChance,
 			["glommerwings"] = superrareChance,
 			["halloween_ornament_5"] = superrareChance,
 			["halloween_ornament_2"] = superrareChance,
+			["trinket_3"] = superrareChance,
 			["trinket_33"] = rareChance,
 			["trinket_43"] = rareChance,
 			["wetgoop"] = uncommonChance,
@@ -225,11 +228,30 @@ TUNING.WELINA_VOMIT_ITEMS =
 			["eel"] = rareChance,
 			["manrabbit_tail"] = rareChance,
 			["purplegem"] = superrareChance,
+			["welina_catdye_blue"] = rareChance,
 			["thulecite_pieces"] = rareChance,
 			["moonrocknugget"] = rareChance,
 			["foliage"] = commonChance,
 			["cutlichen"] = commonChance,
 			["wormlight_lesser"] = commonChance,
+			["wetgoop"] = uncommonChance,
+			["twigs"] = uncommonChance,
+			["cutgrass"] = uncommonChance,
+			["potato_seeds"] = uncommonChance,
+			["tomato_seeds"] = uncommonChance,
+			["pepper_seeds"] = uncommonChance,
+		},
+		
+		rat_tail = 
+		{
+			["shroom_skin_fragment"] = rareChance,
+			["manrabbit_tail"] = rareChance,
+			["pied_pipers_flute"] = superrareChance,
+			["thulecite_pieces"] = rareChance,
+			["moonrocknugget"] = rareChance,
+			["foliage"] = commonChance,
+			["giant_blueberry"] = commonChance,
+			["rice"] = commonChance,
 			["wetgoop"] = uncommonChance,
 			["twigs"] = uncommonChance,
 			["cutgrass"] = uncommonChance,
@@ -268,6 +290,7 @@ TUNING.WELINA_VOMIT_ITEMS =
 			["twigs"] = 1,
 			["cutgrass"] = 1,
 			["giftwrap"] = 1,
+			["welina_catdye_inverted"] = 1,
 		},
 
 		rottenegg = 
@@ -319,7 +342,6 @@ TUNING.WELINA_VOMIT_ITEMS =
 			["winter_ornament_plain8"] = 1,
 		},
 	}
-
 }
 
 TUNING.WELINA_VOMIT_BONUSITEM_CHANCE = 0.4
@@ -327,6 +349,7 @@ TUNING.WELINA_VOMIT_BONUSITEM_CHANCE = 0.4
 local vomit_prefab = 
 
 {	
+	"rat_tail",
 	"shroom_skin",
 	"phlegm",
 	"spoiled_fish",
@@ -372,6 +395,7 @@ TUNING.WELINA_PLAY_SANITY = {
 	["crow"] = 8,
 	["robin"] = 8,
 	["puffin"] = 8,
+	["rat_tail"] = 8,
 	["robin_winter"] = 8,
 	["canary"] = 8,
 	["mandrake"] = 8,

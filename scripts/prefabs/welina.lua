@@ -497,7 +497,7 @@ local common_postinit = function(inst)
         inst:AddTag("insomniac")
     end
 --]]
-        inst:AddTag("ratimmune")
+	inst:AddTag("ratimmune")
 
     --inst.components.talker.font = TALKINGFONT_WELINA
 
