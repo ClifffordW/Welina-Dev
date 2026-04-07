@@ -79,10 +79,10 @@ Assets = {
 
 }
 
-AddDynamic("ms_welina_gown")
-AddDynamic("ms_welina_doorman")
-AddDynamic("ms_welina_homestuck")
-AddDynamic("ms_welina_xmas")
+AddDynamicAnim("ms_welina_gown")
+AddDynamicAnim("ms_welina_doorman")
+AddDynamicAnim("ms_welina_homestuck")
+AddDynamicAnim("ms_welina_xmas")
 
 local STRINGS = GLOBAL.STRINGS
 --For menu remix compatibility
