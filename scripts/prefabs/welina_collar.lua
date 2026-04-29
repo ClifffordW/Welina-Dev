@@ -293,7 +293,8 @@ local function MakeCollar(name)
 		inst.entity:AddAnimState()
 		inst.entity:AddNetwork()
 
-		inst.AnimState:SetBank("welina_collar_item")
+		--Bank was previously welina_collar_item for whatever reason.
+		inst.AnimState:SetBank("kitcoon_nametag")
 		inst.AnimState:SetBuild("welina_collar")
 		inst.AnimState:PlayAnimation(name)
 

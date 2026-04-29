@@ -193,7 +193,7 @@ local function CatnipEaten(inst, eater)
 
         eater.components.talker:Say("Oh- this ain't good.")
         eater.components.health:DeltaPenalty(-0.5)
-        eater.components.grogginess:AddGrogginess(2, 7)
+        eater:AddTag("groggy")
 
     else
         eater.components.talker:Say("Blegh")

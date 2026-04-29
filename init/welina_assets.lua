@@ -83,18 +83,16 @@ AddMinimapAtlas("images/map_icons/welina.xml")
 
 
 
-local ASSET_LUT = require("defs.atlas.invimages")
-
-for atlas, textures in pairs(ASSET_LUT) do
-    local atlas_path = resolvefilepath("images/inventoryimages/"..atlas..".xml")
-    for _, tex_name in pairs(textures) do
-        RegisterInventoryItemAtlas(atlas_path, tex_name..".tex")
-        
-        -- Scrapbook hate ya
-        if atlas == "welina_scrapbookitems" then
-            RegisterScrapbookIconAtlas(atlas_path, tex_name..".tex")
-        end
-    end
+local WELINA_INVENTORY = resolvefilepath("images/inventoryimages/welina_items.xml")
+local _GetInventoryItemAtlas_Internal = _G.GetInventoryItemAtlas_Internal
+function _G.GetInventoryItemAtlas_Internal(imagename, ...)
+    return TheSim:AtlasContains(WELINA_INVENTORY, imagename) and WELINA_INVENTORY
+            or _GetInventoryItemAtlas_Internal(imagename, ...)
 end
 
-
+local WELINA_SCRAPBOOK = resolvefilepath("images/inventoryimages/welina_scrapbookitems.xml")
+local _GetScrapbookIconAtlas_Internal = _G.GetScrapbookIconAtlas_Internal
+function _G.GetScrapbookIconAtlas_Internal(imagename, ...)
+    return TheSim:AtlasContains(WELINA_SCRAPBOOK, imagename) and WELINA_SCRAPBOOK
+            or _GetScrapbookIconAtlas_Internal(imagename, ...)
+end
