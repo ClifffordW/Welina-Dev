@@ -1299,6 +1299,7 @@ local function AddCharacterActionComplete(actionReq, actiontype, component)
 end
 
 AddCharacterActionComplete(actions.WELINA_PLAY, "SCENE", "inventoryitem")
+STRINGS.ACTIONS.WELINA_PLAY = { NORMAL = "Play with", MEOW = "Meow Meow Meow" }
 
 
 
