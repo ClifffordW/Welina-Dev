@@ -38,7 +38,9 @@ local PROX_CANT_TAGS = { "emocatgirl" }
 local function GetWetnessPenalty(inst, max, modifierchange)
     local wetness = inst.components.moisture:GetMoisture()
 
-    local modifiername = 1 - wetness * (modifierchange or 0.01)
+    -- Damage modifier is based on the amount of wetness. 
+    -- This was broken before because it wasn't using Welina's tuning damage value as a baseline.
+    local modifiername = TUNING.WELINA_DAMAGE - wetness * (modifierchange or 0.01)
     modifiername = math.max(modifiername, max or 0.95)
 
     return modifiername
@@ -73,7 +75,7 @@ local function DamageScrew(inst, data)
     local damageModifier = GetWetnessPenalty(inst, 0.30, 0.01)
 
     local hasglasscollar = inst:HasTag("glass_collar")
-
+    
     inst.components.combat.damagemultiplier = hasglasscollar and damageModifier + 0.2 or damageModifier
 end
 

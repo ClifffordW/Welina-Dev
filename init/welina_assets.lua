@@ -84,10 +84,13 @@ AddMinimapAtlas("images/map_icons/welina.xml")
 
 
 local WELINA_INVENTORY = resolvefilepath("images/inventoryimages/welina_items.xml")
+local WELINA_CATDYES = resolvefilepath("images/inventoryimages/welina_dyes.xml")
+
 local _GetInventoryItemAtlas_Internal = _G.GetInventoryItemAtlas_Internal
 function _G.GetInventoryItemAtlas_Internal(imagename, ...)
-    return TheSim:AtlasContains(WELINA_INVENTORY, imagename) and WELINA_INVENTORY
-            or _GetInventoryItemAtlas_Internal(imagename, ...)
+	return TheSim:AtlasContains(WELINA_INVENTORY, imagename) and WELINA_INVENTORY
+		or TheSim:AtlasContains(WELINA_CATDYES, imagename) and WELINA_CATDYES
+		or _GetInventoryItemAtlas_Internal(imagename, ...)
 end
 
 local WELINA_SCRAPBOOK = resolvefilepath("images/inventoryimages/welina_scrapbookitems.xml")
