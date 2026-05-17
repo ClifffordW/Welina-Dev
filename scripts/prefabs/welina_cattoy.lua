@@ -77,7 +77,7 @@ local function onhitground(inst)
 end
 
 local function oncollision(inst, other)
-	if inst.Physics:GetVelocity() ~= 0 then
+	if inst.Physics:GetVelocity() == 0 then
     	inst.SoundEmitter:PlaySound(fmodtable.sfx.monkeyball.bounce)
 	end
 end
@@ -162,8 +162,8 @@ local function fn()
 
 
 	inst:AddComponent("complexprojectile")
-	inst.components.complexprojectile:SetHorizontalSpeed(15)
-	inst.components.complexprojectile:SetGravity(-35)
+	inst.components.complexprojectile:SetHorizontalSpeedForDistance(25, 45)
+	inst.components.complexprojectile:SetGravity(-32)
 	inst.components.complexprojectile:SetLaunchOffset(Vector3(.25, 1, 0))
 	inst.components.complexprojectile:SetOnLaunch(onthrown)
 	inst.components.complexprojectile:SetOnHit(onhitground)

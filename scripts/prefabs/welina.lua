@@ -5,13 +5,11 @@ local ex_fns = require("prefabs/player_common_extensions")
 local fmodtable = require("defs.sound.fmodtable_scotchmintz_characters").Track
 
 local assets = {
-    Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
-    Asset("ANIM", "anim/welina_puke.zip"),
-    Asset("ANIM", "anim/welina_puke_beef.zip"),
+	Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
+	Asset("ANIM", "anim/welina_puke.zip"),
+	Asset("ANIM", "anim/welina_puke_beef.zip"),
 
-
-
-    --Asset("SCRIPT", "scripts/prefabs/skilltree_welina.lua")
+	--Asset("SCRIPT", "scripts/prefabs/skilltree_welina.lua")
 }
 
 -- Welina Dodge Quotes
@@ -20,612 +18,580 @@ local assets = {
 
 -- Custom starting inventory
 TUNING.GAMEMODE_STARTING_ITEMS.DEFAULT.WELINA = {
-    "trinket_22",
+	"trinket_22",
 }
 
 local start_inv = {}
 for k, v in pairs(TUNING.GAMEMODE_STARTING_ITEMS) do
-    start_inv[string.lower(k)] = v.WELINA
+	start_inv[string.lower(k)] = v.WELINA
 end
 
 local function CLIENT_Welina_HostileTest(inst, target)
-    return (target:HasTag("hostile") or target:HasTag("pig") or target:HasTag("catcoon"))
+	return (target:HasTag("hostile") or target:HasTag("pig") or target:HasTag("catcoon"))
 end
 
 local PROX_CHECK_TAGS = { "player", "_follower" }
 local PROX_CANT_TAGS = { "emocatgirl" }
 
 local function GetWetnessPenalty(inst, max, modifierchange)
-    local wetness = inst.components.moisture:GetMoisture()
+	local wetness = inst.components.moisture:GetMoisture()
 
-    -- Damage modifier is based on the amount of wetness. 
-    -- This was broken before because it wasn't using Welina's tuning damage value as a baseline.
-    local modifiername = TUNING.WELINA_DAMAGE - wetness * (modifierchange or 0.01)
-    modifiername = math.max(modifiername, max or 0.95)
+	-- Damage modifier is based on the amount of wetness.
+	-- This was broken before because it wasn't using Welina's tuning damage value as a baseline.
+	local modifiername = TUNING.WELINA_DAMAGE - wetness * (modifierchange or 0.01)
+	modifiername = math.max(modifiername, max or 0.95)
 
-    return modifiername
+	return modifiername
 end
 
 local function OnAttackOther(inst, data)
-    if data.target:HasTag("raidrat") and not data.target.components.health:IsDead() then
-        data.target.components.health:Kill()
-    end
+	if data.target:HasTag("raidrat") and not data.target.components.health:IsDead() then
+		data.target.components.health:Kill()
+	end
 end
 
 local function AsocialWork(inst, data)
-    local workModifier = GetWetnessPenalty(inst, 0.25)
+	local workModifier = GetWetnessPenalty(inst, 0.25)
 
-
-
-    inst.components.workmultiplier:AddMultiplier(ACTIONS.CHOP, workModifier, inst)
-    inst.components.workmultiplier:AddMultiplier(ACTIONS.MINE, workModifier, inst)
-    inst.components.workmultiplier:AddMultiplier(ACTIONS.HAMMER, workModifier, inst)
+	inst.components.workmultiplier:AddMultiplier(ACTIONS.CHOP, workModifier, inst)
+	inst.components.workmultiplier:AddMultiplier(ACTIONS.MINE, workModifier, inst)
+	inst.components.workmultiplier:AddMultiplier(ACTIONS.HAMMER, workModifier, inst)
 end
 
 local function SanityScrew(inst)
-    local sanityModifier = GetWetnessPenalty(inst, 0.3, 0.0025)
-    --print(sanityModifier)
+	local sanityModifier = GetWetnessPenalty(inst, 0.3, 0.0025)
+	--print(sanityModifier)
 
-    if not inst.components.debuffable:HasDebuff("catnipbuff") then
-        inst.components.sanity.dapperness = sanityModifier - 1
-    end
+	if not inst.components.debuffable:HasDebuff("catnipbuff") then
+		inst.components.sanity.dapperness = sanityModifier - 1
+	end
 end
 
 local function DamageScrew(inst, data)
-    local damageModifier = GetWetnessPenalty(inst, 0.30, 0.01)
+	local damageModifier = GetWetnessPenalty(inst, 0.30, 0.01)
 
-    local hasglasscollar = inst:HasTag("glass_collar")
-    
-    inst.components.combat.damagemultiplier = hasglasscollar and damageModifier + 0.2 or damageModifier
+	local hasglasscollar = inst:HasTag("glass_collar")
+
+	inst.components.combat.damagemultiplier = hasglasscollar and damageModifier + 0.2 or damageModifier
 end
 
-
 local function Hiss(inst, data)
-    if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
-        if inst.components.rider and inst.components.rider:IsRiding() then
-            --print(inst.components.rider:IsRiding())
-            --data.attacker.components.health:DoDelta(-data.damage * (TUNING.WELINA_REFLECT_AMOUNT or 5) / 2)
-            data.attacker.components.combat:GetAttacked(inst, data.damage * TUNING.WELINA_REFLECT_AMOUNT)
-        else
-            --data.attacker.components.health:DoDelta(-data.damage * TUNING.WELINA_REFLECT_AMOUNT or 5)
-            data.attacker.components.combat:GetAttacked(inst, data.damage * TUNING.WELINA_REFLECT_AMOUNT)
-        end
+	if data.damage ~= nil and data.attacker ~= nil and data.attacker.components.health ~= nil then
+		if inst.components.rider and inst.components.rider:IsRiding() then
+			--print(inst.components.rider:IsRiding())
+			--data.attacker.components.health:DoDelta(-data.damage * (TUNING.WELINA_REFLECT_AMOUNT or 5) / 2)
+			data.attacker.components.combat:GetAttacked(inst, data.damage * TUNING.WELINA_REFLECT_AMOUNT)
+		else
+			--data.attacker.components.health:DoDelta(-data.damage * TUNING.WELINA_REFLECT_AMOUNT or 5)
+			data.attacker.components.combat:GetAttacked(inst, data.damage * TUNING.WELINA_REFLECT_AMOUNT)
+		end
 
-        --[[		print(data.damage * TUNING.WELINA_REFLECT_AMOUNT)
+		--[[		print(data.damage * TUNING.WELINA_REFLECT_AMOUNT)
 		 print(data.damage) ]]
-    end
+	end
 end
 
 local function welina_numDeaths_dirty(inst)
-    inst._welina_numDeaths = inst.net_welina_numDeaths:value()
+	inst._welina_numDeaths = inst.net_welina_numDeaths:value()
 
-    inst:DoTaskInTime(0, function()
-        if inst._welina_numDeaths then
-            --print("DIRTY NUMBER IS " .. inst._welina_numDeaths)
-        end
-    end)
+	inst:DoTaskInTime(0, function()
+		if inst._welina_numDeaths then
+			--print("DIRTY NUMBER IS " .. inst._welina_numDeaths)
+		end
+	end)
 end
 
 local function GetResentfulnessHealthPenalty(inst, attacker, resentment)
-    if attacker == nil or attacker.components.welina_resentable == nil then
-        return 0
-    end
+	if attacker == nil or attacker.components.welina_resentable == nil then
+		return 0
+	end
 
-    if resentment == nil then
-        resentment = attacker.components.welina_resentable:GetResentedness(inst.userid)
-    end
-    local penaltyPercent = attacker:HasTag("epic") and TUNING.WELINA_RESENTMENT_MAX_HP_PENALTY_MULT_BOSS
-        or TUNING.WELINA_RESENTMENT_MAX_HP_PENALTY_MULT
+	if resentment == nil then
+		resentment = attacker.components.welina_resentable:GetResentedness(inst.userid)
+	end
+	local penaltyPercent = attacker:HasTag("epic") and TUNING.WELINA_RESENTMENT_MAX_HP_PENALTY_MULT_BOSS
+		or TUNING.WELINA_RESENTMENT_MAX_HP_PENALTY_MULT
 
-    return (resentment * penaltyPercent) / TUNING.WELINA_HEALTH
+	return (resentment * penaltyPercent) / TUNING.WELINA_HEALTH
 end
 
 local function StackResentfulness(inst, data)
-    local attacker = data.attacker
-    local mounted = inst.components.rider ~= nil and inst.components.rider:IsRiding() or false
-    if data.damage == nil or attacker == nil or mounted then
-        return
-    end
+	local attacker = data.attacker
+	local mounted = inst.components.rider ~= nil and inst.components.rider:IsRiding() or false
+	if data.damage == nil or attacker == nil or mounted then
+		return
+	end
 
-    local resentable = data.attacker.components.welina_resentable
-    if resentable == nil then
-        return
-    end
+	local resentable = data.attacker.components.welina_resentable
+	if resentable == nil then
+		return
+	end
 
-    local resentment = math.floor(data.damage)
-    resentable:AddResentedness(inst.userid, resentment)
+	local resentment = math.floor(data.damage)
+	resentable:AddResentedness(inst.userid, resentment)
 
-    -- Add resentfulness health penalty.
-    local health = inst.components.health
-    if TUNING.WELINA_RESENTMENT_MAX_HP == 1 and health ~= nil then health:DeltaPenalty(GetResentfulnessHealthPenalty(
-        inst, attacker, resentment)) end
+	-- Add resentfulness health penalty.
+	local health = inst.components.health
+	if TUNING.WELINA_RESENTMENT_MAX_HP == 1 and health ~= nil then
+		health:DeltaPenalty(GetResentfulnessHealthPenalty(inst, attacker, resentment))
+	end
 end
 
 local function OnTakeDamage(inst, data)
-    StackResentfulness(inst, data)
+	StackResentfulness(inst, data)
 
-    if TUNING.WELINA_REFLECT == 1 then
-        Hiss(inst, data)
-    end
+	if TUNING.WELINA_REFLECT == 1 then
+		Hiss(inst, data)
+	end
 end
 
 local function GetBonusDamage(inst, victim, damage, weapon)
-    local mounted = inst.components.rider ~= nil and inst.components.rider:IsRiding() or false
-    local resentedness = victim.components.welina_resentable
-    local resentment = (resentedness == nil or mounted) and 0 or resentedness:GetResentedness(inst.userid)
-    return resentment * TUNING.WELINA_RESENTMENT
+	local mounted = inst.components.rider ~= nil and inst.components.rider:IsRiding() or false
+	local resentedness = victim.components.welina_resentable
+	local resentment = (resentedness == nil or mounted) and 0 or resentedness:GetResentedness(inst.userid)
+	return resentment * TUNING.WELINA_RESENTMENT
 end
 
 local function HealthWarning(inst)
-    local health_cmp = inst.replica.health
-    if not health_cmp then return end
+	local health_cmp = inst.replica.health
+	if not health_cmp then
+		return
+	end
 
-    local health = health_cmp:GetPercent()
-    local deaths = inst._welina_numDeaths or 0
-    local is_last_life = (deaths >= 9)
-    local is_final_death = (deaths >= 10)
+	local health = health_cmp:GetPercent()
+	local deaths = inst._welina_numDeaths or 0
+	local is_last_life = (deaths >= 9)
+	local is_final_death = (deaths >= 10)
 
-    ----------------------------------------------------------------------
-    -- 1. AUDIO FILTERS (High Pass & Reverb)
-    ----------------------------------------------------------------------
-    if TheMixer and is_last_life and TUNING.WELINA_LASTLIFE_MUSIC == "scotchmintz_characters/sfx/9lives/welina_bell_forkintheroad" then
-        -- Calculations
-        local filterValue = math.max(1, math.floor((1 - health) * 7200 + 1))
-        local filterValue_voice = math.max(1, math.floor((1 - health) * 1050 + 1))
+	----------------------------------------------------------------------
+	-- 1. AUDIO FILTERS (High Pass & Reverb)
+	----------------------------------------------------------------------
+	if
+		TheMixer
+		and is_last_life
+		and TUNING.WELINA_LASTLIFE_MUSIC == "scotchmintz_characters/sfx/9lives/welina_bell_forkintheroad"
+	then
+		-- Calculations
+		local filterValue = math.max(1, math.floor((1 - health) * 7200 + 1))
+		local filterValue_voice = math.max(1, math.floor((1 - health) * 1050 + 1))
 
-        -- Reverb logic: Only call if it actually needs to change to save CPU
-        local current_reverb = (filterValue >= 5041) and "cave" or "default"
-        TheSim:SetReverbPreset(current_reverb)
+		-- Reverb logic: Only call if it actually needs to change to save CPU
+		local current_reverb = (filterValue >= 5041) and "cave" or "default"
+		TheSim:SetReverbPreset(current_reverb)
 
-        -- Apply Filters
-        TheMixer:SetHighPassFilter("set_music", filterValue)
-        TheMixer:SetHighPassFilter("set_ambience", filterValue)
-        TheMixer:SetHighPassFilter("set_sfx", filterValue)
-        TheMixer:SetHighPassFilter("set_sfx/voice", filterValue_voice)
-    end
+		-- Apply Filters
+		TheMixer:SetHighPassFilter("set_music", filterValue)
+		TheMixer:SetHighPassFilter("set_ambience", filterValue)
+		TheMixer:SetHighPassFilter("set_sfx", filterValue)
+		TheMixer:SetHighPassFilter("set_sfx/voice", filterValue_voice)
+	end
 
-    ----------------------------------------------------------------------
-    -- 2. DEATH BELL LOGIC
-    ----------------------------------------------------------------------
-    local emitter = TheFocalPoint.SoundEmitter
+	----------------------------------------------------------------------
+	-- 2. DEATH BELL LOGIC
+	----------------------------------------------------------------------
+	local emitter = TheFocalPoint.SoundEmitter
 
-    -- Final Death State
-    if is_final_death and not inst:HasTag("playerghost") then
-        if not emitter:PlayingSound("finalbell") then
-            emitter:PlaySound(fmodtable.sfx._9lives.welina_finalbell, "finalbell")
-            emitter:KillSound("deathbell")
-        end
-    -- Normal Warning Bell State (9th life)
-    elseif is_last_life and not emitter:PlayingSound("deathbell") and not is_final_death then
-        local sound = TUNING.WELINA_LASTLIFE_MUSIC or fmodtable.sfx._9lives.welina_bell
-        emitter:PlaySound(sound, "deathbell")
-    end
+	-- Final Death State
+	if is_final_death and not inst:HasTag("playerghost") then
+		if not emitter:PlayingSound("finalbell") then
+			emitter:PlaySound(fmodtable.sfx._9lives.welina_finalbell, "finalbell")
+			emitter:KillSound("deathbell")
+		end
+	-- Normal Warning Bell State (9th life)
+	elseif is_last_life and not emitter:PlayingSound("deathbell") and not is_final_death then
+		local sound = TUNING.WELINA_LASTLIFE_MUSIC or fmodtable.sfx._9lives.welina_bell
+		emitter:PlaySound(sound, "deathbell")
+	end
 
-    ----------------------------------------------------------------------
-    -- 3. PARAMETERS (FMOD)
-    ----------------------------------------------------------------------
-    if emitter:PlayingSound("deathbell") then
-
-        emitter:SetParameter("deathbell", "health", is_last_life and health or 1)
-    end
+	----------------------------------------------------------------------
+	-- 3. PARAMETERS (FMOD)
+	----------------------------------------------------------------------
+	if emitter:PlayingSound("deathbell") then
+		emitter:SetParameter("deathbell", "health", is_last_life and health or 1)
+	end
 end
 
 local function OnDeath(inst)
-    local health = inst.components.health:GetPercent()
-    --[[
+	local health = inst.components.health:GetPercent()
+	--[[
 		if inst.components.slipperyfeet ~= nil then
 			inst:RemoveComponent("slipperyfeet")
 		end
 --]]
-    if not inst.welina_numDeaths then
-        inst.welina_numDeaths = 1
-        inst:DoTaskInTime(0, function()
-            inst.net_welina_numDeaths:set(inst.welina_numDeaths)
-        end)
-    end
+	if not inst.welina_numDeaths then
+		inst.welina_numDeaths = 1
+		inst:DoTaskInTime(0, function()
+			inst.net_welina_numDeaths:set(inst.welina_numDeaths)
+		end)
+	end
 
-    if inst.welina_numDeaths and inst.welina_numDeaths < 10 then
-        inst.welina_numDeaths = inst.welina_numDeaths + 1
-        inst:DoTaskInTime(0, function()
-            inst.net_welina_numDeaths:set(inst.welina_numDeaths)
-        end)
-    end
-    if inst.welina_numDeaths == 10 then
-        inst:DoTaskInTime(0.5, function()
-            for k, v in pairs(Ents) do
-                if v.prefab == "resurrectionstatue" then
-                    v.components.attunable:UnlinkFromPlayer(inst)
-                end
-            end
-        end)
+	if inst.welina_numDeaths and inst.welina_numDeaths < 10 then
+		inst.welina_numDeaths = inst.welina_numDeaths + 1
+		inst:DoTaskInTime(0, function()
+			inst.net_welina_numDeaths:set(inst.welina_numDeaths)
+		end)
+	end
+	if inst.welina_numDeaths == 10 then
+		inst:DoTaskInTime(0.5, function()
+			for k, v in pairs(Ents) do
+				if v.prefab == "resurrectionstatue" then
+					v.components.attunable:UnlinkFromPlayer(inst)
+				end
+			end
+		end)
 
-        --TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
-        inst:RemoveEventCallback("respawnfromghost", ex_fns.OnRespawnFromGhost)
-    end
+		--TheFocalPoint.SoundEmitter:SetParameter("deathbell", "health", 1)
+		inst:RemoveEventCallback("respawnfromghost", ex_fns.OnRespawnFromGhost)
+	end
 end
 
 local function OnSave(inst, data)
-    data.welina_numDeaths = inst.welina_numDeaths and inst.welina_numDeaths or 0
-    data.welina_eatenitem = inst.welina_eatenitem
+	data.welina_numDeaths = inst.welina_numDeaths and inst.welina_numDeaths or 0
+	data.welina_eatenitem = inst.welina_eatenitem
 end
+
 
 local function OnLoad(inst, data, newents)
-    if data == nil then
-        return
-    end
+	if data == nil then
+		return
+	end
 
-    if data.welina_numDeaths ~= nil then
-        inst.welina_numDeaths = data.welina_numDeaths or 0
+	if data.welina_numDeaths ~= nil then
+		inst.welina_numDeaths = data.welina_numDeaths or 0
 
-        inst:DoTaskInTime(0, function()
-            inst.net_welina_numDeaths:set(inst.welina_numDeaths)
-        end)
+		inst:DoTaskInTime(0, function()
+			inst.net_welina_numDeaths:set(inst.welina_numDeaths)
+		end)
 
-        if inst.welina_numDeaths > 9 then
-            inst:DoTaskInTime(0.5, function()
-                for k, v in pairs(Ents) do
-                    if v.prefab == "resurrectionstatue" then
-                        v.components.attunable:UnlinkFromPlayer(inst)
-                    end
-                end
-                HealthWarning(inst)
-            end)
-            inst:RemoveEventCallback("respawnfromghost", ex_fns.OnRespawnFromGhost)
-        end
+		if inst.welina_numDeaths > 9 then
+			inst:DoTaskInTime(0.5, function()
+				for k, v in pairs(Ents) do
+					if v.prefab == "resurrectionstatue" then
+						v.components.attunable:UnlinkFromPlayer(inst)
+					end
+				end
+				HealthWarning(inst)
+			end)
+			inst:RemoveEventCallback("respawnfromghost", ex_fns.OnRespawnFromGhost)
+		end
+	end
 
+	if data.welina_eatenitem ~= nil and #data.welina_eatenitem > 0 then
+		inst.welina_eatenitem = data.welina_eatenitem or 0
 
+		if inst.welina_eatenitem and #inst.welina_eatenitem >= 0 then
+			if inst.vomit_timeout_task then
+				inst.vomit_timeout_task:Cancel()
+				inst.vomit_timeout_task = nil
+			end
+		end
 
+		if inst.welina_eatenitem and #inst.welina_eatenitem > 0 then
+			local num_eaten = #inst.welina_eatenitem
 
-    end
+			local function do_vomit_check(inst)
+				if inst.sg:HasStateTag("dead") or inst:HasTag("playerghost") or inst.sg:HasStateTag("vomiting") then
+					return
+				end
+				inst.sg:GoToState("welina_vomit_pre")
+			end
 
-    if data.welina_eatenitem ~= nil and #data.welina_eatenitem > 0 then
-        inst.welina_eatenitem = data.welina_eatenitem or 0
+			if num_eaten >= TUNING.WELINA_MAXEDIBLEGARBAGE then
+				do_vomit_check(inst)
+			else
+				if inst.vomit_timeout_task then
+					inst.vomit_timeout_task:Cancel()
+					inst.vomit_timeout_task = nil
+				end
 
-
-        if inst.welina_eatenitem and #inst.welina_eatenitem >= 0 then
-            if inst.vomit_timeout_task then
-                inst.vomit_timeout_task:Cancel()
-                inst.vomit_timeout_task = nil
-            end
-        end
-
-        if inst.welina_eatenitem and #inst.welina_eatenitem > 0 then
-            
-            local num_eaten = #inst.welina_eatenitem
-
-            local function do_vomit_check(inst)
-                if inst.sg:HasStateTag("dead") or inst:HasTag("playerghost") or 
-                inst.sg:HasStateTag("vomiting") then 
-                    return 
-                end
-                inst.sg:GoToState("welina_vomit_pre")
-            end
-
-            if num_eaten >= TUNING.WELINA_MAXEDIBLEGARBAGE then
-                do_vomit_check(inst)
-            else
-
-                if inst.vomit_timeout_task then
-                    inst.vomit_timeout_task:Cancel()
-                    inst.vomit_timeout_task = nil
-                end
-
-                inst.vomit_timeout_task = inst:DoTaskInTime(2, function()
-                    do_vomit_check(inst)
-                    inst.vomit_timeout_task = nil 
-                end)
-            end
-        end
-
-
-
-        
-    end
-
-
-
+				inst.vomit_timeout_task = inst:DoTaskInTime(2, function()
+					do_vomit_check(inst)
+					inst.vomit_timeout_task = nil
+				end)
+			end
+		end
+	end
 end
-
 
 local function DoEffects(pet)
-    local spawnfx, scale = "", pet.custom_spawnfx_scale or 1
+	local spawnfx, scale = "", pet.custom_spawnfx_scale or 1
 
-    if not pet.no_spawn_fx then
-        spawnfx =
-            SpawnPrefab(pet.custom_spawnfx or (pet:HasTag("flying") and "spawn_fx_small_high" or "spawn_fx_small"))
+	if not pet.no_spawn_fx then
+		spawnfx =
+			SpawnPrefab(pet.custom_spawnfx or (pet:HasTag("flying") and "spawn_fx_small_high" or "spawn_fx_small"))
 
-        spawnfx.Transform:SetPosition(pet.Transform:GetWorldPosition())
-        --Custom Scale perhaps
-        spawnfx.Transform:SetScale(scale, scale, scale)
-    end
+		spawnfx.Transform:SetPosition(pet.Transform:GetWorldPosition())
+		--Custom Scale perhaps
+		spawnfx.Transform:SetScale(scale, scale, scale)
+	end
 end
-
 
 local function OnSpawnPet(inst, pet)
-    --Delayed in case we need to relocate for migration spawning
-    pet:DoTaskInTime(0, DoEffects)
-    if pet.components.spawnfader ~= nil then
-        pet.components.spawnfader:FadeIn()
-    end
+	--Delayed in case we need to relocate for migration spawning
+	pet:DoTaskInTime(0, DoEffects)
+	if pet.components.spawnfader ~= nil then
+		pet.components.spawnfader:FadeIn()
+	end
 end
-
 
 local function OnDespawnPet(inst, pet)
-    if not inst.is_snapshot_user_session then
-        DoEffects(pet)
-    end
-    pet:Remove()
+	if not inst.is_snapshot_user_session then
+		DoEffects(pet)
+	end
+	pet:Remove()
 end
-
 
 local function OnWorldEntityDeath(inst, data)
-    if data.inst ~= nil and data.inst.components.welina_resentable ~= nil then
-        -- Remove resentfulness health penalty.
-        local health = inst.components.health
-        if health ~= nil then health:DeltaPenalty(-GetResentfulnessHealthPenalty(inst, data.inst)) end
-    end
+	if data.inst ~= nil and data.inst.components.welina_resentable ~= nil then
+		-- Remove resentfulness health penalty.
+		local health = inst.components.health
+		if health ~= nil then
+			health:DeltaPenalty(-GetResentfulnessHealthPenalty(inst, data.inst))
+		end
+	end
 end
-
 
 -- Night vision config
 
-local NV_COLOURCUBES =
-{
-    autumn =
-    {
-        day = "images/colour_cubes/ruins_light_cc.tex",
-        dusk = "images/colour_cubes/ruins_dim_cc.tex",
-        night = "images/colour_cubes/night03_cc.tex",
-        full_moon = "images/colour_cubes/purple_moon_cc.tex"
-    },
-    winter =
-    {
-        day = "images/colour_cubes/ruins_light_cc.tex",
-        dusk = "images/colour_cubes/ruins_dim_cc.tex",
-        night = "images/colour_cubes/night04_cc.tex",
-        full_moon = "images/colour_cubes/purple_moon_cc.tex"
-    },
-    spring =
-    {
-        day = "images/colour_cubes/ruins_light_cc.tex",
-        dusk = "images/colour_cubes/ruins_dim_cc.tex",
-        night = "images/colour_cubes/spring_dusk_cc.tex", --"images/colour_cubes/spring_night_cc.tex",
-        full_moon = "images/colour_cubes/purple_moon_cc.tex"
-    },
-    summer =
-    {
-        day = "images/colour_cubes/ruins_light_cc.tex",
-        dusk = "images/colour_cubes/ruins_dim_cc.tex",
-        night = "images/colour_cubes/summer_night_cc.tex",
-        full_moon = "images/colour_cubes/purple_moon_cc.tex"
-    },
+local NV_COLOURCUBES = {
+	autumn = {
+		day = "images/colour_cubes/ruins_light_cc.tex",
+		dusk = "images/colour_cubes/ruins_dim_cc.tex",
+		night = "images/colour_cubes/night03_cc.tex",
+		full_moon = "images/colour_cubes/purple_moon_cc.tex",
+	},
+	winter = {
+		day = "images/colour_cubes/ruins_light_cc.tex",
+		dusk = "images/colour_cubes/ruins_dim_cc.tex",
+		night = "images/colour_cubes/night04_cc.tex",
+		full_moon = "images/colour_cubes/purple_moon_cc.tex",
+	},
+	spring = {
+		day = "images/colour_cubes/ruins_light_cc.tex",
+		dusk = "images/colour_cubes/ruins_dim_cc.tex",
+		night = "images/colour_cubes/spring_dusk_cc.tex", --"images/colour_cubes/spring_night_cc.tex",
+		full_moon = "images/colour_cubes/purple_moon_cc.tex",
+	},
+	summer = {
+		day = "images/colour_cubes/ruins_light_cc.tex",
+		dusk = "images/colour_cubes/ruins_dim_cc.tex",
+		night = "images/colour_cubes/summer_night_cc.tex",
+		full_moon = "images/colour_cubes/purple_moon_cc.tex",
+	},
 }
 
 local function SetNightVision(inst, enable)
-    local season = TheWorld.state.season
+	local season = TheWorld.state.season
 
-
-
-
-    if TheWorld.state.isnight or TheWorld:HasTag("cave") then
-        inst.components.playervision:ForceNightVision(true)
-        inst.components.playervision:SetCustomCCTable(NV_COLOURCUBES[season])
-    else
-        inst.components.playervision:ForceNightVision(false)
-        inst.components.playervision:SetCustomCCTable(nil)
-    end
+	if TheWorld.state.isnight or TheWorld:HasTag("cave") then
+		inst.components.playervision:ForceNightVision(true)
+		inst.components.playervision:SetCustomCCTable(NV_COLOURCUBES[season])
+	else
+		inst.components.playervision:ForceNightVision(false)
+		inst.components.playervision:SetCustomCCTable(nil)
+	end
 end
 
 -- Can't sleep while wet
 
 local function OnWetnessDelta(inst, data)
-    if inst.components.moisture:GetMoisturePercent() >= 0.01 then -- The '0.3' is the threshold the character needs to exceed to start the boosts
-        inst:AddTag("insomniac") else
+	if inst.components.moisture:GetMoisturePercent() >= 0.01 then -- The '0.3' is the threshold the character needs to exceed to start the boosts
+		inst:AddTag("insomniac")
+	else
 		inst:RemoveTag("insomniac")
 	end
 end
 
 local function OnEat(inst, food)
-    if food:HasTag("vomit_inducer")   then
-        if not inst.welina_eatenitem then
-            inst.welina_eatenitem = {}
-        end
-        
-        
-        if food.prefab then
-            table.insert(inst.welina_eatenitem, food.prefab)
-        end
+	if food:HasTag("vomit_inducer") then
+		if not inst.welina_eatenitem then
+			inst.welina_eatenitem = {}
+		end
 
-        if inst.vomit_timeout_task then
-            inst.vomit_timeout_task:Cancel()
-            inst.vomit_timeout_task = nil
-        end
+		if food.prefab then
+			table.insert(inst.welina_eatenitem, food.prefab)
+		end
 
-        if inst.welina_eatenitem and #inst.welina_eatenitem > 0 then
-            
-            local num_eaten = #inst.welina_eatenitem
+		if inst.vomit_timeout_task then
+			inst.vomit_timeout_task:Cancel()
+			inst.vomit_timeout_task = nil
+		end
 
-            local function do_vomit_check(inst)
-                if inst.sg:HasStateTag("dead") or inst:HasTag("playerghost") or 
-                inst.sg:HasStateTag("vomiting") then 
-                    return 
-                end
-                inst.sg:GoToState("welina_vomit_pre")
-            end
+		if inst.welina_eatenitem and #inst.welina_eatenitem > 0 then
+			local num_eaten = #inst.welina_eatenitem
 
-            if num_eaten >= TUNING.WELINA_MAXEDIBLEGARBAGE then
-                do_vomit_check(inst)
-            else
+			local function do_vomit_check(inst)
+				if inst.sg:HasStateTag("dead") or inst:HasTag("playerghost") or inst.sg:HasStateTag("vomiting") then
+					return
+				end
+				inst.sg:GoToState("welina_vomit_pre")
+			end
 
-                if inst.vomit_timeout_task then
-                    inst.vomit_timeout_task:Cancel()
-                    inst.vomit_timeout_task = nil
-                end
+			if num_eaten >= TUNING.WELINA_MAXEDIBLEGARBAGE then
+				do_vomit_check(inst)
+			else
+				if inst.vomit_timeout_task then
+					inst.vomit_timeout_task:Cancel()
+					inst.vomit_timeout_task = nil
+				end
 
-                inst.vomit_timeout_task = inst:DoTaskInTime(2, function()
-                    do_vomit_check(inst)
-                    inst.vomit_timeout_task = nil 
-                end)
-            end
-        end
-    
-    end
+				inst.vomit_timeout_task = inst:DoTaskInTime(2, function()
+					do_vomit_check(inst)
+					inst.vomit_timeout_task = nil
+				end)
+			end
+		end
+	end
 end
-
-
-
-
-
-
 
 -- This initializes for both the server and client. Tags can be added here.
 
 local common_postinit = function(inst)
-    -- Minimap icon
-    inst.MiniMapEntity:SetIcon("welina.tex")
+	-- Minimap icon
+	inst.MiniMapEntity:SetIcon("welina.tex")
 
-    inst.net_welina_numDeaths = net_smallbyte(inst.GUID, "inst.welina_numDeaths", "welina_numDeaths_dirty")
+	inst.net_welina_numDeaths = net_smallbyte(inst.GUID, "inst.welina_numDeaths", "welina_numDeaths_dirty")
 
+	inst:AddTag("emocatgirl")
+	--Negates Knockback
+	inst:AddTag("heavybody")
 
-
-
-    inst:AddTag("emocatgirl")
-    --Negates Knockback
-    inst:AddTag("heavybody")
-
-    inst:AddTag("welinacollar_wearer")
---[[
+	inst:AddTag("welinacollar_wearer")
+	--[[
     if TUNING.WELINA_INSOMNIA == 1 then
         inst:AddTag("insomniac")
     end
 --]]
 	inst:AddTag("ratimmune")
 
-    --inst.components.talker.font = TALKINGFONT_WELINA
+	--inst.components.talker.font = TALKINGFONT_WELINA
 
-    if TUNING.WELINA_9LIVES == 1 then
-        inst:ListenForEvent("welina_numDeaths_dirty", welina_numDeaths_dirty)
-        inst:ListenForEvent("welina_numDeaths_dirty", HealthWarning)
+	if TUNING.WELINA_9LIVES == 1 then
+		inst:ListenForEvent("welina_numDeaths_dirty", welina_numDeaths_dirty)
+		inst:ListenForEvent("welina_numDeaths_dirty", HealthWarning)
 
-        inst:ListenForEvent("healthdelta", HealthWarning)
+		inst:ListenForEvent("healthdelta", HealthWarning)
 
-        inst:ListenForEvent("ms_respawnedfromghost", HealthWarning)
-        inst:ListenForEvent(
-            "ms_playerjoined",
-            inst:DoTaskInTime(0.5, function()
-                HealthWarning(inst)
-            end)
-        )
+		inst:ListenForEvent("ms_respawnedfromghost", HealthWarning)
+		inst:ListenForEvent(
+			"ms_playerjoined",
+			inst:DoTaskInTime(0.5, function()
+				HealthWarning(inst)
+			end)
+		)
 
-        inst:ListenForEvent(
-            "ms_newplayerspawned",
-            inst:DoTaskInTime(0.5, function()
-                welina_numDeaths_dirty(inst)
-            end)
-        )
-    end
+		inst:ListenForEvent(
+			"ms_newplayerspawned",
+			inst:DoTaskInTime(0.5, function()
+				welina_numDeaths_dirty(inst)
+			end)
+		)
+	end
 
-    if TUNING.WELINA_NIGHTVISION == 1 then
-        inst:WatchWorldState("isday", SetNightVision)
-        inst:WatchWorldState("isdusk", SetNightVision)
-        inst:WatchWorldState("isnight", SetNightVision)
-        inst:WatchWorldState("iscaveday", SetNightVision)
-        inst:WatchWorldState("iscavedusk", SetNightVision)
-        inst:WatchWorldState("iscavenight", SetNightVision)
-        inst:WatchWorldState("season", SetNightVision)
+	if TUNING.WELINA_NIGHTVISION == 1 then
+		inst:WatchWorldState("isday", SetNightVision)
+		inst:WatchWorldState("isdusk", SetNightVision)
+		inst:WatchWorldState("isnight", SetNightVision)
+		inst:WatchWorldState("iscaveday", SetNightVision)
+		inst:WatchWorldState("iscavedusk", SetNightVision)
+		inst:WatchWorldState("iscavenight", SetNightVision)
+		inst:WatchWorldState("season", SetNightVision)
 
-        SetNightVision(inst)
-    end
+		SetNightVision(inst)
+	end
 
-    --inst.customidleanim = "idle_wendy"
+	--inst.customidleanim = "idle_wendy"
 end
 -- This initializes for the server only. Components are added here.
 local master_postinit = function(inst)
-    -- Set starting inventory
-    inst.starting_inventory = start_inv[TheNet:GetServerGameMode()] or start_inv.default
+	-- Set starting inventory
+	inst.starting_inventory = start_inv[TheNet:GetServerGameMode()] or start_inv.default
 
-    inst.components.foodaffinity:AddPrefabAffinity("unagi", TUNING.AFFINITY_15_CALORIES_MED)
+	inst.components.foodaffinity:AddPrefabAffinity("unagi", TUNING.AFFINITY_15_CALORIES_MED)
 
-    inst.talker_path_override = "scotchmintz_characters/characters/"
-    inst.soundsname = "welina"
+	inst.talker_path_override = "scotchmintz_characters/characters/"
+	inst.soundsname = "welina"
 
-    -- Stats
-    inst.components.health:SetMaxHealth(TUNING.WELINA_HEALTH)
+	-- Stats
+	inst.components.health:SetMaxHealth(TUNING.WELINA_HEALTH)
 
-    inst:DoTaskInTime(0.1, function()
-        if inst:IsValid() and inst.welina_numDeaths and inst.welina_numDeaths == 10 and not inst.components.health:IsDead() then
-            inst:DoTaskInTime(1, function()
-                inst.components.health:SetPercent(0)
-            end)
-        end
-    end)
+	inst:DoTaskInTime(0.1, function()
+		if
+			inst:IsValid()
+			and inst.welina_numDeaths
+			and inst.welina_numDeaths == 10
+			and not inst.components.health:IsDead()
+		then
+			inst:DoTaskInTime(1, function()
+				inst.components.health:SetPercent(0)
+			end)
+		end
+	end)
 
-
-    inst.components.hunger:SetMax(TUNING.WELINA_HUNGER)
-    inst.components.eater:SetOnEatFn(OnEat)
-	if inst.components.eater ~= nil then       
+	inst.components.hunger:SetMax(TUNING.WELINA_HUNGER)
+	inst.components.eater:SetOnEatFn(OnEat)
+	if inst.components.eater ~= nil then
 		--inst.components.eater:SetPrefersEatingTag("vomit_inducer")
-        inst.components.eater:SetDiet({ FOODGROUP.OMNI, FOODGROUP.WELINAAPPROVED })
-    end
+		inst.components.eater:SetDiet({ FOODGROUP.OMNI, FOODGROUP.WELINAAPPROVED })
+	end
 
-    inst.components.sanity:SetMax(TUNING.WELINA_SANITY)
-    --inst.components.sanity.sanity_aura_immune = true
-    inst.components.sanity.night_drain_mult = TUNING.WELINA_SANITY_MULT
-    inst.components.sanity.neg_aura_mult = TUNING.WELINA_SANITY_MULT
-    inst.components.sanity:AddSanityAuraImmunity("ghost")
-    inst.components.sanity:SetPlayerGhostImmunity(true)
+	inst.components.sanity:SetMax(TUNING.WELINA_SANITY)
+	--inst.components.sanity.sanity_aura_immune = true
+	inst.components.sanity.night_drain_mult = TUNING.WELINA_SANITY_MULT
+	inst.components.sanity.neg_aura_mult = TUNING.WELINA_SANITY_MULT
+	inst.components.sanity:AddSanityAuraImmunity("ghost")
+	inst.components.sanity:SetPlayerGhostImmunity(true)
 
-    inst.components.playerlightningtarget:SetHitChance(TUNING.WES_LIGHTNING_TARGET_CHANCE)
+	inst.components.playerlightningtarget:SetHitChance(TUNING.WES_LIGHTNING_TARGET_CHANCE)
 
-    -- Damage multiplier (optional)
-    inst.components.combat.damagemultiplier = TUNING.WELINA_DAMAGE
-    inst.components.combat.bonusdamagefn = GetBonusDamage
+	-- Damage multiplier (optional)
+	inst.components.combat.damagemultiplier = TUNING.WELINA_DAMAGE
+	inst.components.combat.bonusdamagefn = GetBonusDamage
 
+	-- Hunger rate (optional)
+	inst.components.hunger.hungerrate = TUNING.WELINA_HUNGERDRAIN * TUNING.WILSON_HUNGER_RATE
 
-    -- Hunger rate (optional)
-    inst.components.hunger.hungerrate = TUNING.WELINA_HUNGERDRAIN * TUNING.WILSON_HUNGER_RATE
+	inst:AddComponent("welina_playful")
 
-    inst:AddComponent("welina_playful")
+	if inst.components.eater ~= nil then
+		inst.components.eater:SetIgnoresSpoilage(true)
+	end
 
-    if inst.components.eater ~= nil then
-        inst.components.eater:SetIgnoresSpoilage(true)
-    end
+	if inst.components.petleash ~= nil then
+		inst._OnSpawnPet = inst.components.petleash.onspawnfn
+		inst._OnDespawnPet = inst.components.petleash.ondespawnfn
+		inst.components.petleash:SetMaxPets(inst.components.petleash:GetMaxPets() + 7)
+	else
+		inst:AddComponent("petleash")
+		inst.components.petleash:SetMaxPets(7)
+	end
+	local petleash = inst.components.petleash
+	petleash:SetOnSpawnFn(OnSpawnPet)
+	petleash:SetOnDespawnFn(OnDespawnPet)
 
-    if inst.components.petleash ~= nil then
-        inst._OnSpawnPet = inst.components.petleash.onspawnfn
-        inst._OnDespawnPet = inst.components.petleash.ondespawnfn
-        inst.components.petleash:SetMaxPets(inst.components.petleash:GetMaxPets() + 7)
-    else
-        inst:AddComponent("petleash")
-        inst.components.petleash:SetMaxPets(7)
-    end
-    local petleash = inst.components.petleash
-    petleash:SetOnSpawnFn(OnSpawnPet)
-    petleash:SetOnDespawnFn(OnDespawnPet)
+	inst.components.locomotor:SetExternalSpeedMultiplier(inst, "welina_speed_mod", TUNING.WELINA_MOVESPEED)
 
-    inst.components.locomotor:SetExternalSpeedMultiplier(inst, "welina_speed_mod", TUNING.WELINA_MOVESPEED)
+	if inst.components.efficientuser == nil then
+		inst:AddComponent("efficientuser")
+	end
 
-    if inst.components.efficientuser == nil then
-        inst:AddComponent("efficientuser")
-    end
-
-    if TUNING.WELINA_WATERPENALTY == 1 then
-        inst:ListenForEvent("working", AsocialWork)
-        inst:ListenForEvent("sanitydelta", SanityScrew)
-        inst:ListenForEvent("onattackother", DamageScrew)
+	if TUNING.WELINA_WATERPENALTY == 1 then
+		inst:ListenForEvent("working", AsocialWork)
+		inst:ListenForEvent("sanitydelta", SanityScrew)
+		inst:ListenForEvent("onattackother", DamageScrew)
 		inst:ListenForEvent("moisturedelta", OnWetnessDelta)
-    end
+	end
 
-    if TUNING.WELINA_9LIVES == 1 then
-        inst:ListenForEvent("death", OnDeath)
-    end
+	if TUNING.WELINA_9LIVES == 1 then
+		inst:ListenForEvent("death", OnDeath)
+	end
 
-    inst:ListenForEvent("attacked", OnTakeDamage)
-    inst:ListenForEvent("welina_stack_resentfulness", StackResentfulness)
+	inst:ListenForEvent("attacked", OnTakeDamage)
+	inst:ListenForEvent("welina_stack_resentfulness", StackResentfulness)
 
-    if KnownModIndex:IsModEnabled("workshop-2039181790") then
-        inst:ListenForEvent("onattackother", OnAttackOther)
-    end
+	if KnownModIndex:IsModEnabled("workshop-2039181790") then
+		inst:ListenForEvent("onattackother", OnAttackOther)
+	end
 
 	local OldAccept = inst.components.trader.onaccept
 	inst.components.trader.onaccept = function(inst, giver, item)
@@ -638,7 +604,6 @@ local master_postinit = function(inst)
 				end
 				local dohealthpenalty = not item:HasTag("noreviverhealthpenalty")
 
-
 				item:PushEvent("usereviver", { user = giver })
 				item:Remove()
 				inst:PushEvent("respawnfromghost", { source = item, user = giver })
@@ -650,17 +615,12 @@ local master_postinit = function(inst)
 		end
 	end
 
+	inst:ListenForEvent("entity_death", function(_, data)
+		OnWorldEntityDeath(inst, data)
+	end, TheWorld)
 
-
-
-
-
-    inst:ListenForEvent("entity_death", function(_, data)
-        OnWorldEntityDeath(inst, data)
-    end, TheWorld)
-
-    inst.OnSave = OnSave
-    inst.OnLoad = OnLoad
+	inst.OnSave = OnSave
+	inst.OnLoad = OnLoad
 end
 
 return MakePlayerCharacter("welina", prefabs, assets, common_postinit, master_postinit, prefabs)
