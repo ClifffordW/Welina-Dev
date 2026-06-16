@@ -44,6 +44,7 @@ local function GetWetnessPenalty(inst, max, modifierchange)
 	return modifiername
 end
 
+-- One shot rats in uncomp
 local function OnAttackOther(inst, data)
 	if data.target:HasTag("raidrat") and not data.target.components.health:IsDead() then
 		data.target.components.health:Kill()
@@ -588,10 +589,8 @@ local master_postinit = function(inst)
 
 	inst:ListenForEvent("attacked", OnTakeDamage)
 	inst:ListenForEvent("welina_stack_resentfulness", StackResentfulness)
+	inst:ListenForEvent("onattackother", OnAttackOther)
 
-	if KnownModIndex:IsModEnabled("workshop-2039181790") then
-		inst:ListenForEvent("onattackother", OnAttackOther)
-	end
 
 	local OldAccept = inst.components.trader.onaccept
 	inst.components.trader.onaccept = function(inst, giver, item)

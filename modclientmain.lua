@@ -156,7 +156,7 @@ I've presented my results to Master, and yeah, it went about as well as you'd ex
         hidden = "Is yet to be revealed.",
         bday_h = "Birthday",
         past_h = "Designers Notes",
-        aboutme = "A catcoon girl that doesn't find much joy in life and dreads social interaction.",
+        aboutme = "A catcoon girl that doesn't find much joy in life.",
         skindesc = "Welina has a flair for the dramatic.",
 
         bday = "April 13",

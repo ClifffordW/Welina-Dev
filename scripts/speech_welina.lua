@@ -1317,7 +1317,7 @@ return{
 		CHARLIE_HECKLER = "Oh my GOD SHUT THE NYUCK UUUUUUUP.",
 		CHARLIE_LECTURN = "Time to read up on some history, I guess.",
 		CHARLIE_NPC = "She's literally meow.",
-		CHARLIE_STAGE_POST = "Here we are now, entertain us.",
+		CHARLIE_STAGE_POST = "Here we are nyow, entertain us.",
 		CHESSJUNK1 = "Some unfinished rubble.",
 		CHESSJUNK2 = "Who am I to judge art.",
 		CHESSJUNK3 = "How does it exist with no sight or hearing.",
