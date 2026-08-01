@@ -17,7 +17,7 @@ WELINA_PLAY.id = "WELINA_PLAY"
 
 
 WELINA_PLAY.strfn = function(act)
-    if act.target and act.target.Physics:IsActive() == false then
+    if act.target and act.target.Physics and act.target.Physics:IsActive() == false then
         return "MEOW"
     end
     return "NORMAL"

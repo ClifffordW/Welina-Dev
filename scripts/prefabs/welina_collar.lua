@@ -188,6 +188,7 @@ local COLLARS = {
 			end
 		end,
 		unequip = function(inst, owner)
+			inst.components.fueled:StopConsuming()
 			if owner.components.combat then
 				owner.components.combat.externaldamagemultipliers:RemoveModifier(owner, "collar_damage_buff")
 				--owner:RemoveEventCallback("onattackother", inst.DepleteDamageCollar)
