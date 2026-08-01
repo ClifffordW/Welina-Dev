@@ -8,7 +8,7 @@ return{
 			HOSTBUSY = "Oh... I guess I'm not important enough...",
 			KITCOON_HIDEANDSEEK_NOT_ENOUGH_HIDERS = "We'd need more meows for this.",
 			KITCOON_HIDEANDSEEK_NOT_ENOUGH_HIDING_SPOTS = "This place's kind of unfair for this.",
-			KITCOON_HIDEANDSEEK_ONE_GAME_PER_DAY = "Can't give meow even a moment of happiness...",
+			KITCOON_HIDEANDSEEK_ONE_GAME_PER_DAY = "Can't give meow even a meowment of happiness...",
 			LOCKED_GATE = "I need to find that dyamn key.",
 			MANNEQUIN_EQUIPSWAPFAILED = "That's kinda... kinda stupid.",
 			NOCARNIVAL = "Nyeoww, I was gonna eat them.",
@@ -31,7 +31,7 @@ return{
 		},
 		BATHBOMB =
 		{
-			ALREADY_BOMBED = "One already does the trick i think.",
+			ALREADY_BOMBED = "One already does the trick I think.",
 			GLASSED = "It's already glassed to hell and back.",
 		},
 		BEGIN_QUEST =
@@ -43,7 +43,7 @@ return{
 			HASPET = "One's already too meouch.",
 			MOUNTED = "I cyan't reach it from here.",
 			TICOON = "I've already got one by myeow side.",
-			BUSY_STATION = "",
+			BUSY_STATION = "Losing my patience.",
 		},
 		CARNIVALGAME_FEED =
 		{
@@ -1787,7 +1787,7 @@ return{
 		FROG =
 		{
 			DEAD = "No more jumping around.",
-			GENERIC = "What were these called again? Frog...gert?.",
+			GENERIC = "What were these called again? Frog...gert?",
 			SLEEPING = "It's blind to the cruelty of the world.",
 		},
 		FROGFISHBOWL = "Like a frog outta water.",
@@ -2680,7 +2680,7 @@ return{
 		PIGELITEFIGHTER3 = "A higher up pig.",
 		PIGELITEFIGHTER4 = "A higher up pig.",
 		PIGGUARD = "A meownority of pigmen.",
-		PIGGYBACK = "It's meowd out of pig ass.",
+		PIGGYBACK = "It's made out of pig ass.",
 		PIGHEAD =
 		{
 			BURNT = "Bacon smells nice though.",
@@ -4499,7 +4499,7 @@ return{
 		SPEAR_WATHGRITHR_LIGHTNING = "She's got herself new toys.",
 		STONE_CHAIR =
 		{
-			GENERIC = "SITTING ON IT MAKES MY ASS COLD, UGHHHHHhh.",
+			GENERIC = "Because we don't have better things to make out of stone.",
 			OCCUPIED = "Yeah yeah whatever. Sit, I don't care.",
 		},
 		STONE_TABLE =
