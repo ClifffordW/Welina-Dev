@@ -547,7 +547,7 @@ local random_names = {
     "Garbage Disposal",
     "Fluffy",
     "Kova",
-    "",
+    "Gruham",
 
 }
 
@@ -900,7 +900,7 @@ local function fn()
 	inst.components.inspectable.descriptionfn = inverted_desc
 
 	inst:AddComponent("health")
-	inst.components.health:SetMaxHealth(200)
+	inst.components.health:SetMaxHealth(TUNING.WELINA_CATCOON_HP)
 
 	inst:AddComponent("combat")
 	inst.components.combat:SetDefaultDamage(30)

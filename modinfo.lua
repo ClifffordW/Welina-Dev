@@ -14,7 +14,7 @@ Adds Welina, the low-spirited cat girl.
 		
 ]]
 author = "mentos"
-version = "1.2.1" -- This is the version of the template. Change it to your own number.
+version = "1.2.2" -- This is the version of the template. Change it to your own number.
 
 -- This is the URL name of the mod's thread on the forum; the part after the ? and before the first & in the url
 --forumthread = "/files/file/950-extended-sample-character/"
@@ -325,7 +325,7 @@ configuration_options = {
 		label = "Max Edible Garbage",
 		hover = "Set how much garbage can Welina eat before she vomits.",
 		options = {
-			{ description = "3", data = 3},
+			{ description = "3", data = 3, hover = "Default 󰀡"},
 			{ description = "4", data = 4},
 			{ description = "5", data = 5},
 			{ description = "6", data = 6},
@@ -335,6 +335,23 @@ configuration_options = {
 			{ description = "10", data = 10},
 		},
 		default = 3,
+	},
+	
+	{
+		name = "WELINA_CATCOON_HP",
+		label = "Coonip'd Catcoons Hp",
+		hover = "Configure how much max hp Catcoons have under the effects of coonip.",
+		options = {
+			{ description = "300", data = 300},
+			{ description = "350", data = 350},
+			{ description = "400", data = 400, hover = "Default 󰀡"},
+			{ description = "450", data = 450},
+			{ description = "500", data = 500},
+			{ description = "550", data = 600},
+			{ description = "650", data = 650},
+			{ description = "700", data = 700},
+		},
+		default = 400,
 	},
 
 	
@@ -350,6 +367,18 @@ configuration_options = {
 		},
 		default = 0,
 	},
+	
+	{
+		name = "WELINA_CRAFTABLE_DENS",
+		label = "Craftable Catcoon Dens",
+		hover = "Disable or enable Welina having the ability to craft catcoon dens.",
+		options = {
+			{ description = "Enabled", data = 1},
+			{ description = "Disabled", data = 0, hover = "Default 󰀡"  },
+		},
+		default = 0,
+	},
+	
 	
 	{
 		name = "WELINA_CRAFTABLE_DENS",

@@ -134,7 +134,7 @@ end)
 
 AddPrefabPostInit("whip", function(inst)
     local CRACK_MUST_TAGS = { "_combat" }
-    local CRACK_CANT_TAGS = { "player", "epic", "shadow", "shadowminion", "shadowchesspiece", "sinner" }
+    local CRACK_CANT_TAGS = { "player", "epic", "shadow", "shadowminion", "shadowchesspiece", "whip_crack_imune", "sinner" }
     local function supercrack(inst)
         local owner = inst.components.inventoryitem and inst.components.inventoryitem:GetGrandOwner() or nil
         local x, y, z = inst.Transform:GetWorldPosition()
@@ -1299,7 +1299,7 @@ local function AddCharacterActionComplete(actionReq, actiontype, component)
 end
 
 AddCharacterActionComplete(actions.WELINA_PLAY, "SCENE", "inventoryitem")
-STRINGS.ACTIONS.WELINA_PLAY = { NORMAL = "Play with", MEOW = "Meow Meow Meow" }
+STRINGS.ACTIONS.WELINA_PLAY = { NORMAL = "Play with", MEOW = "Knock down" }
 
 
 

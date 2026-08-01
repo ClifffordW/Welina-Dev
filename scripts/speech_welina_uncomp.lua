@@ -50,7 +50,7 @@ DESCRIBE.CCTRINKET_NAMES = "Someone probably needs this."
 
 -- Content Creators
 DESCRIBE.UNCOMPROMISING_RAT = "Why do you look so delicious."
-DESCRIBE.UNCOMPROMISING_RATHERD = "Does it taste as good as the smaller ones."
+DESCRIBE.UNCOMPROMISING_RATHERD = "Meowst be a bouffet in there."
 DESCRIBE.UNCOMPROMISING_RATBURROW = "How not subtle, at all."
 DESCRIBE.UNCOMPROMISING_WINKYBURROW =
 "You could bury someowne in one of these."

@@ -22,6 +22,7 @@ TUNING.WELINA_SANITY_MULT = GetModConfigData("WELINA_SANITY_MULT")
 TUNING.WELINA_INSOMNIA = GetModConfigData("WELINA_INSOMNIA")
 TUNING.WELINA_NIGHTVISION = GetModConfigData("WELINA_NIGHTVISION")
 TUNING.WELINA_CRAFTABLE_DENS = GetModConfigData("WELINA_CRAFTABLE_DENS")
+TUNING.WELINA_CATCOON_HP = GetModConfigData("WELINA_CATCOON_HP")
 
 TUNING.WELINA_LASTLIFE_MUSIC = GetModConfigData("WELINA_LASTLIFE_MUSIC")
 TUNING.WELINA_CATCOON_LAWNMOWER = GetModConfigData("WELINA_CATCOON_LAWNMOWER")
@@ -109,7 +110,6 @@ TUNING.WELINA_VOMIT_ITEMS =
 	-- Uncommon
 		["rope"] = uncommonChance,
 		["wetgoop"] = uncommonChance,
-		["beefalowool"] = uncommonChance,
 		["nitre"] = uncommonChance,
 		["furtuft"] = uncommonChance,
 		["manrabbit_tail"] = uncommonChance,
@@ -380,26 +380,53 @@ end
 
 TUNING.WELINA_PLAY_SANITY = {
     DEFAULT = 1,
+	-- Favorites
     ["trinket_22"] = 15, -- summerscorcher: Add prefab-to-sanity entries for playing like so. Left side is prefab, right side is sanity points.
 	["welina_cattoy"] = 15,
+	
+	-- Loves (knocking off tables)
+	["vaultrelic_planter"] = 12,
+	["vaultrelic_vase"] = 12,
+	["decor_flowervase"] = 12,
+	["ruinsrelic_vase"] = 12,
+	
+	-- Likes 
+	["ruinsrelic_plate"] = 10,
+	["ruinsrelic_bowl"] = 10,
+	["ruinsrelic_chipbowl"] = 10,
+	["decor_centerpiece"] = 10,
+	["vaultrelic_bowl"] = 10,
+	["decor_lamp"] = 10,
+	["decor_portraitframe"] = 10,
+	["decor_pictureframe"] = 10,
+	["hermit_cracked_pearl"] = 10,
 	["balloons_empty"] = 10,
 	["trinket_24"] = 10,
-	["trinket_1"] = 10,
+	["trinket_1"] = 10, -- Marbles
+	["trinket_6"] = 10, -- Wires
 	["trinket_7"] = 10,
 	["canary_poisoned"] = 10,
+	
+	-- Fun
+	["halloween_ornament_3"] = 8, --crow decor
+	["halloween_ornament_5"] = 8, --catcoon candy
 	["rabbit"] = 8,
 	["mole"] = 8,
 	["whiskyyarn"] = 8,
 	["bernie_active"] = 8,
 	["bearger_fur"] = 8,
+	["fireflies"] = 8,
 	["crow"] = 8,
 	["robin"] = 8,
 	["puffin"] = 8,
-	["rat_tail"] = 8,
 	["robin_winter"] = 8,
 	["canary"] = 8,
 	["mandrake"] = 8,
+	["hermit_pearl"] = 8,
 	["deerclops_eyeball"] = 8,
+	["rat_tail"] = 8,
+	 
+	-- Alright
 	["sewing_kit"] = 5,
 	["bernie_inactive"] = 5,
 	["spidereggsack"] = 5,
@@ -422,6 +449,11 @@ TUNING.WELINA_PLAY_SANITY = {
 	["wetgoop"] = 5,
 	["moonrockseed"] = 5,
 	["rope"] = 5,
+	["townportaltalisman"] = 5,
+	["giant_blueberry"] = 5,
+	
+	-- Meh
+	["honeycomb"] = 3,
 	["winter_food1"] = 3,
 	["tallbirdegg"] = 3,
 	["butterflywings"] = 3,
