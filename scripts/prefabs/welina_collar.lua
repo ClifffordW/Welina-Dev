@@ -102,7 +102,7 @@ local COLLARS = {
 				owner:ListenForEvent("attacked", inst.ReflectDamagePlayer)
 			else
 				inst.ReflectDamage = function(_, data)
-					if data.damage ~= nil and owner ~= nil and owner.components.health ~= nil then
+					if data.damage ~= nil and owner ~= nil and owner.components.health ~= nil and data.attacker and data.attacker.components.combat then
 						--owner.components.health:DoDelta(-data.damage * 5)
                         data.attacker.components.combat:GetAttacked(owner, data.damage * 5)
 						inst.components.fueled:DoDelta(-40)
@@ -312,6 +312,8 @@ local function MakeCollar(name)
 		if not TheWorld.ismastersim then
 			return inst
 		end
+
+	 
 
 		local hasneckslot = KnownModIndex:IsModEnabled("workshop-375850593") and EQUIPSLOTS.NECK or EQUIPSLOTS.BODY
 
