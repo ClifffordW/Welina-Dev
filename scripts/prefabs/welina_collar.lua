@@ -140,8 +140,9 @@ local COLLARS = {
 			if owner.health_task then
 				owner.health_task:Cancel()
 				owner.health_task = nil
-				owner:RemoveEventCallback("death", RegenCollar)
+				
 			end
+			owner:RemoveEventCallback("death", RegenCollar)
 		end,
 	},
 
