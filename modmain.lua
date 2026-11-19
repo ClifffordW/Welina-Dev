@@ -1,6 +1,5 @@
 modimport("articore/articore_api")
 
-
 do
     local GLOBAL = GLOBAL
     local modEnv = GLOBAL.getfenv(1)
@@ -1341,3 +1340,5 @@ GLOBAL.FOODGROUP.WELINAAPPROVED = {
 
     }
 }
+
+AddPrefab("welina_resentment_fx")

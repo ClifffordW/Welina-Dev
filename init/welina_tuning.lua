@@ -14,7 +14,6 @@ TUNING.WELINA_REFLECT = GetModConfigData("WELINA_REFLECT")
 TUNING.WELINA_REFLECT_AMOUNT = GetModConfigData("WELINA_REFLECT_AMOUNT")
 --TUNING.WELINA_CATCOONHATS = GetModConfigData("WELINA_CATCOONHATS")
 TUNING.WELINA_9LIVES = GetModConfigData("WELINA_9LIVES")
-TUNING.WELINA_RESENTMENT = GetModConfigData("WELINA_RESENTMENT")
 TUNING.WELINA_RESENTMENT_MAX_HP = GetModConfigData("WELINA_RESENTMENT_MAX_HP")
 TUNING.WELINA_RESENTMENT_MAX_HP_PENALTY_MULT = GetModConfigData("WELINA_RESENTMENT_MAX_HP_PENALTY_MULT")
 TUNING.WELINA_RESENTMENT_MAX_HP_PENALTY_MULT_BOSS = GetModConfigData("WELINA_RESENTMENT_MAX_HP_PENALTY_MULT_BOSS")
@@ -32,6 +31,12 @@ TUNING.WELINA_CATCOON_FUNNYIDLE = GetModConfigData("WELINA_CATCOON_FUNNYIDLE")
 
 TUNING.WELINA_MAXEDIBLEGARBAGE = GetModConfigData("WELINA_MAXEDIBLEGARBAGE")
 
+TUNING.WELINA_RESENTMENT = {
+    PHYSICAL = GetModConfigData("WELINA_RESENTMENT"),
+    PLANAR = 1, -- 100% of planar damage taken is added to resentment damage bonus. If Klei adds more damage types, you can add them in here too! (See scripts/components/spdamageutil in the game's databundle).
+}
+
+TUNING.WELINA_RESENTMENT_FX_TOP_DAMAGE = 42.5 -- When resentment bonus damage reaches this number, the visual effect is at its most intense!
 
 
 TUNING.MOVING_CATTOY_EYES = 0 --Shit was broken, fix later
