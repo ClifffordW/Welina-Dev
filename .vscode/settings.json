@@ -1,6 +1,6 @@
 {
     "Lua.diagnostics.disable": [
-        // "undefined-global",
-        // "undefined-field"
+        "undefined-global",
+        "undefined-field"
     ]
 }
